@@ -5,11 +5,11 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
-// Añadir aquí el resto de directivas using
 
+using UnityEngine;
+// Añadir aquí el resto de directivas using
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.PlayerLoop;
 
 /// <summary>
 /// Esta class es para el enemigo Manzariete
@@ -19,20 +19,28 @@ using UnityEngine.PlayerLoop;
 public class ManzarieteMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
+    #region Atributos del Inspector (serialized fields)
     public float RangeAttack;
     public float ChargeTime;
     public float SprintSpeed;
     public float SprintTime;
+    #endregion
+
     // ---- ATRIBUTOS PRIVADOS ----
+    #region Atributos Privados (private fields)
     private MoveToPlayer moveToplayer;
     private Vector3 EnemyPlayer, LastPlayerPosition;
     private float timer = -1;
-    private float Stimer = -1;
+    private float Stimer = -1, tmp;
     private bool IsCharging = false, IsSprinting = false, InRange = false;
+    #endregion
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
+    #region Métodos de MonoBehaviour
     private void Start()
     {
         moveToplayer = GetComponent<MoveToPlayer>();
+        tmp = SprintSpeed;
     }
     private void Update()
     {
@@ -40,7 +48,7 @@ public class ManzarieteMovement : MonoBehaviour
 
 
         InRange = EnemyPlayer.magnitude <= RangeAttack;
-
+        
         if (InRange && !IsCharging && !IsSprinting)
         {
             IsCharging = true;
@@ -59,11 +67,23 @@ public class ManzarieteMovement : MonoBehaviour
         }
         else if (IsSprinting)
         {
+            
+
             if (Stimer > 0)
             {
                 transform.position += LastPlayerPosition * SprintSpeed * Time.deltaTime;
+
+                //Frenado final
+                if (Stimer < SprintTime/3.5f && SprintSpeed > tmp/20)
+                {
+                    SprintSpeed -= tmp/20;
+                }
             }
-            else IsSprinting = false;
+            else
+            {
+                IsSprinting = false;
+                SprintSpeed = tmp;
+            }
         }
         else
         {
@@ -73,6 +93,7 @@ public class ManzarieteMovement : MonoBehaviour
         timer -= Time.deltaTime;
         Stimer -= Time.deltaTime;
     }
+    #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
@@ -85,7 +106,9 @@ public class ManzarieteMovement : MonoBehaviour
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
 
+    #endregion
 
 } // class ManzarieteMovement 
 // namespace
