@@ -54,26 +54,24 @@ public class MoveToPlayer : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     public void Move(GameObject enemy)
     {
+        EnemyPlayer = UpdateVector(enemy);
+        //Convierte este vector en un vector unitario
+        //Al hacer que todos los vectores midan 1u no hace falta normalizar el vector
+        EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
+                                  EnemyPlayer.y * EnemyPlayer.y);
+        //Mueve al objeto
+        enemy.transform.position += EnemyPlayer * Speed * Time.deltaTime;
+    }
+    public Vector3 UpdateVector (GameObject enemy)
+    {
         //Localiza el vector que une el jugador con el objeto
         EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
                                   Player.transform.position.y - enemy.transform.position.y,
                                   0);
-
-        //Convierte este vector en un vector unitario
-        //Al hacer que todos los vectores midan 1u no hace falta normalizar el vector
-        EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x*EnemyPlayer.x +
-                                  EnemyPlayer.y*EnemyPlayer.y);
-
-        //Mueve al objeto
-        enemy.transform.position += EnemyPlayer * Speed * Time.deltaTime;
+        return EnemyPlayer;
     }
 
     // ---- MÉTODOS PRIVADOS ----
-    //Testeo del script
-    private void FixedUpdate()
-    {
-        Move(gameObject);
-    }
 
 } // class MoveToPlayer 
 // namespace
