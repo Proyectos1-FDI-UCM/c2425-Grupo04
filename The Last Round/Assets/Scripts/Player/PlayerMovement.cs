@@ -46,30 +46,28 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MoveDirection = new Vector3(0, 0, 0);
-
         if (Keyboard.current[Key.W].isPressed)
         {
-            if (Keyboard.current[Key.D].isPressed) MoveDirection = new Vector3 (1, 1, 0);
-            else if (Keyboard.current[Key.A].isPressed) MoveDirection = new Vector3(-1, 1, 0);
-            else MoveDirection = new Vector3(0, 1, 0);
+            MoveDirection.y += 1;
         }
-        else if (Keyboard.current[Key.S].isPressed)
+        if (Keyboard.current[Key.S].isPressed)
         {
-            if (Keyboard.current[Key.D].isPressed) MoveDirection = new Vector3(1, -1, 0);
-            else if (Keyboard.current[Key.A].isPressed) MoveDirection = new Vector3(-1, -1, 0);
-            else MoveDirection = new Vector3(0, -1, 0);
+            MoveDirection.y -= 1;
         }
-        else if (Keyboard.current[Key.D].isPressed)
+        if (Keyboard.current[Key.D].isPressed)
         {
-            MoveDirection = new Vector3(1, 0, 0);
+            MoveDirection.x += 1;
         }
-        else if (Keyboard.current[Key.A].isPressed)
+        if (Keyboard.current[Key.A].isPressed)
         {
-            MoveDirection = new Vector3(-1, 0, 0);
+            MoveDirection.x -= 1;
         }
 
-        if (MoveDirection != Vector3.zero) LastDirection = MoveDirection;
-
+        if (MoveDirection != Vector3.zero)
+        {
+            LastDirection = MoveDirection;
+            MoveDirection = MoveDirection.normalized;
+        }
         transform.position += MoveDirection * MoveSpeed * Time.deltaTime;
     }
     #endregion
