@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static GameManager _instance;
+    private GameObject Player;
 
     #endregion
 
@@ -112,6 +113,15 @@ public class GameManager : MonoBehaviour
             Debug.Assert(_instance != null);
             return _instance;
         }
+    }
+    public void GivePlayer(GameObject player)
+    {
+        Player = player;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return Player;
     }
 
     /// <summary>

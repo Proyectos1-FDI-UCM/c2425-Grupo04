@@ -6,8 +6,8 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.InputSystem;
 // Añadir aquí el resto de directivas using
+using UnityEngine.InputSystem;
 
 
 /// <summary>
@@ -35,13 +35,9 @@ public class PlayerMovement : MonoBehaviour
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
     
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
     void Start()
     {
-        
+        GameManager.Instance.GivePlayer(gameObject);
     }
 
     /// <summary>

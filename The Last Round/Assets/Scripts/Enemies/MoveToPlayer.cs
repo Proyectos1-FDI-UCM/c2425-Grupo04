@@ -1,5 +1,5 @@
 //---------------------------------------------------------
-// Este script (Serializado) localiza y mueve a un objeto hacia el jugador (los enemigos lo llamarán)
+// Este script localiza y mueve a un objeto hacia el jugador (los enemigos lo llamarán)
 // Víctor Martínez Moreno
 // The Last Round
 // Proyectos 1 - Curso 2024-25
@@ -14,44 +14,36 @@ using UnityEngine;
 /// Dicho método crea un vector de movimiento y mueve al objeto hacia él.
 /// El método será llamado desde los enemigos que se pasarán como objetos al método para ser movidos
 /// </summary>
-//[SerializeField]
 public class MoveToPlayer : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
+    #region Atributos del Inspector (serialized fields)
     [SerializeField]
     float Speed;
-    [SerializeField]
-    GameObject Player;
+    #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
+    #region Atributos Privados (private fields)
     private Vector3 EnemyPlayer;
-    
+    private GameObject Player;
+    #endregion
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-        
-    }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
     void Update()
     {
-        
+        if (Player == null)
+        Player = GameManager.Instance.GetPlayer();
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
+    #region Métodos públicos
     public void Move(GameObject enemy)
     {
         EnemyPlayer = UpdateVector(enemy);
@@ -70,8 +62,12 @@ public class MoveToPlayer : MonoBehaviour
                                   0);
         return EnemyPlayer;
     }
+    #endregion
 
     // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+
+    #endregion
 
 } // class MoveToPlayer 
 // namespace

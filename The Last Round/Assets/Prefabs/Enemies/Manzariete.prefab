@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeAttack: 5
   ChargeTime: 2
-  SprintSpeed: 5
-  SprintTime: 2
+  SprintSpeed: 3
+  SprintTime: 3
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
