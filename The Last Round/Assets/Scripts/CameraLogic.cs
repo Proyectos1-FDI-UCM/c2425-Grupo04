@@ -17,25 +17,14 @@ public class CameraLogic : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
-
+    
     #endregion
-    public Transform player; 
-    public Vector3 offset;    
-    public float minX,maxX,minY,maxY;
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
+    private GameObject player;
+    private float minX = -10, maxX = 10f,
+                  minY = -5.625f, maxY = 5.625f;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,24 +35,19 @@ public class CameraLogic : MonoBehaviour
     // - Hay que borrar los que no se usen 
 
     /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-        
-    }
-
-    /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        float Xlimit = Mathf.Clamp(player.position.x,minX,maxX);
-        float Ylimit = Mathf.Clamp(player.position.y,minY,maxY);
+        if (player == null)
+        {
+            player = GameManager.Instance.GetPlayer();
+        }
         if (player != null)
         {
-            transform.position = new Vector3(Xlimit + offset.x, Ylimit + offset.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, minX, maxX),
+                                              Mathf.Clamp(player.transform.position.y, minY, maxY),
+                                              transform.position.z);
         }
     }
     #endregion
