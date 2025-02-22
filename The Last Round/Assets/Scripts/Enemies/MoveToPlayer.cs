@@ -53,6 +53,7 @@ public class MoveToPlayer : MonoBehaviour
         EnemyPlayer = UpdateVector(enemy);
         //Convierte este vector en un vector unitario
         //Al hacer que todos los vectores midan 1u no hace falta normalizar el vector
+        if (EnemyPlayer.x != 0 && EnemyPlayer.y != 0)
         EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
                                   EnemyPlayer.y * EnemyPlayer.y);
         //Mueve al objeto
@@ -60,6 +61,7 @@ public class MoveToPlayer : MonoBehaviour
     }
     public Vector3 UpdateVector (GameObject enemy)
     {
+        if (enemy != null && Player != null)
         //Localiza el vector que une el jugador con el objeto
         EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
                                   Player.transform.position.y - enemy.transform.position.y,
@@ -90,8 +92,6 @@ public class MoveToPlayer : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0);
             }
         }
-
-       
     }
 } // class MoveToPlayer 
 // namespace

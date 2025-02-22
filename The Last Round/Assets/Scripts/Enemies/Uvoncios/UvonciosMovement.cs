@@ -46,7 +46,6 @@ public class UvonciosMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
         moveToplayer = GetComponent<MoveToPlayer>();
     }
 
@@ -55,6 +54,7 @@ public class UvonciosMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (moveToplayer != null)
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
         moveToplayer.Move(gameObject);
     }
