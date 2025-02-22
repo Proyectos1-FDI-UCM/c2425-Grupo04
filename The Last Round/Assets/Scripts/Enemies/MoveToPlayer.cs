@@ -27,6 +27,8 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
+    private bool colisionarX =false;
+    private bool colisionarY=false;   
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,9 +65,13 @@ public class MoveToPlayer : MonoBehaviour
     {
         if (enemy != null && Player != null)
         //Localiza el vector que une el jugador con el objeto
-        EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
-                                  Player.transform.position.y - enemy.transform.position.y,
-                                  0);
+       
+        if(colisionarX)
+            EnemyPlayer = new Vector3(0,Player.transform.position.y - enemy.transform.position.y, 0);
+        else if (colisionarY)
+            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,0, 0);
+        else 
+            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,Player.transform.position.y - enemy.transform.position.y, 0);
         return EnemyPlayer;
     }
     #endregion
@@ -85,12 +91,19 @@ public class MoveToPlayer : MonoBehaviour
             
             if (Mathf.Abs(normal.x) > 0.5f) 
             {
-                rb.velocity = new Vector2(0, rb.velocity.y);
+                colisionarX = true;
+
             }
             else if (Mathf.Abs(normal.y) > 0.5f) 
             {
-                rb.velocity = new Vector2(rb.velocity.x, 0);
+                colisionarY = true;
             }
+            else
+            {
+                colisionarY = false;
+                colisionarX = false;
+            }
+                 
         }
     }
 } // class MoveToPlayer 

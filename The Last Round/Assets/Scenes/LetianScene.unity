@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &26812649 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3365146930368950393, guid: f4b77b9027b082c49a9e91ef531c240d, type: 3}
-  m_PrefabInstance: {fileID: 1458320163}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69859731
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,12 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb856efda7fc534b864785962daca3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 26812649}
-  offset: {x: 0, y: 0, z: 0}
-  minX: -3.5
-  maxX: 3.5
-  minY: -2.5
-  maxY: 2.5
 --- !u!1001 &656303764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,6 +831,18 @@ PrefabInstance:
     - target: {fileID: 1085765543050600987, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434944096096345892, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434944096096345892, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434944096096345892, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7992104292323869361, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_Name
@@ -1030,6 +1031,10 @@ PrefabInstance:
     - target: {fileID: 7992104292323869361, guid: 56a853eaa6fcaaa44bc3517921a69f66, type: 3}
       propertyPath: m_Name
       value: Manzurria
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992104292323869361, guid: 56a853eaa6fcaaa44bc3517921a69f66, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8138933576077900459, guid: 56a853eaa6fcaaa44bc3517921a69f66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1322,6 +1327,10 @@ PrefabInstance:
     - target: {fileID: 7992104292323869361, guid: ae4760010385de84fb699fab435eb8b9, type: 3}
       propertyPath: m_Name
       value: Uvoncio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992104292323869361, guid: ae4760010385de84fb699fab435eb8b9, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8138933576077900459, guid: ae4760010385de84fb699fab435eb8b9, type: 3}
       propertyPath: m_LocalPosition.x
