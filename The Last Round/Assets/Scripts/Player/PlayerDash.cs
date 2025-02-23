@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 // Añadir aquí el resto de directivas using
 
 
@@ -30,9 +31,10 @@ public class PlayerDash : MonoBehaviour
     #region Atributos Privados (private fields)
     private bool isDashing = false;
     private float cooldownTimer = 0f;
-    private Vector3 LastDirection;
+    private Vector2 LastDirection = Vector2.up;
     private Rigidbody2D rb;
-    private Vector3 MoveDirection = new Vector3(0, 0, 0);
+    private Vector2 MoveDirection;
+    bool hasDiagonal =false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -56,62 +58,99 @@ public class PlayerDash : MonoBehaviour
     /// </summary>
     void Update()
     {
-
+        // 计算MoveDirection
+        MoveDirection.y = 0;
         if (Keyboard.current[Key.W].isPressed)
         {
             MoveDirection.y = 1;
-            LastDirection.y = MoveDirection.y;
-        }
-        else if ((Keyboard.current[Key.S].isPressed && MoveDirection.x == -1) )
-        {
-            Debug.Log("下");
-            MoveDirection.y = -1;
-            LastDirection.y = MoveDirection.y;
-            LastDirection.x = -1;
         }
         else if (Keyboard.current[Key.S].isPressed)
         {
             MoveDirection.y = -1;
-            LastDirection.y = MoveDirection.y;
-        }
-        else if ((Keyboard.current[Key.W].isPressed && MoveDirection.x == -1))
-        {
-            Debug.Log("上");
-            MoveDirection.y = 1;
-            LastDirection.y = MoveDirection.y;
-            LastDirection.x = -1;
         }
 
-        else MoveDirection.y = 0;
-        
+        MoveDirection.x = 0;
         if (Keyboard.current[Key.D].isPressed)
         {
             MoveDirection.x = 1;
-            LastDirection.x = MoveDirection.x;
         }
-       
         else if (Keyboard.current[Key.A].isPressed)
         {
             MoveDirection.x = -1;
-             LastDirection.x = MoveDirection.x;
         }
-        
 
-        else MoveDirection.x = 0;
+        bool isDiagonal = MoveDirection.x != 0 && MoveDirection.y != 0;
+        if (MoveDirection.x == 0 || MoveDirection.y == 0)
+            hasDiagonal = false;
+        if (isDiagonal)
+        {
+            // 处理斜方向
+            if (MoveDirection.x == 1 && MoveDirection.y == 1)
+            {
+                LastDirection = new Vector2(1, 1);
+                Debug.Log("右上");
+            }
+            else if (MoveDirection.x == 1 && MoveDirection.y == -1)
+            {
+                LastDirection = new Vector2(1, -1);
+                Debug.Log("右下");
+            }
+            else if (MoveDirection.x == -1 && MoveDirection.y == -1)
+            {
+                LastDirection = new Vector2(-1, -1);
+                Debug.Log("左下");
+            }
+            else if (MoveDirection.x == -1 && MoveDirection.y == 1)
+            {
+                LastDirection = new Vector2(-1, 1);
+                Debug.Log("左上");
+            }
+            
 
-        
-        
+            hasDiagonal = true;
+        }
+        else
+        {
+            if (!hasDiagonal)
+            {
+                // 处理单一方向
+                if (MoveDirection.y == 1)
+                {
+                    LastDirection = new Vector2(0, 1);
+                    Debug.Log("上");
+                }
+                else if (MoveDirection.y == -1)
+                {
+                    LastDirection = new Vector2(0, -1);
+                    Debug.Log("下");
+                }
+                else if (MoveDirection.x == 1)
+                {
+                    LastDirection = new Vector2(1, 0);
+                    Debug.Log("右");
+                }
+                else if (MoveDirection.x == -1)
+                {
+                    LastDirection = new Vector2(-1, 0);
+                    Debug.Log("左");
+                }
+            }
+
+            // 重置斜方向标记当停止移动时
+            if (MoveDirection.x == 0 && MoveDirection.y == 0)
+            {
+                hasDiagonal = false;
+            }
+        }
 
         MoveDirection = MoveDirection.normalized;
-
-
-
-        if (Mouse.current.rightButton.wasPressedThisFrame && CanDash())
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             StartDash();
         }
-        if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
+
     }
+
     void FixedUpdate()
     {
 
@@ -143,13 +182,13 @@ public class PlayerDash : MonoBehaviour
     #region Métodos Privados
     bool CanDash()
     {
-        return cooldownTimer <= 0 && !isDashing && LastDirection != Vector3.zero;
+        return cooldownTimer <= 0 && !isDashing && LastDirection != Vector2.zero;
     }
     void StartDash()
     {
         isDashing = true;
         cooldownTimer = DashCooldown;
-        rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed, 0);
+        rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed);
 
     }
     void EndDash()
@@ -159,6 +198,7 @@ public class PlayerDash : MonoBehaviour
         DashDuration = 0.2f;
        
     }
+    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
