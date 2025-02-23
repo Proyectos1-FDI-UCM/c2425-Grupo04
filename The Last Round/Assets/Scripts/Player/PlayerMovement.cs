@@ -26,15 +26,16 @@ public class PlayerMovement : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 MoveDirection = new Vector3 (0, 0, 0);
     private Vector3 LastDirection;
+    private bool Floor = false, Ceiling = false, RWall = false, LWall = false;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     void Start()
     {
         GameManager.Instance.GivePlayer(gameObject);
@@ -69,8 +70,11 @@ public class PlayerMovement : MonoBehaviour
         {
             LastDirection = MoveDirection;
         }
-
+        
         MoveDirection = MoveDirection.normalized;
+
+        if (Floor && MoveDirection.y < 0 || Ceiling && MoveDirection.y > 0) MoveDirection.y = 0;
+        if (LWall && MoveDirection.x > 0 || RWall && MoveDirection.x < 0) MoveDirection.x = 0;
 
         transform.position += MoveDirection * MoveSpeed * Time.deltaTime;
     }
@@ -86,11 +90,34 @@ public class PlayerMovement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Vector2 normal = collision.contacts[0].normal;
 
+
+        if (normal.y > 0.5f)
+        {
+            Floor = true;
+        }
+        if (normal.y < -0.5)
+        {
+            Ceiling = true;
+        }
+
+        if (normal.x < -0.5f)
+        {
+            LWall = true;
+        }
+        if (normal.x > 0.5f)
+        {
+            RWall = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Floor = Ceiling = LWall = RWall = false;
+    }
     #endregion
 
 } // class PlayerMovement 

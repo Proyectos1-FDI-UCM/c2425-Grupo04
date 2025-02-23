@@ -33,12 +33,14 @@ public class ManzarieteMovement : MonoBehaviour
     private float timer = -1;
     private float Stimer = -1, tmp;
     private bool IsCharging = false, IsSprinting = false, InRange = false;
+    private Rigidbody2D rb;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
     }
@@ -51,11 +53,13 @@ public class ManzarieteMovement : MonoBehaviour
         
         if (InRange && !IsCharging && !IsSprinting)
         {
+            rb.velocity = Vector3.zero;
             IsCharging = true;
             timer = ChargeTime;
         }
         else if (IsCharging)
         {
+            
             if (timer <= 0)
             {
                 LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
@@ -63,12 +67,13 @@ public class ManzarieteMovement : MonoBehaviour
                 IsCharging = false;
                 IsSprinting = true;
                 Stimer = SprintTime;
+
             }
         }
         else if (IsSprinting)
         {
-            
-
+            rb.useFullKinematicContacts = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             if (Stimer > 0)
             {
                 transform.position += LastPlayerPosition * SprintSpeed * Time.deltaTime;
@@ -83,6 +88,9 @@ public class ManzarieteMovement : MonoBehaviour
             {
                 IsSprinting = false;
                 SprintSpeed = tmp;
+                rb.useFullKinematicContacts = true;
+                GetComponent<BoxCollider2D>().enabled = true;
+
             }
         }
         else
