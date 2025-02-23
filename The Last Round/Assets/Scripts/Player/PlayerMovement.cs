@@ -80,11 +80,8 @@ public class PlayerMovement : MonoBehaviour
        
 
         MoveDirection = MoveDirection.normalized;
-        if (cD != null)
-        {
             if (cD.GetCollisions()[1] && MoveDirection.y < 0 || cD.GetCollisions()[0] && MoveDirection.y > 0) MoveDirection.y = 0;
-            if (cD.GetCollisions()[3] && MoveDirection.x > 0 || cD.GetCollisions()[2] && MoveDirection.x < 0) MoveDirection.x = 0;
-        }
+            if (cD.GetCollisions()[3] && MoveDirection.x > 0 || cD.GetCollisions()[2] && MoveDirection.x < 0) MoveDirection.x
         rb.velocity = MoveDirection * MoveSpeed * Time.deltaTime;
        
     }
