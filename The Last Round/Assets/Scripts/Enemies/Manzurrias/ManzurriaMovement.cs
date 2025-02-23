@@ -51,7 +51,7 @@ public class ManzurriaMovement : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         if (moveToplayer != null)
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
