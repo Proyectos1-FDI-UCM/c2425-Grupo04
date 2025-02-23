@@ -27,12 +27,11 @@ public class PlayerMovement : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    
 
+    Rigidbody2D rb;
     private Vector3 LastDirection;
-    private PlayerDash PlayerDash;
     private Vector3 MoveDirection = new Vector3 (0, 0, 0);
-    private bool Floor = false, Ceiling = false, RWall = false, LWall = false;
+    private CollisionDetecter cD;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GivePlayer(gameObject);
-       
+        rb = GetComponent<Rigidbody2D>();
+        cD = gameObject.GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -80,11 +80,12 @@ public class PlayerMovement : MonoBehaviour
        
 
         MoveDirection = MoveDirection.normalized;
-
-        if (Floor && MoveDirection.y < 0 || Ceiling && MoveDirection.y > 0) MoveDirection.y = 0;
-        if (LWall && MoveDirection.x > 0 || RWall && MoveDirection.x < 0) MoveDirection.x = 0;
-
-        transform.position += MoveDirection * MoveSpeed * Time.deltaTime;
+        if (cD != null)
+        {
+            if (cD.GetCollisions()[1] && MoveDirection.y < 0 || cD.GetCollisions()[0] && MoveDirection.y > 0) MoveDirection.y = 0;
+            if (cD.GetCollisions()[3] && MoveDirection.x > 0 || cD.GetCollisions()[2] && MoveDirection.x < 0) MoveDirection.x = 0;
+        }
+        rb.velocity = MoveDirection * MoveSpeed * Time.deltaTime;
        
     }
    
@@ -101,36 +102,6 @@ public class PlayerMovement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Vector2 normal = collision.contacts[0].normal;
-
-
-        if (normal.y > 0.5f)
-        {
-            Floor = true;
-        }
-        if (normal.y < -0.5)
-        {
-            Ceiling = true;
-        }
-
-        if (normal.x < -0.5f)
-        {
-            LWall = true;
-        }
-        if (normal.x > 0.5f)
-        {
-            RWall = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Floor = Ceiling = LWall = RWall = false;
-    }
-
-   
     #endregion
 
 } // class PlayerMovement 

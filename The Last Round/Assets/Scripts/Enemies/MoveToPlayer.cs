@@ -26,7 +26,7 @@ public class MoveToPlayer : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 EnemyPlayer;
     private GameObject Player;
-    private bool Floor = false, Ceiling = false, RWall = false, LWall = false;
+    private CollisionDetecter cD;
     private Rigidbody2D rb;
     #endregion
 
@@ -39,6 +39,7 @@ public class MoveToPlayer : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        cD = GetComponent<CollisionDetecter>();
     }
     void Update()
     {
@@ -66,13 +67,14 @@ public class MoveToPlayer : MonoBehaviour
     }
     public Vector3 UpdateVector(GameObject enemy)
     {
+
         if (Player != null && enemy != null)
         //Localiza el vector que une el jugador con el objeto
         EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
         /*   []  . .  []    UN  */Player.transform.position.y - enemy.transform.position.y,
         /*  \___________/  SAPO */0);
-        if (Floor && EnemyPlayer.y < 0 || Ceiling && EnemyPlayer.y > 0) EnemyPlayer = Vector3.zero;
-        if (LWall && EnemyPlayer.x > 0 || RWall && EnemyPlayer.x < 0) EnemyPlayer = Vector3.zero;
+        if (cD.GetCollisions()[1] && EnemyPlayer.y < 0 || cD.GetCollisions()[0] && EnemyPlayer.y > 0) EnemyPlayer = Vector3.zero;
+        if (cD.GetCollisions()[3] && EnemyPlayer.x > 0 || cD.GetCollisions()[2] && EnemyPlayer.x < 0) EnemyPlayer = Vector3.zero;
 
         return EnemyPlayer;
     }
@@ -80,35 +82,7 @@ public class MoveToPlayer : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Vector2 normal = collision.contacts[0].normal;
-
-
-        if (normal.y > 0.5f)
-        {
-            Floor = true;
-        }
-        if (normal.y < -0.5)
-        {
-            Ceiling = true;
-        }
-
-        if (normal.x < -0.5f)
-        {
-            LWall = true;
-        }
-        if (normal.x > 0.5f)
-        {
-            RWall = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log("AAAAAA");
-        Floor = Ceiling = LWall = RWall = false;
-    }
+    
     #endregion
 } // class MoveToPlayer 
 // namespace

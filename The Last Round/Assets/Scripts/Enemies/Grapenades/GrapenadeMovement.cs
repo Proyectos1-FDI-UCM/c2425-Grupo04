@@ -61,7 +61,7 @@ public class GrapenadeMovement : MonoBehaviour
         }
         else if(Mathf.Floor(EnemyPlayer.magnitude*10)/10 < range)
         {
-            rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
+            rb.velocity = - EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
         }
         else
         {
