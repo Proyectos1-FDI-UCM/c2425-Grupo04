@@ -50,7 +50,7 @@ public class ManzarieteMovement : MonoBehaviour
 
 
         InRange = EnemyPlayer.magnitude <= RangeAttack;
-        
+
         if (InRange && !IsCharging && !IsSprinting)
         {
             rb.velocity = Vector3.zero;
@@ -59,11 +59,19 @@ public class ManzarieteMovement : MonoBehaviour
         }
         else if (IsCharging)
         {
-            
+
             if (timer <= 0)
             {
-                LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
-                                  EnemyPlayer.y * EnemyPlayer.y);
+
+                if (EnemyPlayer.x != 0 && EnemyPlayer.y != 0 && EnemyPlayer.x * EnemyPlayer.x +
+                                                                EnemyPlayer.y * EnemyPlayer.y != 0)
+                    LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
+                                              EnemyPlayer.y * EnemyPlayer.y);
+
+                else if (EnemyPlayer.x != 0) LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x);
+
+                else if (EnemyPlayer.y != 0) LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.y * EnemyPlayer.y);
+
                 IsCharging = false;
                 IsSprinting = true;
                 Stimer = SprintTime;
@@ -79,9 +87,9 @@ public class ManzarieteMovement : MonoBehaviour
                 transform.position += LastPlayerPosition * SprintSpeed * Time.deltaTime;
 
                 //Frenado final
-                if (Stimer < SprintTime/3.5f && SprintSpeed > tmp/20)
+                if (Stimer < SprintTime / 3.5f && SprintSpeed > tmp / 20)
                 {
-                    SprintSpeed -= tmp/20;
+                    SprintSpeed -= tmp / 20;
                 }
             }
             else
