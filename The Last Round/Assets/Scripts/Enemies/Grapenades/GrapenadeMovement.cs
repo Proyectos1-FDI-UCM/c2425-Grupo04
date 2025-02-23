@@ -29,6 +29,7 @@ public class GrapenadeMovement : MonoBehaviour
     private Rigidbody2D rb;
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
+    private CollisionDetecter cD;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,6 +47,7 @@ public class GrapenadeMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
+        cD = GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -62,6 +64,11 @@ public class GrapenadeMovement : MonoBehaviour
         else if(Mathf.Floor(EnemyPlayer.magnitude*10)/10 < range)
         {
             rb.velocity = - EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
+
+            if (cD.GetCollisions()[1] && rb.velocity.y < 0 || cD.GetCollisions()[0] && rb.velocity.y > 0) 
+                rb.velocity = new Vector3 (rb.velocity.x, 0, 0);
+            if (cD.GetCollisions()[3] && rb.velocity.x > 0 || cD.GetCollisions()[2] && rb.velocity.x < 0) 
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
         else
         {
