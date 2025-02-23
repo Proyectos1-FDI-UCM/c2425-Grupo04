@@ -26,9 +26,7 @@ public class MoveToPlayer : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 EnemyPlayer;
     private GameObject Player;
-    private Rigidbody2D rb;
-    private bool ColisionarX =false;
-    private bool ColisionarY = false;
+   
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -37,10 +35,7 @@ public class MoveToPlayer : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    
     void Update()
     {
         if (Player == null)
@@ -60,18 +55,13 @@ public class MoveToPlayer : MonoBehaviour
         //Mueve al objeto
         enemy.transform.position += EnemyPlayer * Speed * Time.deltaTime;
     }
-    public Vector3 UpdateVector(GameObject enemy)
+    public Vector3 UpdateVector (GameObject enemy)
     {
-        
-        float deltaX = Player.transform.position.x - enemy.transform.position.x;
-        float deltaY = Player.transform.position.y - enemy.transform.position.y;
-
-       
-        if (ColisionarX) deltaX = 0;
-        if (ColisionarY) deltaY = 0;
-
-        
-        return new Vector3(deltaX, deltaY, 0);
+        //Localiza el vector que une el jugador con el objeto
+        EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
+                                  Player.transform.position.y - enemy.transform.position.y,
+                                  0);
+        return EnemyPlayer;
     }
     #endregion
 
@@ -81,22 +71,24 @@ public class MoveToPlayer : MonoBehaviour
     #endregion
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Detiene el movimiento si colisiona con algo
         if (collision.gameObject.CompareTag("wall"))
         {
+
             Vector2 normal = collision.contacts[0].normal;
+
             
-            bool isHorizontal = Mathf.Abs(normal.x) > Mathf.Abs(normal.y);
-            ColisionarX = isHorizontal;
-            ColisionarY = !isHorizontal;
+            if (Mathf.Abs(normal.x) > 0.5f) 
+            {
+                EnemyPlayer.x = 0;
+            }
+            else if (Mathf.Abs(normal.y) > 0.5f) 
+            {
+                EnemyPlayer.y = 0;
+            }
         }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("wall"))
-        {
-            ColisionarX = false;
-            ColisionarY = false;
-        }
+
+       
     }
 } // class MoveToPlayer 
 // namespace
