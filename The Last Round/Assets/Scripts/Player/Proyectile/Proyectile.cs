@@ -5,12 +5,13 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor;
+
 using UnityEngine;
-using UnityEngine.InputSystem;
+// Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
-// Añadir aquí el resto de directivas using
+using UnityEngine.InputSystem;
+using UnityEditor;
 
 
 /// <summary>
@@ -43,7 +44,6 @@ public class Proyectile : MonoBehaviour
     [SerializeField]
     private Camera cameraMain;
     #endregion
-
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
