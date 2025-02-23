@@ -8,6 +8,7 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 
 /// <summary>
@@ -18,14 +19,19 @@ public class PlayerMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
+    
+
     [SerializeField]
     float MoveSpeed;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Vector3 MoveDirection = new Vector3 (0, 0, 0);
+    
+
     private Vector3 LastDirection;
+    private PlayerDash PlayerDash;
+    private Vector3 MoveDirection = new Vector3 (0, 0, 0);
     private bool Floor = false, Ceiling = false, RWall = false, LWall = false;
     #endregion
 
@@ -39,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GivePlayer(gameObject);
+       
     }
 
     /// <summary>
@@ -70,14 +77,18 @@ public class PlayerMovement : MonoBehaviour
         {
             LastDirection = MoveDirection;
         }
-        
+       
+
         MoveDirection = MoveDirection.normalized;
 
         if (Floor && MoveDirection.y < 0 || Ceiling && MoveDirection.y > 0) MoveDirection.y = 0;
         if (LWall && MoveDirection.x > 0 || RWall && MoveDirection.x < 0) MoveDirection.x = 0;
 
         transform.position += MoveDirection * MoveSpeed * Time.deltaTime;
+       
     }
+   
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -118,6 +129,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Floor = Ceiling = LWall = RWall = false;
     }
+
+   
     #endregion
 
 } // class PlayerMovement 
