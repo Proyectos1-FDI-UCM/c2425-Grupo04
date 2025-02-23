@@ -53,6 +53,7 @@ public class ManzurriaMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (moveToplayer != null)
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
         moveToplayer.Move(gameObject);
     }
