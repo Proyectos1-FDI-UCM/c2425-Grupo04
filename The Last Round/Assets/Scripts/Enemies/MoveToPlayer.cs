@@ -76,6 +76,7 @@ public class MoveToPlayer : MonoBehaviour
         if (cD.GetCollisions()[1] && EnemyPlayer.y < 0 || cD.GetCollisions()[0] && EnemyPlayer.y > 0) EnemyPlayer.y = 0;
         if (cD.GetCollisions()[3] && EnemyPlayer.x > 0 || cD.GetCollisions()[2] && EnemyPlayer.x < 0) EnemyPlayer.x = 0;
 
+        
         return EnemyPlayer;
     }
     #endregion

@@ -65,20 +65,20 @@ public class CollisionDetecter : MonoBehaviour
         Vector2 normal = collision.contacts[0].normal;
 
 
-        if (normal.y > 0f)
+        if (normal.y > 0.5f)
         {
             collisions[1] = true;
         }
-        if (normal.y < 0f)
+        if (normal.y < -0.5f)
         {
             collisions[0] = true;
         }
 
-        if (normal.x < 0f)
+        if (normal.x < 0.5f)
         {
             collisions[3] = true;
         }
-        if (normal.x > 0f)
+        if (normal.x > -0.5f)
         {
             collisions[2] = true;
         }
