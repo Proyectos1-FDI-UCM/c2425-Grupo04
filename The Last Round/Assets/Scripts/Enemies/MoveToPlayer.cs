@@ -62,15 +62,15 @@ public class MoveToPlayer : MonoBehaviour
     }
     public Vector3 UpdateVector(GameObject enemy)
     {
-        // 计算玩家与敌人的坐标差值
+        
         float deltaX = Player.transform.position.x - enemy.transform.position.x;
         float deltaY = Player.transform.position.y - enemy.transform.position.y;
 
-        // 根据碰撞状态屏蔽分量
+       
         if (ColisionarX) deltaX = 0;
         if (ColisionarY) deltaY = 0;
 
-        // 返回最终向量（可选：归一化）
+        
         return new Vector3(deltaX, deltaY, 0);
     }
     #endregion
@@ -84,7 +84,7 @@ public class MoveToPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("wall"))
         {
             Vector2 normal = collision.contacts[0].normal;
-            // 优先判断主要方向
+            
             bool isHorizontal = Mathf.Abs(normal.x) > Mathf.Abs(normal.y);
             ColisionarX = isHorizontal;
             ColisionarY = !isHorizontal;
