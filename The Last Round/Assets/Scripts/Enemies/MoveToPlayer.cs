@@ -27,8 +27,8 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
-    private bool colisionarX =false;
-    private bool colisionarY=false;   
+    private bool ColisionarX =false;
+    private bool ColisionarY = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -60,17 +60,18 @@ public class MoveToPlayer : MonoBehaviour
         //Mueve al objeto
         enemy.transform.position += EnemyPlayer * Speed * Time.deltaTime;
     }
-    public Vector3 UpdateVector (GameObject enemy)
+    public Vector3 UpdateVector(GameObject enemy)
     {
-        //Localiza el vector que une el jugador con el objeto
-       
-        if(colisionarX)
-            EnemyPlayer = new Vector3(0,Player.transform.position.y - enemy.transform.position.y, 0);
-        else if (colisionarY)
-            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,0, 0);
-        else 
-            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,Player.transform.position.y - enemy.transform.position.y, 0);
-        return EnemyPlayer;
+        // 计算玩家与敌人的坐标差值
+        float deltaX = Player.transform.position.x - enemy.transform.position.x;
+        float deltaY = Player.transform.position.y - enemy.transform.position.y;
+
+        // 根据碰撞状态屏蔽分量
+        if (ColisionarX) deltaX = 0;
+        if (ColisionarY) deltaY = 0;
+
+        // 返回最终向量（可选：归一化）
+        return new Vector3(deltaX, deltaY, 0);
     }
     #endregion
 
@@ -80,31 +81,22 @@ public class MoveToPlayer : MonoBehaviour
     #endregion
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Detiene el movimiento si colisiona con algo
         if (collision.gameObject.CompareTag("wall"))
         {
-
             Vector2 normal = collision.contacts[0].normal;
-
-            
-            if (Mathf.Abs(normal.x) > 0.5f) 
-            {
-                colisionarX = true;
-
-            }
-            else if (Mathf.Abs(normal.y) > 0.5f) 
-            {
-                colisionarY = true;
-            }
-            else
-            {
-                colisionarY = false;
-                colisionarX = false;
-            }
-                 
+            // 优先判断主要方向
+            bool isHorizontal = Mathf.Abs(normal.x) > Mathf.Abs(normal.y);
+            ColisionarX = isHorizontal;
+            ColisionarY = !isHorizontal;
         }
-
-       
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("wall"))
+        {
+            ColisionarX = false;
+            ColisionarY = false;
+        }
     }
 } // class MoveToPlayer 
 // namespace
