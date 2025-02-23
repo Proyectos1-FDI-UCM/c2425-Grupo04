@@ -273,10 +273,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.004046023}
+  m_Offset: {x: 0, y: 0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.28866667}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -284,7 +284,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0028552}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &210453390
 Rigidbody2D:
@@ -362,10 +362,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0007030368}
+  m_Offset: {x: 0, y: 0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.28866667}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -373,7 +373,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0064884}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &354333770
 Rigidbody2D:
@@ -1012,10 +1012,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 524050083081553167, guid: 56a853eaa6fcaaa44bc3517921a69f66, type: 3}
-      propertyPath: Speed
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 1085765543050600987, guid: 56a853eaa6fcaaa44bc3517921a69f66, type: 3}
       propertyPath: m_Color.b
       value: 0.58592916
@@ -1312,10 +1308,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 524050083081553167, guid: ae4760010385de84fb699fab435eb8b9, type: 3}
-      propertyPath: Speed
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1085765543050600987, guid: ae4760010385de84fb699fab435eb8b9, type: 3}
       propertyPath: m_Color.b
       value: 0.7418071
