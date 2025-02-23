@@ -42,7 +42,7 @@ public class ManzarieteMovement : MonoBehaviour
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
 

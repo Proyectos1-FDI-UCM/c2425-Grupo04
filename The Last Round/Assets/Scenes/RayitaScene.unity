@@ -478,6 +478,18 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1085765543050600987, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085765543050600987, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085765543050600987, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6061147752576903118, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: ChargeTime
       value: 3

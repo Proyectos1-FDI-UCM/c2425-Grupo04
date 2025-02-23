@@ -26,6 +26,7 @@ public class MoveToPlayer : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 EnemyPlayer;
     private GameObject Player;
+   
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -34,7 +35,7 @@ public class MoveToPlayer : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     void Update()
     {
         if (Player == null)
@@ -68,6 +69,26 @@ public class MoveToPlayer : MonoBehaviour
     #region Métodos Privados
 
     #endregion
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Detiene el movimiento si colisiona con algo
+        if (collision.gameObject.CompareTag("wall"))
+        {
 
+            Vector2 normal = collision.contacts[0].normal;
+
+            
+            if (Mathf.Abs(normal.x) > 0.5f) 
+            {
+                EnemyPlayer.x = 0;
+            }
+            else if (Mathf.Abs(normal.y) > 0.5f) 
+            {
+                EnemyPlayer.y = 0;
+            }
+        }
+
+       
+    }
 } // class MoveToPlayer 
 // namespace
