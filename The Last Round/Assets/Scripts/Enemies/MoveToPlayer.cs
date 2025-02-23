@@ -27,8 +27,10 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
-    private bool colisionarX =false;
-    private bool colisionarY=false;   
+    private bool floor = false;
+    private bool ceiling = false;
+    private bool LWall = false;
+    private bool RWall = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -65,13 +67,12 @@ public class MoveToPlayer : MonoBehaviour
     {
         if (enemy != null && Player != null)
         //Localiza el vector que une el jugador con el objeto
-       
-        if(colisionarX)
-            EnemyPlayer = new Vector3(0,Player.transform.position.y - enemy.transform.position.y, 0);
-        else if (colisionarY)
-            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,0, 0);
-        else 
-            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,Player.transform.position.y - enemy.transform.position.y, 0);
+            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
+                                      Player.transform.position.y - enemy.transform.position.y,
+                                      0);
+        if ((floor && EnemyPlayer.y == -1) || (ceiling && EnemyPlayer.y == 1)) EnemyPlayer.y = 0;
+        if ((LWall && EnemyPlayer.x == -1) || (RWall && EnemyPlayer.x == 1)) EnemyPlayer.x = 0;
+
         return EnemyPlayer;
     }
     #endregion
@@ -83,28 +84,20 @@ public class MoveToPlayer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Detiene el movimiento si colisiona con algo
-        if (collision.gameObject.CompareTag("wall"))
-        {
 
             Vector2 normal = collision.contacts[0].normal;
 
-            
-            if (Mathf.Abs(normal.x) > 0.5f) 
-            {
-                colisionarX = true;
+        ceiling = floor = LWall = RWall = false;
 
-            }
-            else if (Mathf.Abs(normal.y) > 0.5f) 
-            {
-                colisionarY = true;
-            }
-            else
-            {
-                colisionarY = false;
-                colisionarX = false;
-            }
-                 
-        }
+        if (normal.y > 0.5f) floor = true;
+        else if (normal.y < -0.5f) ceiling = true;
+
+        if (normal.x > 0.5f) LWall = true;
+        else if (normal.x < -0.5) RWall = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        floor = ceiling = LWall = RWall = false;
     }
 } // class MoveToPlayer 
 // namespace
