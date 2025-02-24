@@ -40,38 +40,31 @@ public class PlayerDash : MonoBehaviour
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
+    
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         colisionado = GetComponent<CollisionDetecter>();
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
+   
     void Update()
     {
         
         LastDirection = GetComponent<PlayerMovement>().GetLastDirection();
+        // al tocar boton derecho se empieza dash.
         if (Mouse.current.rightButton.wasPressedThisFrame && CanDash())
         {
            
           StartDash();
         }
+        // al empezarse el dash, tambien activa timer de cooldown
         if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
-        LastDirection = LastDirection.normalized;
     }
 
     void FixedUpdate()
     {
+        //si esta dashing, duracion de dash empieza a disminuir hasta 0, cuando es 0, enddash
         if (isDashing)
         {
             if (DashDuration > 0)
@@ -91,6 +84,7 @@ public class PlayerDash : MonoBehaviour
     #region Métodos públicos
     public bool dash()
     {
+        //para poder decir a PlayerMovement que esta haciendo dash, para que desactiva movimiento normal cuando esta en dash
         return isDashing;
     }
 
@@ -100,14 +94,16 @@ public class PlayerDash : MonoBehaviour
     #region Métodos Privados
     bool CanDash()
     {
+        //candash depende si no hay cooldowntime, no esta en dashing y el vector no es igual al cero, en nuestro caso, vector nunca va ser zero, excepto se empieza el juego y no ha tocado nada
         return cooldownTimer <= 0 && !isDashing && LastDirection != Vector3.zero;
     }
     void StartDash()
     {
-        
+        //se empieza dash y se renova cooldowntime
         isDashing = true;
         cooldownTimer = DashCooldown;
-        if ((colisionado.GetCollisions()[0]&&LastDirection.y >0 )|| (colisionado.GetCollisions()[1] && LastDirection.y < 0))
+        // al colisionarse con algo que no es enemigo,se deja de dash en ese direccion
+        if ((colisionado.GetCollisions()[0]&&LastDirection.y > 0 )|| (colisionado.GetCollisions()[1] && LastDirection.y < 0))
             { LastDirection.y = 0; }
         if ((colisionado.GetCollisions()[2] && LastDirection.x > 0) || (colisionado.GetCollisions()[3] && LastDirection.x < 0))
         { LastDirection.x = 0; }
