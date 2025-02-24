@@ -62,26 +62,25 @@ public class CollisionDetecter : MonoBehaviour
     #region Métodos Privados
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 normal = collision.contacts[0].normal;
+            Vector2 normal = collision.contacts[0].normal;
 
+            if (normal.y > 0.5f)
+            {
+                collisions[1] = true;
+            }
+            if (normal.y < -0.5f)
+            {
+                collisions[0] = true;
+            }
 
-        if (normal.y > 0.5f)
-        {
-            collisions[1] = true;
-        }
-        if (normal.y < -0.5f)
-        {
-            collisions[0] = true;
-        }
-
-        if (normal.x > 0.5f)
-        {
-            collisions[3] = true;
-        }
-        if (normal.x < -0.5f)
-        {
-            collisions[2] = true;
-        }
+            if (normal.x > 0.5f)
+            {
+                collisions[3] = true;
+            }
+            if (normal.x < -0.5f)
+            {
+                collisions[2] = true;
+            }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

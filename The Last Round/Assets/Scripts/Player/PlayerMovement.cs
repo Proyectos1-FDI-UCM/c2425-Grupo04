@@ -75,17 +75,16 @@ public class PlayerMovement : MonoBehaviour
             MoveDirection.x = -1;
         }
 
+        MoveDirection = MoveDirection.normalized;
+
         if (MoveDirection != Vector3.zero)
         {
             LastDirection = MoveDirection;
+            Debug.Log($"LastDirection: {LastDirection}");
         }
- 
-        MoveDirection = MoveDirection.normalized;
         
         if (!dashing)
         rb.velocity = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
-        
-     
     }
    
 
