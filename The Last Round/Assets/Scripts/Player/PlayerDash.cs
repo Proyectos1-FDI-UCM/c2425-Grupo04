@@ -106,14 +106,12 @@ public class PlayerDash : MonoBehaviour
         
         isDashing = true;
         cooldownTimer = DashCooldown;
-
-        if ((colisionado.GetCollisions()[0]&&LastDirection.y > 0 ) || (colisionado.GetCollisions()[1] && LastDirection.y < 0))
+        if ((colisionado.GetCollisions()[0]&&LastDirection.y > 0 )|| (colisionado.GetCollisions()[1] && LastDirection.y < 0))
             { LastDirection.y = 0; }
-
         if ((colisionado.GetCollisions()[2] && LastDirection.x > 0) || (colisionado.GetCollisions()[3] && LastDirection.x < 0))
         { LastDirection.x = 0; }
 
-        rb.velocity = LastDirection * DashSpeed * Time.fixedTime;
+        rb.velocity = new Vector3(LastDirection.x * DashSpeed* Time.fixedDeltaTime, LastDirection.y * DashSpeed* Time.fixedDeltaTime);
       
     }
 
