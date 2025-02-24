@@ -27,8 +27,7 @@ public class Proyectile : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField]
-    private float mouseReduction;
+    
 
     [SerializeField]
     private Transform customCursor;
@@ -73,7 +72,6 @@ public class Proyectile : MonoBehaviour
     void Start()
     {
         //Cursor.visible = false;
-        mouseReduction = 39.5f;
     }
 
     /// <summary>
@@ -81,9 +79,11 @@ public class Proyectile : MonoBehaviour
     /// </summary>
     void Update()
     {
-        customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
+        //customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
         mousePos = cameraMain.ScreenToWorldPoint(new Vector3 (Mouse.current.position.x.value,Mouse.current.position.y.value,0));
 
+        Debug.Log(mousePos);
+        customCursor.position = new Vector3 (mousePos.x , mousePos.y , 0);
         Vector3 rotationOrigin = mousePos - transform.position;
 
         float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
