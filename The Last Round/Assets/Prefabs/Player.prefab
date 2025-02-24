@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 3365146930368950393}
   - component: {fileID: 4619752259387812294}
   - component: {fileID: 804797766998022290}
+  - component: {fileID: -4269810588875684446}
   - component: {fileID: -2736566107381143909}
   - component: {fileID: -3617351769904225931}
   - component: {fileID: 4833271650817062454}
@@ -218,6 +219,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 250
+--- !u!114 &-4269810588875684446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749647460839375097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b0c58a803b07e4687c22e72b61aedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseReduction: 39.5
+  customCursor: {fileID: 0}
+  bulletPrefab: {fileID: 3448498875934282452, guid: 27f9c9b886f2ce040a58601c7f48bcdb, type: 3}
+  pivot: {fileID: 0}
+  origin: {fileID: 0}
+  cameraMain: {fileID: 0}
 --- !u!114 &-2736566107381143909
 MonoBehaviour:
   m_ObjectHideFlags: 0
