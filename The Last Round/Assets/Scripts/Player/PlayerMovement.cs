@@ -53,37 +53,35 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Keyboard.current[Key.W].isPressed)
+        
+
+        MoveDirection = Vector3.zero;
+
+        if (Keyboard.current[Key.W].isPressed && !cD.GetCollisions()[0])
         {
             MoveDirection.y = 1;
         }
-        else if (Keyboard.current[Key.S].isPressed)
+        if (Keyboard.current[Key.S].isPressed && !cD.GetCollisions()[1])
         {
             MoveDirection.y = -1;
         }
-        else MoveDirection.y = 0;
-
-        if (Keyboard.current[Key.D].isPressed)
+        if (Keyboard.current[Key.D].isPressed && !cD.GetCollisions()[2])
         {
             MoveDirection.x = 1;
         }
-        else if (Keyboard.current[Key.A].isPressed)
+        if (Keyboard.current[Key.A].isPressed && !cD.GetCollisions()[3])
         {
             MoveDirection.x = -1;
         }
-        else MoveDirection.x = 0;
 
         if (MoveDirection != Vector3.zero)
         {
             LastDirection = MoveDirection;
         }
-       
-
+ 
         MoveDirection = MoveDirection.normalized;
-            if (cD.GetCollisions()[1] && MoveDirection.y < 0 || cD.GetCollisions()[0] && MoveDirection.y > 0) MoveDirection.y = 0;
-        if (cD.GetCollisions()[3] && MoveDirection.x > 0 || cD.GetCollisions()[2] && MoveDirection.x < 0) MoveDirection.x = 0;
 
-        rb.velocity = MoveDirection * MoveSpeed * Time.deltaTime;
+        rb.velocity = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
        
     }
    

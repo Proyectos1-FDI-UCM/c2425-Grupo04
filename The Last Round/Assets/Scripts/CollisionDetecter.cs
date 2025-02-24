@@ -74,11 +74,11 @@ public class CollisionDetecter : MonoBehaviour
             collisions[0] = true;
         }
 
-        if (normal.x < 0.5f)
+        if (normal.x > 0.5f)
         {
             collisions[3] = true;
         }
-        if (normal.x > -0.5f)
+        if (normal.x < -0.5f)
         {
             collisions[2] = true;
         }
