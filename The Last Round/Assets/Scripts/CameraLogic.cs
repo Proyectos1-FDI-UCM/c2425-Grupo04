@@ -45,6 +45,7 @@ public class CameraLogic : MonoBehaviour
         }
         if (player != null)
         {
+           
             transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, minX, maxX),
                                               Mathf.Clamp(player.transform.position.y, minY, maxY),
                                               transform.position.z);
