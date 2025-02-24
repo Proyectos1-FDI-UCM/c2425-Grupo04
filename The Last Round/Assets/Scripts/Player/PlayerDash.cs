@@ -31,10 +31,9 @@ public class PlayerDash : MonoBehaviour
     #region Atributos Privados (private fields)
     private bool isDashing = false;
     private float cooldownTimer = 0f;
-    private Vector2 LastDirection = Vector2.up;
+    private Vector3 LastDirection;
     private Rigidbody2D rb;
-    private Vector2 MoveDirection;
-    bool hasDiagonal =false;
+   
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -58,102 +57,18 @@ public class PlayerDash : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 计算MoveDirection
-        MoveDirection.y = 0;
-        if (Keyboard.current[Key.W].isPressed)
-        {
-            MoveDirection.y = 1;
-        }
-        else if (Keyboard.current[Key.S].isPressed)
-        {
-            MoveDirection.y = -1;
-        }
-
-        MoveDirection.x = 0;
-        if (Keyboard.current[Key.D].isPressed)
-        {
-            MoveDirection.x = 1;
-        }
-        else if (Keyboard.current[Key.A].isPressed)
-        {
-            MoveDirection.x = -1;
-        }
-
-        bool isDiagonal = MoveDirection.x != 0 && MoveDirection.y != 0;
-        if (MoveDirection.x == 0 || MoveDirection.y == 0)
-            hasDiagonal = false;
-        if (isDiagonal)
-        {
-            // 处理斜方向
-            if (MoveDirection.x == 1 && MoveDirection.y == 1)
-            {
-                LastDirection = new Vector2(1, 1);
-                Debug.Log("右上");
-            }
-            else if (MoveDirection.x == 1 && MoveDirection.y == -1)
-            {
-                LastDirection = new Vector2(1, -1);
-                Debug.Log("右下");
-            }
-            else if (MoveDirection.x == -1 && MoveDirection.y == -1)
-            {
-                LastDirection = new Vector2(-1, -1);
-                Debug.Log("左下");
-            }
-            else if (MoveDirection.x == -1 && MoveDirection.y == 1)
-            {
-                LastDirection = new Vector2(-1, 1);
-                Debug.Log("左上");
-            }
-            
-
-            hasDiagonal = true;
-        }
-        else
-        {
-            if (!hasDiagonal)
-            {
-                // 处理单一方向
-                if (MoveDirection.y == 1)
-                {
-                    LastDirection = new Vector2(0, 1);
-                    Debug.Log("上");
-                }
-                else if (MoveDirection.y == -1)
-                {
-                    LastDirection = new Vector2(0, -1);
-                    Debug.Log("下");
-                }
-                else if (MoveDirection.x == 1)
-                {
-                    LastDirection = new Vector2(1, 0);
-                    Debug.Log("右");
-                }
-                else if (MoveDirection.x == -1)
-                {
-                    LastDirection = new Vector2(-1, 0);
-                    Debug.Log("左");
-                }
-            }
-
-            // 重置斜方向标记当停止移动时
-            if (MoveDirection.x == 0 && MoveDirection.y == 0)
-            {
-                hasDiagonal = false;
-            }
-        }
-
-        MoveDirection = MoveDirection.normalized;
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        LastDirection = GetComponent<PlayerMovement>().GetLastDirection();
+        if (Mouse.current.rightButton.wasPressedThisFrame && CanDash())
         {
             StartDash();
         }
+        if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
 
     }
 
     void FixedUpdate()
     {
-
+        // 4. 物理操作在 FixedUpdate 执行
         if (isDashing)
         {
             if (DashDuration > 0)
@@ -171,10 +86,7 @@ public class PlayerDash : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public Vector3 GetLastDirection()
-    {
-        return LastDirection;
-    }
+
 
     #endregion
 
@@ -182,23 +94,25 @@ public class PlayerDash : MonoBehaviour
     #region Métodos Privados
     bool CanDash()
     {
-        return cooldownTimer <= 0 && !isDashing && LastDirection != Vector2.zero;
+        return cooldownTimer <= 0 && !isDashing && LastDirection != Vector3.zero;
     }
     void StartDash()
     {
+        Debug.Log("fucking dash");
+        Debug.Log(LastDirection);
         isDashing = true;
         cooldownTimer = DashCooldown;
-        rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed);
-
-    }
-    void EndDash()
-    {
-        rb.velocity = Vector3.zero;
-        isDashing = false;
-        DashDuration = 0.2f;
+        rb.velocity = new Vector3(LastDirection.x * DashSpeed* Time.fixedDeltaTime, LastDirection.y * DashSpeed* Time.fixedDeltaTime);
        
     }
-    
+
+    void EndDash()
+    {
+        isDashing = false;
+        DashDuration = 0.2f; // 重置持续时间
+        rb.velocity = Vector3.zero; // 可选：结束冲刺后停止
+    }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
