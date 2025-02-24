@@ -33,7 +33,8 @@ public class PlayerDash : MonoBehaviour
     private float cooldownTimer = 0f;
     private Vector3 LastDirection;
     private Rigidbody2D rb;
-   
+    
+    private CollisionDetecter colisionado;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -50,6 +51,7 @@ public class PlayerDash : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        colisionado = GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -57,18 +59,19 @@ public class PlayerDash : MonoBehaviour
     /// </summary>
     void Update()
     {
+        
         LastDirection = GetComponent<PlayerMovement>().GetLastDirection();
         if (Mouse.current.rightButton.wasPressedThisFrame && CanDash())
         {
-            StartDash();
+           
+          StartDash();
         }
         if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
-
+        LastDirection = LastDirection.normalized;
     }
 
     void FixedUpdate()
     {
-        // 4. 物理操作在 FixedUpdate 执行
         if (isDashing)
         {
             if (DashDuration > 0)
@@ -86,7 +89,10 @@ public class PlayerDash : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
+    public bool dash()
+    {
+        return isDashing;
+    }
 
     #endregion
 
@@ -98,25 +104,33 @@ public class PlayerDash : MonoBehaviour
     }
     void StartDash()
     {
-        Debug.Log("fucking dash");
-        Debug.Log(LastDirection);
+        
         isDashing = true;
         cooldownTimer = DashCooldown;
+        if ((colisionado.GetCollisions()[0]&&LastDirection.y >0 )|| (colisionado.GetCollisions()[1] && LastDirection.y < 0))
+            { LastDirection.y = 0; }
+        if ((colisionado.GetCollisions()[2] && LastDirection.x > 0) || (colisionado.GetCollisions()[3] && LastDirection.x < 0))
+        { LastDirection.x = 0; }
+
         rb.velocity = new Vector3(LastDirection.x * DashSpeed* Time.fixedDeltaTime, LastDirection.y * DashSpeed* Time.fixedDeltaTime);
-       
+      
     }
+
+
+
+
 
     void EndDash()
     {
         isDashing = false;
-        DashDuration = 0.2f; // 重置持续时间
-        rb.velocity = Vector3.zero; // 可选：结束冲刺后停止
+        DashDuration = 0.2f; 
+        rb.velocity = Vector3.zero;  
     }
 
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isDashing && collision.gameObject.CompareTag("wall"))
+        if (isDashing )
         {
             EndDash();
         }

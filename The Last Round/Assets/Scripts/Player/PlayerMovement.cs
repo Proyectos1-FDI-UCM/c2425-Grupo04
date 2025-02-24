@@ -26,12 +26,13 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
-    #region Atributos Privados (private fields)
+    #region   Atributos Privados (private fields)
 
     Rigidbody2D rb;
     private Vector3 LastDirection;
     private Vector3 MoveDirection = new Vector3 (0, 0, 0);
     private CollisionDetecter cD;
+    bool dashing;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -53,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        dashing = GetComponent<PlayerDash>().dash();
 
         MoveDirection = Vector3.zero;
 
@@ -80,9 +81,11 @@ public class PlayerMovement : MonoBehaviour
         }
  
         MoveDirection = MoveDirection.normalized;
-
+        
+        if (!dashing)
         rb.velocity = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
-       
+        
+     
     }
    
 
@@ -94,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return LastDirection;
     }
+    
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
