@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 524050083081553167}
   - component: {fileID: 6434944096096345892}
   - component: {fileID: 323549958672846225}
+  - component: {fileID: 1390706253937328338}
   m_Layer: 10
   m_Name: Manzariete
   m_TagString: Untagged
@@ -189,3 +190,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1390706253937328338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83e8da0609aed64d9f52d076746c16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

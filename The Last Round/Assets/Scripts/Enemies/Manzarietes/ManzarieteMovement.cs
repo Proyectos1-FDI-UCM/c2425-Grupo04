@@ -125,7 +125,20 @@ public class ManzarieteMovement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
+        {
+            rb.isKinematic = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (rb.isKinematic)
+        {
+            rb.isKinematic = false;
+        }
+    }
     #endregion
 
 } // class ManzarieteMovement 
