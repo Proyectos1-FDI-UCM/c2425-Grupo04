@@ -26,7 +26,7 @@ public class CooldownTest : MonoBehaviour
     #endregion
     [SerializeField]
     private Cooldown cooldownPrueba;
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -37,42 +37,26 @@ public class CooldownTest : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Start()
-    {
-        
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
     #endregion
-    void Update
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && cooldownPrueba.PuedeEjecutar())
         {
-           ActivaAtaque();
-           cooldownPrueba.IniciarCooldown(this);
+            ActivaAtaque();
+            cooldownPrueba.IniciarCooldown(this);
         }
-    }
-    void ActivaAtaque()
-    {
-        Debug.Log("Se activo ataque");
     }
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -84,14 +68,13 @@ public class CooldownTest : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
+    private void ActivaAtaque()
+    {
+        Debug.Log("Se activo ataque");
+    }
     #endregion   
 
 } // class CooldownTest 
