@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Drawing;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -60,9 +59,11 @@ public class CollisionDetecter : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-            Vector2 normal = collision.contacts[0].normal;
+        for (int i = 0; i < collision.contacts.Length; i++)
+        {
+            Vector2 normal = collision.contacts[i].normal;
 
             if (normal.y > 0.5f)
             {
@@ -81,6 +82,7 @@ public class CollisionDetecter : MonoBehaviour
             {
                 collisions[2] = true;
             }
+        }      
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

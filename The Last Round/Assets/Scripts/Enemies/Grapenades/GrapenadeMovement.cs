@@ -27,6 +27,7 @@ public class GrapenadeMovement : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Rigidbody2D rb;
+    private CollisionDetecter cD;
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
     #endregion
@@ -46,6 +47,7 @@ public class GrapenadeMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
+        cD = GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -61,6 +63,8 @@ public class GrapenadeMovement : MonoBehaviour
         }
         else if(Mathf.Floor(EnemyPlayer.magnitude*10)/10 < range)
         {
+            if ((cD.GetCollisions()[0] && -EnemyPlayer.y > 0) || (cD.GetCollisions()[1] && -EnemyPlayer.y < 0)) EnemyPlayer.y = 0;
+            if ((cD.GetCollisions()[2] && -EnemyPlayer.x > 0) || (cD.GetCollisions()[3] && -EnemyPlayer.x < 0)) EnemyPlayer.x = 0;
             rb.velocity = - EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
         }
         else

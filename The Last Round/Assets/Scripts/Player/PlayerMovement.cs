@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 LastDirection;
     private Vector3 MoveDirection = new Vector3 (0, 0, 0);
-    bool dashing;
+    private bool dashing;
+    private CollisionDetecter cD;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.GivePlayer(gameObject);
         rb = GetComponent<Rigidbody2D>();
+        cD = GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -72,6 +74,9 @@ public class PlayerMovement : MonoBehaviour
         {
             MoveDirection.x = -1;
         }
+
+        if ((cD.GetCollisions()[0] && MoveDirection.y > 0) || cD.GetCollisions()[1] && MoveDirection.y < 0) MoveDirection.y = 0;
+        if ((cD.GetCollisions()[2] && MoveDirection.x > 0) || cD.GetCollisions()[3] && MoveDirection.x < 0) MoveDirection.x = 0;
 
         MoveDirection = MoveDirection.normalized;
 

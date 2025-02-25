@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Enemymeleeatark : MonoBehaviour
+public class EnemyMeleeAtack : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -64,7 +64,6 @@ public class Enemymeleeatark : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-           fr.tocado(true);
             Debug.Log("ATAQUE!");
 
             spriteRenderer.color = Color.red;
@@ -75,8 +74,6 @@ public class Enemymeleeatark : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            fr.tocado(false);
-
             spriteRenderer.color = originalColor;
         }
     }
