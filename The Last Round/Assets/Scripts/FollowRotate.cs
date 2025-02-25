@@ -21,6 +21,8 @@ public class FollowRotate : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject FollowObject;
+    [SerializeField] Transform Pivot;
+    
     [SerializeField] GameObject PivotObject;
     #endregion
 
@@ -51,9 +53,13 @@ public class FollowRotate : MonoBehaviour
     void Update()
     {
         GetObjectVector();
-        float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
-        
-        transform.rotation = Quaternion.Euler(0, 0, rotation); 
+        float targetAngle = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
+        float currentAngle = Mathf.LerpAngle(
+            Pivot.eulerAngles.z,
+            targetAngle,
+            3 * Time.deltaTime
+        );
+        transform.rotation = Quaternion.Euler(0, 0, currentAngle); 
     }
     #endregion
 
