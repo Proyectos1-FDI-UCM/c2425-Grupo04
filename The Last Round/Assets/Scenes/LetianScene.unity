@@ -792,6 +792,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4046262584483984079, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: FollowObject
+      value: 
+      objectReference: {fileID: 555621604}
+    - target: {fileID: 5805628568032315370, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403719088797789129, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6434944096096345892, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_AngularDrag
       value: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6200443880101149783}
   - component: {fileID: 2255908335181623469}
   - component: {fileID: 2794954879975231384}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: "CuadradoRotaci\xF3n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7061055230028847327}
   - component: {fileID: 1338644231412958691}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowObject: {fileID: 7749647460839375097, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+  Pivot: {fileID: 7061055230028847327}
   PivotObject: {fileID: 814872764926193056}
 --- !u!1 &7992104292323869361
 GameObject:
