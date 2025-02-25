@@ -28,7 +28,7 @@ public class FollowRotate : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 ObjectPos;
     #endregion
-
+    bool moveornot=true;   
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
@@ -52,13 +52,18 @@ public class FollowRotate : MonoBehaviour
     {
         GetObjectVector();
         float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
+        
         transform.rotation = Quaternion.Euler(0, 0, rotation); 
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
+    public void tocado(bool tocado)
+    {
+       if(tocado==true)moveornot = false;
+        if (tocado ==false) moveornot = true;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -66,13 +71,17 @@ public class FollowRotate : MonoBehaviour
     //Versión modificada de UpdateVector (de MoveToPlayer)
     private void GetObjectVector()
     {
-        if(FollowObject != null && PivotObject != null)
-        ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
-                          FollowObject.transform.position.y - PivotObject.transform.position.y,
-                          0);
-    }
+        if (FollowObject != null && PivotObject != null&&moveornot ==true)
+            ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
+                              FollowObject.transform.position.y - PivotObject.transform.position.y,
+                              0);
 
-    #endregion   
+
+
+        #endregion
+    }
+  
+   
 
 } // class FollowRotate 
 // namespace
