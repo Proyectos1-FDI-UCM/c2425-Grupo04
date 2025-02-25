@@ -32,7 +32,7 @@ public class ManzarieteMovement : MonoBehaviour
     private Vector3 EnemyPlayer, LastPlayerPosition;
     private float timer = -1;
     private float Stimer = -1, tmp;
-    private bool IsCharging = false, IsSprinting = false, InRange = false, hit = false;
+    private bool IsCharging = false, IsSprinting = false, InRange = false, hit = false, OnCollision = false;
     private Rigidbody2D rb;
     private CollisionDetecter cD;
     #endregion
@@ -91,6 +91,10 @@ public class ManzarieteMovement : MonoBehaviour
         {
             if (Stimer > 0)
             {
+                hit = false;
+
+                if (OnCollision) ComproveCollision();
+
                 if (hit)
                 {
                     LastPlayerPosition *= -1;
@@ -136,7 +140,15 @@ public class ManzarieteMovement : MonoBehaviour
     #region Métodos Privados
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Mathf.Abs(rb.velocity.x) > 0 || Mathf.Abs(rb.velocity.y) > 0) hit = true;
+        OnCollision = true;
+    }
+
+    private void ComproveCollision()
+    {
+        if ((cD.GetCollisions()[0] && LastPlayerPosition.y > 0) ||
+            (cD.GetCollisions()[1] && LastPlayerPosition.y < 0) ||
+            (cD.GetCollisions()[2] && LastPlayerPosition.x > 0) ||
+            (cD.GetCollisions()[3] && LastPlayerPosition.x < 0)) hit = true;
     }
     #endregion
 
