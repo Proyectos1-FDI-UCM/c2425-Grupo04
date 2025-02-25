@@ -24,8 +24,8 @@ public class CooldownTest : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    [SerializeField]
-    private Cooldown cooldownPrueba;
+    //[SerializeField]
+    //private Cooldown cooldownPrueba;
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
@@ -50,14 +50,14 @@ public class CooldownTest : MonoBehaviour
     /// any of the Update methods are called the first time.
     /// </summary>
     #endregion
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && cooldownPrueba.PuedeEjecutar())
-        {
-            ActivaAtaque();
-            cooldownPrueba.IniciarCooldown(this);
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space) && cooldownPrueba.PuedeEjecutar())
+    //    {
+    //        ActivaAtaque();
+    //        cooldownPrueba.IniciarCooldown(this);
+    //    }
+    //}
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
@@ -71,10 +71,10 @@ public class CooldownTest : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    private void ActivaAtaque()
-    {
-        Debug.Log("Se activo ataque");
-    }
+    //private void ActivaAtaque()
+    //{
+    //    Debug.Log("Se activo ataque");
+    //}
     #endregion   
 
 } // class CooldownTest 

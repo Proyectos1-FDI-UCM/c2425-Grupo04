@@ -19,16 +19,16 @@ using UnityEngine;
 public class CooldownGeneral 
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
-    #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    //#region Atributos del Inspector (serialized fields)
+    //// Documentar cada atributo que aparece aquí.
+    //// El convenio de nombres de Unity recomienda que los atributos
+    //// públicos y de inspector se nombren en formato PascalCase
+    //// (palabras con primera letra mayúscula, incluida la primera letra)
+    //// Ejemplo: MaxHealthPoints
 
-    #endregion
-    [SerializeField] 
-    private float cooldownTiempo = 3f;
+    //#endregion
+    //[SerializeField] 
+    //private float cooldownTiempo = 3f;
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
@@ -40,9 +40,9 @@ public class CooldownGeneral
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    private float cooldownRestante = 0f;
-    private bool Encooldown = false;
-    private MonoBehaviour owner; //Se necesita para iniciar el cooldown
+    //private float cooldownRestante = 0f;
+    //private bool Encooldown = false;
+    //private MonoBehaviour owner; //Se necesita para iniciar el cooldown
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
@@ -78,19 +78,19 @@ public class CooldownGeneral
     // Ejemplo: GetPlayerController
 
     #endregion
-    public void IniciarCooldown(MonoBehaviour owner)
-    {
-        if (!Encooldown)
-        {
-            this.owner = owner;
-            owner.StartCoroutine();
-        }
-    }
+    //public void IniciarCooldown(MonoBehaviour owner)
+    //{
+    //    if (!Encooldown)
+    //    {
+    //        this.owner = owner;
+    //        owner.StartCoroutine();
+    //    }
+    //}
 
-    public bool PuedeEjecutar() 
-    { 
-        return !Encooldown; 
-    }
+    //public bool PuedeEjecutar() 
+    //{ 
+    //    return !Encooldown; 
+    //}
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
@@ -100,18 +100,18 @@ public class CooldownGeneral
     // mayúscula, incluida la primera letra)
 
     #endregion   
-    private IEnumerator ProcesoCooldown() //IEnumerator es un tipo de retorno especial para el cooldown
-    {
-        Encooldown = true;
-        cooldownRestante = cooldownTiempo;
+    //private IEnumerator ProcesoCooldown() //IEnumerator es un tipo de retorno especial para el cooldown
+    //{
+    //    Encooldown = true;
+    //    cooldownRestante = cooldownTiempo;
 
-        while (cooldownRestante > 0)
-        { 
-            cooldownRestante -= Time.deltaTime;
-            yield return null; //Espera un frame antes de continuar
-        }
+    //    while (cooldownRestante > 0)
+    //    { 
+    //        cooldownRestante -= Time.deltaTime;
+    //        yield return null; //Espera un frame antes de continuar
+    //    }
 
-        Encooldown = false;
-    } 
+    //    Encooldown = false;
+    //} 
 } // class CooldownGeneral 
 // namespace
