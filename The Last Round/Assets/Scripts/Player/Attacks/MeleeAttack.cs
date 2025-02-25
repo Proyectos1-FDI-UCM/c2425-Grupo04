@@ -28,6 +28,9 @@ public class MeleeAttack : MonoBehaviour
     private Collider2D hitbox;
 
     [SerializeField]
+    private SpriteRenderer attackSprite;
+
+    [SerializeField]
     private float duration;
 
     #endregion
@@ -57,8 +60,9 @@ public class MeleeAttack : MonoBehaviour
     void Start()
     {
         hitbox = GetComponent<Collider2D>();
-        
         hitbox.enabled = false;
+        attackSprite = GetComponent<SpriteRenderer>();
+        attackSprite.enabled = false;
     }
 
     /// <summary>
@@ -79,15 +83,6 @@ public class MeleeAttack : MonoBehaviour
     // Ejemplo: GetPlayerController
 
 
-    public void ChangeColliderState()
-    {
-        Debug.Log("Test");
-        //AttackHitboxDuration();
-
-        StartCoroutine("AttackHitboxDuration");
-
-    }
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -97,21 +92,34 @@ public class MeleeAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //DAÑO    NO TOCAR AUN
-    }
+
+    
 
     private IEnumerator AttackHitboxDuration()
     {
         hitbox.enabled = true;
-        Debug.Log("IsAttacking");
+        attackSprite.enabled=true;
+        
+        if (hitbox.enabled == true)
+        {
+            Debug.Log("IsAttacking");
+        }
         yield return new WaitForSeconds(duration);
 
         hitbox.enabled = false;
+        attackSprite.enabled = false ;
         Debug.Log("StoppedAttacking");
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("IsColliding");
+        UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
+        if (uva != null)
+        {
+            uva.UvoncioDied();
+        }
     }
 
     #endregion   
