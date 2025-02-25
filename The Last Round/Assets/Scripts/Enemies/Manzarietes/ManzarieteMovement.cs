@@ -48,21 +48,28 @@ public class ManzarieteMovement : MonoBehaviour
     {
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
 
-
         InRange = EnemyPlayer.magnitude <= RangeAttack;
+
+        if (IsCharging)
+        {
+            rb.constraints |= RigidbodyConstraints2D.FreezePosition;
+            rb.constraints |= RigidbodyConstraints2D.FreezeRotation;
+        }else
+        {
+            rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
+            rb.constraints &= RigidbodyConstraints2D.FreezeRotation;
+        }
+
 
         if (InRange && !IsCharging && !IsSprinting)
         {
-            rb.velocity = Vector3.zero;
             IsCharging = true;
             timer = ChargeTime;
         }
         else if (IsCharging)
         {
-
             if (timer <= 0)
             {
-
                 if (EnemyPlayer.x != 0 && EnemyPlayer.y != 0 && EnemyPlayer.x * EnemyPlayer.x +
                                                                 EnemyPlayer.y * EnemyPlayer.y != 0)
                     LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
@@ -75,16 +82,13 @@ public class ManzarieteMovement : MonoBehaviour
                 IsCharging = false;
                 IsSprinting = true;
                 Stimer = SprintTime;
-
             }
         }
         else if (IsSprinting)
         {
-            rb.useFullKinematicContacts = false;
-            GetComponent<BoxCollider2D>().enabled = false;
             if (Stimer > 0)
             {
-                transform.position += LastPlayerPosition * SprintSpeed * Time.deltaTime;
+                rb.velocity = LastPlayerPosition * SprintSpeed * Time.fixedDeltaTime;
 
                 //Frenado final
                 if (Stimer < SprintTime / 3.5f && SprintSpeed > tmp / 20)
@@ -94,11 +98,9 @@ public class ManzarieteMovement : MonoBehaviour
             }
             else
             {
+                rb.velocity = Vector3.zero;
                 IsSprinting = false;
                 SprintSpeed = tmp;
-                rb.useFullKinematicContacts = true;
-                GetComponent<BoxCollider2D>().enabled = true;
-
             }
         }
         else

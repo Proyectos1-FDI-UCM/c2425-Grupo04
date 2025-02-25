@@ -33,8 +33,6 @@ public class PlayerDash : MonoBehaviour
     private float cooldownTimer = 0f;
     private Vector3 LastDirection;
     private Rigidbody2D rb;
-    
-    private CollisionDetecter colisionado;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -51,7 +49,6 @@ public class PlayerDash : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        colisionado = GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -106,11 +103,6 @@ public class PlayerDash : MonoBehaviour
         
         isDashing = true;
         cooldownTimer = DashCooldown;
-        if ((colisionado.GetCollisions()[0]&&LastDirection.y > 0 )|| (colisionado.GetCollisions()[1] && LastDirection.y < 0))
-            { LastDirection.y = 0; }
-        if ((colisionado.GetCollisions()[2] && LastDirection.x > 0) || (colisionado.GetCollisions()[3] && LastDirection.x < 0))
-        { LastDirection.x = 0; }
-
         rb.velocity = new Vector3(LastDirection.x * DashSpeed* Time.fixedDeltaTime, LastDirection.y * DashSpeed* Time.fixedDeltaTime);
       
     }
