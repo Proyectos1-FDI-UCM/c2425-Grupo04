@@ -18,7 +18,7 @@ using UnityEditor;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Proyectile : MonoBehaviour
+public class AttackGeneral : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -32,8 +32,7 @@ public class Proyectile : MonoBehaviour
     [SerializeField]
     private Transform customCursor;
 
-    [SerializeField]
-    private BulletMovement bulletPrefab;
+    
 
     [SerializeField]
     private Transform pivot;
@@ -42,6 +41,14 @@ public class Proyectile : MonoBehaviour
 
     [SerializeField]
     private Camera cameraMain;
+
+
+
+    [SerializeField]
+    private BulletMovement bulletPrefab;
+
+    [SerializeField]
+    private MeleeAttack meleeEmpty;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -55,8 +62,13 @@ public class Proyectile : MonoBehaviour
 
 
     private Vector3 mousePos;
-    private Vector2 originRotation; 
+    private Vector2 originRotation;
     #endregion
+
+
+    private bool weaponType; //TEMPORAL TRUE = DISPARO      FALSE = MELEE
+
+
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
@@ -82,14 +94,26 @@ public class Proyectile : MonoBehaviour
         //customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
         mousePos = cameraMain.ScreenToWorldPoint(new Vector3 (Mouse.current.position.x.value,Mouse.current.position.y.value,0));
 
-        Debug.Log(mousePos);
+        //Debug.Log(mousePos);
         customCursor.position = new Vector3 (mousePos.x , mousePos.y , 0);
         Vector3 rotationOrigin = mousePos - transform.position;
 
         float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
         pivot.transform.rotation = Quaternion.Euler(0,0,rotZ - 90);
 
-        if (InputManager.Instance.FireWasPressedThisFrame()) Instantiate(bulletPrefab,origin.transform.position , pivot.transform.rotation);
+
+        if (Keyboard.current[Key.V].wasPressedThisFrame)
+        {
+            if (weaponType) weaponType = false;
+            else if  (!weaponType) weaponType = true;
+        }
+
+
+        if (InputManager.Instance.FireWasPressedThisFrame())
+        {
+            if (weaponType) Shoot();
+            else Melee();
+        }
         
     }
     #endregion
@@ -111,6 +135,16 @@ public class Proyectile : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+
+    private void Shoot ()
+    {
+        Instantiate(bulletPrefab, origin.transform.position, pivot.transform.rotation);
+    }
+
+    private void Melee()
+    {
+        meleeEmpty.GetComponent<MeleeAttack>().ChangeColliderState();
+    }
     #endregion   
 
 } // class Proyectile 
