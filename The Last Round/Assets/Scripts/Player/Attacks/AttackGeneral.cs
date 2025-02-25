@@ -48,7 +48,7 @@ public class AttackGeneral : MonoBehaviour
     private BulletMovement bulletPrefab;
 
     [SerializeField]
-    private MeleeAttack meleeEmpty;
+    private GameObject meleeEmpty;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -143,7 +143,7 @@ public class AttackGeneral : MonoBehaviour
 
     private void Melee()
     {
-        meleeEmpty.GetComponent<MeleeAttack>().ChangeColliderState();
+        meleeEmpty.GetComponent<MeleeAttack>().StartCoroutine("AttackHitboxDuration");
     }
     #endregion   
 

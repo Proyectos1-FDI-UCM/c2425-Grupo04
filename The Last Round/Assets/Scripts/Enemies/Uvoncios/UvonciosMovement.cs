@@ -67,6 +67,12 @@ public class UvonciosMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+    public void UvoncioDied()
+    {
+        Debug.Log("Imdedbruh");
+        Destroy(gameObject);
+    }
+
 
     #endregion
 
