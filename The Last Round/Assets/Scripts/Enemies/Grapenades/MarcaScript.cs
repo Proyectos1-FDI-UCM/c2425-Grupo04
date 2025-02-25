@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Un objeto que rodea al enemigo mirando hacia jugador, cuando toca al jugador hace dano
-// Letian Liye
+// Permite que la marca sea destruida por el jugador
+// Víctor Castro Álvarez
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -13,13 +13,9 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class attarkobject : MonoBehaviour
+public class MarcaScript : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
-    public GameObject enemy;
-    public GameObject Player;
-    public MoveToPlayer MoveToPlayer;
-    public Transform rotationcenter;
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
@@ -28,58 +24,53 @@ public class attarkobject : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Vector3 PlayerDirection;
-    
-    
-   
-    private Rigidbody2D rb;
-    
-    #endregion
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
 
+    #endregion
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
-
-
-
+    
+    // Por defecto están los típicos (Update y Start) pero:
+    // - Hay que añadir todos los que sean necesarios
+    // - Hay que borrar los que no se usen 
+    
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before 
+    /// any of the Update methods are called the first time.
+    /// </summary>
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         
     }
 
-   
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
     void Update()
     {
-        if (Player == null)
-        {
-            Player = GameManager.Instance.GetPlayer();
-            Debug.Log("player encontrado");
-        }
-       
-        //recoger la direction desde enemigo hasta jugador desde script de MoveToPlayer
-        PlayerDirection = MoveToPlayer.UpdateVector(enemy);
-
-        //Calcular el angulo objetivo (convertir a angulo 2D)
-        float targetAngle = Mathf.Atan2(PlayerDirection.y, PlayerDirection.x) * Mathf.Rad2Deg;
-
-        //Rotacion suave (utilice el angulo Lerp para evitar giros repentinos)
-        float currentAngle = Mathf.LerpAngle( rotationcenter.eulerAngles.z,targetAngle, 1 * Time.deltaTime
-        );
-        //rotacion de objeto vacio , que esta en el centro del enemigo, y es elemento padre del objeto que tiene poder de atacar
-        rotationcenter.rotation = Quaternion.Euler(0, 0, currentAngle);
+        
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    
+    public void Destruir()
+    {
+        Debug.Log("Marca destruida");
+        Destroy(gameObject);
+    }
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -87,7 +78,7 @@ public class attarkobject : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class attarkobject 
+} // class MarcaScript 
 // namespace

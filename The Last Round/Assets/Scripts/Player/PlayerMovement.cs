@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 LastDirection;
     private Vector3 MoveDirection = new Vector3 (0, 0, 0);
-    private CollisionDetecter cD;
     bool dashing;
     #endregion
 
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.GivePlayer(gameObject);
         rb = GetComponent<Rigidbody2D>();
-        cD = gameObject.GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -58,19 +56,19 @@ public class PlayerMovement : MonoBehaviour
 
         MoveDirection = Vector3.zero;
 
-        if (Keyboard.current[Key.W].isPressed && !cD.GetCollisions()[0])
+        if (Keyboard.current[Key.W].isPressed)
         {
             MoveDirection.y = 1;
         }
-        if (Keyboard.current[Key.S].isPressed && !cD.GetCollisions()[1])
+        if (Keyboard.current[Key.S].isPressed)
         {
             MoveDirection.y = -1;
         }
-        if (Keyboard.current[Key.D].isPressed && !cD.GetCollisions()[2])
+        if (Keyboard.current[Key.D].isPressed)
         {
             MoveDirection.x = 1;
         }
-        if (Keyboard.current[Key.A].isPressed && !cD.GetCollisions()[3])
+        if (Keyboard.current[Key.A].isPressed)
         {
             MoveDirection.x = -1;
         }

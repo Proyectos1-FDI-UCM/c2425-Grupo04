@@ -1,13 +1,10 @@
 //---------------------------------------------------------
-// Se asigna este script a un objeto con un pivote en otro objeto distinto,
-// y rota siguiendo a un objeto (que será normalmente el ratón)
+// Borra la marca puesta por PlaceMark cuando la bala del Grapenade la toca
 // Víctor Castro Álvarez
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Runtime.CompilerServices;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -16,35 +13,35 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class FollowRotate : MonoBehaviour
+public class RemoveMark : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject FollowObject;
-    [SerializeField] Transform Pivot;
-    
-    [SerializeField] GameObject PivotObject;
+    [SerializeField] GameObject Grapenade;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Vector3 ObjectPos;
+    private GameObject Player;
+    private PlaceMark pm;
+
     #endregion
-    bool moveornot=true;   
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-
+        pm = Grapenade.GetComponent<PlaceMark>();
     }
 
     /// <summary>
@@ -52,42 +49,38 @@ public class FollowRotate : MonoBehaviour
     /// </summary>
     void Update()
     {
-        GetObjectVector();
-        float targetAngle = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
-        float currentAngle = Mathf.LerpAngle(
-            Pivot.eulerAngles.z,
-            targetAngle,
-            3 * Time.deltaTime
-        );
-        transform.rotation = Quaternion.Euler(0, 0, currentAngle); 
+        if (Player == null)
+            Player = GameManager.Instance.GetPlayer();
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void tocado(bool tocado)
-    {
-       if(tocado==true)moveornot = false;
-        if (tocado ==false) moveornot = true;
-    }
+    // Documentar cada método que aparece aquí con ///<summary>
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
+    // Ejemplo: GetPlayerController
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    //Versión modificada de UpdateVector (de MoveToPlayer)
-    private void GetObjectVector()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (FollowObject != null && PivotObject != null&&moveornot ==true)
-            ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
-                              FollowObject.transform.position.y - PivotObject.transform.position.y,
-                              0);
+        MarcaScript mc = collision.GetComponent<MarcaScript>();
 
-
-
-        #endregion
+        if(mc != null)
+        {
+            mc.Destruir();
+            if(Player == null)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
-  
-   
 
-} // class FollowRotate 
+    #endregion   
+
+} // class RemoveMark 
 // namespace

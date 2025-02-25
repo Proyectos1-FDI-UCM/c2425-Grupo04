@@ -26,8 +26,8 @@ public class MoveToPlayer : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 EnemyPlayer;
     private GameObject Player;
-    private CollisionDetecter cD;
     private Rigidbody2D rb;
+    private CollisionDetecter cD;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -73,9 +73,14 @@ public class MoveToPlayer : MonoBehaviour
             EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
             /*   []  . .  []    UN  */Player.transform.position.y - enemy.transform.position.y,
             /*  \___________/  SAPO */0);
-        if (cD.GetCollisions()[1] && EnemyPlayer.y < 0 || cD.GetCollisions()[0] && EnemyPlayer.y > 0) EnemyPlayer.y = 0;
-        if (cD.GetCollisions()[2] && EnemyPlayer.x > 0 || cD.GetCollisions()[3] && EnemyPlayer.x < 0) EnemyPlayer.x = 0;
 
+        if ((cD.GetCollisions()[0] && EnemyPlayer.y > 0) ||
+            (cD.GetCollisions()[1] && EnemyPlayer.y < 0) /*||
+            (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1)*/) EnemyPlayer.y = 0;
+
+        if ((cD.GetCollisions()[2] && EnemyPlayer.x > 0) ||
+            (cD.GetCollisions()[3] && EnemyPlayer.x < 0) /*||
+            (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1)*/) EnemyPlayer.x = 0;
 
         return EnemyPlayer;
     }
@@ -83,20 +88,7 @@ public class MoveToPlayer : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.GetComponent<BoxCollider2D>() != null && GetComponent<BoxCollider2D>() != null)
-    //    {
-    //        if (Mathf.Abs(transform.position.y - collision.transform.position.y) < collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y/2 + GetComponent<BoxCollider2D>().bounds.size.y/2)
-    //        {
-    //            transform.position = new Vector3 (0, collision.transform.position.y + collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.y / 2, 0);
-    //        }
-    //        if (Mathf.Abs(transform.position.x - collision.transform.position.x) < collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.x / 2 + GetComponent<BoxCollider2D>().bounds.size.x / 2)
-    //        {
-    //            transform.position = new Vector3(collision.transform.position.x + collision.gameObject.GetComponent<BoxCollider2D>().bounds.size.x / 2, 0, 0);
-    //        }
-    //    }
-    //}
+    
     #endregion
 } // class MoveToPlayer 
 // namespace
