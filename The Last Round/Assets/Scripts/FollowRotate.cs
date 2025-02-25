@@ -20,9 +20,7 @@ public class FollowRotate : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject FollowObject;
-    [SerializeField] Transform Pivot;
-    
+    [SerializeField] GameObject FollowObject;    
     [SerializeField] GameObject PivotObject;
     #endregion
 
@@ -30,7 +28,6 @@ public class FollowRotate : MonoBehaviour
     #region Atributos Privados (private fields)
     private Vector3 ObjectPos;
     #endregion
-    bool moveornot=true;   
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
@@ -53,23 +50,14 @@ public class FollowRotate : MonoBehaviour
     void Update()
     {
         GetObjectVector();
-        float targetAngle = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
-        float currentAngle = Mathf.LerpAngle(
-            Pivot.eulerAngles.z,
-            targetAngle,
-            3 * Time.deltaTime
-        );
-        transform.rotation = Quaternion.Euler(0, 0, currentAngle); 
+        float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotation); 
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void tocado(bool tocado)
-    {
-       if(tocado==true)moveornot = false;
-        if (tocado ==false) moveornot = true;
-    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -77,13 +65,10 @@ public class FollowRotate : MonoBehaviour
     //Versión modificada de UpdateVector (de MoveToPlayer)
     private void GetObjectVector()
     {
-        if (FollowObject != null && PivotObject != null&&moveornot ==true)
+        if(FollowObject != null && PivotObject != null)
             ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
                               FollowObject.transform.position.y - PivotObject.transform.position.y,
                               0);
-
-
-
         #endregion
     }
   
