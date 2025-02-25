@@ -83,7 +83,7 @@ public class CooldownGeneral
         if (!Encooldown)
         {
             this.owner = owner;
-            owner.StartCoroutine();
+            owner.StartCoroutine(ProcesoCooldown());
         }
     }
 
