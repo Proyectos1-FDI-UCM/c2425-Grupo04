@@ -59,6 +59,7 @@ public class MoveToPlayer : MonoBehaviour
           /*QUE HUECO MAS FEO QUE HAY AQUÍ, LO RELLENO*/EnemyPlayer.y * EnemyPlayer.y != 0)
             EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
               /*Y AQUÍ IGUAL MACHO*/  EnemyPlayer.y * EnemyPlayer.y);
+
         else if (EnemyPlayer.x != 0) EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x);
         else if (EnemyPlayer.y != 0) EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.y * EnemyPlayer.y);
 
@@ -75,12 +76,12 @@ public class MoveToPlayer : MonoBehaviour
             /*  \___________/  SAPO */0);
 
         if ((cD.GetCollisions()[0] && EnemyPlayer.y > 0) ||
-            (cD.GetCollisions()[1] && EnemyPlayer.y < 0) /*||
-            (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1)*/) EnemyPlayer.y = 0;
+            (cD.GetCollisions()[1] && EnemyPlayer.y < 0) ||
+            (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1)) EnemyPlayer.y = 0;
 
         if ((cD.GetCollisions()[2] && EnemyPlayer.x > 0) ||
-            (cD.GetCollisions()[3] && EnemyPlayer.x < 0) /*||
-            (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1)*/) EnemyPlayer.x = 0;
+            (cD.GetCollisions()[3] && EnemyPlayer.x < 0) ||
+            (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1)) EnemyPlayer.x = 0;
 
         return EnemyPlayer;
     }

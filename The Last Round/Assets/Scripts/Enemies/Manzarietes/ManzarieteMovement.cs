@@ -32,8 +32,9 @@ public class ManzarieteMovement : MonoBehaviour
     private Vector3 EnemyPlayer, LastPlayerPosition;
     private float timer = -1;
     private float Stimer = -1, tmp;
-    private bool IsCharging = false, IsSprinting = false, InRange = false;
+    private bool IsCharging = false, IsSprinting = false, InRange = false, hit = false;
     private Rigidbody2D rb;
+    private CollisionDetecter cD;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -43,6 +44,7 @@ public class ManzarieteMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
+        cD = GetComponent<CollisionDetecter>();
     }
     private void FixedUpdate()
     {
@@ -54,7 +56,8 @@ public class ManzarieteMovement : MonoBehaviour
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePosition;
             rb.constraints |= RigidbodyConstraints2D.FreezeRotation;
-        }else
+        }
+        else
         {
             rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
             rb.constraints &= RigidbodyConstraints2D.FreezeRotation;
@@ -88,6 +91,12 @@ public class ManzarieteMovement : MonoBehaviour
         {
             if (Stimer > 0)
             {
+                if (hit)
+                {
+                    LastPlayerPosition *= -1;
+                    hit = false;
+                }
+
                 rb.velocity = LastPlayerPosition * SprintSpeed * Time.fixedDeltaTime;
 
                 //Frenado final
@@ -127,17 +136,7 @@ public class ManzarieteMovement : MonoBehaviour
     #region Métodos Privados
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
-        {
-            rb.isKinematic = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (rb.isKinematic)
-        {
-            rb.isKinematic = false;
-        }
+        if (Mathf.Abs(rb.velocity.x) > 0 || Mathf.Abs(rb.velocity.y) > 0) hit = true;
     }
     #endregion
 
