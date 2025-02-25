@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if (MoveDirection != Vector3.zero)
         {
             LastDirection = MoveDirection;
-            Debug.Log($"LastDirection: {LastDirection}");
+           
         }
         
         if (!dashing)

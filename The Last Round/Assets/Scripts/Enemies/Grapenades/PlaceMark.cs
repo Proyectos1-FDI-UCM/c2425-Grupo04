@@ -1,13 +1,11 @@
 //---------------------------------------------------------
-// Se asigna este script a un objeto con un pivote en otro objeto distinto,
-// y rota siguiendo a un objeto (que será normalmente el ratón)
+// Crea una marca a los pies del jugador cuando el objeto referenciado se queda quieto
 // Víctor Castro Álvarez
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
 using System.Runtime.CompilerServices;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -16,17 +14,21 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class FollowRotate : MonoBehaviour
+public class PlaceMark : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject FollowObject;
-    [SerializeField] GameObject PivotObject;
+    [SerializeField] GameObject MarcaPrefab;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Vector3 ObjectPos;
+    private Rigidbody2D rb;
+    private GameObject marcaInstanciada;
+    private GameObject Player;
+
+
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -42,7 +44,7 @@ public class FollowRotate : MonoBehaviour
     /// </summary>
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     /// <summary>
@@ -50,29 +52,37 @@ public class FollowRotate : MonoBehaviour
     /// </summary>
     void Update()
     {
-        GetObjectVector();
-        float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotation); 
+        if (marcaInstanciada == null && rb.velocity == Vector2.zero)
+            MarcarJugador();
+
+        if (Player == null)
+            Player = GameManager.Instance.GetPlayer();
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+    public void EliminarMarca()
+    {
+        if (MarcaPrefab != null)
+        {
+            Destroy(marcaInstanciada);
+            marcaInstanciada = null;
+        }
+    }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    //Versión modificada de UpdateVector (de MoveToPlayer)
-    private void GetObjectVector()
-    {
-        if(FollowObject != null && PivotObject != null)
-        ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
-                          FollowObject.transform.position.y - PivotObject.transform.position.y,
-                          0);
-    }
 
+    //Si la marca se choca con el proyectil del Grapenade (llega a su destino), la marca se destruye
+    private void MarcarJugador()
+    {
+        if(marcaInstanciada == null && Player != null)
+        marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
+    }
     #endregion   
 
-} // class FollowRotate 
+} // class PlaceMark 
 // namespace
