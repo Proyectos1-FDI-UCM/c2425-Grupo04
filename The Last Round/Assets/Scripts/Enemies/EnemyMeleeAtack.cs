@@ -17,8 +17,6 @@ public class EnemyMeleeAtack : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-
-    public FollowRotate fr;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -26,7 +24,6 @@ public class EnemyMeleeAtack : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    private BoxCollider2D BoxCollider2D;
    
     #endregion
 
@@ -39,7 +36,6 @@ public class EnemyMeleeAtack : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        Collider2D collider = GetComponent<Collider2D>();
        
     }
 
@@ -62,7 +58,7 @@ public class EnemyMeleeAtack : MonoBehaviour
     #region Métodos Privados
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<PlayerMovement>() != null)
         {
             Debug.Log("ATAQUE!");
 
@@ -72,7 +68,7 @@ public class EnemyMeleeAtack : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<PlayerMovement>() != null)
         {
             spriteRenderer.color = originalColor;
         }
