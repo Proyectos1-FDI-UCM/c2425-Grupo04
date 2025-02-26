@@ -214,3 +214,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MarcaPrefab: {fileID: 1352360049607005943, guid: 3c878446afa3f874f92c42d3551984ed, type: 3}
+  Proyectil: {fileID: 4242593371902539852, guid: d7ddd0a48d3440c41a075df35d84f824, type: 3}

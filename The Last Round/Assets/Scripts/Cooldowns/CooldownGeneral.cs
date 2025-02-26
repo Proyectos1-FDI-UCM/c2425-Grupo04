@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Ignacio Plaza
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------

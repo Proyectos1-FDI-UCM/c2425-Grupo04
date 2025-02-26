@@ -22,6 +22,7 @@ public class FollowRotate : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject FollowObject;    
     [SerializeField] GameObject PivotObject;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -41,7 +42,7 @@ public class FollowRotate : MonoBehaviour
     /// </summary>
     void Start()
     {
-
+        gameObject.transform.rotation = Quaternion.identity;
     }
 
     /// <summary>

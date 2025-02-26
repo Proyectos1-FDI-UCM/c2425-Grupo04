@@ -19,6 +19,7 @@ public class PlaceMark : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject MarcaPrefab;
+    [SerializeField] GameObject Proyectil;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -26,6 +27,9 @@ public class PlaceMark : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject marcaInstanciada;
     private GameObject Player;
+    private bool marcaInstanciadaBool = false;
+    private MovimientoProyectilGrapenade mpv;
+
 
 
 
@@ -45,6 +49,7 @@ public class PlaceMark : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        mpv = Proyectil.GetComponent<MovimientoProyectilGrapenade>();
     }
 
     /// <summary>
@@ -68,7 +73,13 @@ public class PlaceMark : MonoBehaviour
         {
             Destroy(marcaInstanciada);
             marcaInstanciada = null;
+            marcaInstanciadaBool = false;
         }
+    }
+
+    public bool MarcaInstanciada()
+    {
+        return marcaInstanciadaBool;
     }
 
     #endregion
@@ -79,8 +90,14 @@ public class PlaceMark : MonoBehaviour
     //Si la marca se choca con el proyectil del Grapenade (llega a su destino), la marca se destruye
     private void MarcarJugador()
     {
-        if(marcaInstanciada == null && Player != null)
-        marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
+        if (marcaInstanciada == null && Player != null)
+            marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
+        GameObject proyectil = Instantiate(Proyectil);
+        if(marcaInstanciada != null)
+        proyectil.GetComponent<MovimientoProyectilGrapenade>().
+                      LanzarProyectil(gameObject.transform.position, marcaInstanciada.transform.position);
+
+        marcaInstanciadaBool = true;
     }
     #endregion   
 

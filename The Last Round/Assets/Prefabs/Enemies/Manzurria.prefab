@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02c89a7b2d4d8e4fb8048ef0d2112ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fr: {fileID: 1338644231412958691}
 --- !u!1 &3361144613507838987
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 3361144613507838987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.07, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -188,7 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3782ccd7bfe347149b8f48a801957f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PivotObject: {fileID: 7992104292323869361}
+  FollowObject: {fileID: 7749647460839375097, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+  PivotObject: {fileID: 814872764926193056}
 --- !u!1 &7992104292323869361
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +206,7 @@ GameObject:
   - component: {fileID: -8782203060869379033}
   - component: {fileID: 1967464169388331557}
   - component: {fileID: 6534199339364150021}
+  - component: {fileID: 7989776562267261187}
   m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
@@ -388,3 +391,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &7989776562267261187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02c89a7b2d4d8e4fb8048ef0d2112ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fr: {fileID: 1338644231412958691}
