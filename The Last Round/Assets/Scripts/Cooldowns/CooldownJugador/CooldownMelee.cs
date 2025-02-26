@@ -25,7 +25,7 @@ public class CooldownMelee : MonoBehaviour
 
     #endregion
     [SerializeField]
-    private CooldownGeneral CooldownParaMelee;
+
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
@@ -35,7 +35,7 @@ public class CooldownMelee : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    private CooldownGeneral CooldownParaMelee;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -49,7 +49,7 @@ public class CooldownMelee : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    
+
     void Start()
     {
         if (CooldownParaMelee == null)
