@@ -28,7 +28,6 @@ public class PlaceMark : MonoBehaviour
     private GameObject marcaInstanciada;
     private GameObject Player;
     private bool marcaInstanciadaBool = false;
-    private MovimientoProyectilGrapenade mpv;
 
 
 
@@ -49,7 +48,6 @@ public class PlaceMark : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        mpv = Proyectil.GetComponent<MovimientoProyectilGrapenade>();
     }
 
     /// <summary>
@@ -92,12 +90,10 @@ public class PlaceMark : MonoBehaviour
     {
         if (marcaInstanciada == null && Player != null)
             marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
-        GameObject proyectil = Instantiate(Proyectil);
-        if(marcaInstanciada != null)
-        proyectil.GetComponent<MovimientoProyectilGrapenade>().
-                      LanzarProyectil(gameObject.transform.position, marcaInstanciada.transform.position);
 
         marcaInstanciadaBool = true;
+
+        GetComponent<Shoot>().Shooting(marcaInstanciada, Proyectil);
     }
     #endregion   
 

@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Permite que la marca sea destruida por el jugador
-// Víctor Castro Álvarez
+// Breve descripción del contenido del archivo
+// Responsable de la creación de este archivo
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class MarcaScript : MonoBehaviour
+public class Autodestrucción : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,7 +22,8 @@ public class MarcaScript : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
+    [SerializeField]
+    float TimerTicTac;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -57,17 +58,18 @@ public class MarcaScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        TimerTicTac -= Time.deltaTime;
+        if (TimerTicTac <= 0) Destroy(gameObject);
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void Destruir()
-    {
-        Debug.Log("Marca destruida");
-        Destroy(gameObject);
-    }
+    // Documentar cada método que aparece aquí con ///<summary>
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
+    // Ejemplo: GetPlayerController
 
     #endregion
     
@@ -80,5 +82,5 @@ public class MarcaScript : MonoBehaviour
 
     #endregion   
 
-} // class MarcaScript 
+} // class Autodestrucción 
 // namespace
