@@ -16,7 +16,7 @@ using UnityEngine;
 /// usando todas las líneas que sean necesarias.
 /// </summary>
 [Serializable]
-public class CooldownGeneral 
+public class CooldownGeneral
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     //#region Atributos del Inspector (serialized fields)

@@ -5,10 +5,10 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Collections;
+
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-
+using System.Collections;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -25,34 +25,25 @@ public class MeleeAttack : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     [SerializeField]
-    private Collider2D hitbox;
+    public SpriteRenderer attackSprite;
 
     [SerializeField]
-    private SpriteRenderer attackSprite;
-
-    [SerializeField]
-    private float duration;
+    public float duration;
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
+    private Collider2D hitbox;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -119,6 +110,18 @@ public class MeleeAttack : MonoBehaviour
         if (uva != null)
         {
             uva.UvoncioDied();
+        }
+        if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
+        {
+            collision.gameObject.GetComponent<ManzurriaMovement>().Died();
+        }
+        if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
+        {
+            collision.gameObject.GetComponent<ManzarieteMovement>().Died();
+        }
+        if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
+        {
+            collision.gameObject.GetComponent<GrapenadeMovement>().Died();
         }
     }
 

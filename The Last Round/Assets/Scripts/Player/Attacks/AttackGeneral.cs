@@ -83,7 +83,7 @@ public class AttackGeneral : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
     }
 
     /// <summary>

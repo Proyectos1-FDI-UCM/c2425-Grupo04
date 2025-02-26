@@ -133,7 +133,10 @@ public class ManzarieteMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public void Died()
+    {
+        Destroy(gameObject);
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
