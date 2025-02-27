@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02c89a7b2d4d8e4fb8048ef0d2112ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fr: {fileID: 1338644231412958691}
 --- !u!1 &3361144613507838987
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3782ccd7bfe347149b8f48a801957f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowObject: {fileID: 7749647460839375097, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
-  PivotObject: {fileID: 814872764926193056}
+  PivotObject: {fileID: 7992104292323869361}
 --- !u!1 &7992104292323869361
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,4 +401,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02c89a7b2d4d8e4fb8048ef0d2112ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fr: {fileID: 1338644231412958691}
