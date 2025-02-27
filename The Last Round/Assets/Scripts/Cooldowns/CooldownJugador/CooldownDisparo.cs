@@ -60,10 +60,10 @@ public class CooldownDisparo : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.FireWasPressedThisFrame() && CooldownParaDisparo.PuedeEjecutar())
+        if (InputManager.Instance.FireWasPressedThisFrame() && CooldownParaDisparo.Empezando)
         {
             YoDisparo();
-            CooldownParaDisparo.IniciarCooldown(this);
+            CooldownParaDisparo.Activar();
 
         }
     }

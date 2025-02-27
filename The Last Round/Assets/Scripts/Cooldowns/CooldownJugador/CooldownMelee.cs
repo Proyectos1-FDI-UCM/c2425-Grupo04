@@ -60,10 +60,10 @@ public class CooldownMelee : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.FireWasPressedThisFrame() && CooldownParaMelee.PuedeEjecutar())
+        if (InputManager.Instance.FireWasPressedThisFrame() && CooldownParaMelee.Empezando)
         {
             YoCorto();
-            CooldownParaMelee.IniciarCooldown(this);
+            CooldownParaMelee.Activar();
 
         }
     }

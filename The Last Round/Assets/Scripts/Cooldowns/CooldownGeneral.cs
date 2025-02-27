@@ -42,18 +42,16 @@ public class CooldownGeneral
 
     #endregion
 
-    private float cooldownRestante = 0f;
-    private bool Encooldown = false;
-    private MonoBehaviour owner; 
+    private float ultimaAccion = -Mathf.Infinity;
     //Se necesita para iniciar el cooldown
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -82,23 +80,22 @@ public class CooldownGeneral
 
     #endregion
 
-
-    public void IniciarCooldown(MonoBehaviour owner)
+    public bool Empezando
     {
-        if (!Encooldown)
+        get { return Time.time >= ultimaAccion + cooldownTiempo; }
+    }
+    public void Activar()
+    {
+        if (Empezando)
         {
-            this.owner = owner;
-            owner.StartCoroutine(ProcesoCooldown());
+            ultimaAccion = Time.time;
         }
     }
-
-
-
-    public bool PuedeEjecutar()
+    public float ObtenerTiempoRestante()
     {
-        return !Encooldown;
+        float restante = (ultimaAccion + cooldownTiempo) - Time.time;
+        return Mathf.Max(0, restante);
     }
-
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -108,19 +105,6 @@ public class CooldownGeneral
 
     #endregion   
 
-    private IEnumerator ProcesoCooldown() //IEnumerator es un tipo de retorno especial para el cooldown
-    {
-        Encooldown = true;
-        cooldownRestante = cooldownTiempo;
-
-        while (cooldownRestante > 0)
-        {
-            cooldownRestante -= Time.deltaTime;
-            yield return null; 
-            //Espera un frame antes de continuar
-        }
-
-        Encooldown = false;
-    }
+   
 } // class CooldownGeneral 
 // namespace

@@ -61,10 +61,10 @@ public class CooldownEnemigo : MonoBehaviour
     #endregion
     void Update()
     {
-        if (cooldownAtaque.PuedeEjecutar())
+        if (cooldownAtaque.Empezando)
         {
             Atacar();
-            cooldownAtaque.IniciarCooldown(this);
+            cooldownAtaque.Activar();
         }
     }
 
