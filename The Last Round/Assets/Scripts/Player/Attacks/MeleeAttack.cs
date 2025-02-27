@@ -9,6 +9,7 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using System.Collections;
+using System.Threading;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -34,7 +35,8 @@ public class MeleeAttack : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Collider2D hitbox;
+    private bool Attack = false;
+    private float timer = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -50,29 +52,39 @@ public class MeleeAttack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        hitbox = GetComponent<Collider2D>();
-        hitbox.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
         attackSprite = GetComponent<SpriteRenderer>();
         attackSprite.enabled = false;
     }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
+    private void Update()
     {
+        if (Attack || timer > 0)
+        {
+            GetComponent<Collider2D>().enabled = true;
+            attackSprite.enabled = true;
+            Attack = false;
+
+            if (timer <= 0) timer = duration;
+        }
+        else
+        {
+            GetComponent<Collider2D>().enabled = false;
+            attackSprite.enabled = false;
+        }
         
+        timer -= Time.deltaTime;
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-
+    /// <summary>
+    /// El objeto que tiene este script activa el ataque
+    /// </summary>
+    public void attack()
+    {
+        Attack = true;
+    }
 
     #endregion
 
@@ -82,26 +94,6 @@ public class MeleeAttack : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
-
-
-    
-
-    private IEnumerator AttackHitboxDuration()
-    {
-        hitbox.enabled = true;
-        attackSprite.enabled=true;
-        
-        if (hitbox.enabled == true)
-        {
-            Debug.Log("IsAttacking");
-        }
-        yield return new WaitForSeconds(duration);
-
-        hitbox.enabled = false;
-        attackSprite.enabled = false ;
-        Debug.Log("StoppedAttacking");
-    }
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -111,15 +103,15 @@ public class MeleeAttack : MonoBehaviour
         {
             uva.UvoncioDied();
         }
-        if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
+        else if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
         {
             collision.gameObject.GetComponent<ManzurriaMovement>().Died();
         }
-        if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
+        else if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
         {
             collision.gameObject.GetComponent<ManzarieteMovement>().Died();
         }
-        if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
+        else if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
         {
             collision.gameObject.GetComponent<GrapenadeMovement>().Died();
         }

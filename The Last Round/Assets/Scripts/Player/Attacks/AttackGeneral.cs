@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Óscar Daniel Fernández Cabana
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -22,12 +22,8 @@ public class AttackGeneral : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
-    
+    [SerializeField]
+    private float AttackCooldown;
 
     [SerializeField]
     private Transform customCursor;
@@ -48,27 +44,16 @@ public class AttackGeneral : MonoBehaviour
     private BulletMovement bulletPrefab;
 
     [SerializeField]
-    private GameObject meleeEmpty;
+    private GameObject meleeObject;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
-
     private Vector3 mousePos;
     private Vector2 originRotation;
-    #endregion
-
-
+    private float timer = 0;
     private bool weaponType; //TEMPORAL TRUE = DISPARO      FALSE = MELEE
-
-
+    #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
@@ -109,12 +94,13 @@ public class AttackGeneral : MonoBehaviour
         }
 
 
-        if (InputManager.Instance.FireWasPressedThisFrame())
+        if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0)
         {
             if (weaponType) Shoot();
             else Melee();
+            timer = AttackCooldown;
         }
-        
+        timer -= Time.deltaTime;
     }
     #endregion
 
@@ -143,7 +129,7 @@ public class AttackGeneral : MonoBehaviour
 
     private void Melee()
     {
-        meleeEmpty.GetComponent<MeleeAttack>().StartCoroutine("AttackHitboxDuration");
+        meleeObject.GetComponent<MeleeAttack>().attack();
     }
     #endregion   
 
