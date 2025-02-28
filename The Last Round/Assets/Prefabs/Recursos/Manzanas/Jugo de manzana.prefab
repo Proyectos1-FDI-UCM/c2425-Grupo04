@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7751813280302244168}
   - component: {fileID: 4845203293182613940}
   - component: {fileID: 1593341712822715442}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Jugo de manzana
-  m_TagString: Untagged
+  m_TagString: Recursos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

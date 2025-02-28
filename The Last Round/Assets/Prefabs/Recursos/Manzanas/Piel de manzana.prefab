@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5097889056442788436}
   - component: {fileID: 6773304990980262753}
   - component: {fileID: 790871327564131145}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Piel de manzana
-  m_TagString: Untagged
+  m_TagString: Recursos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 679102220210475423}
   - component: {fileID: 6294834214338698284}
   - component: {fileID: 4403407286023928397}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Semilla de manzana
-  m_TagString: Untagged
+  m_TagString: Recursos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
