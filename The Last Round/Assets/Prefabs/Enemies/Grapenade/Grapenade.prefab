@@ -201,6 +201,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3
   marchaAtrasSpeed: 50
+  PielDeUva: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
+  JugoDeUva: {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
+  SemillaDeUva: {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
 --- !u!114 &1439747126237554738
 MonoBehaviour:
   m_ObjectHideFlags: 0

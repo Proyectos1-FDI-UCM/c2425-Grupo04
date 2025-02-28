@@ -24,6 +24,9 @@ public class ManzarieteMovement : MonoBehaviour
     public float ChargeTime;
     public float SprintSpeed;
     public float SprintTime;
+    [SerializeField] GameObject PielDeManzana;
+    [SerializeField] GameObject JugoDeManzana;
+    [SerializeField] GameObject SemillaDeManzana;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -135,6 +138,24 @@ public class ManzarieteMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Died()
     {
+        int recursornd = Random.Range(0, 4);
+        if (recursornd == 1)
+        {
+            Instantiate(PielDeManzana, gameObject.transform);
+            Debug.Log("Manzariete: Piel de manzana");
+        }
+        else if (recursornd == 2)
+        {
+            Instantiate(JugoDeManzana, gameObject.transform);
+            Debug.Log("Manzariete: Jugo de manzana");
+        }
+        else if (recursornd == 3)
+        {
+            Instantiate(SemillaDeManzana, gameObject.transform);
+            Debug.Log("Manzariete: Semilla de manzana");
+        }
+        else Debug.Log("Manzariete: Sin material");
+
         Destroy(gameObject);
     }
     #endregion

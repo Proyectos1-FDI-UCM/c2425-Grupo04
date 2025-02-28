@@ -18,11 +18,9 @@ public class UvonciosMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    [SerializeField] GameObject PielDeUva;
+    [SerializeField] GameObject JugoDeUva;
+    [SerializeField] GameObject SemillaDeUva;
 
     #endregion
 
@@ -69,6 +67,23 @@ public class UvonciosMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void UvoncioDied()
     {
+        int recursornd = Random.Range(0, 4);
+        if (recursornd == 1)
+        {
+            Instantiate(PielDeUva, gameObject.transform);
+            Debug.Log("Uvoncio: Piel de uva");
+        }
+        else if (recursornd == 2)
+        {
+            Instantiate(JugoDeUva, gameObject.transform);
+            Debug.Log("Uvoncio: Jugo de uva");
+        }
+        else if (recursornd == 3)
+        {
+            Instantiate(SemillaDeUva, gameObject.transform);
+            Debug.Log("Uvoncio: Semilla de uva");
+        }
+        else Debug.Log("Uvoncio: Sin material");
         Debug.Log("Imdedbruh");
         Destroy(gameObject);
     }

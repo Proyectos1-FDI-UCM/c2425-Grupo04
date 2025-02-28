@@ -17,11 +17,9 @@ public class ManzurriaMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    [SerializeField] GameObject PielDeManzana;
+    [SerializeField] GameObject JugoDeManzana;
+    [SerializeField] GameObject SemillaDeManzana;
 
     #endregion
 
@@ -67,6 +65,23 @@ public class ManzurriaMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Died()
     {
+        int recursornd = Random.Range(0, 4);
+        if (recursornd == 1)
+        {
+            Instantiate(PielDeManzana, gameObject.transform);
+            Debug.Log("Manzurria: Piel de manzana");
+        }
+        else if (recursornd == 2)
+        {
+            Instantiate(JugoDeManzana, gameObject.transform);
+            Debug.Log("Manzurria: Jugo de manzana");
+        }
+        else if (recursornd == 3)
+        {
+            Instantiate(SemillaDeManzana, gameObject.transform);
+            Debug.Log("Manzurria: Semilla de manzana");
+        }
+        else Debug.Log("Manzurria: Sin material");
         Destroy(gameObject);
     }
     #endregion

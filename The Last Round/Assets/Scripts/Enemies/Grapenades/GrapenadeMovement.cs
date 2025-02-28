@@ -22,6 +22,9 @@ public class GrapenadeMovement : MonoBehaviour
     private float range;
     [SerializeField]
     private float marchaAtrasSpeed;
+    [SerializeField] GameObject PielDeUva;
+    [SerializeField] GameObject JugoDeUva;
+    [SerializeField] GameObject SemillaDeUva;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -31,14 +34,14 @@ public class GrapenadeMovement : MonoBehaviour
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -57,15 +60,15 @@ public class GrapenadeMovement : MonoBehaviour
     {
         EnemyPlayer = moveToPlayer.UpdateVector(gameObject);
 
-        if (Mathf.Floor(EnemyPlayer.magnitude*10)/10 == range)
+        if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
         {
             rb.velocity = Vector3.zero;
         }
-        else if(Mathf.Floor(EnemyPlayer.magnitude*10)/10 < range)
+        else if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
         {
             if ((cD.GetCollisions()[0] && -EnemyPlayer.y > 0) || (cD.GetCollisions()[1] && -EnemyPlayer.y < 0)) EnemyPlayer.y = 0;
             if ((cD.GetCollisions()[2] && -EnemyPlayer.x > 0) || (cD.GetCollisions()[3] && -EnemyPlayer.x < 0)) EnemyPlayer.x = 0;
-            rb.velocity = - EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
+            rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
         }
         else
         {
@@ -83,6 +86,24 @@ public class GrapenadeMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Died()
     {
+        int recursornd = Random.Range(0, 4);
+        if (recursornd == 1)
+        {
+            Instantiate(PielDeUva, gameObject.transform);
+            Debug.Log("Grapenade: Piel de uva");
+        }
+        else if (recursornd == 2)
+        {
+            Instantiate(JugoDeUva, gameObject.transform);
+            Debug.Log("Grapenade: Jugo de uva");
+        }
+        else if (recursornd == 3)
+        {
+            Instantiate(SemillaDeUva, gameObject.transform);
+            Debug.Log("Grapenade: Semilla de uva");
+
+        }
+        else Debug.Log("Grapenade: Sin material");
         Destroy(gameObject);
     }
     #endregion

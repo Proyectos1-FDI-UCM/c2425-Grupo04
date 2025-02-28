@@ -295,6 +295,9 @@ MonoBehaviour:
   ChargeTime: 2
   SprintSpeed: 300
   SprintTime: 2
+  PielDeManzana: {fileID: 4423979788562637781, guid: 97d86ae7791e3d34c804925006e91441, type: 3}
+  JugoDeManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
+  SemillaDeManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
