@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using UnityEditor;
 using UnityEngine;
 
 
@@ -25,11 +26,7 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-    public float[]recursos= new float[6];
-   
-    //0 = Jugo de Uva       //3 = Jugo de manzana
-    //1 = Piel de Uva       //4 = Piel de manzana
-    //2 = Semilla de Uva    //5 = Semilla manzana
+    
 
 
 
@@ -42,8 +39,18 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Instancia única de la clase (singleton).
     /// </summary>
+    private Uimanager UIManager;
     private static GameManager _instance;
     private GameObject Player;
+    private float[] recursos = new float[6];
+
+    //0 = Jugo de Uva       //3 = Jugo de manzana
+    //1 = Piel de Uva       //4 = Piel de manzana
+    //2 = Semilla de Uva    //5 = Semilla manzana
+
+    private float[] Nrecursos = new float[2];
+
+    //0 = Hielo       //1 = Levadura
 
     #endregion
 
@@ -116,10 +123,23 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseResource(int i, string recursoname)
     {
-        recursos[i] += 1;
         Debug.Log(recursoname + "mas 1");
-        Debug.Log(recursos[i] + "Es la cantidad actual de "+ recursoname);
+        if (recursoname != "Hielo" || recursoname != "Levadura")
+        {
+            recursos[i] += 1;
+            Debug.Log(recursos[i] + "Es la cantidad actual de " + recursoname);
+        }
+        else
+        {
+            Nrecursos[i] += 1;
+            Debug.Log(Nrecursos[i] + "Es la cantidad actual de " + recursoname);
+        } 
     }
+    public void GetUI(UiManager uimanager)
+    {
+        this.UIManager = uimanager;
+}
+
 
     public static GameManager Instance
     {
