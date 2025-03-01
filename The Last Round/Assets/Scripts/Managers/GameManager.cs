@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Instancia única de la clase (singleton).
     /// </summary>
-    private Uimanager UIManager;
+    private UIManager UIManager;
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[6];
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
             Debug.Log(Nrecursos[i] + "Es la cantidad actual de " + recursoname);
         } 
     }
-    public void GetUI(UiManager uimanager)
+    public void GetUI(UIManager uimanager)
     {
         this.UIManager = uimanager;
 }
