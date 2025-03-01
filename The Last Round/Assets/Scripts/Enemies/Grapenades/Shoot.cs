@@ -59,7 +59,7 @@ public class Shoot : MonoBehaviour
     /// </summary>
     void Update()
     {
-       if (shooted && timer <= 0)
+       if (shooted && timer <= 0 && marca != null)
         {
             InstantiateBullet();
             shooted = false;
@@ -92,8 +92,8 @@ public class Shoot : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void InstantiateBullet()
     {
-        GameObject bullet = Instantiate(proyectil, new Vector3(marca.transform.position.x,marca.transform.position.y + 5.5f), Quaternion.identity);
-        bullet.GetComponent<ProjectileMovement>().GiveMark(marca);
+            GameObject bullet = Instantiate(proyectil, new Vector3(marca.transform.position.x, marca.transform.position.y + 5.5f), Quaternion.identity);
+            bullet.GetComponent<ProjectileMovement>().GiveMark(marca);
     }
     #endregion   
 
