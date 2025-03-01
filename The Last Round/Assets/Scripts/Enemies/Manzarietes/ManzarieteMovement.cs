@@ -38,6 +38,7 @@ public class ManzarieteMovement : MonoBehaviour
     private bool IsCharging = false, IsSprinting = false, InRange = false, hit = false, OnCollision = false;
     private Rigidbody2D rb;
     private CollisionDetecter cD;
+    private GameObject recurso;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -141,21 +142,26 @@ public class ManzarieteMovement : MonoBehaviour
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
         {
-            Instantiate(PielDeManzana, gameObject.transform);
+            recurso = PielDeManzana;
             Debug.Log("Manzariete: Piel de manzana");
         }
         else if (recursornd == 2)
         {
-            Instantiate(JugoDeManzana, gameObject.transform);
+            recurso = JugoDeManzana;
             Debug.Log("Manzariete: Jugo de manzana");
         }
         else if (recursornd == 3)
         {
-            Instantiate(SemillaDeManzana, gameObject.transform);
+            recurso = SemillaDeManzana;
             Debug.Log("Manzariete: Semilla de manzana");
         }
-        else Debug.Log("Manzariete: Sin material");
-
+        else
+        {
+            recurso = null;
+            Debug.Log("Manzariete: Sin material");
+        }
+        
+        Instantiate(recurso, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     #endregion

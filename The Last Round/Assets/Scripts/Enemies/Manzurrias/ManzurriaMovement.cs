@@ -27,7 +27,7 @@ public class ManzurriaMovement : MonoBehaviour
     #region Atributos Privados (private fields)
     private MoveToPlayer moveToplayer;
     private Vector3 EnemyPlayer;
-
+    private GameObject recurso;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -65,23 +65,30 @@ public class ManzurriaMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Died()
     {
+        
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
         {
-            Instantiate(PielDeManzana, gameObject.transform);
+            recurso = PielDeManzana;
             Debug.Log("Manzurria: Piel de manzana");
         }
         else if (recursornd == 2)
         {
-            Instantiate(JugoDeManzana, gameObject.transform);
+            recurso = JugoDeManzana;
             Debug.Log("Manzurria: Jugo de manzana");
         }
         else if (recursornd == 3)
         {
-            Instantiate(SemillaDeManzana, gameObject.transform);
+            recurso = SemillaDeManzana;
             Debug.Log("Manzurria: Semilla de manzana");
         }
-        else Debug.Log("Manzurria: Sin material");
+        else
+        {
+            recurso = null;
+            Debug.Log("Manzurria: Sin material");
+        }
+        
+        Instantiate(recurso, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     #endregion

@@ -33,6 +33,7 @@ public class GrapenadeMovement : MonoBehaviour
     private CollisionDetecter cD;
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
+    private GameObject recurso;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -89,21 +90,27 @@ public class GrapenadeMovement : MonoBehaviour
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
         {
-            Instantiate(PielDeUva, gameObject.transform);
+            recurso = PielDeUva;
             Debug.Log("Grapenade: Piel de uva");
         }
         else if (recursornd == 2)
         {
-            Instantiate(JugoDeUva, gameObject.transform);
+            recurso = JugoDeUva;
             Debug.Log("Grapenade: Jugo de uva");
         }
         else if (recursornd == 3)
         {
-            Instantiate(SemillaDeUva, gameObject.transform);
+            recurso = SemillaDeUva;
             Debug.Log("Grapenade: Semilla de uva");
 
         }
-        else Debug.Log("Grapenade: Sin material");
+        else
+        {
+            recurso = null;
+            Debug.Log("Grapenade: Sin material");
+        }
+
+        Instantiate(recurso, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     #endregion

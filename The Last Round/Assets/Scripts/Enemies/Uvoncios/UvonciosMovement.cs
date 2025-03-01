@@ -28,7 +28,7 @@ public class UvonciosMovement : MonoBehaviour
     #region Atributos Privados (private fields)
     private MoveToPlayer moveToplayer;
     private Vector3 EnemyPlayer;
-  
+    private GameObject recurso;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -70,21 +70,25 @@ public class UvonciosMovement : MonoBehaviour
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
         {
-            Instantiate(PielDeUva, gameObject.transform);
+            recurso = PielDeUva;
             Debug.Log("Uvoncio: Piel de uva");
         }
         else if (recursornd == 2)
         {
-            Instantiate(JugoDeUva, gameObject.transform);
+            recurso = JugoDeUva;
             Debug.Log("Uvoncio: Jugo de uva");
         }
         else if (recursornd == 3)
         {
-            Instantiate(SemillaDeUva, gameObject.transform);
+            recurso = SemillaDeUva;
             Debug.Log("Uvoncio: Semilla de uva");
         }
-        else Debug.Log("Uvoncio: Sin material");
-        Debug.Log("Imdedbruh");
+        else
+        {
+            recurso = null;
+            Debug.Log("Uvoncio: Sin material");
+        }
+        Instantiate(recurso, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
