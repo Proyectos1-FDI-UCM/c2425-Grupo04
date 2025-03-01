@@ -31,9 +31,9 @@ public class AttackGeneral : MonoBehaviour
     
 
     [SerializeField]
-    private Transform pivot;
+    private Transform pivot; //centro de rotación
     [SerializeField]
-    private Transform origin;
+    private Transform origin; //Desde donde se instancia la bala
 
     [SerializeField]
     private Camera cameraMain;
