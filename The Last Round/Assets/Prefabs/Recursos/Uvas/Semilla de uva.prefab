@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2169959742904558284}
   - component: {fileID: 7532338370178221829}
   - component: {fileID: 367418925511207165}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Semilla de uva
-  m_TagString: Untagged
+  m_TagString: Recursos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

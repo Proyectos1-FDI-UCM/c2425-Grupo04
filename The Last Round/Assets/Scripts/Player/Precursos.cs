@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using UnityEditor;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -24,11 +25,16 @@ public class Precursos : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-
+    public GameObject Jugodeuva;
+    public GameObject Pieldeuva;
+    public GameObject Semilladeuva;
+    public GameObject Jugodemanzana;
+    public GameObject Pieldemanzana;
+    public GameObject Semillademanzana;
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Rigidbody2D rb;
-
+    
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -70,9 +76,33 @@ public class Precursos : MonoBehaviour
     #region Métodos Privados
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        string objectName = collision.gameObject.name;
         if (collision.gameObject.CompareTag("Recursos"))
         {
+            if (objectName == "Jugo de uva")
+            {
+                GameManager.Instance.IncreaseResource(0, "Jugo de uva");
+            }
+            else if (objectName == "Piel de uva")
+            {
+                GameManager.Instance.IncreaseResource(1, "Piel de uva");
+            }
+            else if (objectName == "Semilla de uva")
+            {
+                GameManager.Instance.IncreaseResource(2, "Semilla de uva");
+            }
+            else if (objectName == "Jugo de manzana")
+            {
+                GameManager.Instance.IncreaseResource(3, "Jugo de manzana");
+            }
+            else if (objectName == "Piel de manzana")
+            {
+                GameManager.Instance.IncreaseResource(4, "Piel de manzana");
+            }
+            else if (objectName == "Semilla de manzana")
+            {
+                GameManager.Instance.IncreaseResource(5, "Semilla de manzana");
+            }
             Destroy(collision.gameObject);
         }
     }

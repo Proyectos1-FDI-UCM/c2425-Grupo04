@@ -25,11 +25,13 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    public float[]recursos= new float[6];
+   
+    //0 = Jugo de Uva       //3 = Jugo de manzana
+    //1 = Piel de Uva       //4 = Piel de manzana
+    //2 = Semilla de Uva    //5 = Semilla manzana
+
+
 
     #endregion
 
@@ -106,6 +108,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Propiedad para acceder a la única instancia de la clase.
     /// </summary>
+    /// 
+
+    public void IncreaseResource(int i, string recursoname)
+    {
+        recursos[i] += 1;
+        Debug.Log(recursoname + "mas 1");
+        Debug.Log(recursos[i] + "Es la cantidad actual de "+ recursoname);
+    }
+
     public static GameManager Instance
     {
         get

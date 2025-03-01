@@ -220,6 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e81cfb8fd54c314b8104ad1734ebf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Jugodeuva: {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
+  Pieldeuva: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
+  Semilladeuva: {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
+  Jugodemanzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
+  Pieldemanzana: {fileID: 4423979788562637781, guid: 97d86ae7791e3d34c804925006e91441, type: 3}
+  Semillademanzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
 --- !u!114 &2884948545175631526
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1215474241544156649}
   - component: {fileID: 8641427891063264900}
   - component: {fileID: 1701980307929089589}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Jugo de uva
-  m_TagString: Untagged
+  m_TagString: Recursos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

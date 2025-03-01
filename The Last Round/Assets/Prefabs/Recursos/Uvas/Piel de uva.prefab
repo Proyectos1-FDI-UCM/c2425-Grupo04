@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1198550543763937703}
   - component: {fileID: 8895030520268951921}
   - component: {fileID: 6528822637010487501}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Piel de uva
-  m_TagString: Untagged
+  m_TagString: Recursos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
