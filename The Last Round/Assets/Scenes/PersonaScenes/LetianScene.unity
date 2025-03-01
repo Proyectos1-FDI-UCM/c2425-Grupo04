@@ -697,9 +697,25 @@ PrefabInstance:
       propertyPath: detectdistancia
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2442571814026753743, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777571287239124241, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441001540175105269, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6386558954586013951, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
       propertyPath: m_Name
       value: Hielo Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386558954586013951, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7647636162628053722, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1349,10 +1365,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2672283465182348813, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5135161393062018505, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
       propertyPath: m_Name
       value: Hielo(Clone)
@@ -1555,6 +1567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Levadura Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1441737181335942706, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2640174471585558114, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.57
@@ -1593,6 +1609,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640174471585558114, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137125781000437851, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768247010133309834, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128865648193938209, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1804,10 +1832,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2672283465182348813, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5135161393062018505, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
       propertyPath: m_Name
       value: Hielo
