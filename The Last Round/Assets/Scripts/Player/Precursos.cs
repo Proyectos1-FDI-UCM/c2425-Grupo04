@@ -108,6 +108,8 @@ public class Precursos : MonoBehaviour
             {
                 GameManager.Instance.IncreaseResource(1, "Levadura");
             }
+
+            
         }
     }
 

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8416313309582694416}
   - component: {fileID: 5267992636052552507}
-  - component: {fileID: 2672283465182348813}
-  m_Layer: 0
+  - component: {fileID: 895905935371711968}
+  m_Layer: 12
   m_Name: Hielo
   m_TagString: Recursos
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2672283465182348813
+--- !u!60 &895905935371711968
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +133,6 @@ PolygonCollider2D:
       - {x: -0.43359375, y: -0.25}
       - {x: 0, y: -0.5}
       - {x: 0.43359375, y: -0.25}
-      - {x: 0.42762318, y: 0.25}
+      - {x: 0.43359375, y: 0.25}
       - {x: 0, y: 0.5}
   m_UseDelaunayMesh: 0

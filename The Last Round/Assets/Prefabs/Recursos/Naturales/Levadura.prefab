@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4260475032442154336}
   - component: {fileID: 2505127462261420205}
   - component: {fileID: 1351247127149604999}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Levadura
   m_TagString: Recursos
   m_Icon: {fileID: 0}

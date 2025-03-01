@@ -262,8 +262,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7647636162628053722}
   - component: {fileID: 978938882152986648}
+  - component: {fileID: 31166917548904745}
   m_Layer: 0
-  m_Name: Hielo spawner
+  m_Name: Hielo Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,3 +339,19 @@ PolygonCollider2D:
       - {x: 0.98364836, y: -0.23318553}
       - {x: 0.5041145, y: 0.5807581}
   m_UseDelaunayMesh: 0
+--- !u!114 &31166917548904745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386558954586013951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a996a680f5bcd4384a2395747bcba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  detectdistancia: 2
+  Hielo: {fileID: 5135161393062018505, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
+  Levadura: {fileID: 4058060865104890115, guid: 04a9cbbfe8b935e43b4bbe243312d6f9, type: 3}

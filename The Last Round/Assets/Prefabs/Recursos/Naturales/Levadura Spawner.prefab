@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2640174471585558114}
-  - component: {fileID: 1715115822916437485}
+  - component: {fileID: -5657462362455344652}
+  - component: {fileID: 4228548961209126714}
   m_Layer: 0
-  m_Name: Levadura 1
+  m_Name: Levadura Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,8 +36,24 @@ Transform:
   - {fileID: 5408003011007518908}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1715115822916437485
-CapsuleCollider2D:
+--- !u!114 &-5657462362455344652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441737181335942706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a996a680f5bcd4384a2395747bcba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7749647460839375097, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+  detectdistancia: 1.2
+  Hielo: {fileID: 5135161393062018505, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
+  Levadura: {fileID: 4058060865104890115, guid: 04a9cbbfe8b935e43b4bbe243312d6f9, type: 3}
+--- !u!60 &4228548961209126714
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -67,9 +84,29 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.094803, y: -0.82665086}
-  m_Size: {x: 1.0152012, y: 1.6054348}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.24067442, y: 0.8629375}
+      - {x: -0.4997909, y: 0.40691864}
+      - {x: -0.2388063, y: -0.01927638}
+      - {x: -0.061184958, y: -0.032690667}
+      - {x: -0.24138951, y: -0.69780684}
+      - {x: 0.25194183, y: -0.68968415}
+      - {x: 0.07416916, y: -0.03301607}
+      - {x: 0.2707249, y: -0.029030442}
+      - {x: 0.52159953, y: 0.41801798}
+      - {x: 0.3012333, y: 0.8376868}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5137125781000437851
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 5137125781000437851}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0949907, y: -0.5063417, z: 0.014340689}
+  m_LocalPosition: {x: 0.02, y: 0.403, z: 0.014340689}
   m_LocalScale: {x: 0.5443649, y: 0.5443649, z: 0.5443649}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 5768247010133309834}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.11, y: -1.31, z: 0.014340689}
+  m_LocalPosition: {x: 0.0049908906, y: -0.4006584, z: 0.014340689}
   m_LocalScale: {x: 0.48674, y: 0.97348, z: 0.97348}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 8128865648193938209}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0949907, y: -0.4963417, z: 0.014340689}
+  m_LocalPosition: {x: 0.020000175, y: 0.41299984, z: 0.014340689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
