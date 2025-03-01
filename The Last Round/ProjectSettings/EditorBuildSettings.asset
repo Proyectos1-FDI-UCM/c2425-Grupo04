@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 20527f57389d748ee93839d6d77bce46
+  - enabled: 1
+    path: Assets/Scenes/Bartender.unity
+    guid: a80ea7d5b19c31649ad5ebc5d59dae86
+  - enabled: 1
+    path: Assets/Scenes/Upgrades.unity
+    guid: 25d408c94ec511948a49eba86d111446
   m_configObjects: {}
