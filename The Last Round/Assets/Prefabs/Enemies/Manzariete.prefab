@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3782ccd7bfe347149b8f48a801957f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PivotObject: {fileID: 7992104292323869361}
+  FollowObject: {fileID: 7992104292323869361}
 --- !u!1 &7992104292323869361
 GameObject:
   m_ObjectHideFlags: 0
