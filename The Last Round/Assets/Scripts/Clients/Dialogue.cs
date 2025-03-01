@@ -4,8 +4,6 @@
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
-
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -24,7 +22,6 @@ public class Dialogue : MonoBehaviour
     [SerializeField, TextArea(5, 6)] //Añadir el camino bueno y malo de las conversaciones que sean necesarias
     private string[] dialogue0_GoodWay, dialogue0_BadWay,
                      dialogue1_GoodWay, dialogue1_BadWay;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----

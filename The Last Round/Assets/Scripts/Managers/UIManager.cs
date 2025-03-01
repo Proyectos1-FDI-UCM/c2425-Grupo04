@@ -7,7 +7,7 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-
+using TMPro;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -17,12 +17,8 @@ public class UIManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
-
+    [SerializeField]
+    TextMeshProUGUI dialogue;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,7 +43,7 @@ public class UIManager : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Start()
+    void Awake()
     {
         GameManager.Instance.GetUI(this);
     }

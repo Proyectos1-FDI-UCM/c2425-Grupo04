@@ -120,7 +120,10 @@ public class GameManager : MonoBehaviour
     /// Propiedad para acceder a la única instancia de la clase.
     /// </summary>
     /// 
-
+    public UIManager GetUI()
+    {
+        return UIManager;
+    }
     public void IncreaseResource(int i, string recursoname)
     {
         Debug.Log(recursoname + "mas 1");
