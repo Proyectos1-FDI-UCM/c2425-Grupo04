@@ -20,13 +20,13 @@ public class FollowPlayer : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    GameObject PivotObject;
+    [SerializeField]GameObject PivotObject;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Vector3 ObjectPos;
-    [SerializeField]
+
     private GameObject FollowObject;
     #endregion
 
@@ -51,6 +51,7 @@ public class FollowPlayer : MonoBehaviour
     /// </summary>
     void Update()
     {
+        
         if (FollowObject == null)
         FollowObject = GameManager.Instance.GetPlayer();
 
@@ -76,8 +77,5 @@ public class FollowPlayer : MonoBehaviour
                               0);
         #endregion
     }
-  
-   
-
 } // class FollowRotate 
 // namespace

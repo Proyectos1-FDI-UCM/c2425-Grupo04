@@ -98,6 +98,10 @@ public class GameManager : MonoBehaviour
             _instance = null;
         } // if somos la instancia principal
     }
+    private void Start()
+    {
+        Player = FindObjectOfType<PlayerMovement>().gameObject;
+    }
 
     #endregion
 
