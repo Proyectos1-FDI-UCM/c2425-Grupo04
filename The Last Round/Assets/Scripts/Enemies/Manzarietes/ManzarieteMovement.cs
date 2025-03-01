@@ -160,8 +160,11 @@ public class ManzarieteMovement : MonoBehaviour
             recurso = null;
             Debug.Log("Manzariete: Sin material");
         }
-        
-        Instantiate(recurso, transform.position, Quaternion.identity);
+        if (recurso != null)
+        {
+            Instantiate(recurso, transform.position, Quaternion.identity);
+            
+        }
         Destroy(gameObject);
     }
     #endregion

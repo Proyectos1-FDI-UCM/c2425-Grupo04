@@ -110,7 +110,11 @@ public class GrapenadeMovement : MonoBehaviour
             Debug.Log("Grapenade: Sin material");
         }
 
-        Instantiate(recurso, transform.position, Quaternion.identity);
+        if (recurso != null)
+        {
+            Instantiate(recurso, transform.position, Quaternion.identity);
+           
+        }
         Destroy(gameObject);
     }
     #endregion

@@ -25,12 +25,7 @@ public class Precursos : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    public GameObject Jugodeuva;
-    public GameObject Pieldeuva;
-    public GameObject Semilladeuva;
-    public GameObject Jugodemanzana;
-    public GameObject Pieldemanzana;
-    public GameObject Semillademanzana;
+   
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Rigidbody2D rb;
@@ -79,27 +74,27 @@ public class Precursos : MonoBehaviour
         string objectName = collision.gameObject.name;
         if (collision.gameObject.CompareTag("Recursos"))
         {
-            if (objectName == "Jugo de uva")
+            if (objectName == "Jugo de uva(Clone)")
             {
                 GameManager.Instance.IncreaseResource(0, "Jugo de uva");
             }
-            else if (objectName == "Piel de uva")
+            else if (objectName == "Piel de uva(Clone)")
             {
                 GameManager.Instance.IncreaseResource(1, "Piel de uva");
             }
-            else if (objectName == "Semilla de uva")
+            else if (objectName == "Semilla de uva(Clone)")
             {
                 GameManager.Instance.IncreaseResource(2, "Semilla de uva");
             }
-            else if (objectName == "Jugo de manzana")
+            else if (objectName == "Jugo de manzana(Clone)")
             {
                 GameManager.Instance.IncreaseResource(3, "Jugo de manzana");
             }
-            else if (objectName == "Piel de manzana")
+            else if (objectName == "Piel de manzana(Clone)")
             {
                 GameManager.Instance.IncreaseResource(4, "Piel de manzana");
             }
-            else if (objectName == "Semilla de manzana")
+            else if (objectName == "Semilla de manzana(Clone)")
             {
                 GameManager.Instance.IncreaseResource(5, "Semilla de manzana");
             }

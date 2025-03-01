@@ -87,8 +87,12 @@ public class ManzurriaMovement : MonoBehaviour
             recurso = null;
             Debug.Log("Manzurria: Sin material");
         }
-        
-        Instantiate(recurso, transform.position, Quaternion.identity);
+
+        if (recurso != null)
+        {
+            Instantiate(recurso, transform.position, Quaternion.identity);
+            
+        }
         Destroy(gameObject);
     }
     #endregion
