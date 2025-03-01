@@ -20,14 +20,16 @@ public class FollowPlayer : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject PivotObject;
+    GameObject PivotObject;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Vector3 ObjectPos;
+    [SerializeField]
     private GameObject FollowObject;
     #endregion
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
