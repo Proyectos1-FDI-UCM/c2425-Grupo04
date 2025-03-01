@@ -88,7 +88,11 @@ public class UvonciosMovement : MonoBehaviour
             recurso = null;
             Debug.Log("Uvoncio: Sin material");
         }
-        Instantiate(recurso, transform.position, Quaternion.identity);
+        if (recurso != null)
+        {
+            Instantiate(recurso, transform.position, Quaternion.identity);
+           
+        }
         Destroy(gameObject);
     }
 

@@ -1,11 +1,10 @@
 //---------------------------------------------------------
-// Este sirve para destruir los recursos cuand oel jugador toca con los recursos
-// Letian LIye
+// Este script se encargará de manejar todo lo referente a interfaz de usuario en la escena de Bartender
+// Víctor Martínez Moreno
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -14,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Precursos : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -25,11 +24,16 @@ public class Precursos : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-   
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Rigidbody2D rb;
-    
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
+
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,7 +49,7 @@ public class Precursos : MonoBehaviour
     /// </summary>
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        GameManager.Instance.GetUI(this);
     }
 
     /// <summary>
@@ -66,52 +70,15 @@ public class Precursos : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        string objectName = collision.gameObject.name;
-        if (collision.gameObject.CompareTag("Recursos"))
-        {
-            if (objectName == "Jugo de uva(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(0, "Jugo de uva");
-            }
-            else if (objectName == "Piel de uva(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(1, "Piel de uva");
-            }
-            else if (objectName == "Semilla de uva(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(2, "Semilla de uva");
-            }
-            else if (objectName == "Jugo de manzana(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(3, "Jugo de manzana");
-            }
-            else if (objectName == "Piel de manzana(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(4, "Piel de manzana");
-            }
-            else if (objectName == "Semilla de manzana(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(5, "Semilla de manzana");
-            }
-            Destroy(collision.gameObject);
+    // Documentar cada método que aparece aquí
+    // El convenio de nombres de Unity recomienda que estos métodos
+    // se nombren en formato PascalCase (palabras con primera letra
+    // mayúscula, incluida la primera letra)
 
-            if (objectName == "Hielo(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(0, "Hielo");
-            }
-            else if(objectName == "Levadura(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(1, "Levadura");
-            }
-        }
-    }
+    #endregion   
 
-    #endregion
-
-} // class NewBehaviourScript 
+} // class UIManager 
 // namespace
