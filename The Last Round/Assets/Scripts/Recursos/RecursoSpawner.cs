@@ -21,12 +21,17 @@ public class RecursoSpawner : MonoBehaviour
     
     [SerializeField]
     private float detectdistancia = 1.2f;
+   private float recursosacado = 0;
+    public float timer = 0;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private float distanciaconjugador;
     private GameObject player;
+    private float limitrecursaos = 5;
+    private float cooldownduration = 0.5f;
+    
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -53,24 +58,32 @@ public class RecursoSpawner : MonoBehaviour
         if (player == null) player = GameManager.Instance.GetPlayer();
 
         distanciaconjugador = Vector2.Distance(transform.position, player.transform.position);
-
+        
 
         if (distanciaconjugador <= detectdistancia)
         {
-            
-            if (InputManager.Instance.InteractWasPressedThisFrame())
+
+            if (InputManager.Instance.InteractWasPressedThisFrame() && recursosacado < limitrecursaos && timer<=0)
             {
-                if (gameObject.name == "Hielo spawner")
+                if (gameObject.name == "Hielo Spawner")
                 {
                     GameManager.Instance.IncreaseResource(0, "Hielo");
-                    
+                   recursosacado+= 1;
+                    timer = cooldownduration;
                 }
                 else if (gameObject.name == "Levadura Spawner")
                 {
                     GameManager.Instance.IncreaseResource(1, "Levadura");
+                    recursosacado += 1;
+                    timer = cooldownduration;
                 }
+                
             }
+            else if (recursosacado >= limitrecursaos)
+                Destroy(gameObject);
         }
+        if (timer > 0)
+            timer -= Time.deltaTime;
     }
     #endregion
 
