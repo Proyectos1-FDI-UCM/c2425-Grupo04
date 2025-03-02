@@ -93,6 +93,7 @@ public class PlaceMark : MonoBehaviour
 
         marcaInstanciadaBool = true;
 
+        if (GetComponent<Shoot>() != null)
         GetComponent<Shoot>().Shooting(marcaInstanciada, Proyectil);
     }
     #endregion   
