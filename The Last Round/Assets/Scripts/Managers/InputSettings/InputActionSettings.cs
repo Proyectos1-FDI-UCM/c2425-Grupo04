@@ -64,6 +64,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""efea2a09-1488-4711-a38c-658c2e1f1ca7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -262,6 +271,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d184964b-a3ba-41e4-b183-47b0c5406d1a"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ChangeWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -853,6 +873,7 @@ namespace UnityEngine.InputSystem
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+            m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -930,6 +951,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Fire;
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_Dash;
+        private readonly InputAction m_Player_ChangeWeapon;
         public struct PlayerActions
         {
             private @InputActionSettings m_Wrapper;
@@ -938,6 +960,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputAction @Dash => m_Wrapper.m_Player_Dash;
+            public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -959,6 +982,9 @@ namespace UnityEngine.InputSystem
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @ChangeWeapon.started += instance.OnChangeWeapon;
+                @ChangeWeapon.performed += instance.OnChangeWeapon;
+                @ChangeWeapon.canceled += instance.OnChangeWeapon;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -975,6 +1001,9 @@ namespace UnityEngine.InputSystem
                 @Dash.started -= instance.OnDash;
                 @Dash.performed -= instance.OnDash;
                 @Dash.canceled -= instance.OnDash;
+                @ChangeWeapon.started -= instance.OnChangeWeapon;
+                @ChangeWeapon.performed -= instance.OnChangeWeapon;
+                @ChangeWeapon.canceled -= instance.OnChangeWeapon;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1161,6 +1190,7 @@ namespace UnityEngine.InputSystem
             void OnFire(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
+            void OnChangeWeapon(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

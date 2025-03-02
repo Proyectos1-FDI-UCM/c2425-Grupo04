@@ -58,7 +58,7 @@ public class RecursoSpawner : MonoBehaviour
         if (distanciaconjugador <= detectdistancia)
         {
             
-            if (Keyboard.current.eKey.wasPressedThisFrame)
+            if (InputManager.Instance.InteractWasPressedThisFrame())
             {
                 if (gameObject.name == "Hielo spawner")
                 {

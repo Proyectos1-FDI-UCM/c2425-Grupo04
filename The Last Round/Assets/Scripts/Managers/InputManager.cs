@@ -68,6 +68,7 @@ public class InputManager : MonoBehaviour
     private InputAction _fire;
     private InputAction _interact;
     private InputAction _dash;
+    private InputAction _changeWeapon;
 
     #endregion
 
@@ -189,21 +190,25 @@ public class InputManager : MonoBehaviour
     }
     #endregion
 
-    private bool InteractWasPressedThisFrame()
+    public bool InteractWasPressedThisFrame()
     {
         return _interact.WasPressedThisFrame();
     }
-    private bool InteractWasReleasedThisFrame()
+    public bool InteractWasReleasedThisFrame()
     {
         return _interact.WasReleasedThisFrame();
     }
-    private bool InteractIsPressed()
+    public bool InteractIsPressed()
     {
         return _interact.IsPressed();
     }
-    private bool DashWasPressedThisFrame()
+    public bool DashWasPressedThisFrame()
     {
         return _dash.WasPressedThisFrame();
+    }
+    public bool ChangeWeaponWasPressedThisFrame()
+    {
+        return _changeWeapon.WasPressedThisFrame();
     }
     // ---- MÉTODOS PRIVADOS ----
 
@@ -232,6 +237,7 @@ public class InputManager : MonoBehaviour
         _fire = _theController.Player.Fire;
         _interact = _theController.Player.Interact;
         _dash = _theController.Player.Dash;
+        _changeWeapon = _theController.Player.ChangeWeapon;
     }
 
     /// <summary>

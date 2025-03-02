@@ -57,7 +57,7 @@ public class PlayerDash : MonoBehaviour
     {
         
         LastDirection = GetComponent<PlayerMovement>().GetLastDirection();
-        if (Mouse.current.rightButton.wasPressedThisFrame && CanDash())
+        if (InputManager.Instance.DashWasPressedThisFrame() && CanDash())
         {
            
           StartDash();

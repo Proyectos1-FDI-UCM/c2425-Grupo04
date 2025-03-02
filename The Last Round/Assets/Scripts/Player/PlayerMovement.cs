@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     private Vector3 LastDirection;
-    private Vector3 MoveDirection = new Vector3 (0, 0, 0);
+    private Vector3 MoveDirection;
     private bool dashing;
     private CollisionDetecter cD;
     #endregion
@@ -56,24 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dashing = GetComponent<PlayerDash>().dash();
 
-        MoveDirection = Vector3.zero;
-
-        if (Keyboard.current[Key.W].isPressed)
-        {
-            MoveDirection.y = 1;
-        }
-        if (Keyboard.current[Key.S].isPressed)
-        {
-            MoveDirection.y = -1;
-        }
-        if (Keyboard.current[Key.D].isPressed)
-        {
-            MoveDirection.x = 1;
-        }
-        if (Keyboard.current[Key.A].isPressed)
-        {
-            MoveDirection.x = -1;
-        }
+        MoveDirection = (Vector3)InputManager.Instance.MovementVector;
 
         if ((cD.GetCollisions()[0] && MoveDirection.y > 0) || cD.GetCollisions()[1] && MoveDirection.y < 0) MoveDirection.y = 0;
         if ((cD.GetCollisions()[2] && MoveDirection.x > 0) || cD.GetCollisions()[3] && MoveDirection.x < 0) MoveDirection.x = 0;
