@@ -12,6 +12,7 @@ using System.Collections;
 using System.Transactions;
 using UnityEngine.InputSystem;
 using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -22,7 +23,9 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    TextMeshProUGUI dialogueBox;
+    TextMeshProUGUI dialogueBox, Button;
+    [SerializeField]
+    Button ButtonBox;
     [SerializeField]
     private float TypeSpeed;
     #endregion
@@ -49,6 +52,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveUI(this);
+        ButtonBox.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -56,26 +60,8 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && dialogue != null)
-        {
-            if (dialogue[DialogueLine, 0] == dialogueBox.text)
-            {
-                if (DialogueLine < dialogue.GetLength(0) - 1)
-                {
-                    DialogueLine++;
-                    StartCoroutine(Write());
-                }
-                else
-                {
-                    dialogueBox.text = " ";
-                }
-
-            }
-            else
-            {
-                SkipDialogue = true;
-            }
-        }
+        if (dialogue != null && dialogue[DialogueLine, 0] == dialogueBox.text) Button.text = "Continuar";
+        else Button.text = "Saltar";
     }
     #endregion
 
@@ -86,6 +72,28 @@ public class UIManager : MonoBehaviour
         this.dialogue = dialogue;
         DialogueLine = 0;
         StartCoroutine(Write());
+    }
+
+    public void SkipButton()
+    {
+        if (dialogue != null && dialogue[DialogueLine, 0] == dialogueBox.text)
+        {
+            if (DialogueLine < dialogue.GetLength(0) - 1)
+            {
+                DialogueLine++;
+                StartCoroutine(Write());
+            }
+            else
+            {
+                ButtonBox.gameObject.SetActive(false);
+                dialogueBox.text = " ";
+            }
+
+        }
+        else
+        {
+            SkipDialogue = true;
+        }
     }
     #endregion
 
