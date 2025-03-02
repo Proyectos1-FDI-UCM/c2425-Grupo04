@@ -67,7 +67,7 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private InputAction _fire;
     private InputAction _interact;
-    private bool isHolding;
+    private InputAction _dash;
 
     #endregion
 
@@ -201,6 +201,10 @@ public class InputManager : MonoBehaviour
     {
         return _interact.IsPressed();
     }
+    private bool DashWasPressedThisFrame()
+    {
+        return _dash.WasPressedThisFrame();
+    }
     // ---- MÉTODOS PRIVADOS ----
 
     #region Métodos Privados
@@ -227,6 +231,7 @@ public class InputManager : MonoBehaviour
         // y FireWasReleasedThisFrame)
         _fire = _theController.Player.Fire;
         _interact = _theController.Player.Interact;
+        _dash = _theController.Player.Dash;
     }
 
     /// <summary>
