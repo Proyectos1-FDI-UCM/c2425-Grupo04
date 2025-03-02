@@ -593,13 +593,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uvoncio_Cliente
       objectReference: {fileID: 0}
+    - target: {fileID: 2172589744982081862, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172589744982081862, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2273058439264478256, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.1
+      value: -4.01
       objectReference: {fileID: 0}
     - target: {fileID: 2273058439264478256, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.51
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 2273058439264478256, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -632,6 +640,14 @@ PrefabInstance:
     - target: {fileID: 2273058439264478256, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812684598463360250, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812684598463360250, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 417929607
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -66,6 +66,8 @@ public class InputManager : MonoBehaviour
     /// conocer el estado del botón)
     /// </summary>
     private InputAction _fire;
+    private InputAction _interact;
+    private bool isHolding;
 
     #endregion
 
@@ -185,9 +187,20 @@ public class InputManager : MonoBehaviour
     {
         return _fire.WasReleasedThisFrame();
     }
-
     #endregion
 
+    private bool InteractWasPressedThisFrame()
+    {
+        return _interact.WasPressedThisFrame();
+    }
+    private bool InteractWasReleasedThisFrame()
+    {
+        return _interact.WasReleasedThisFrame();
+    }
+    private bool InteractIsPressed()
+    {
+        return _interact.IsPressed();
+    }
     // ---- MÉTODOS PRIVADOS ----
 
     #region Métodos Privados
@@ -213,6 +226,7 @@ public class InputManager : MonoBehaviour
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
         // y FireWasReleasedThisFrame)
         _fire = _theController.Player.Fire;
+        _interact = _theController.Player.Interact;
     }
 
     /// <summary>
