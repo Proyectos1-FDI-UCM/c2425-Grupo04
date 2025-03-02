@@ -1694,6 +1694,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4949465414570822425, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7672053411315213494, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: m_Color.b
       value: 0

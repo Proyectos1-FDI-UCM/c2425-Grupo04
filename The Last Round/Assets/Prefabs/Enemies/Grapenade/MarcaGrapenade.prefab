@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1601284102169605744}
   - component: {fileID: 1791580641313022491}
   - component: {fileID: 5793794841154945488}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: MarcaGrapenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

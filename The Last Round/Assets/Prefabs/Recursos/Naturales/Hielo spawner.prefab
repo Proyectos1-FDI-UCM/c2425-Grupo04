@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5278054885694552908}
   - component: {fileID: 5308755173187317511}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hexagon Flat-Top (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020218389031214499}
   - component: {fileID: 7299570541155876846}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hexagon Flat-Top (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1341569856406864686}
   - component: {fileID: 8487902584974419462}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,8 +263,8 @@ GameObject:
   - component: {fileID: 7647636162628053722}
   - component: {fileID: 978938882152986648}
   - component: {fileID: 31166917548904745}
-  m_Layer: 0
-  m_Name: Hielo Spawner
+  m_Layer: 7
+  m_Name: Hielo spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a996a680f5bcd4384a2395747bcba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   detectdistancia: 2
-  Hielo: {fileID: 5135161393062018505, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
-  Levadura: {fileID: 4058060865104890115, guid: 04a9cbbfe8b935e43b4bbe243312d6f9, type: 3}

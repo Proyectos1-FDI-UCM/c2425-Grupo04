@@ -10,13 +10,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - wall
+  - 
   - Water
   - UI
   - Player
   - Ground
-  - Pickable
-  - Picker
+  - 
+  - 
   - Enemy
   - Attack
   - Recursos

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7518684922501916710}
   - component: {fileID: 1978045876930256187}
   - component: {fileID: -2849588759333819268}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GrapenadeProyectil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Area: {fileID: 6132182722160169298, guid: 6bbde56ea01701643a1fd933da90659d, type: 3}
-  ExplosionTime: 0
 --- !u!61 &1978045876930256187
 BoxCollider2D:
   m_ObjectHideFlags: 0

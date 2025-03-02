@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2640174471585558114}
   - component: {fileID: -5657462362455344652}
   - component: {fileID: 4228548961209126714}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Levadura Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,10 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a996a680f5bcd4384a2395747bcba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7749647460839375097, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
   detectdistancia: 1.2
-  Hielo: {fileID: 5135161393062018505, guid: 55e47586bea078d4a93c549b79f14039, type: 3}
-  Levadura: {fileID: 4058060865104890115, guid: 04a9cbbfe8b935e43b4bbe243312d6f9, type: 3}
 --- !u!60 &4228548961209126714
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7079192602486669549}
   - component: {fileID: 4465290953810273035}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408003011007518908}
   - component: {fileID: 6382681912356867536}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702333319838478953}
   - component: {fileID: 7378656954975032878}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
