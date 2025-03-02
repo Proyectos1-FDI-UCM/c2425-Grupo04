@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
 
-    
+
 
 
 
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Player = FindObjectOfType<PlayerMovement>().gameObject;
+
     }
 
     #endregion
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
             Debug.Log(Nrecursos[i] + "Es la cantidad actual de " + recursoname);
         } 
     }
-    public void GetUI(UIManager uimanager)
+    public void GiveUI(UIManager uimanager)
     {
         this.UIManager = uimanager;
 }

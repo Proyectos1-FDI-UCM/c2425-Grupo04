@@ -8,6 +8,10 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using TMPro;
+using System.Collections;
+using System.Transactions;
+using UnityEngine.InputSystem;
+using UnityEngine.Assertions.Must;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -18,34 +22,33 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    TextMeshProUGUI dialogue;
+    TextMeshProUGUI dialogueBox;
+    [SerializeField]
+    private float TypeSpeed;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
+    private string[,] dialogue;
+    private int way = 1; // 1 = good way , 2 = bad way
+    private int DialogueLine = 0;
+    private bool SkipDialogue = false;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Awake()
+    void Start()
     {
-        GameManager.Instance.GetUI(this);
+        GameManager.Instance.GiveUI(this);
     }
 
     /// <summary>
@@ -53,28 +56,59 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if (Mouse.current.leftButton.wasPressedThisFrame && dialogue != null)
+        {
+            if (dialogue[DialogueLine, 0] == dialogueBox.text)
+            {
+                if (DialogueLine < dialogue.GetLength(0) - 1)
+                {
+                    DialogueLine++;
+                    StartCoroutine(Write());
+                }
+                else
+                {
+                    dialogueBox.text = " ";
+                }
+
+            }
+            else
+            {
+                SkipDialogue = true;
+            }
+        }
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-
+    public void GetDialogue(string[,] dialogue)
+    {
+        this.dialogue = dialogue;
+        DialogueLine = 0;
+        StartCoroutine(Write());
+    }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+    IEnumerator Write()
+    {
+        dialogueBox.text = string.Empty;
 
-    #endregion   
+        for (int i = 0; i < dialogue[DialogueLine, 0].Length; i++)
+        {
+            char ch = dialogue[DialogueLine, 0][i];
+            if (SkipDialogue)
+            {
+                dialogueBox.text = dialogue[DialogueLine, 0];
+                i = dialogue[DialogueLine, 0].Length;
+                SkipDialogue = false;
+            }
+            else dialogueBox.text += ch;
+            yield return new WaitForSeconds(TypeSpeed);
+        }
+    }
+    #endregion
 
 } // class UIManager 
 // namespace

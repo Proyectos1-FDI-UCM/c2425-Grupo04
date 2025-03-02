@@ -26,12 +26,15 @@ public class Dialogue : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    private UIManager uiManager;
     /// <summary>
     /// Conversaciones completas donde la segunda dimensión controla el camino de la cnoversación
     /// [0] es el buen camino y [1] es el mal camino
     /// </summary>
-    private string[,] dialogue0,
+    private string[,] dialogue,
+                      dialogue0, //IMPORTANTE: SI SE AÑADEN MÁS DIALOGOS HAY QUE AUMENTAR EL RANGO DEL RANDOM DE LA LÍNEA
                       dialogue1;
+    private bool ClientAppear = false, DialogueGiven = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -42,6 +45,7 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     void Start()
     {
+
         dialogue0 = new string[dialogue0_GoodWay.Length, 2];
         dialogue1 = new string[dialogue1_GoodWay.Length, 2];
 
@@ -76,6 +80,17 @@ public class Dialogue : MonoBehaviour
                 }
             }
         }//Recoge dialogo 2
+
+        int tmp = Random.Range(0,2);
+
+        if (tmp == 0)
+        {
+            dialogue = dialogue0;
+        }
+        else if (tmp == 1)
+        {
+            dialogue = dialogue1;
+        }
     }
 
     /// <summary>
@@ -83,7 +98,16 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if (uiManager == null) uiManager = GameManager.Instance.GetUI();
+
+        ClientAppear = true; //este booleano no hace nada ahora pero cuando se haga el cambio de rgb se pondrá en true solo cuando RGBvalue=255;
+
+        if (ClientAppear && !DialogueGiven)
+        {
+            if (uiManager != null)
+            uiManager.GetDialogue(dialogue);
+            DialogueGiven = true;
+        }
     }
     #endregion
 
