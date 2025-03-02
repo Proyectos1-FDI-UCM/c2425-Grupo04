@@ -21,10 +21,6 @@ public class RecursoSpawner : MonoBehaviour
     
     [SerializeField]
     private float detectdistancia = 1.2f;
-    [SerializeField]
-    private GameObject Hielo;
-    [SerializeField]
-    private GameObject Levadura;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -66,12 +62,12 @@ public class RecursoSpawner : MonoBehaviour
             {
                 if (gameObject.name == "Hielo spawner")
                 {
-                    Instantiate(Hielo, transform.position, Quaternion.identity);
+                    GameManager.Instance.IncreaseResource(0, "Hielo");
                     
                 }
                 else if (gameObject.name == "Levadura Spawner")
                 {
-                    Instantiate(Levadura, transform.position, Quaternion.identity);
+                    GameManager.Instance.IncreaseResource(1, "Levadura");
                 }
             }
         }

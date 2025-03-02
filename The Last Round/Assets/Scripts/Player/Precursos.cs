@@ -98,18 +98,7 @@ public class Precursos : MonoBehaviour
             {
                 GameManager.Instance.IncreaseResource(5, "Semilla de manzana");
             }
-            Destroy(collision.gameObject);
-
-            if (objectName == "Hielo(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(0, "Hielo");
-            }
-            else if(objectName == "Levadura(Clone)")
-            {
-                GameManager.Instance.IncreaseResource(1, "Levadura");
-            }
-
-            
+            Destroy(collision.gameObject); 
         }
     }
 
