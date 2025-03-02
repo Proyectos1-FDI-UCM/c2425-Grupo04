@@ -6,10 +6,9 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+// Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-// Añadir aquí el resto de directivas using
-
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -37,7 +36,7 @@ public class ScenesManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
 
-    public ScenesManager sceneManagerInstance { get; private set; }
+    public static ScenesManager sceneManagerInstance { get; private set; }
     private int currentScene;
 
     #endregion
