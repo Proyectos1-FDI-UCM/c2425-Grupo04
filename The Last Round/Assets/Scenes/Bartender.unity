@@ -1212,6 +1212,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.x
+      value: -145.05511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_overflowMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8740925321290083201, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_Name
       value: Image
