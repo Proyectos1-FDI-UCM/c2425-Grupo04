@@ -473,17 +473,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue0_GoodWay:
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkjashkahdskj
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkperritos
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawdgatito
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawgatitos
   dialogue0_BadWay:
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkjashkahdskj
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkjashkperritos
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawperrito
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdaperritos
   dialogue1_GoodWay:
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkjashkahdskj
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkjagatitos
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawdgatito
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawgatitos
   dialogue1_BadWay:
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkjashkahdskj
-  - awdawdawdawdawawcaweaweaewaaceaweacwecaweawajhsajhkjashjkasdjahsdhadhakjshdajkshdjkahskjahsjhdakjshdajkshdajkhdjakhdjksahakjshkajhdskjashdkahsdkjahsdkhsdkjagatitos
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawperrito
+  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdaperritos
 --- !u!1001 &944350227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -493,9 +493,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: Button
+      value: 
+      objectReference: {fileID: 1703647898}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 1462147192}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: ButtonBox
+      value: 
+      objectReference: {fileID: 1513868190}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: TypeSpeed
       value: 0.1
@@ -698,6 +706,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1513868190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+  m_PrefabInstance: {fileID: 9168620057287892834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1594318018
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,11 +819,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1608660457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+  m_PrefabInstance: {fileID: 944350227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8936d9446e0ccf7438ee5cc758a52d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1655144939 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
   m_PrefabInstance: {fileID: 9168620057287892834}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1703647898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+  m_PrefabInstance: {fileID: 9168620057287892834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811074244
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +932,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1594318022}
     m_Modifications:
+    - target: {fileID: 1078813090832294843, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -971,6 +1016,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1608660457}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_text
       value: 
@@ -980,12 +1053,28 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.w
+      value: -2.800148
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.x
+      value: -16.684227
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.y
+      value: -5.1335526
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.z
+      value: 28.806515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_fontSizeMax
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_fontSizeMin
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_fontSizeBase
@@ -994,6 +1083,30 @@ PrefabInstance:
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_text
+      value: Continuar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_fontSize
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_wordSpacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290478232960074364, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_characterSpacing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8740925321290083201, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_Name

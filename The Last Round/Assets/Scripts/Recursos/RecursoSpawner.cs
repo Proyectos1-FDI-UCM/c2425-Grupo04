@@ -6,10 +6,9 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+// Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
 using UnityEngine.Pool;
-// Añadir aquí el resto de directivas using
-
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -19,16 +18,19 @@ public class RecursoSpawner : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    public GameObject player;
-    public float detectdistancia = 1.2f;
-    public GameObject Hielo;
-    public GameObject Levadura;
+    
+    [SerializeField]
+    private float detectdistancia = 1.2f;
+    [SerializeField]
+    private GameObject Hielo;
+    [SerializeField]
+    private GameObject Levadura;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private float distanciaconjugador;
-
+    private GameObject player;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -52,6 +54,8 @@ public class RecursoSpawner : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (player == null) player = GameManager.Instance.GetPlayer();
+
         distanciaconjugador = Vector2.Distance(transform.position, player.transform.position);
 
 
@@ -60,7 +64,7 @@ public class RecursoSpawner : MonoBehaviour
             
             if (Keyboard.current.eKey.wasPressedThisFrame)
             {
-                if (gameObject.name == "Hielo Spawner")
+                if (gameObject.name == "Hielo spawner")
                 {
                     Instantiate(Hielo, transform.position, Quaternion.identity);
                     
