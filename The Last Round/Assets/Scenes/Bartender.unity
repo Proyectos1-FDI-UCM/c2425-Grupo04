@@ -473,6 +473,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893491893}
     m_Modifications:
+    - target: {fileID: 2599025738815417429, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 54.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599025738815417429, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -499,11 +507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 259.4473
+      value: 220.206
       objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 80.891
       objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_LocalPosition.x
@@ -535,11 +543,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: -5.922
       objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -193.05478
+      value: -160.34
       objectReference: {fileID: 0}
     - target: {fileID: 4306860409209180972, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1182,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
