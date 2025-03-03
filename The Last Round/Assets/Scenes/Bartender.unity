@@ -1038,18 +1038,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue0_GoodWay:
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawdgatitoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawgatitos
-  dialogue0_BadWay:
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawperrito
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdaperritos
-  dialogue1_GoodWay:
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawdgatito
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawgatitos
-  dialogue1_BadWay:
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdawperrito
-  - awawdawawdawdawdawdawdawdawdawdawdawdawdadawdawdawdawdawdawdawdawdawdawdawdawdawdaperritos
+  dialogue0:
+  - GoodText: hola
+    BadText: 
+    estatus: 0
+  - GoodText: adios
+    BadText: 
+    estatus: 0
+  dialogue1:
+  - GoodText: adios
+    BadText: 
+    estatus: 0
+  - GoodText: hola
+    BadText: 
+    estatus: 0
 --- !u!1 &1860103131
 GameObject:
   m_ObjectHideFlags: 0

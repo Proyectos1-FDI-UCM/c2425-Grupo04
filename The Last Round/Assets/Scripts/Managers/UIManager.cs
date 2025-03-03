@@ -34,11 +34,12 @@ public class UIManager : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private string[,] dialogue;
+
+    private Texts.Texto[] dialogue;
     private int way = 1; // 1 = good way , 2 = bad way
     private int DialogueLine = 0;
     private bool SkipDialogue = false, 
-        hayOpciones = false; //
+                 hayOpciones = false; //
     private int correcta; //
     #endregion
 
@@ -66,14 +67,15 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (dialogue != null && dialogue[DialogueLine, way] == dialogueBox.text) Button.text = "Continuar";
+        if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) Button.text = "Continuar";
         else Button.text = "Saltar";
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void GetDialogue(string[,] dialogue)
+
+    public void GetDialogue(Texts.Texto[] dialogue)
     {
         this.dialogue = dialogue;
         DialogueLine = 0;
@@ -82,7 +84,7 @@ public class UIManager : MonoBehaviour
 
     public void SkipButton()
     {
-        if (dialogue != null && dialogue[DialogueLine, way] == dialogueBox.text)
+        if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text))
         {
             if (DialogueLine < dialogue.GetLength(0) - 1)
             {
@@ -109,8 +111,8 @@ public class UIManager : MonoBehaviour
         option1Box.gameObject.SetActive(true);
         option2Text.text = option2;
         option2Box.gameObject.SetActive(true);
-        dialogue[0, 0] = dialogue1;
-        dialogue[1, 0] = dialogue2;
+        //dialogue[0, 0] = dialogue1;
+        //dialogue[1, 0] = dialogue2;
         this.correcta = correcta;
     }
 
@@ -173,14 +175,14 @@ public class UIManager : MonoBehaviour
     IEnumerator Write()
     {
         dialogueBox.text = string.Empty;
-
-        for (int i = 0; i < dialogue[DialogueLine, way].Length; i++)
+        //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
+        for (int i = 0; i < dialogue[DialogueLine].GoodText.Length; i++)//aqui he puesto .GoodText pero esto es mentira, hay que modificarlo a Good o Bad en función de la elección anterior
         {
-            char ch = dialogue[DialogueLine, way][i];
+            char ch = dialogue[DialogueLine].GoodText[i];
             if (SkipDialogue)
             {
-                dialogueBox.text = dialogue[DialogueLine, way];
-                i = dialogue[DialogueLine, way].Length;
+                dialogueBox.text = dialogue[DialogueLine].GoodText;
+                i = dialogue[DialogueLine].GoodText.Length;
                 SkipDialogue = false;
             }
             else dialogueBox.text += ch;
