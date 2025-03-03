@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2081887693429624808}
   - component: {fileID: 7059407794517612056}
   - component: {fileID: 1439747126237554738}
+  - component: {fileID: -7887694537553316263}
   m_Layer: 10
   m_Name: Grapenade
   m_TagString: Untagged
@@ -218,3 +219,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MarcaPrefab: {fileID: 1352360049607005943, guid: 3c878446afa3f874f92c42d3551984ed, type: 3}
   Proyectil: {fileID: 4242593371902539852, guid: d7ddd0a48d3440c41a075df35d84f824, type: 3}
+--- !u!114 &-7887694537553316263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156365099456941090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34367d4f9d3eb5a409117ad7320f0726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
