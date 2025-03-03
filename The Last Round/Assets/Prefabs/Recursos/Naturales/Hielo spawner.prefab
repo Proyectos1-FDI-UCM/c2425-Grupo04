@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 978938882152986648}
   - component: {fileID: 31166917548904745}
   m_Layer: 7
-  m_Name: Hielo spawner
+  m_Name: Hielo Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
