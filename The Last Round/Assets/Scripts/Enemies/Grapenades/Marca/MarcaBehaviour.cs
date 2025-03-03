@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// La marca sigue al jugador hasta que se ha realizado el disparo
+// Víctor Martínez Moreno
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Shoot : MonoBehaviour
+public class MarcaBehaviour : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -33,25 +33,23 @@ public class Shoot : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    float cooldown = 3f, timer;
-    bool shooted = false;
-    private GameObject marca, proyectil;
+    private bool follow = true;
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-
+        
     }
 
     /// <summary>
@@ -59,12 +57,8 @@ public class Shoot : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (shooted && timer <= 0 && marca != null)
-        {
-            InstantiateBullet();
-            shooted = false;
-        }
-        timer -= Time.deltaTime;
+        if (follow)
+        transform.position = GameManager.Instance.GetPlayer().transform.position;
     }
     #endregion
 
@@ -75,28 +69,20 @@ public class Shoot : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Shooting(GameObject Marca, GameObject Proyectil)
+    public void UnfollowPlayer()
     {
-        marca = Marca;
-        proyectil = Proyectil;
-        shooted = true;
-        timer = cooldown;
+        follow = false;
     }
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void InstantiateBullet()
-    {
-        GameObject bullet = Instantiate(proyectil, new Vector3(marca.transform.position.x, marca.transform.position.y + 5.5f), Quaternion.identity);
-        marca.GetComponent<MarcaBehaviour>().UnfollowPlayer();
-        bullet.GetComponent<ProjectileMovement>().GiveMark(marca);
-    }
+
     #endregion   
 
-} // class Shoot 
+} // class MarcaBehaviour 
 // namespace

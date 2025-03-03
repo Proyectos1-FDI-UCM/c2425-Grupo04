@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -569,7 +569,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8156365099456941090, guid: cf72a05f0ea30394285462d5b3bc3909, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 810053064}
   m_SourcePrefab: {fileID: 100100000, guid: cf72a05f0ea30394285462d5b3bc3909, type: 3}
 --- !u!1001 &388572234
 PrefabInstance:
@@ -920,6 +923,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5657462362455344652, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+      propertyPath: HoldingTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1441737181335942706, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
       propertyPath: m_Name
       value: Levadura Spawner
@@ -1103,6 +1110,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f779a93629f2643b47af1a41ccc482, type: 3}
+--- !u!1 &810053055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8156365099456941090, guid: cf72a05f0ea30394285462d5b3bc3909, type: 3}
+  m_PrefabInstance: {fileID: 277472003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &810053064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810053055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34367d4f9d3eb5a409117ad7320f0726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &950869596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1496,11 +1520,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001314624494379611, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -48.1
+      value: -48.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7001314624494379611, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.3
+      value: -12.299988
       objectReference: {fileID: 0}
     - target: {fileID: 7001314624494379611, guid: 1f2b5c3b9e3f047829e30da603853657, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

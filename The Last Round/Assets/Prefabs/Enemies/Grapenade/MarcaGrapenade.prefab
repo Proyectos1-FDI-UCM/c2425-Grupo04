@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1601284102169605744}
   - component: {fileID: 1791580641313022491}
   - component: {fileID: 5793794841154945488}
+  - component: {fileID: -1585645059310999107}
   m_Layer: 11
   m_Name: MarcaGrapenade
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
+--- !u!114 &-1585645059310999107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352360049607005943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a389d55ef61954d96f69212844f7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

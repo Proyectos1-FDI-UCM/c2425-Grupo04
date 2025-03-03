@@ -165,7 +165,7 @@ public class ManzarieteMovement : MonoBehaviour
             Instantiate(recurso, transform.position, Quaternion.identity);
             
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 0f);
     }
     #endregion
 
