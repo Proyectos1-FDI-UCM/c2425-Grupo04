@@ -15,6 +15,10 @@ using UnityEngine;
 /// </summary>
 public class Texts
 {
+    public enum Emisor
+    {
+        Cliente, Jugador
+    }
     public enum Estado
     {
         monologo, dialogo, bebida
@@ -26,12 +30,14 @@ public class Texts
         public string GoodText;
         public string BadText;
         public Estado estatus;
+        public Emisor emisor;
 
-        public Texto(string GoodText, string BadText, Estado estatus)
+        public Texto(string GoodText, string BadText, Estado estatus, Emisor emisor)
         {
             this.GoodText = GoodText;
             this.BadText = BadText;
             this.estatus = estatus;
+            this.emisor = emisor;
         }
     }
     
