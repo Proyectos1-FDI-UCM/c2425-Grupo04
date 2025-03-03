@@ -18,8 +18,7 @@ public class PlaceMark : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject MarcaPrefab;
-    [SerializeField] GameObject Proyectil;
+    [SerializeField] private GameObject MarcaPrefab;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -88,13 +87,13 @@ public class PlaceMark : MonoBehaviour
     //Si la marca se choca con el proyectil del Grapenade (llega a su destino), la marca se destruye
     private void MarcarJugador()
     {
-        if (marcaInstanciada == null && Player != null)
+        if (Player != null)
             marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
 
         marcaInstanciadaBool = true;
 
-        if (GetComponent<Shoot>() != null)
-        GetComponent<Shoot>().Shooting(marcaInstanciada, Proyectil);
+        if (marcaInstanciada != null && marcaInstanciada.GetComponent<Shoot>() != null)
+        marcaInstanciada.GetComponent<Shoot>().Shooting();
     }
     #endregion   
 

@@ -22,7 +22,8 @@ public class Shoot : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
+    [SerializeField]
+    private GameObject proyectil;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -35,7 +36,7 @@ public class Shoot : MonoBehaviour
     // Ejemplo: _maxHealthPoints
     float cooldown = 3f, timer;
     bool shooted = false;
-    private GameObject marca, proyectil;
+    
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -59,7 +60,7 @@ public class Shoot : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (shooted && timer <= 0 && marca != null)
+        if (shooted && timer <= 0)
         {
             InstantiateBullet();
             shooted = false;
@@ -75,10 +76,8 @@ public class Shoot : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Shooting(GameObject Marca, GameObject Proyectil)
+    public void Shooting()
     {
-        marca = Marca;
-        proyectil = Proyectil;
         shooted = true;
         timer = cooldown;
     }
@@ -92,9 +91,9 @@ public class Shoot : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void InstantiateBullet()
     {
-        GameObject bullet = Instantiate(proyectil, new Vector3(marca.transform.position.x, marca.transform.position.y + 5.5f), Quaternion.identity);
-        marca.GetComponent<MarcaBehaviour>().UnfollowPlayer();
-        bullet.GetComponent<ProjectileMovement>().GiveMark(marca);
+        GameObject bullet = Instantiate(proyectil, new Vector3(transform.position.x, transform.position.y + 5.5f), Quaternion.identity);
+        GetComponent<MarcaBehaviour>().UnfollowPlayer();
+        bullet.GetComponent<ProjectileMovement>().GiveMark(gameObject);
     }
     #endregion   
 
