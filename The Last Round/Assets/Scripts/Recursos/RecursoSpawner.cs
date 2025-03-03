@@ -18,11 +18,9 @@ public class RecursoSpawner : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    
+
     [SerializeField]
-    private float detectdistancia = 1.2f;
-   private float recursosacado = 0;
-    public float timer = 0;
+    private float detectdistancia = 1.2f, HoldingTime = 0;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -30,8 +28,9 @@ public class RecursoSpawner : MonoBehaviour
     private float distanciaconjugador;
     private GameObject player;
     private float limitrecursaos = 5;
-    private float cooldownduration = 0.5f;
-    
+    private float timer = 0;
+    private float recursosacado = 0;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -47,7 +46,7 @@ public class RecursoSpawner : MonoBehaviour
     /// </summary>
     void Start()
     {
-
+        timer = HoldingTime;
     }
 
     /// <summary>
@@ -58,32 +57,48 @@ public class RecursoSpawner : MonoBehaviour
         if (player == null) player = GameManager.Instance.GetPlayer();
 
         distanciaconjugador = Vector2.Distance(transform.position, player.transform.position);
+
         
 
+        //Comprobamos que el jugador se encuentra en la distancia de recolección
         if (distanciaconjugador <= detectdistancia)
         {
-
-            if (InputManager.Instance.InteractWasPressedThisFrame() && recursosacado < limitrecursaos && timer<=0)
+            //Contador del hold
+            if (InputManager.Instance.InteractIsPressed())//Si mantiene se va restando el timer
             {
+                timer -= Time.deltaTime;
+            }
+            if (InputManager.Instance.InteractWasReleasedThisFrame()) //En el momento en el que se suelta el timer del hold se resetea
+            {
+                timer = HoldingTime;
+            }
+
+            //Si en algún momento se ha mantenido pulsado el Input el suficiente tiempo como para que el timer se haya acabado
+            //Entonces se recoge el objeto
+            if (timer <= 0)
+            {
+                timer = HoldingTime;
                 if (gameObject.name == "Hielo Spawner")
                 {
                     GameManager.Instance.IncreaseResource(0, "Hielo");
-                   recursosacado+= 1;
-                    timer = cooldownduration;
+                    recursosacado += 1;
                 }
                 else if (gameObject.name == "Levadura Spawner")
                 {
                     GameManager.Instance.IncreaseResource(1, "Levadura");
                     recursosacado += 1;
-                    timer = cooldownduration;
                 }
-                
+
+                if (recursosacado >= limitrecursaos)
+                    Destroy(gameObject);
             }
-            else if (recursosacado >= limitrecursaos)
-                Destroy(gameObject);
         }
-        if (timer > 0)
-            timer -= Time.deltaTime;
+        //En el momento en el que se salga del rango de recolección independientemente de cuanto tiempo haya holdeado el Input
+        //El timer del hold se resetea
+        else
+        {
+            timer = HoldingTime;
+        }
     }
     #endregion
 
