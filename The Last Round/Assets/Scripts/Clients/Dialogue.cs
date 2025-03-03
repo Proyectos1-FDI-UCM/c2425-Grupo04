@@ -28,11 +28,11 @@ public class Dialogue : MonoBehaviour
 
     //-- CREAR DIALOGOS NECESARIOS --//
     [SerializeField]
-    private Texts.Texto[] dialogue0, dialogue1;
+    private DataContainer.Texto[] dialogue0, dialogue1;
 
 
     private UIManager uiManager;
-    private Texts.Texto[] dialogue;
+    private DataContainer.Texto[] dialogue;
     private bool ClientAppear = false, DialogueGiven = false;
     #endregion
 

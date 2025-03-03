@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
-    private Texts.Texto[] dialogue;
+    private DataContainer.Texto[] dialogue;
     private int way = 1; // 1 = good way , 2 = bad way
     private int DialogueLine = 0;
     private bool SkipDialogue = false, 
@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
-    public void GetDialogue(Texts.Texto[] dialogue)
+    public void GetDialogue(DataContainer.Texto[] dialogue)
     {
         this.dialogue = dialogue;
         DialogueLine = 0;
