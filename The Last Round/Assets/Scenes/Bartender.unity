@@ -594,8 +594,20 @@ PrefabInstance:
       value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.w
+      value: 12.980301
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_margin.x
-      value: 141.03946
+      value: 157.44882
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.y
+      value: 16.79805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_margin.z
+      value: -632.9802
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_fontSizeBase
@@ -1042,16 +1054,21 @@ MonoBehaviour:
   - GoodText: hola
     BadText: 
     estatus: 0
+    emisor: 0
   - GoodText: adios
     BadText: 
     estatus: 0
+    emisor: 0
   dialogue1:
-  - GoodText: adios
+  - GoodText: 'adios adios adios adios adios adios adios adios adios adios adios
+      adios adios adios adios adios '
     BadText: 
-    estatus: 0
+    estatus: 1
+    emisor: 0
   - GoodText: hola
     BadText: 
     estatus: 0
+    emisor: 0
 --- !u!1 &1860103131
 GameObject:
   m_ObjectHideFlags: 0
