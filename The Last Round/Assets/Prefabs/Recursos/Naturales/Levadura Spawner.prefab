@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectdistancia: 1.2
+  HoldingTime: 4
 --- !u!60 &4228548961209126714
 PolygonCollider2D:
   m_ObjectHideFlags: 0
