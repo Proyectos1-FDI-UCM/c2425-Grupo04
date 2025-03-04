@@ -1,11 +1,13 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Ignacio Plaza Larrieta
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 // Añadir aquí el resto de directivas using
 
 
@@ -13,17 +15,27 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class BulletMovement : MonoBehaviour
+public class CambioEscenaAlcantarilla : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    public float speed = 2f;
-    public float PBdamage = 30f;
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // públicos y de inspector se nombren en formato PascalCase
+    // (palabras con primera letra mayúscula, incluida la primera letra)
+    // Ejemplo: MaxHealthPoints
+
+    public string Bartender; // Nombrar la escena del bar para activarla
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
 
     #endregion
 
@@ -48,8 +60,9 @@ public class BulletMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        transform.localPosition = transform.localPosition + transform.up * speed * Time.deltaTime;
+        
     }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -68,42 +81,17 @@ public class BulletMovement : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
-
-    private void OnBecameInvisible()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        {
+            if (InputManager.Instance.InteractWasPressedThisFrame())
+            {
+                SceneManager.sceneManagerInstance.NextScene();
+            }
+        }
     }
     #endregion
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("IsColliding");
-        if (collision.gameObject.GetComponent<FollowPlayer>())
-            { }
-     
-        UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
-        if (uva != null)
-        {
-            uva.GetDamage(PBdamage);
-            
-        }
-        else if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
-        {
-            collision.gameObject.GetComponent<ManzurriaMovement>().GetDamage(PBdamage);
-            
-        }
-        else if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
-        {
-            collision.gameObject.GetComponent<ManzarieteMovement>().GetDamage(PBdamage);
-           
-        }
-        else if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
-        {
-            collision.gameObject.GetComponent<GrapenadeMovement>().GetDamage(PBdamage);
-            
-        }
-        Destroy(gameObject);
-    }
-   
-} // class BulletMovement 
+
+} // class CambioEscenaBar 
 // namespace

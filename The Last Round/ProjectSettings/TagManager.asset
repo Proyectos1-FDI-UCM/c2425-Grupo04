@@ -10,7 +10,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - WALL
   - Water
   - UI
   - Player
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1873757593
+    locked: 0
+  - name: "ContadorDa\xF1o"
+    uniqueID: 776555849
     locked: 0
