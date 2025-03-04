@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemigoLife: 100
+  "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
 --- !u!70 &6795723949517624898
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
