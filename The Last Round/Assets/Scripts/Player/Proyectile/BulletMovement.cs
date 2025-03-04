@@ -17,32 +17,23 @@ public class BulletMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
-
+    public float speed = 2f;
+    public float PBdamage = 30f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-    public float speed = 2f;
+
+
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -83,7 +74,35 @@ public class BulletMovement : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    #endregion   
+    #endregion
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("IsColliding");
+        if (collision.gameObject.GetComponent<FollowPlayer>())
+            { }
 
+        UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
+        if (uva != null)
+        {
+            uva.GetDamage(PBdamage);
+            
+        }
+        else if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
+        {
+            collision.gameObject.GetComponent<ManzurriaMovement>().GetDamage(PBdamage);
+            
+        }
+        else if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
+        {
+            collision.gameObject.GetComponent<ManzarieteMovement>().GetDamage(PBdamage);
+           
+        }
+        else if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
+        {
+            collision.gameObject.GetComponent<GrapenadeMovement>().GetDamage(PBdamage);
+            
+        }
+        Destroy(gameObject);
+    }
 } // class BulletMovement 
 // namespace

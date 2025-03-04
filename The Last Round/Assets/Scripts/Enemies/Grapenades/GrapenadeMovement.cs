@@ -85,7 +85,7 @@ public class GrapenadeMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Died()
+    public void GetDamage(float Pdamage)
     {
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
@@ -115,7 +115,7 @@ public class GrapenadeMovement : MonoBehaviour
             Instantiate(recurso, transform.position, Quaternion.identity);
            
         }
-        Destroy(gameObject);
+        GetComponent<EnemyLife>().getdamage(Pdamage);
     }
     #endregion
 
