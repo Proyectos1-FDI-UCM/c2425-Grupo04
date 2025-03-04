@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Ignacio Plaza Larrieta
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -61,9 +61,10 @@ public class CambioBarBoton : MonoBehaviour
         
     }
 
-    public void CargarEscenaBar(string Bartender)
+    public void CargarEscenaCombate(string Level1)
     {
-        SceneManager.LoadScene(Bartender);
+        SceneManager.LoadScene(Level1);
+        //Si pulso el boton de escena 
     }
     #endregion
 
