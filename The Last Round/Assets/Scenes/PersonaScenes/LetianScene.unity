@@ -381,9 +381,9 @@ GameObject:
   - component: {fileID: 464071842}
   - component: {fileID: 464071845}
   - component: {fileID: 464071844}
-  m_Layer: 3
-  m_Name: test wall
-  m_TagString: wall
+  m_Layer: 10
+  m_Name: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,7 +508,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464071841}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
