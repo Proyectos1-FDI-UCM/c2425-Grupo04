@@ -33,18 +33,24 @@ public class ManzarieteMovement : MonoBehaviour
     #region Atributos Privados (private fields)
     private MoveToPlayer moveToplayer;
     private Vector3 EnemyPlayer, LastPlayerPosition;
-    private float timer = -1;
-    private float Stimer = -1, tmp;
-    private bool IsCharging = false, IsSprinting = false, InRange = false, hit = false, OnCollision = false;
+    private float timer = -1, Stimer = -1, tmp;
+    private bool IsCharging = false,
+                 IsSprinting = false,
+                 InRange = false,
+                 hit = false, //ha chocado contra algo
+                 OnCollision = false, //Colisiona contra algo
+                 OnTriggerEnter = false;
     private Rigidbody2D rb;
     private CollisionDetecter cD;
     private GameObject recurso;
+    private Collider2D boxCollider;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
     private void Start()
     {
+        boxCollider = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
@@ -95,16 +101,19 @@ public class ManzarieteMovement : MonoBehaviour
         {
             if (Stimer > 0)
             {
-                hit = false;
-
-                if (OnCollision) ComproveCollision();
+                //Excluir las colisiones de Enemigos y Jugador (atravesarlos)
+                rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
+                //rebote contra objetos
+                hit = false; //reseteo la comprobación
+                //Esto es necesario para asegurar que se resetea y el hit se activa despues de ser reseteado y no antes
+                if (OnCollision) ComproveCollision(); //vuelvo a comprobar
 
                 if (hit)
                 {
                     LastPlayerPosition *= -1;
                     hit = false;
                 }
-
+                //movimiento
                 rb.velocity = LastPlayerPosition * SprintSpeed * Time.fixedDeltaTime;
 
                 //Frenado final
@@ -115,6 +124,7 @@ public class ManzarieteMovement : MonoBehaviour
             }
             else
             {
+                rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
                 rb.velocity = Vector3.zero;
                 IsSprinting = false;
                 SprintSpeed = tmp;
@@ -163,7 +173,7 @@ public class ManzarieteMovement : MonoBehaviour
         if (recurso != null)
         {
             Instantiate(recurso, transform.position, Quaternion.identity);
-            
+
         }
         Destroy(gameObject, 0f);
     }
