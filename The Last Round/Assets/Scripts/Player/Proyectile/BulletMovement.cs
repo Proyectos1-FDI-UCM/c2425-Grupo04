@@ -80,7 +80,7 @@ public class BulletMovement : MonoBehaviour
         Debug.Log("IsColliding");
         if (collision.gameObject.GetComponent<FollowPlayer>())
             { }
-
+     
         UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
         if (uva != null)
         {
@@ -104,5 +104,6 @@ public class BulletMovement : MonoBehaviour
         }
         Destroy(gameObject);
     }
+   
 } // class BulletMovement 
 // namespace
