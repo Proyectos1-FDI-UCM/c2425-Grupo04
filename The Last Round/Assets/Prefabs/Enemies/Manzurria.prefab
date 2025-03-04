@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: -8782203060869379033}
   - component: {fileID: 1967464169388331557}
   - component: {fileID: 6534199339364150021}
+  - component: {fileID: -536503855232666632}
   m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
@@ -391,3 +392,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-536503855232666632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf1aac67931118459c5f9ee9f198a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemigoLife: 100
