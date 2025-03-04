@@ -63,16 +63,6 @@ public class CambioEscenaAlBar : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
-        {
-            if (Keyboard.current[Key.E].wasPressedThisFrame)
-            {
-                SceneManager.LoadScene(Bartender);
-            }
-        }
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -91,7 +81,16 @@ public class CambioEscenaAlBar : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        {
+            if (InputManager.Instance.InteractWasPressedThisFrame())
+            {
+                SceneManager.sceneManagerInstance.NextScene();
+            }
+        }
+    }
     #endregion
 
 } // class CambioEscenaBar 
