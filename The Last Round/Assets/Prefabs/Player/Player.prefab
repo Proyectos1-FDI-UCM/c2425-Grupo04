@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSprite: {fileID: 8471865749979836502}
   duration: 0.1
-  player: {fileID: 7749647460839375097}
 --- !u!61 &4949465414570822425
 BoxCollider2D:
   m_ObjectHideFlags: 0

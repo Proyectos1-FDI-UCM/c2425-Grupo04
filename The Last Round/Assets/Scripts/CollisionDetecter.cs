@@ -33,11 +33,22 @@ public class CollisionDetecter : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private bool[] collisions = new bool[4];
+    private bool ResetCollisions = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    private void Update()
+    {
+        if (ResetCollisions)
+        {
+            for (int i = 0; i < collisions.Length; i++)
+            {
+                collisions[i] = false;
+            }
+            ResetCollisions = false;
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -54,7 +65,10 @@ public class CollisionDetecter : MonoBehaviour
     {
         return collisions;
     }
-
+    public void Reset()
+    {
+        ResetCollisions = true;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

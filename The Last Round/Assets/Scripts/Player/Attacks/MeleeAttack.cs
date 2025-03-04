@@ -95,25 +95,29 @@ public class MeleeAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("IsColliding");
         UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
         if (uva != null)
         {
             uva.UvoncioDied();
+            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         else if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
         {
             collision.gameObject.GetComponent<ManzurriaMovement>().Died();
+            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         else if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
         {
             collision.gameObject.GetComponent<ManzarieteMovement>().Died();
+            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         else if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
         {
             collision.gameObject.GetComponent<GrapenadeMovement>().Died();
+            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
     }
 
