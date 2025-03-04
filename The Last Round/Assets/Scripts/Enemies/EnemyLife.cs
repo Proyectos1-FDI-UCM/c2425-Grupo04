@@ -55,11 +55,10 @@ public class EnemyLife : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+    public void getdamage(float damage)
+    {
+        EnemigoLife -= damage;
+    }
 
     #endregion
     

@@ -19,17 +19,16 @@ public class MeleeAttack : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    
 
     [SerializeField]
     public SpriteRenderer attackSprite;
 
     [SerializeField]
     public float duration;
+
+    [SerializeField]
+    public float PMdamage =50;
 
     #endregion
 
@@ -101,22 +100,22 @@ public class MeleeAttack : MonoBehaviour
         UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
         if (uva != null)
         {
-            uva.UvoncioDied();
+            uva.GetDamage(PMdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         else if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
         {
-            collision.gameObject.GetComponent<ManzurriaMovement>().Died();
+            collision.gameObject.GetComponent<ManzurriaMovement>().GetDamage(PMdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         else if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
         {
-            collision.gameObject.GetComponent<ManzarieteMovement>().Died();
+            collision.gameObject.GetComponent<ManzarieteMovement>().GetDamage(PMdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         else if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
         {
-            collision.gameObject.GetComponent<GrapenadeMovement>().Died();
+            collision.gameObject.GetComponent<GrapenadeMovement>().GetDamage(PMdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
     }
