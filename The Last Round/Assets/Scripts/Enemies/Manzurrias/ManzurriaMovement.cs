@@ -63,7 +63,7 @@ public class ManzurriaMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Died()
+    public void GetDamage(float Pdamage)
     {
         
         int recursornd = Random.Range(0, 4);
@@ -93,7 +93,7 @@ public class ManzurriaMovement : MonoBehaviour
             Instantiate(recurso, transform.position, Quaternion.identity);
             
         }
-        Destroy(gameObject);
+        GetComponent<EnemyLife>().getdamage(Pdamage);
     }
     #endregion
 

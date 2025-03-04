@@ -38,19 +38,16 @@ public class ManzarieteMovement : MonoBehaviour
                  IsSprinting = false,
                  InRange = false,
                  hit = false, //ha chocado contra algo
-                 OnCollision = false, //Colisiona contra algo
-                 OnTriggerEnter = false;
+                 OnCollision = false; //Colisiona contra algo
     private Rigidbody2D rb;
     private CollisionDetecter cD;
     private GameObject recurso;
-    private Collider2D boxCollider;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
     private void Start()
     {
-        boxCollider = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
@@ -59,6 +56,10 @@ public class ManzarieteMovement : MonoBehaviour
     private void FixedUpdate()
     {
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
+
+        //Detectar si hay algún objeto en ground entre el jugador y el enemigo
+        Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x-transform.position.x,
+                                  GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
 
         InRange = EnemyPlayer.magnitude <= RangeAttack;
 
@@ -83,14 +84,14 @@ public class ManzarieteMovement : MonoBehaviour
         {
             if (timer <= 0)
             {
-                if (EnemyPlayer.x != 0 && EnemyPlayer.y != 0 && EnemyPlayer.x * EnemyPlayer.x +
-                                                                EnemyPlayer.y * EnemyPlayer.y != 0)
-                    LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
-                                              EnemyPlayer.y * EnemyPlayer.y);
+                if (tmp1.x != 0 && tmp1.y != 0 && tmp1.x * tmp1.x +
+                                                                tmp1.y * tmp1.y != 0)
+                    LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x +
+                                              tmp1.y * tmp1.y);
 
-                else if (EnemyPlayer.x != 0) LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x);
+                else if (tmp1.x != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x);
 
-                else if (EnemyPlayer.y != 0) LastPlayerPosition = EnemyPlayer / Mathf.Sqrt(EnemyPlayer.y * EnemyPlayer.y);
+                else if (tmp1.y != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.y * tmp1.y);
 
                 IsCharging = false;
                 IsSprinting = true;
@@ -147,7 +148,7 @@ public class ManzarieteMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Died()
+    public void GetDamage(float Pdamage)
     {
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
@@ -175,7 +176,7 @@ public class ManzarieteMovement : MonoBehaviour
             Instantiate(recurso, transform.position, Quaternion.identity);
 
         }
-        Destroy(gameObject, 0f);
+        GetComponent<EnemyLife>().getdamage(Pdamage);
     }
     #endregion
 
