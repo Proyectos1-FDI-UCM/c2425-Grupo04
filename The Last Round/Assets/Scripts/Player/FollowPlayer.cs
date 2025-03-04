@@ -22,12 +22,13 @@ public class FollowPlayer : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField]GameObject PivotObject;
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Vector3 ObjectPos;
-
-    private GameObject FollowObject;
+    private BoxCollider2D boxCollider;
+    private GameObject FollowObject, player;
+    private Vector3 EnemyPlayer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -43,7 +44,8 @@ public class FollowPlayer : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        if (GetComponent<BoxCollider2D>() != null) boxCollider = GetComponent<BoxCollider2D>();
+        player = GameManager.Instance.GetPlayer();
     }
 
     /// <summary>
@@ -57,7 +59,18 @@ public class FollowPlayer : MonoBehaviour
 
         GetObjectVector();
         float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotation); 
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
+
+        //Ajustar collider de manzariete
+        EnemyPlayer = player.transform.position - transform.position;
+
+        if (boxCollider != null)
+        {
+            float tmp = Mathf.Sqrt((EnemyPlayer.x * EnemyPlayer.x) + (EnemyPlayer.y * EnemyPlayer.y));
+
+            boxCollider.size = new Vector2(tmp, 1);
+            boxCollider.offset = new Vector2(tmp/2, 0);
+        }
     }
     #endregion
 

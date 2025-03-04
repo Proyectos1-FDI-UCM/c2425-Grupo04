@@ -63,6 +63,7 @@ public class ManzarieteMovement : MonoBehaviour
 
         InRange = EnemyPlayer.magnitude <= RangeAttack;
 
+        //Si está cargando hace freeze x e y para que no se mueva con la gravedad 0
         if (IsCharging)
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePosition;
@@ -73,6 +74,10 @@ public class ManzarieteMovement : MonoBehaviour
             rb.constraints &= ~RigidbodyConstraints2D.FreezePosition;
             rb.constraints &= RigidbodyConstraints2D.FreezeRotation;
         }
+
+        //Ajustar el CapsuleCollider para que siga al jugador, mas adelante en el OnTrigger se comprobará qué hay en ese camino hasta el jugador
+
+
 
 
         if (InRange && !IsCharging && !IsSprinting)
