@@ -6,6 +6,8 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 // Añadir aquí el resto de directivas using
 
 
@@ -18,13 +20,14 @@ public class EnemyLife : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private float EnemigoLife = 100;
-  
-    
+    [SerializeField] GameObject ContadorDaño;
+
+
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-   
+    private TextMeshProUGUI text;
 
     #endregion
     
@@ -43,6 +46,8 @@ public class EnemyLife : MonoBehaviour
             EnemigoLife = 50f;
 
         Debug.Log(gameObject.name+" Enemigo tiene " + EnemigoLife);
+
+        text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
     }
 
   
@@ -58,6 +63,8 @@ public class EnemyLife : MonoBehaviour
     public void getdamage(float damage)
     {
         EnemigoLife -= damage;
+        text.text = damage.ToString();
+        Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
     }
 
     #endregion
