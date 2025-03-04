@@ -18,18 +18,14 @@ public class Dialogue : MonoBehaviour
 
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
+    //-- CREAR DIALOGOS NECESARIOS --//
+    [SerializeField]
+    private DataContainer.Texto[] dialogue0, dialogue1;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
 
     #region Atributos Privados (private fields)
-
-
-
-    //-- CREAR DIALOGOS NECESARIOS --//
-    [SerializeField]
-    private DataContainer.Texto[] dialogue0, dialogue1;
-
 
     private UIManager uiManager;
     private DataContainer.Texto[] dialogue;
