@@ -29,6 +29,7 @@ public class FollowPlayer : MonoBehaviour
     private BoxCollider2D boxCollider;
     private GameObject FollowObject, player;
     private Vector3 EnemyPlayer;
+    private bool IsThereWall = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -67,30 +68,20 @@ public class FollowPlayer : MonoBehaviour
         if (boxCollider != null)
         {
             float tmp = Mathf.Sqrt((EnemyPlayer.x * EnemyPlayer.x) + (EnemyPlayer.y * EnemyPlayer.y));
-            float tmp1 = 1;
-            float tmp3;
-            if ((transform.eulerAngles.z >= 315 && transform.eulerAngles.z <= 360) || (transform.eulerAngles.z >= 0 && transform.eulerAngles.z <= 45) || (transform.eulerAngles.z >= 135 && transform.eulerAngles.z <= 225))
-            {
-                if (Mathf.Cos((transform.eulerAngles.z * Mathf.Deg2Rad)) < 0.001f) tmp3 = transform.eulerAngles.z * Mathf.Deg2Rad * 0.001f;
-                else tmp3 = transform.eulerAngles.z * Mathf.Deg2Rad;
-                tmp1 = (transform.parent.GetComponent<BoxCollider2D>().bounds.size.x) / Mathf.Cos(tmp3);
-            }
-            else
-            {
-                if (Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad) < 0.001f) tmp3 = Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad) * 0.001f;
-                else tmp3 = Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad);
-                tmp1 = (transform.parent.GetComponent<BoxCollider2D>().bounds.size.y) / tmp3;
-            }
-
-            boxCollider.size = new Vector2(tmp, tmp1);
+            
+            boxCollider.size = new Vector2(tmp, 1);
             boxCollider.offset = new Vector2(tmp/2, 0);
+           
         }
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
+    public bool GetWall()
+    {
+        return IsThereWall;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -98,11 +89,49 @@ public class FollowPlayer : MonoBehaviour
     //Versión modificada de UpdateVector (de MoveToPlayer)
     private void GetObjectVector()
     {
-        if(FollowObject != null && PivotObject != null)
+        #region AMOGUS
+//⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀ 
+//⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀  A
+//⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀  M
+//⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀  O
+//⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀  G
+//⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀  U
+//⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀  S
+//⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ 
+//⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀ 
+//⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀ 
+//⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀ 
+//⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        #endregion
+
+        if (FollowObject != null && PivotObject != null)
             ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
                               FollowObject.transform.position.y - PivotObject.transform.position.y,
                               0);
         #endregion
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Rigidbody2D>() != null && collision.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        {
+            IsThereWall = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Rigidbody2D>() != null && collision.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        {
+            IsThereWall = false;
+        }
     }
 } // class FollowRotate 
 // namespace

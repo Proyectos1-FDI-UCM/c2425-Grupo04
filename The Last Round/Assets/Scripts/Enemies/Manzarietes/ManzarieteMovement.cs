@@ -38,7 +38,8 @@ public class ManzarieteMovement : MonoBehaviour
                  IsSprinting = false,
                  InRange = false,
                  hit = false, //ha chocado contra algo
-                 OnCollision = false; //Colisiona contra algo
+                 OnCollision = false, //Colisiona contra algo
+                 IsThereWall = false;
     private Rigidbody2D rb;
     private CollisionDetecter cD;
     private GameObject recurso;
@@ -61,8 +62,13 @@ public class ManzarieteMovement : MonoBehaviour
         Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x-transform.position.x,
                                   GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
 
-        InRange = EnemyPlayer.magnitude <= RangeAttack;
+        IsThereWall = GetComponentInChildren<FollowPlayer>().GetWall(); //Se comprueba si hay o no una paredentre el jugador y el enemigo
 
+        InRange = EnemyPlayer.magnitude <= RangeAttack;
+        if (IsThereWall && IsCharging)//Si está cargando y recibe una pared cancela la carga
+        {
+            IsCharging = false;
+        }
         //Si está cargando hace freeze x e y para que no se mueva con la gravedad 0
         if (IsCharging)
         {
@@ -77,10 +83,7 @@ public class ManzarieteMovement : MonoBehaviour
 
         //Ajustar el CapsuleCollider para que siga al jugador, mas adelante en el OnTrigger se comprobará qué hay en ese camino hasta el jugador
 
-
-
-
-        if (InRange && !IsCharging && !IsSprinting)
+        if (InRange && !IsCharging && !IsSprinting && !IsThereWall)
         {
             IsCharging = true;
             timer = ChargeTime;
