@@ -57,7 +57,7 @@ public class ContadorDañoUI : MonoBehaviour
 
         transform.position += new Vector3(0, Time.deltaTime*velocidad, 0);
 
-        if (color.a <= 0f) Destroy(gameObject);
+        if (color.a <= 0f) Destroy(this.transform.parent.transform.parent);
     }
     #endregion
 
