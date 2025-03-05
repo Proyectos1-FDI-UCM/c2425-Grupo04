@@ -64,7 +64,7 @@ public class EnemyLife : MonoBehaviour
     {
         EnemigoLife -= damage;
         text.text = damage.ToString();
-        Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
+        Instantiate(ContadorDaño, gameObject.transform.position , Quaternion.identity);
     }
 
     #endregion
