@@ -65,8 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (MoveDirection != Vector3.zero)
         {
-            LastDirection = MoveDirection;
-           
+            LastDirection = MoveDirection; 
         }
         
         if (!dashing)
