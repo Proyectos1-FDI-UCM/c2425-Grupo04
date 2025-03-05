@@ -138,7 +138,8 @@ public class UIManager : MonoBehaviour
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
         dialogueSkipButton.gameObject.SetActive(true);
-        way = 0; //TEMPORAL Es respuesta correcta
+        if (option1BText.text == dialogue[DialogueLine].GoodText) way = 0; //TEMPORAL Es respuesta correcta
+        else way = 1;
         //Escribe la respuesta del jugador
         DialogueLine++;
         StartCoroutine(Write());
@@ -148,7 +149,8 @@ public class UIManager : MonoBehaviour
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
         dialogueSkipButton.gameObject.SetActive(true);
-        way = 1; //TEMPORAL Es respuesta incorrecta
+        if (option2BText.text == dialogue[DialogueLine].GoodText) way = 0; //TEMPORAL Es respuesta correcta
+        else way = 1;
         DialogueLine++;
         StartCoroutine(Write());
     }
@@ -169,8 +171,17 @@ public class UIManager : MonoBehaviour
             StartCoroutine(Write());
             //Pone el texto de dialogo siguiente en el texto de las opciones
             DialogueLine++;
-            option1BText.text = dialogue[DialogueLine].GoodText;
-            option2BText.text = dialogue[DialogueLine].BadText;
+            int tmp = Random.Range(0, 2);
+            if (tmp == 0)
+            {
+                option1BText.text = dialogue[DialogueLine].GoodText;
+                option2BText.text = dialogue[DialogueLine].BadText;
+            }
+            else
+            {
+                option1BText.text = dialogue[DialogueLine].BadText;
+                option2BText.text = dialogue[DialogueLine].GoodText;
+            }
         }
     }
 
