@@ -352,6 +352,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 31166917548904745, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
+      propertyPath: HoldingTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 31166917548904745, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
+      propertyPath: limitrecursos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6386558954586013951, guid: 43f3fceb6304ebb45a056944e43e75f6, type: 3}
       propertyPath: m_Name
       value: Hielo spawner
@@ -866,7 +874,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5657462362455344652, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
       propertyPath: HoldingTime
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5657462362455344652, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+      propertyPath: limitrecursos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1441737181335942706, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
       propertyPath: m_Name

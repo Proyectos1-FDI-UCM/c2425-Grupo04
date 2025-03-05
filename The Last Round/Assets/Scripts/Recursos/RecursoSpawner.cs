@@ -21,13 +21,14 @@ public class RecursoSpawner : MonoBehaviour
 
     [SerializeField]
     private float detectdistancia = 1.2f, HoldingTime = 0;
+    [SerializeField] 
+    private float limitrecursos = 5;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private float distanciaconjugador;
     private GameObject player;
-    private float limitrecursaos = 5;
     private float timer = 0;
     private float recursosacado = 0;
 
@@ -89,7 +90,7 @@ public class RecursoSpawner : MonoBehaviour
                     recursosacado += 1;
                 }
 
-                if (recursosacado >= limitrecursaos)
+                if (recursosacado >= limitrecursos)
                     Destroy(gameObject);
             }
         }
