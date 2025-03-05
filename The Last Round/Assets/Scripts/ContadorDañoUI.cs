@@ -57,7 +57,8 @@ public class ContadorDañoUI : MonoBehaviour
 
         transform.position += new Vector3(0, Time.deltaTime*velocidad, 0);
 
-        if (color.a <= 0f) Destroy(this.transform.parent.transform.parent);
+       if (color.a <= 0f) Destroy(this.transform.parent.transform.parent.gameObject);//NO VSE PUEDE DESTRUIR EL TRANSFORM. SE HA DE DESTRUIR EL OBJETO. Elimina objeto de texto al hacerse completamente invisible
+
     }
     #endregion
 
