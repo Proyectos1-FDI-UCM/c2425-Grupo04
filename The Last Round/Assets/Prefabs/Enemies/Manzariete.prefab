@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 323549958672846225}
   - component: {fileID: 1390706253937328338}
   - component: {fileID: -6026729436778637599}
-  - component: {fileID: 6795723949517624898}
   m_Layer: 10
   m_Name: Manzariete
   m_TagString: Untagged
@@ -457,38 +456,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemigoLife: 100
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
---- !u!70 &6795723949517624898
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0

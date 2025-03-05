@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2273058439264478256}
   - component: {fileID: 5812684598463360250}
-  m_Layer: 0
+  - component: {fileID: 7116730184606250209}
+  m_Layer: 10
   m_Name: Uvoncio_Cliente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2172589744982081862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.52946, y: 0.09772752, z: 0}
+  m_LocalPosition: {x: -4.01, y: 0.21, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 417929607
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2c8cc58c956bc94ea940be221ec4ca1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +85,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7116730184606250209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172589744982081862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue0:
+  - GoodText: hola
+    BadText: dialogo malo
+    estatus: 0
+    emisor: 0
+  - GoodText: adios
+    BadText: dialogoMalo
+    estatus: 1
+    emisor: 0
+  - GoodText: Opcion 1
+    BadText: Opcion 2
+    estatus: 0
+    emisor: 1
+  - GoodText: Respuesta Opcion 1 por parte de Orion
+    BadText: Respuesta Opcion 2 por parte de Orion
+    estatus: 0
+    emisor: 1
+  - GoodText: bien
+    BadText: mal
+    estatus: 0
+    emisor: 0
+  dialogue1:
+  - GoodText: adios adios adios adios adios adios adios adios adios adios adios adios
+      adios adios adios adios adios adios adios adios adios adios adios adios
+    BadText: dialogo malo
+    estatus: 0
+    emisor: 0
+  - GoodText: hola
+    BadText: dialogo malo
+    estatus: 1
+    emisor: 0
+  - GoodText: Opcion 1
+    BadText: Opcion 2
+    estatus: 0
+    emisor: 1
+  - GoodText: Respuesta Opcion 1 por parte de Orion
+    BadText: Respuesta Opcion 2 por parte de Orion
+    estatus: 0
+    emisor: 1
+  - GoodText: bien
+    BadText: mal
+    estatus: 0
+    emisor: 0

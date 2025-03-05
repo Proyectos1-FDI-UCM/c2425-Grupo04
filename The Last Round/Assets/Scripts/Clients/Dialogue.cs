@@ -20,6 +20,8 @@ public class Dialogue : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     //-- CREAR DIALOGOS NECESARIOS --//
     [SerializeField]
+    float AppearSpeed;
+    [SerializeField]
     private DataContainer.Texto[] dialogue0, dialogue1;
     #endregion
 
@@ -30,6 +32,8 @@ public class Dialogue : MonoBehaviour
     private UIManager uiManager;
     private DataContainer.Texto[] dialogue;
     private bool ClientAppear = false, DialogueGiven = false;
+    private SpriteRenderer spriteRenderer;
+    private Color color;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -40,7 +44,13 @@ public class Dialogue : MonoBehaviour
     /// </summary>
     void Start()
     {
-
+        //Oscurecer personaje
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        color.r = 0;
+        color.g = 0;
+        color.b = 0;
+        color.a = 255;
+        spriteRenderer.color = color;
         int tmp = Random.Range(0, 2);
 
         if (tmp == 0)
@@ -60,12 +70,23 @@ public class Dialogue : MonoBehaviour
     {
         if (uiManager == null) uiManager = GameManager.Instance.GetUI();
 
-        ClientAppear = true; //este booleano no hace nada ahora pero cuando se haga el cambio de rgb se pondrá en true solo cuando RGBvalue=255;
+        //Aparece
+        color.r = Mathf.Clamp(color.r + Time.deltaTime * AppearSpeed, 0, 255);
+        color.g = Mathf.Clamp(color.g + Time.deltaTime * AppearSpeed, 0, 255);
+        color.b = Mathf.Clamp(color.b + Time.deltaTime * AppearSpeed, 0, 255);
+        spriteRenderer.color = color/255;
+        Debug.Log(color.r);
+        if (spriteRenderer.color.r == 1)
+        ClientAppear = true;
 
         if (ClientAppear && !DialogueGiven)
         {
             if (uiManager != null)
+            {
                 uiManager.GetDialogue(dialogue);
+                uiManager.GetClientSprite(spriteRenderer, AppearSpeed);
+            }
+                
             DialogueGiven = true;
         }
     }

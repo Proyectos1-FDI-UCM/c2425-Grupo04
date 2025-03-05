@@ -2822,14 +2822,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uvoncio_Cliente
       objectReference: {fileID: 0}
-    - target: {fileID: 2172589744982081862, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2172589744982081862, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2273058439264478256, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.01
@@ -2870,21 +2862,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5812684598463360250, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5812684598463360250, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 417929607
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2172589744982081862, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1707976953}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
 --- !u!1 &1319047941
 GameObject:
@@ -4139,66 +4120,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664890340}
   m_CullTransparentMesh: 1
---- !u!1 &1707976952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2172589744982081862, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
-  m_PrefabInstance: {fileID: 1318428750}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1707976953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707976952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue0:
-  - GoodText: hola
-    BadText: dialogo malo
-    estatus: 0
-    emisor: 0
-  - GoodText: adios
-    BadText: dialogoMalo
-    estatus: 1
-    emisor: 0
-  - GoodText: Opcion 1
-    BadText: Opcion 2
-    estatus: 0
-    emisor: 1
-  - GoodText: Respuesta Opcion 1 por parte de Orion
-    BadText: Respuesta Opcion 2 por parte de Orion
-    estatus: 0
-    emisor: 1
-  - GoodText: bien
-    BadText: mal
-    estatus: 0
-    emisor: 0
-  dialogue1:
-  - GoodText: adios adios adios adios adios adios adios adios adios adios adios adios
-      adios adios adios adios adios adios adios adios adios adios adios adios
-    BadText: dialogo malo
-    estatus: 0
-    emisor: 0
-  - GoodText: hola
-    BadText: dialogo malo
-    estatus: 1
-    emisor: 0
-  - GoodText: Opcion 1
-    BadText: Opcion 2
-    estatus: 0
-    emisor: 1
-  - GoodText: Respuesta Opcion 1 por parte de Orion
-    BadText: Respuesta Opcion 2 por parte de Orion
-    estatus: 0
-    emisor: 1
-  - GoodText: bien
-    BadText: mal
-    estatus: 0
-    emisor: 0
 --- !u!1 &1713982079
 GameObject:
   m_ObjectHideFlags: 0

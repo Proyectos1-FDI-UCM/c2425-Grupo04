@@ -24,8 +24,6 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
-    public string Bartender; // Nombrar la escena del bar para activarla
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -81,7 +79,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
         {

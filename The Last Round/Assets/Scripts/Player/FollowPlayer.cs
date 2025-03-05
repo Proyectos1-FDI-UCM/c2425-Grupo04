@@ -45,7 +45,6 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         if (GetComponent<BoxCollider2D>() != null) boxCollider = GetComponent<BoxCollider2D>();
-        player = GameManager.Instance.GetPlayer();
     }
 
     /// <summary>
@@ -62,13 +61,28 @@ public class FollowPlayer : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotation);
 
         //Ajustar collider de manzariete
+        if (player ==  null) player = GameManager.Instance.GetPlayer();
         EnemyPlayer = player.transform.position - transform.position;
 
         if (boxCollider != null)
         {
             float tmp = Mathf.Sqrt((EnemyPlayer.x * EnemyPlayer.x) + (EnemyPlayer.y * EnemyPlayer.y));
+            float tmp1 = 1;
+            float tmp3;
+            if ((transform.eulerAngles.z >= 315 && transform.eulerAngles.z <= 360) || (transform.eulerAngles.z >= 0 && transform.eulerAngles.z <= 45) || (transform.eulerAngles.z >= 135 && transform.eulerAngles.z <= 225))
+            {
+                if (Mathf.Cos((transform.eulerAngles.z * Mathf.Deg2Rad)) < 0.001f) tmp3 = transform.eulerAngles.z * Mathf.Deg2Rad * 0.001f;
+                else tmp3 = transform.eulerAngles.z * Mathf.Deg2Rad;
+                tmp1 = (transform.parent.GetComponent<BoxCollider2D>().bounds.size.x) / Mathf.Cos(tmp3);
+            }
+            else
+            {
+                if (Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad) < 0.001f) tmp3 = Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad) * 0.001f;
+                else tmp3 = Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad);
+                tmp1 = (transform.parent.GetComponent<BoxCollider2D>().bounds.size.y) / tmp3;
+            }
 
-            boxCollider.size = new Vector2(tmp, 1);
+            boxCollider.size = new Vector2(tmp, tmp1);
             boxCollider.offset = new Vector2(tmp/2, 0);
         }
     }

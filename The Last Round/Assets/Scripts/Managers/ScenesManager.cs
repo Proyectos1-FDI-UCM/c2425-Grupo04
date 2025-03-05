@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
@@ -94,14 +95,22 @@ public class ScenesManager : MonoBehaviour
 
 
 
-    public void NextScene ()
+    public void NextScene()
     {
-        if (currentScene < 3) currentScene++;
-        else if (currentScene == 3) currentScene = 1;
-        SceneManager.LoadScene(currentScene,LoadSceneMode.Single);
+        if (currentScene < 3)
+        {
+            Console.CursorVisible = true;
+            currentScene++;
+        }
+        else if (currentScene == 3)
+        {
+            Console.CursorVisible = false;
+            currentScene = 1;
+        }
+        SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
     }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -109,7 +118,7 @@ public class ScenesManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class ScenesManager 
 // namespace

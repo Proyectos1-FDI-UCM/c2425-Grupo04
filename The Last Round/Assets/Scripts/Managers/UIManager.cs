@@ -38,7 +38,10 @@ public class UIManager : MonoBehaviour
     private DataContainer.Texto[] dialogue;
     private int way; // 0 = good way , 1 = bad way
     private int DialogueLine = 0;
-    private bool SkipDialogue = false;
+    private bool SkipDialogue = false, ClientDisappear = false;
+    private SpriteRenderer Client;
+    private Color ClientC;
+    private float DisappearSpeed;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -56,6 +59,11 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.GiveUI(this);
         dialogueSkipButton.gameObject.SetActive(true);
+
+        ClientC.r = 255;
+        ClientC.g = 255;
+        ClientC.b = 255;
+        ClientC.a = 255;
     }
 
     /// <summary>
@@ -65,12 +73,26 @@ public class UIManager : MonoBehaviour
     {
         if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
         else dialogueSkipBText.text = "Saltar";
+
+        if (ClientDisappear)
+        {
+            ClientC.r = Mathf.Clamp(ClientC.r - Time.deltaTime * DisappearSpeed, 0, 255);
+            ClientC.g = Mathf.Clamp(ClientC.g - Time.deltaTime * DisappearSpeed, 0, 255);
+            ClientC.b = Mathf.Clamp(ClientC.b - Time.deltaTime * DisappearSpeed, 0, 255);
+        }
+        Client.color = ClientC / 255;
+
+        if (Client.color.r == 0) Destroy(Client.gameObject);
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-
+    public void GetClientSprite(SpriteRenderer Client, float Speed)
+    {
+        this.Client = Client;
+        DisappearSpeed = Speed;
+    }
     public void GetDialogue(DataContainer.Texto[] dialogue) //consigue el dialogo
     {
         this.dialogue = dialogue;
@@ -92,6 +114,7 @@ public class UIManager : MonoBehaviour
             {
                 dialogueSkipButton.gameObject.SetActive(false);
                 dialogueBox.text = " ";
+                ClientDisappear = true;
             }
 
         }
