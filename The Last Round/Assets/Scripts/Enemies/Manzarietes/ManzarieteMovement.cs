@@ -37,8 +37,6 @@ public class ManzarieteMovement : MonoBehaviour
     private bool IsCharging = false,
                  IsSprinting = false,
                  InRange = false,
-                 hit = false, //ha chocado contra algo
-                 OnCollision = false, //Colisiona contra algo
                  IsThereWall = false;
     private Rigidbody2D rb;
     private CollisionDetecter cD;
@@ -58,7 +56,7 @@ public class ManzarieteMovement : MonoBehaviour
     {
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
 
-        //Detectar si hay algún objeto en ground entre el jugador y el enemigo
+        //Vector Jugador -> Enemigo sin retoques de colision
         Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x-transform.position.x,
                                   GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
 
@@ -112,16 +110,16 @@ public class ManzarieteMovement : MonoBehaviour
             {
                 //Excluir las colisiones de Enemigos y Jugador (atravesarlos)
                 rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
-                //rebote contra objetos
-                hit = false; //reseteo la comprobación
-                //Esto es necesario para asegurar que se resetea y el hit se activa despues de ser reseteado y no antes
-                if (OnCollision) ComproveCollision(); //vuelvo a comprobar
 
-                if (hit)
-                {
-                    LastPlayerPosition *= -1;
-                    hit = false;
-                }
+                // -Sensación de rebote-
+
+                //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
+                if ((cD.GetCollisions()[2] && LastPlayerPosition.x > 0) || (cD.GetCollisions()[3] && LastPlayerPosition.x < 0))
+                    LastPlayerPosition.x *= -1;
+                //Si colisiona en las zonas encima o debajo solo invierte el eje y
+                if ((cD.GetCollisions()[0] && LastPlayerPosition.y > 0) || (cD.GetCollisions()[1] && LastPlayerPosition.y < 0))
+                    LastPlayerPosition.y *= -1;
+
                 //movimiento
                 rb.velocity = LastPlayerPosition * SprintSpeed * Time.fixedDeltaTime;
 
@@ -190,18 +188,6 @@ public class ManzarieteMovement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        OnCollision = true;
-    }
-
-    private void ComproveCollision()
-    {
-        if ((cD.GetCollisions()[0] && LastPlayerPosition.y > 0) ||
-            (cD.GetCollisions()[1] && LastPlayerPosition.y < 0) ||
-            (cD.GetCollisions()[2] && LastPlayerPosition.x > 0) ||
-            (cD.GetCollisions()[3] && LastPlayerPosition.x < 0)) hit = true;
-    }
     #endregion
 
 } // class ManzarieteMovement 
