@@ -80,9 +80,17 @@ public class UIManager : MonoBehaviour
             ClientC.g = Mathf.Clamp(ClientC.g - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.b = Mathf.Clamp(ClientC.b - Time.deltaTime * DisappearSpeed, 0, 255);
         }
-        Client.color = ClientC / 255;
+        if (Client != null)
+        {
+            Client.color = ClientC / 255;
+            if (Client.color.r == 0)
+            {
+                Destroy(Client.gameObject);
+                ScenesManager.sceneManagerInstance.NextScene();
+            }
+        }
 
-        if (Client.color.r == 0) Destroy(Client.gameObject);
+        
     }
     #endregion
 
