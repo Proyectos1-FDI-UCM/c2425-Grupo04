@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 // Añadir aquí el resto de directivas using
 
 
@@ -54,7 +55,13 @@ public class EnemyLife : MonoBehaviour
     void Update()
     {
         if(EnemigoLife <= 0)
+        {
+            if (GetComponent<UvonciosMovement>() != null) GetComponent<UvonciosMovement>().InsRec();
+            else if (GetComponent<ManzarieteMovement>() != null) GetComponent<ManzarieteMovement>().InsRec();
+            else if (GetComponent<GrapenadeMovement>() != null) GetComponent<GrapenadeMovement>().InsRec();
+            else if (GetComponent<ManzurriaMovement>() != null) GetComponent<ManzurriaMovement>().InsRec();
             Destroy(gameObject);
+        }    
     }
     #endregion
 

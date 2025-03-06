@@ -79,7 +79,7 @@ public class RecursoSpawner : MonoBehaviour
             if (timer <= 0)
             {
                 timer = HoldingTime;
-                if (gameObject.name == "Hielo Spawner")
+                if (gameObject.name == "Hielo spawner")
                 {
                     GameManager.Instance.IncreaseResource(0, "Hielo");
                     recursosacado += 1;
