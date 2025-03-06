@@ -19,6 +19,7 @@ public class PlaceMark : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private GameObject MarcaPrefab;
+    [SerializeField] private float marcaCooldown = 0.8f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -27,10 +28,7 @@ public class PlaceMark : MonoBehaviour
     private GameObject marcaInstanciada;
     private GameObject Player;
     private bool marcaInstanciadaBool = false;
-
-
-
-
+    private float cooldown;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -47,6 +45,7 @@ public class PlaceMark : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        cooldown = marcaCooldown;
     }
 
     /// <summary>
@@ -54,11 +53,22 @@ public class PlaceMark : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (marcaInstanciada == null && rb.velocity == Vector2.zero)
-            MarcarJugador();
+        if (marcaInstanciada == null && rb.velocity == Vector2.zero && cooldown <= 0)
+        {
+                MarcarJugador();
+        }
 
         if (Player == null)
             Player = GameManager.Instance.GetPlayer();
+
+        if (rb.velocity == Vector2.zero)
+        {
+            cooldown -= Time.deltaTime;
+        }
+        if(rb.velocity != Vector2.zero)
+        {
+            cooldown = marcaCooldown;
+        }
     }
     #endregion
 
