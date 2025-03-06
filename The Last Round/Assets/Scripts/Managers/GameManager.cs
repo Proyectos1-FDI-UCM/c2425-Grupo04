@@ -136,12 +136,23 @@ public class GameManager : MonoBehaviour
         {
             Nrecursos[i] += 1;
             Debug.Log(Nrecursos[i] + "Es la cantidad actual de " + recursoname);
-        } 
+        }
     }
+
+    // ---INVENTARIO PROVISIONAL---
+    public float[] GetResources()
+    {
+        return recursos;
+    }
+    public float[] GetNResources()
+    {
+        return Nrecursos;
+    }
+    // ---FIN INVENTARIO PROVISIONAL---
     public void GiveUI(UIManager uimanager)
     {
         this.UIManager = uimanager;
-}
+    }
 
 
     public static GameManager Instance
@@ -221,4 +232,4 @@ public class GameManager : MonoBehaviour
 
     #endregion
 } // class GameManager 
-// namespace
+  // namespace
