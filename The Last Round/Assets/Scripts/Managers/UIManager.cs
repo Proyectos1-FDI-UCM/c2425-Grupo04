@@ -42,7 +42,6 @@ public class UIManager : MonoBehaviour
     private SpriteRenderer Client;
     private Color ClientC;
     private float DisappearSpeed;
-    private float[] recursos, Nrecursos;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -59,6 +58,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveUI(this);
+
+        if (dialogueSkipButton != null)
         dialogueSkipButton.gameObject.SetActive(true);
 
         ClientC.r = 255;
@@ -72,8 +73,12 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
-        else dialogueSkipBText.text = "Saltar";
+        if (dialogueSkipBText != null)
+        {
+            if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
+            else dialogueSkipBText.text = "Saltar";
+        }
+        
 
         if (ClientDisappear)
         {
@@ -90,17 +95,20 @@ public class UIManager : MonoBehaviour
                 ScenesManager.sceneManagerInstance.NextScene();
             }
         }
-        // --- INVENTARIO PROVISIONAL ---
-        recursos = GameManager.Instance.GetResources();
-        Nrecursos = GameManager.Instance.GetNResources();
-        if (inventario != null)
-        inventario.text = $"Jugo de uva: {recursos[0]}, Piel de uva: {recursos[1]}, Semilla de uva: {recursos[2]}, Jugo de manzana: {recursos[3]}, Piel de manzana: {recursos[4]}, Semilla de manzana: {recursos[5]}, Hielo: {Nrecursos[0]}, Levadura: {Nrecursos[1]}";
+
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
 
+    // --- INVENTARIO PROVISIONAL ---
+    public void InvRec(float[] recursos)
+    {
+        if (inventario != null)
+        inventario.text = $"Jugo de uva: {recursos[0]}, Piel de uva: {recursos[1]}, Semilla de uva: {recursos[2]}, Jugo de manzana: {recursos[3]}, Piel de manzana: {recursos[4]}, Semilla de manzana: {recursos[5]}, Hielo: {recursos[6]}, Levadura: {recursos[7]}";
+    }
+    // --- FIN DE INVENTARIO PROVISIONAL ---
 
     public void GetClientSprite(SpriteRenderer Client, float Speed)
     {
@@ -162,12 +170,12 @@ public class UIManager : MonoBehaviour
     }
     public void DetectarEstatus()
     {
-        if(dialogue[DialogueLine].estatus == DataContainer.Estado.monologo) //si es monologo, escribe
+        if (dialogue[DialogueLine].estatus == DataContainer.Estado.monologo) //si es monologo, escribe
         {
             dialogueSkipButton.gameObject.SetActive(true);
             StartCoroutine(Write()); //escribe el resto
         }
-        else if(dialogue[DialogueLine].estatus == DataContainer.Estado.dialogo) //si es dialogo
+        else if (dialogue[DialogueLine].estatus == DataContainer.Estado.dialogo) //si es dialogo
         {
             //oculta el boton de saltar, y activa las opciones
             dialogueSkipButton.gameObject.SetActive(false);

@@ -81,12 +81,12 @@ public class RecursoSpawner : MonoBehaviour
                 timer = HoldingTime;
                 if (gameObject.name == "Hielo spawner")
                 {
-                    GameManager.Instance.IncreaseResource(0, "Hielo");
+                    GameManager.Instance.IncreaseResource(6);
                     recursosacado += 1;
                 }
                 else if (gameObject.name == "Levadura Spawner")
                 {
-                    GameManager.Instance.IncreaseResource(1, "Levadura");
+                    GameManager.Instance.IncreaseResource(7);
                     recursosacado += 1;
                 }
 

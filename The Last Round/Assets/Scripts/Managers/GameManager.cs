@@ -42,15 +42,13 @@ public class GameManager : MonoBehaviour
     private UIManager UIManager;
     private static GameManager _instance;
     private GameObject Player;
-    private float[] recursos = new float[6];
+    private float[] recursos = new float[8];
 
     //0 = Jugo de Uva       //3 = Jugo de manzana
     //1 = Piel de Uva       //4 = Piel de manzana
     //2 = Semilla de Uva    //5 = Semilla manzana
 
-    private float[] Nrecursos = new float[2];
-
-    //0 = Hielo       //1 = Levadura
+    //6 = Hielo             //7 = Levadura
 
     #endregion
 
@@ -109,7 +107,13 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    private void Update()
+    {
+        // ---INVENTARIO PROVISIONAL---
+        UIManager.InvRec(recursos);
 
+        // ---FIN INVENTARIO PROVISIONAL---
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -124,31 +128,10 @@ public class GameManager : MonoBehaviour
     {
         return UIManager;
     }
-    public void IncreaseResource(int i, string recursoname)
+    public void IncreaseResource(int i)
     {
-        Debug.Log(recursoname + "mas 1");
-        if (recursoname != "Hielo" || recursoname != "Levadura")
-        {
-            recursos[i] += 1;
-            Debug.Log(recursos[i] + "Es la cantidad actual de " + recursoname);
-        }
-        else
-        {
-            Nrecursos[i] += 1;
-            Debug.Log(Nrecursos[i] + "Es la cantidad actual de " + recursoname);
-        }
+        recursos[i] += 1;
     }
-
-    // ---INVENTARIO PROVISIONAL---
-    public float[] GetResources()
-    {
-        return recursos;
-    }
-    public float[] GetNResources()
-    {
-        return Nrecursos;
-    }
-    // ---FIN INVENTARIO PROVISIONAL---
     public void GiveUI(UIManager uimanager)
     {
         this.UIManager = uimanager;

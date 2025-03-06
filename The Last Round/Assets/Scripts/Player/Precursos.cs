@@ -76,27 +76,27 @@ public class Precursos : MonoBehaviour
         {
             if (objectName == "Jugo de uva(Clone)")
             {
-                GameManager.Instance.IncreaseResource(0, "Jugo de uva");
+                GameManager.Instance.IncreaseResource(0);
             }
             else if (objectName == "Piel de uva(Clone)")
             {
-                GameManager.Instance.IncreaseResource(1, "Piel de uva");
+                GameManager.Instance.IncreaseResource(1);
             }
             else if (objectName == "Semilla de uva(Clone)")
             {
-                GameManager.Instance.IncreaseResource(2, "Semilla de uva");
+                GameManager.Instance.IncreaseResource(2);
             }
             else if (objectName == "Jugo de manzana(Clone)")
             {
-                GameManager.Instance.IncreaseResource(3, "Jugo de manzana");
+                GameManager.Instance.IncreaseResource(3);
             }
             else if (objectName == "Piel de manzana(Clone)")
             {
-                GameManager.Instance.IncreaseResource(4, "Piel de manzana");
+                GameManager.Instance.IncreaseResource(4);
             }
             else if (objectName == "Semilla de manzana(Clone)")
             {
-                GameManager.Instance.IncreaseResource(5, "Semilla de manzana");
+                GameManager.Instance.IncreaseResource(5);
             }
             Destroy(collision.gameObject); 
         }
