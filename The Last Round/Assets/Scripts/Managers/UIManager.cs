@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText;
+    TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText, inventario;
     [SerializeField]
     Button dialogueSkipButton;
     [SerializeField]
@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     private SpriteRenderer Client;
     private Color ClientC;
     private float DisappearSpeed;
+    private float[] recursos, Nrecursos;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -89,13 +90,18 @@ public class UIManager : MonoBehaviour
                 ScenesManager.sceneManagerInstance.NextScene();
             }
         }
-
-        
+        // --- INVENTARIO PROVISIONAL ---
+        recursos = GameManager.Instance.GetResources();
+        Nrecursos = GameManager.Instance.GetNResources();
+        if (inventario != null)
+        inventario.text = $"Jugo de uva: {recursos[0]}, Piel de uva: {recursos[1]}, Semilla de uva: {recursos[2]}, Jugo de manzana: {recursos[3]}, Piel de manzana: {recursos[4]}, Semilla de manzana: {recursos[5]}, Hielo: {Nrecursos[0]}, Levadura: {Nrecursos[1]}";
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+
+
     public void GetClientSprite(SpriteRenderer Client, float Speed)
     {
         this.Client = Client;

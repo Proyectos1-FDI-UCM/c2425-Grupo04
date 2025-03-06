@@ -67,6 +67,11 @@ public class UvonciosMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void GetDamage(float Pdamage)
     {
+        
+        GetComponent<EnemyLife>().getdamage(Pdamage);
+    }
+    public void InsRec()
+    {
         int recursornd = Random.Range(0, 4);
         if (recursornd == 1)
         {
@@ -91,11 +96,9 @@ public class UvonciosMovement : MonoBehaviour
         if (recurso != null)
         {
             Instantiate(recurso, transform.position, Quaternion.identity);
-           
-        }
-        GetComponent<EnemyLife>().getdamage(Pdamage);
-    }
 
+        }
+    }
 
     #endregion
 
