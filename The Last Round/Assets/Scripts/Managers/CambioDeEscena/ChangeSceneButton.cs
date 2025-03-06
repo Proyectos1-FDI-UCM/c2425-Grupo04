@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 // Añadir aquí el resto de directivas using
 
 
@@ -65,7 +66,7 @@ public class ChangeSceneButton : MonoBehaviour
     #region Métodos públicos
     public void ChangeScene()
     {
-        ScenesManager.sceneManagerInstance.NextScene();
+        ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
     }
     #endregion
     

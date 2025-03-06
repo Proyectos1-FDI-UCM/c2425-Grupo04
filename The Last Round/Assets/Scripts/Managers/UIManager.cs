@@ -13,6 +13,7 @@ using System.Transactions;
 using UnityEngine.InputSystem;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -92,7 +93,7 @@ public class UIManager : MonoBehaviour
             if (Client.color.r == 0)
             {
                 Destroy(Client.gameObject);
-                ScenesManager.sceneManagerInstance.NextScene();
+                ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
 
