@@ -10,7 +10,6 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using System.Runtime.CompilerServices;
-using UnityEditor.Experimental.GraphView;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,

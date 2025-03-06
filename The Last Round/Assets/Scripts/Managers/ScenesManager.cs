@@ -99,12 +99,10 @@ public class ScenesManager : MonoBehaviour
     {
         if (currentScene < 3)
         {
-            Console.CursorVisible = true;
             currentScene++;
         }
         else if (currentScene == 3)
         {
-            Console.CursorVisible = false;
             currentScene = 1;
         }
         SceneManager.LoadScene(currentScene, LoadSceneMode.Single);

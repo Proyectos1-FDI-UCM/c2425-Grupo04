@@ -46,6 +46,21 @@ TagManager:
   - name: Land
     uniqueID: 3108800967
     locked: 0
+  - name: Marcas
+    uniqueID: 1040131769
+    locked: 0
+  - name: Spawners recursos
+    uniqueID: 3762131137
+    locked: 0
+  - name: Recursos
+    uniqueID: 3181062801
+    locked: 0
+  - name: Ataques de enemigo
+    uniqueID: 3590428275
+    locked: 0
+  - name: Ataque de jugador
+    uniqueID: 1484590657
+    locked: 0
   - name: Enemy
     uniqueID: 417929607
     locked: 0
@@ -54,4 +69,7 @@ TagManager:
     locked: 0
   - name: "ContadorDa\xF1o"
     uniqueID: 776555849
+    locked: 0
+  - name: Cursor
+    uniqueID: 4269407941
     locked: 0
