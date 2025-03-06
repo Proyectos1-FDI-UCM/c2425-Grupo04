@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -532836159
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0.5246529, g: 0.697914, b: 0.8490566, a: 1}
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -532836159
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0.6556604, g: 0.8405316, b: 1, a: 1}
@@ -238,8 +238,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -532836159
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0.5608757, g: 0.8650648, b: 0.8679245, a: 1}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 978938882152986648}
   - component: {fileID: 31166917548904745}
   m_Layer: 7
-  m_Name: Hielo Spawner
+  m_Name: Hielo spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,3 +353,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectdistancia: 2
   HoldingTime: 4
+  limitrecursos: 5
