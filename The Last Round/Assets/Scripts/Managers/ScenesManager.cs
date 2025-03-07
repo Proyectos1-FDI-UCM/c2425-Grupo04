@@ -38,6 +38,7 @@ public class ScenesManager : MonoBehaviour
 
 
     public static ScenesManager sceneManagerInstance { get; private set; }
+    private int currentScene;
 
     #endregion
 
@@ -68,7 +69,7 @@ public class ScenesManager : MonoBehaviour
 
     void Start()
     {
-        
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         //Debug.Log(currentScene);
     }
 
@@ -79,7 +80,7 @@ public class ScenesManager : MonoBehaviour
     {
         if (Keyboard.current[Key.N].wasPressedThisFrame)
         {
-            NextScene(SceneManager.GetActiveScene().buildIndex);
+            NextScene();
         }
     }
     #endregion
@@ -94,13 +95,13 @@ public class ScenesManager : MonoBehaviour
 
 
 
-    public void NextScene(int currentScene)
+    public void NextScene()
     {
         if (currentScene < 3)
         {
             currentScene++;
         }
-        else if (currentScene >= 3)
+        else if (currentScene == 3)
         {
             currentScene = 1;
         }
