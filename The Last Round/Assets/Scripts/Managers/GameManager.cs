@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // ---INVENTARIO PROVISIONAL---
-        UIManager.InvRec(recursos);
+        if (UIManager != null) UIManager.InvRec(recursos);
 
         // ---FIN INVENTARIO PROVISIONAL---
     }

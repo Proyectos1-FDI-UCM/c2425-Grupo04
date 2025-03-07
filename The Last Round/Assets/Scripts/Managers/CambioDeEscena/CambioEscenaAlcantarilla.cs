@@ -60,7 +60,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     {
         if (InputManager.Instance.InteractWasPressedThisFrame() && PlayerWasDetected)
         {
-            ScenesManager.sceneManagerInstance.NextScene();
+            ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
