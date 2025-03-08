@@ -26,6 +26,7 @@ public class ManzarieteMovement : MonoBehaviour
     [SerializeField] GameObject PielDeManzana;
     [SerializeField] GameObject JugoDeManzana;
     [SerializeField] GameObject SemillaDeManzana;
+    [SerializeField] GameObject AttackCube;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -46,6 +47,7 @@ public class ManzarieteMovement : MonoBehaviour
     #region Métodos de MonoBehaviour
     private void Start()
     {
+        AttackCube.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
@@ -99,6 +101,7 @@ public class ManzarieteMovement : MonoBehaviour
                 else if (tmp1.y != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.y * tmp1.y);
 
                 IsCharging = false;
+                AttackCube.SetActive(true);
                 IsSprinting = true;
                 Stimer = SprintTime;
             }
@@ -133,6 +136,7 @@ public class ManzarieteMovement : MonoBehaviour
                 rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
                 rb.velocity = Vector3.zero;
                 IsSprinting = false;
+                AttackCube.SetActive(false);
                 SprintSpeed = tmp;
             }
         }
