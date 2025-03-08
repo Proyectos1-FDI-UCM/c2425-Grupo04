@@ -430,6 +430,58 @@ PrefabInstance:
       propertyPath: BebidasPosibles.Array.data[6].materials.Array.data[1].amount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[0].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[1].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[1].materials.Array.data[1].materialImage
+      value: 
+      objectReference: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[2].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[2].materials.Array.data[1].materialImage
+      value: 
+      objectReference: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[3].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[3].materials.Array.data[1].materialImage
+      value: 
+      objectReference: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[3].materials.Array.data[2].materialImage
+      value: 
+      objectReference: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[4].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[4].materials.Array.data[1].materialImage
+      value: 
+      objectReference: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[5].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[5].materials.Array.data[1].materialImage
+      value: 
+      objectReference: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - target: {fileID: 7116730184606250209, guid: 486dad9f7a9adb248bc2615c4ef7698e, type: 3}
+      propertyPath: BebidasPosibles.Array.data[6].materials.Array.data[0].materialImage
+      value: 
+      objectReference: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

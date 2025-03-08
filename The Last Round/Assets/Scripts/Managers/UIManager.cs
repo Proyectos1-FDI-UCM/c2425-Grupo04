@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     private int DialogueLine = 0;
     private bool SkipDialogue = false, ClientDisappear = false;
     private SpriteRenderer Client;
-    private Color ClientC;
+    private Color ClientC, invisible, visible;
     private float DisappearSpeed;
     private DataContainer.Bebida Drink;
     #endregion
@@ -67,8 +67,27 @@ public class UIManager : MonoBehaviour
         if (ServirButton != null) ServirButton.gameObject.SetActive(false);
         if (recompensa != null) recompensa.text = " ";
         if (nombreBebida != null) nombreBebida.text = " ";
-        if (DrinkImage.gameObject != null) DrinkImage.sprite = null;
         if (dialogueSkipButton != null) dialogueSkipButton.gameObject.SetActive(false);
+
+        invisible.r = 255;
+        invisible.g = 255;
+        invisible.b = 255;
+        invisible.a = 0;
+
+        visible.r = 255;
+        visible.g = 255;
+        visible.b = 255;
+        visible.a = 255;
+
+        if (DrinkImage.gameObject != null)
+        {
+            DrinkImage.color = invisible;
+            material1Image.color = invisible;
+            material2Image.color = invisible;
+            material3Image.color = invisible;
+        }
+        
+
         ClientC.r = 255;
         ClientC.g = 255;
         ClientC.b = 255;
@@ -252,6 +271,7 @@ public class UIManager : MonoBehaviour
 
             //Actualiza la imagen de la bebida pedida
             DrinkImage.sprite = Drink.image;
+            DrinkImage.color = visible;
 
             //Actualiza la recompensa
             recompensa.text = $"{Drink.reward} monedas";
@@ -261,18 +281,21 @@ public class UIManager : MonoBehaviour
             {
                 material3.text = $"x{Drink.materials[2].amount}";
                 material3Image.sprite = Drink.materials[2].materialImage;
+                material3Image.color = visible;
             }
                 
             if (Drink.materials.Length >= 2)
             {
                 material2.text = $"x{Drink.materials[1].amount}";
-                material3Image.sprite = Drink.materials[1].materialImage;
+                material2Image.sprite = Drink.materials[1].materialImage;
+                material2Image.color = visible;
             }
                 
             if (Drink.materials.Length >= 1)
             {
                 material1.text = $"x{Drink.materials[0].amount}";
-                material3Image.sprite = Drink.materials[0].materialImage;
+                material1Image.sprite = Drink.materials[0].materialImage;
+                material1Image.color = visible;
             }
                 
         }
