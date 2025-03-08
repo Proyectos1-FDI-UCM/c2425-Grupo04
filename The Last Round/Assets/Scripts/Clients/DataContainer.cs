@@ -40,6 +40,75 @@ public class DataContainer
             this.emisor = emisor;
         }
     }
+
+    public enum DrinkName
+    {
+        //Bebidas Manzanas
+        Sidra,
+        Applejack,
+        Calvado,
+        LicorDeManzana,
+        EauDeVie,
+        BrandyDeManzana,
+        Pommeau,
+
+        //Bebidas Uvas
+        Vino,
+        Armagak,
+        Raki,
+        Vermú,
+        Pisco,
+        Grappa,
+        Singani,
+    }
+
+    public enum MaterialName
+    {
+        //Materiales Manzana
+        PielDeManzana,
+        JugoDeManzana,
+        SemillaDeManzana,
+
+        //Materiales Uva
+        PielDeUva,
+        JugoDeUva,
+        SemillaDeUva,
+
+        //Recursos naturales
+        hielo,
+        levadura,
+    }
+
+    [System.Serializable]
+    public struct materials
+    {
+        public MaterialName name;
+        public int amount;
+        public Sprite materialImage;
+
+        public materials (MaterialName name, int amount, Sprite materialImage)
+        {
+            this.name = name;
+            this.amount = amount;
+            this.materialImage = materialImage;
+        }
+    }
+    [System.Serializable]
+    public struct Bebida
+    {
+        public DrinkName name;
+        public materials[] materials;
+        public Sprite image;
+        public int reward;
+
+        public Bebida (DrinkName name, materials[] materials,Sprite image, int reward)
+        {
+            this.name = name;
+            this.materials = materials;
+            this.image = image;
+            this.reward = reward;
+        }
+    }
     
 } // class Texts 
 // namespace

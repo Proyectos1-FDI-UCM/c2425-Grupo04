@@ -24,9 +24,13 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText;
+    TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText,//DIALOGOS Y MONÓLOGOS
+
+                    recompensa, material1, material2, material3, nombreBebida;//BEBIDAS
     [SerializeField]
-    Button dialogueSkipButton;
+    private Image DrinkImage, material1Image, material2Image, material3Image;
+    [SerializeField]
+    Button dialogueSkipButton, ServirButton;
     [SerializeField]
     private float TypeSpeed;
     [SerializeField]
@@ -43,6 +47,7 @@ public class UIManager : MonoBehaviour
     private SpriteRenderer Client;
     private Color ClientC;
     private float DisappearSpeed;
+    private DataContainer.Bebida Drink;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -59,10 +64,11 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveUI(this);
-
-        if (dialogueSkipButton != null)
-        dialogueSkipButton.gameObject.SetActive(true);
-
+        if (ServirButton != null) ServirButton.gameObject.SetActive(false);
+        if (recompensa != null) recompensa.text = " ";
+        if (nombreBebida != null) nombreBebida.text = " ";
+        if (DrinkImage.gameObject != null) DrinkImage.sprite = null;
+        if (dialogueSkipButton != null) dialogueSkipButton.gameObject.SetActive(false);
         ClientC.r = 255;
         ClientC.g = 255;
         ClientC.b = 255;
@@ -79,7 +85,7 @@ public class UIManager : MonoBehaviour
             if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
             else dialogueSkipBText.text = "Saltar";
         }
-        
+
 
         if (ClientDisappear)
         {
@@ -114,21 +120,29 @@ public class UIManager : MonoBehaviour
     //UIManager recoge el dialogo que se va a escribir ese dia
     public void GetDialogue(DataContainer.Texto[] dialogue)
     {
+        dialogueSkipButton.gameObject.SetActive(true);
+
         this.dialogue = dialogue;
         DialogueLine = 0; //Inicializa el dialogo en el primer texto
         way = 0; //empieza en GoodWay
-        DetectarEstatus(); //Detecta que estado tiene el primer texto
+        StartCoroutine(Write()); //Escribe el primer texto
+    }
+
+    //UIManager recoge la bebida que va a pedir el cliente
+    public void GetDrink(DataContainer.Bebida Drink)
+    {
+        this.Drink = Drink;
     }
 
     //Al pulsar continuar, empieza a escribir la siguiente frase
-    public void SkipButton() 
+    public void SkipButton()
     {
         if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) //Si el texto ha acabado queremos que pase al siguiente
         {
             if (DialogueLine < dialogue.GetLength(0) - 1) //Si queda texto pasa al siguiente
             {
                 DialogueLine++;
-                DetectarEstatus();//Detecta lo que tiene que hacer en función del estado del texto
+                StartCoroutine(Write()); //Escribe texto
             }
             else //Si no queda texto no escribe nada y empieza a desaparecer
             {
@@ -143,7 +157,6 @@ public class UIManager : MonoBehaviour
             SkipDialogue = true;
         }
     }
-
 
     public void OptionL() //Cuando es pulsado el boton izquierdo
     {
@@ -161,6 +174,7 @@ public class UIManager : MonoBehaviour
         DialogueLine++;
         StartCoroutine(Write());
     }
+
     public void OptionR() //Cuando es pulsado el boton derecho
     {
         //desactiva las opciones y activa el boton de saltar dialogo
@@ -177,29 +191,21 @@ public class UIManager : MonoBehaviour
         DialogueLine++;
         StartCoroutine(Write());
     }
+
     public void DetectarEstatus()
     {
         #region Comportamiento del monólogo
-
-        if (dialogue[DialogueLine].estatus == DataContainer.Estado.monologo) //si es monologo, escribe
-        {
-            dialogueSkipButton.gameObject.SetActive(true);
-            StartCoroutine(Write()); //escribe el resto
-        }
-
+        //Si es un monólogo no hace nada porque el texto ya se ha escrito
         #endregion
 
         #region Comportamiento del diálogo
 
-        else if (dialogue[DialogueLine].estatus == DataContainer.Estado.dialogo) //si es dialogo
+        if (dialogue[DialogueLine].estatus == DataContainer.Estado.dialogo) //si es dialogo
         {
             //oculta el boton de saltar o continuar y activa las opciones
             dialogueSkipButton.gameObject.SetActive(false);
             option1Button.gameObject.SetActive(true);
             option2Button.gameObject.SetActive(true);
-
-            //Escribe el diálogo o pregunta del cliente
-            StartCoroutine(Write());
 
             //Pone el texto de dialogo siguiente en el texto de las opciones
             //Siendo el bueno una opción y el malo otra opción
@@ -221,9 +227,60 @@ public class UIManager : MonoBehaviour
 
         #region Comportamiento de la bebida
 
+        else if (dialogue[DialogueLine].estatus == DataContainer.Estado.bebida)
+        {
+            dialogueSkipButton.gameObject.SetActive(false);
+            string DialogueOnly = GoodBadDialogue();
+            //Todo esto se cambia despues de terminar de pedir
+            dialogueSkipButton.gameObject.SetActive(false); //Desactiva el botón de continuar/saltar
+            ServirButton.gameObject.SetActive(true); //Activa el botón de servir
+
+            //Actualiza el nombre de la bebida pedida
+            if (Drink.name == DataContainer.DrinkName.BrandyDeManzana)
+            {
+                nombreBebida.text = "Brandy de manzana";
+            }
+            else if (Drink.name == DataContainer.DrinkName.LicorDeManzana)
+            {
+                nombreBebida.text = "Licor de manzana";
+            }
+            else if (Drink.name == DataContainer.DrinkName.EauDeVie)
+            {
+                nombreBebida.text = "Eau De Vie";
+            }
+            else nombreBebida.text = $"{Drink.name}";
+
+            //Actualiza la imagen de la bebida pedida
+            DrinkImage.sprite = Drink.image;
+
+            //Actualiza la recompensa
+            recompensa.text = $"{Drink.reward} monedas";
+
+            //Actualiza el listado de materiales
+            if (Drink.materials.Length >= 3)
+            {
+                material3.text = $"x{Drink.materials[2].amount}";
+                material3Image.sprite = Drink.materials[2].materialImage;
+            }
+                
+            if (Drink.materials.Length >= 2)
+            {
+                material2.text = $"x{Drink.materials[1].amount}";
+                material3Image.sprite = Drink.materials[1].materialImage;
+            }
+                
+            if (Drink.materials.Length >= 1)
+            {
+                material1.text = $"x{Drink.materials[0].amount}";
+                material3Image.sprite = Drink.materials[0].materialImage;
+            }
+                
+        }
+
         #endregion
 
     }
+
     #endregion //termina región de bartender
 
     #endregion //Termina región métodos públicos
@@ -238,7 +295,7 @@ public class UIManager : MonoBehaviour
 
         //Elige el recorrido de la conversación a escribir
         string dialogueOnly = GoodBadDialogue();
-
+        dialogueSkipButton.gameObject.SetActive(true); // Activa el botón de continuar/saltar
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {
@@ -250,6 +307,12 @@ public class UIManager : MonoBehaviour
                 SkipDialogue = false;
             }
             else dialogueBox.text += ch;
+
+            //Si acaba de hablar realiza la acción que deba realizar
+            if (dialogueBox.text == dialogueOnly)
+            {
+                DetectarEstatus();
+            }
             yield return new WaitForSeconds(TypeSpeed);
         }
     }

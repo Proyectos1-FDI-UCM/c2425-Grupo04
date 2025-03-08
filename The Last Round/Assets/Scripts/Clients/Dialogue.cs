@@ -23,6 +23,8 @@ public class Dialogue : MonoBehaviour
     float AppearSpeed;
     [SerializeField]
     private DataContainer.Texto[] dialogue0, dialogue1;
+    [SerializeField]
+    private DataContainer.Bebida[] BebidasPosibles;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -34,6 +36,7 @@ public class Dialogue : MonoBehaviour
     private bool ClientAppear = false, DialogueGiven = false;
     private SpriteRenderer spriteRenderer;
     private Color color;
+    private DataContainer.Bebida BebidaPedida;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -51,6 +54,8 @@ public class Dialogue : MonoBehaviour
         color.b = 0;
         color.a = 255;
         spriteRenderer.color = color;
+
+        //Elige el diálogo que contar
         int tmp = Random.Range(0, 2);
 
         if (tmp == 0)
@@ -60,6 +65,27 @@ public class Dialogue : MonoBehaviour
         else if (tmp == 1)
         {
             dialogue = dialogue1;
+        }
+
+        //Elige la bebida que va a pedir
+        int tmp1 = Random.Range(0, BebidasPosibles.Length);
+        BebidaPedida = BebidasPosibles[tmp1];
+
+        //Hace un replace de la palabra "(bebida)" en el diálogo por el nombre de la bebida pedida
+        int i = 0;
+        bool enc = false;
+
+        while (i < dialogue.Length && !enc)
+        {
+            if (dialogue[i].estatus == DataContainer.Estado.bebida)
+            {
+                enc = true;
+
+                //Hace el replace en ambos caminos
+                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)",$"{BebidaPedida.name}");
+                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{BebidaPedida.name}");
+            }
+            i++;
         }
     }
 
@@ -83,6 +109,7 @@ public class Dialogue : MonoBehaviour
         {
             if (uiManager != null)
             {
+                uiManager.GetDrink(BebidaPedida);
                 uiManager.GetDialogue(dialogue);
                 uiManager.GetClientSprite(spriteRenderer, AppearSpeed);
             }
