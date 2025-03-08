@@ -41,6 +41,7 @@ public class ManzarieteMovement : MonoBehaviour
     private Rigidbody2D rb;
     private CollisionDetecter cD;
     private GameObject recurso;
+    private Vector3 CubePosition;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -136,7 +137,7 @@ public class ManzarieteMovement : MonoBehaviour
                 rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
                 rb.velocity = Vector3.zero;
                 IsSprinting = false;
-                AttackCube.SetActive(false);
+                //AttackCube.SetActive(false);
                 SprintSpeed = tmp;
             }
         }
@@ -157,6 +158,12 @@ public class ManzarieteMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+
+    //Pasar si está o no sprintando a FollowPlayer
+    public bool Sprinting()
+    {
+        return IsSprinting;
+    }
     public void GetDamage(float Pdamage)
     {
         GetComponent<EnemyLife>().getdamage(Pdamage);

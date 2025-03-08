@@ -20,6 +20,7 @@ public class FollowPlayer : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]GameObject PivotObject;
+    [SerializeField] GameObject cube, nudo;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -28,7 +29,7 @@ public class FollowPlayer : MonoBehaviour
     private BoxCollider2D boxCollider;
     private GameObject FollowObject, player;
     private Vector3 EnemyPlayer;
-    private bool IsThereWall = false;
+    private bool IsThereWall = false, IsSprinting = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -59,6 +60,9 @@ public class FollowPlayer : MonoBehaviour
         GetObjectVector();
         float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotation);
+        IsSprinting = PivotObject.GetComponent<ManzarieteMovement>().Sprinting();
+        if (!IsSprinting)
+        cube.transform.position = nudo.transform.position;
 
         //Ajustar collider de manzariete
         if (player ==  null) player = GameManager.Instance.GetPlayer();
