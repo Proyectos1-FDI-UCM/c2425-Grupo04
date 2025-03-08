@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2172589744982081862
+--- !u!1 &1562574269909345304
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2273058439264478256}
-  - component: {fileID: 5812684598463360250}
-  - component: {fileID: 7116730184606250209}
+  - component: {fileID: 2510957792824250114}
+  - component: {fileID: 8755036878347728107}
+  - component: {fileID: 9103401856347748054}
   m_Layer: 10
   m_Name: Uvoncio_Cliente
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2273058439264478256
+--- !u!4 &2510957792824250114
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2172589744982081862}
+  m_GameObject: {fileID: 1562574269909345304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.01, y: 0.21, z: 0}
+  m_LocalPosition: {x: -3.08, y: 0.32, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5812684598463360250
+--- !u!212 &8755036878347728107
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2172589744982081862}
+  m_GameObject: {fileID: 1562574269909345304}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 417929607
-  m_SortingLayer: 2
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2c8cc58c956bc94ea940be221ec4ca1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,18 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7116730184606250209
+--- !u!114 &9103401856347748054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2172589744982081862}
+  m_GameObject: {fileID: 1562574269909345304}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AppearSpeed: 100
   dialogue0:
   - GoodText: hola
     BadText: dialogo malo
@@ -140,3 +141,75 @@ MonoBehaviour:
     BadText: mal
     estatus: 0
     emisor: 0
+  - GoodText: "\xBFMe podr\xEDa poner un (bebida)?"
+    BadText: Ponme un (bebida)
+    estatus: 2
+    emisor: 0
+  BebidasPosibles:
+  - name: 7
+    materials:
+    - name: 3
+      amount: 10
+      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: f2062d8a4e6b82a40afceb101a030ce8, type: 3}
+    reward: 2
+  - name: 8
+    materials:
+    - name: 3
+      amount: 10
+      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: a96b7399145e4c54d9d7d9410af3293a, type: 3}
+    reward: 2
+  - name: 9
+    materials:
+    - name: 3
+      amount: 10
+      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 4
+      amount: 10
+      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 5c8610e9352b1cd42988742e825753ee, type: 3}
+    reward: 2
+  - name: 10
+    materials:
+    - name: 4
+      amount: 10
+      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 5
+      amount: 10
+      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 875a43377a995be4f8e662fd16bef982, type: 3}
+    reward: 2
+  - name: 11
+    materials:
+    - name: 4
+      amount: 10
+      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 8d590f90e4da80543a53312e316d09f6, type: 3}
+    reward: 2
+  - name: 12
+    materials:
+    - name: 5
+      amount: 10
+      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: ed69ca4650947a945a2dcd166fdc5c52, type: 3}
+    reward: 2
+  - name: 13
+    materials:
+    - name: 5
+      amount: 10
+      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 7fcb280fe3158ab4fa26a022ca71d6cb, type: 3}
+    reward: 2

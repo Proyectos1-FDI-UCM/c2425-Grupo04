@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7965103945087150158}
   - component: {fileID: 8878814387447978843}
+  - component: {fileID: 7300162790974140439}
   m_Layer: 0
   m_Name: Manzariete_Cliente
   m_TagString: Untagged
@@ -84,3 +85,131 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7300162790974140439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772254827288310451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppearSpeed: 100
+  dialogue0:
+  - GoodText: hola
+    BadText: dialogo malo
+    estatus: 0
+    emisor: 0
+  - GoodText: adios
+    BadText: dialogoMalo
+    estatus: 1
+    emisor: 0
+  - GoodText: Opcion 1
+    BadText: Opcion 2
+    estatus: 0
+    emisor: 1
+  - GoodText: Respuesta Opcion 1 por parte de Orion
+    BadText: Respuesta Opcion 2 por parte de Orion
+    estatus: 0
+    emisor: 1
+  - GoodText: bien
+    BadText: mal
+    estatus: 0
+    emisor: 0
+  dialogue1:
+  - GoodText: adios adios adios adios adios adios adios adios adios adios adios adios
+      adios adios adios adios adios adios adios adios adios adios adios adios
+    BadText: dialogo malo
+    estatus: 0
+    emisor: 0
+  - GoodText: hola
+    BadText: dialogo malo
+    estatus: 1
+    emisor: 0
+  - GoodText: Opcion 1
+    BadText: Opcion 2
+    estatus: 0
+    emisor: 1
+  - GoodText: Respuesta Opcion 1 por parte de Orion
+    BadText: Respuesta Opcion 2 por parte de Orion
+    estatus: 0
+    emisor: 1
+  - GoodText: bien
+    BadText: mal
+    estatus: 0
+    emisor: 0
+  - GoodText: "\xBFMe podr\xEDa poner un (bebida)?"
+    BadText: Ponme un (bebida)
+    estatus: 2
+    emisor: 0
+  BebidasPosibles:
+  - name: 0
+    materials:
+    - name: 0
+      amount: 10
+      materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: a9c4b1ce0870ef6458a5d66de0a694ef, type: 3}
+    reward: 2
+  - name: 1
+    materials:
+    - name: 0
+      amount: 10
+      materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 6
+      amount: 2
+      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 96e854073fbbfe140a6fdbeecff42f1d, type: 3}
+    reward: 2
+  - name: 2
+    materials:
+    - name: 0
+      amount: 10
+      materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 1
+      amount: 10
+      materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 5895df2746850a446ba07c2b9d3ff516, type: 3}
+    reward: 2
+  - name: 3
+    materials:
+    - name: 1
+      amount: 10
+      materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 2
+      amount: 10
+      materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 6
+      amount: 2
+      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 0e0f6fc4e5a42a742925f408146c064e, type: 3}
+    reward: 2
+  - name: 4
+    materials:
+    - name: 1
+      amount: 10
+      materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 6
+      amount: 2
+      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 5cd4d5329a2ca1b4ea2034abff60c9bb, type: 3}
+    reward: 2
+  - name: 5
+    materials:
+    - name: 2
+      amount: 10
+      materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 6
+      amount: 2
+      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 8eb8b7eec13c0f24e8ab89d1644055e2, type: 3}
+    reward: 2
+  - name: 6
+    materials:
+    - name: 2
+      amount: 10
+      materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 487074c1c1507f64e93441932d2c7d34, type: 3}
+    reward: 2
