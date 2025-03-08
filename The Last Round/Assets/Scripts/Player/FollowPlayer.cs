@@ -29,7 +29,7 @@ public class FollowPlayer : MonoBehaviour
     private BoxCollider2D boxCollider;
     private GameObject FollowObject, player;
     private Vector3 EnemyPlayer;
-    private bool IsThereWall = false, IsSprinting = false;
+    private bool IsThereWall = false, IsSprinting = false, InvertX = false, InvertY = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -61,8 +61,20 @@ public class FollowPlayer : MonoBehaviour
         float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotation);
         IsSprinting = PivotObject.GetComponent<ManzarieteMovement>().Sprinting();
+
         if (!IsSprinting)
-        cube.transform.position = nudo.transform.position;
+        {
+            cube.transform.position = nudo.transform.position;
+            cube.transform.rotation = Quaternion.Euler(0, 0, rotation);
+        }
+        if (InvertX)
+        {
+           // cube.transform.position.x *= -1;
+        }
+        if (InvertY)
+        {
+           // cube.transform.position.y *= -1;
+        }
 
         //Ajustar collider de manzariete
         if (player ==  null) player = GameManager.Instance.GetPlayer();
