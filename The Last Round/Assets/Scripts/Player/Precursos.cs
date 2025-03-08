@@ -78,7 +78,7 @@ public class Precursos : MonoBehaviour
             {
                 GameManager.Instance.IncreaseResource(0);
             }
-            else if (objectName == "Piel de uva(Clone)")
+            else if (objectName == "Piel de uva negra(Clone)" || objectName == "Piel de uva roja(Clone)")
             {
                 GameManager.Instance.IncreaseResource(1);
             }
@@ -90,7 +90,7 @@ public class Precursos : MonoBehaviour
             {
                 GameManager.Instance.IncreaseResource(3);
             }
-            else if (objectName == "Piel de manzana(Clone)")
+            else if (objectName == "Piel de manzana verde(Clone)" || objectName == "Piel de manzana roja(Clone)")
             {
                 GameManager.Instance.IncreaseResource(4);
             }
