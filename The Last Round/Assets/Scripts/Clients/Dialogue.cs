@@ -4,6 +4,7 @@
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 // Añadir aquí el resto de directivas using
@@ -56,7 +57,7 @@ public class Dialogue : MonoBehaviour
         spriteRenderer.color = color;
 
         //Elige el diálogo que contar
-        int tmp = Random.Range(0, 2);
+        int tmp = UnityEngine.Random.Range(0, 2);
 
         if (tmp == 0)
         {
@@ -68,7 +69,7 @@ public class Dialogue : MonoBehaviour
         }
 
         //Elige la bebida que va a pedir
-        int tmp1 = Random.Range(0, BebidasPosibles.Length);
+        int tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
         BebidaPedida = BebidasPosibles[tmp1];
 
         //Hace un replace de la palabra "(bebida)" en el diálogo por el nombre de la bebida pedida
@@ -82,8 +83,22 @@ public class Dialogue : MonoBehaviour
                 enc = true;
 
                 //Hace el replace en ambos caminos
-                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)",$"{BebidaPedida.name}");
-                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{BebidaPedida.name}");
+                //además sustituye los "_" por espacios
+                //y el masculino en femenino en caso de ser una sidra
+
+                //Filtro 1 y 2
+                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)",$"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+
+                //Filtro 3
+                if (BebidaPedida.name == DataContainer.DrinkName.Sidra)
+                {
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("ese", "esa");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("este", "esta");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("aquel", "aquella");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("un", "una");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("el", "la");
+                }
             }
             i++;
         }

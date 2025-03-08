@@ -14,6 +14,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -230,7 +231,7 @@ public class UIManager : MonoBehaviour
             //Siendo el bueno una opción y el malo otra opción
             //Esto de forma aleatoria para que los botones no tengan un patrón de respuesta buena o mala
             DialogueLine++;
-            int tmp = Random.Range(0, 2);
+            int tmp = UnityEngine.Random.Range(0, 2);
             if (tmp == 0)
             {
                 option1BText.text = dialogue[DialogueLine].GoodText;
@@ -255,19 +256,7 @@ public class UIManager : MonoBehaviour
             ServirButton.gameObject.SetActive(true); //Activa el botón de servir
 
             //Actualiza el nombre de la bebida pedida
-            if (Drink.name == DataContainer.DrinkName.BrandyDeManzana)
-            {
-                nombreBebida.text = "Brandy de manzana";
-            }
-            else if (Drink.name == DataContainer.DrinkName.LicorDeManzana)
-            {
-                nombreBebida.text = "Licor de manzana";
-            }
-            else if (Drink.name == DataContainer.DrinkName.EauDeVie)
-            {
-                nombreBebida.text = "Eau De Vie";
-            }
-            else nombreBebida.text = $"{Drink.name}";
+            nombreBebida.text = Convert.ToString(Drink.name).Replace("_"," ");
 
             //Actualiza la imagen de la bebida pedida
             DrinkImage.sprite = Drink.image;

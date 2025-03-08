@@ -47,9 +47,9 @@ public class DataContainer
         Sidra,
         Applejack,
         Calvado,
-        LicorDeManzana,
-        EauDeVie,
-        BrandyDeManzana,
+        Licor_de_manzana,
+        Eau_de_vie,
+        Brandy_de_manzana,
         Pommeau,
 
         //Bebidas Uvas
@@ -65,7 +65,7 @@ public class DataContainer
     public enum MaterialName
     {
         //Materiales Manzana
-        PielDeManzana,
+        Piel_de_manzana,
         JugoDeManzana,
         SemillaDeManzana,
 
