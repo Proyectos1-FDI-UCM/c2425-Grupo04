@@ -65,6 +65,7 @@ public class FollowPlayer : MonoBehaviour
         IsSprinting = PivotObject.GetComponent<ManzarieteMovement>().Sprinting();
 
         rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
+
         transform.rotation = Quaternion.Euler(0, 0, rotation);
 
         //Ajustar collider de manzariete
@@ -122,15 +123,15 @@ public class FollowPlayer : MonoBehaviour
                               0);
 
         //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
-        if ((cD.GetCollisions()[2] && ObjectPos.x > 0) || (cD.GetCollisions()[3] && ObjectPos.x < 0))
+        if (((cD.GetCollisions()[2] && ObjectPos.x > 0) || (cD.GetCollisions()[3] && ObjectPos.x < 0)) && IsSprinting)
         {
             ObjectPos.x *= -1;
         }
 
         //Si colisiona en las zonas encima o debajo solo invierte el eje y
-        if ((cD.GetCollisions()[0] && ObjectPos.y > 0) || (cD.GetCollisions()[1] && ObjectPos.y < 0))
+        if (((cD.GetCollisions()[0] && ObjectPos.y > 0) || (cD.GetCollisions()[1] && ObjectPos.y < 0)) && IsSprinting)
         {
-            ObjectPos.y *= -1;
+           ObjectPos.y *= -1;
         }
         #endregion
     }

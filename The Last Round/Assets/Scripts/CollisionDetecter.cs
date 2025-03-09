@@ -68,6 +68,15 @@ public class CollisionDetecter : MonoBehaviour
     public void Reset()
     {
         ResetCollisions = true;
+
+        if (ResetCollisions)
+        {
+            for (int i = 0; i < collisions.Length; i++)
+            {
+                collisions[i] = false;
+            }
+            ResetCollisions = false;
+        }
     }
     #endregion
 
