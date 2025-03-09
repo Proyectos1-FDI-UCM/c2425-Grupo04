@@ -29,7 +29,7 @@ public class FollowPlayer : MonoBehaviour
     private BoxCollider2D boxCollider;
     private GameObject FollowObject, player;
     private Vector3 EnemyPlayer, difference;
-    private bool IsThereWall = false, IsSprinting = false, InvertX = false, InvertY = false;
+    private bool IsThereWall = false, IsSprinting = false;
     private CollisionDetecter cD;
     private float rotation;
     #endregion
