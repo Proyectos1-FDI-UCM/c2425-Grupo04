@@ -114,29 +114,29 @@ public class GameManager : MonoBehaviour
 
     #region Métodos públicos
 
-    /// <summary>
-    /// Propiedad para acceder a la única instancia de la clase.
-    /// </summary>
-    /// 
+    // ---RECOGIDA DE UIMANAGERS---
     public UIManager GetUI()
     {
         return UIManager;
     }
-
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
     }
+    public void GiveUI(UIManager UIManager)
+    {
+        this.UIManager = UIManager;
+    }
+    public void GiveUIC(UIManager_Combate UIManagerCombate)
+    {
+        this.UIManagerCombate = UIManagerCombate;
+    }
+    // ---RECOGIDA DE UIMANAGERS---
+
     public void IncreaseResource(int i)
     {
         recursos[i] += 1;
     }
-    public void GiveUI(UIManager uimanager)
-    {
-        this.UIManager = uimanager;
-    }
-
-
     public static GameManager Instance
     {
         get

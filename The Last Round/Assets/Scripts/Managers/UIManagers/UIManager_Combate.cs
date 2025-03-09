@@ -42,6 +42,7 @@ public class UIManager_Combate : MonoBehaviour
     /// </summary>
     void Start()
     {
+        GameManager.Instance.GiveUIC(this);
         playerHealth = GameManager.Instance.GetPlayer().GetComponent<PlayerHealth>();
     }
 
