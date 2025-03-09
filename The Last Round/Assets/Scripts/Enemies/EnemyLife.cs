@@ -59,6 +59,9 @@ public class EnemyLife : MonoBehaviour
             else if (GetComponent<ManzarieteMovement>() != null) GetComponent<ManzarieteMovement>().InsRec();
             else if (GetComponent<GrapenadeMovement>() != null) GetComponent<GrapenadeMovement>().InsRec();
             else if (GetComponent<ManzurriaMovement>() != null) GetComponent<ManzurriaMovement>().InsRec();
+
+            if (GetComponent<PlaceMark>() != null) GetComponent<PlaceMark>().GrapenadeWasDestroy();
+
             Destroy(gameObject);
         }    
     }

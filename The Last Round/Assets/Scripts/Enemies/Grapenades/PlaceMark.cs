@@ -89,6 +89,11 @@ public class PlaceMark : MonoBehaviour
         return marcaInstanciadaBool;
     }
 
+    public void GrapenadeWasDestroy()
+    {
+        if (marcaInstanciada != null) marcaInstanciada.GetComponent<MarcaBehaviour>().GrapenadeWasDestroy();
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

@@ -59,7 +59,7 @@ public class GrapenadeMovement : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        EnemyPlayer = moveToPlayer.UpdateVector(gameObject);
+        EnemyPlayer = GameManager.Instance.GetPlayer().transform.position - transform.position;
 
         if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
         {
@@ -87,7 +87,6 @@ public class GrapenadeMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void GetDamage(float Pdamage)
     {
-        
         GetComponent<EnemyLife>().getdamage(Pdamage);
     }
     public void InsRec()

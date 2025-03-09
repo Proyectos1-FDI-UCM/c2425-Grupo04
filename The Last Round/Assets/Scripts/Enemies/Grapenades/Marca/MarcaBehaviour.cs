@@ -73,8 +73,12 @@ public class MarcaBehaviour : MonoBehaviour
     {
         follow = false;
     }
+    public void GrapenadeWasDestroy()
+    {
+        if (follow) Destroy(gameObject);
+    }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -82,7 +86,7 @@ public class MarcaBehaviour : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class MarcaBehaviour 
 // namespace
