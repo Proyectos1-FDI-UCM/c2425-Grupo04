@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private UIManager UIManager;
+    private UIManager_Combate UIManagerCombate;
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[8];
@@ -120,6 +121,11 @@ public class GameManager : MonoBehaviour
     public UIManager GetUI()
     {
         return UIManager;
+    }
+
+    public UIManager_Combate GetUIC()
+    {
+        return UIManagerCombate;
     }
     public void IncreaseResource(int i)
     {
