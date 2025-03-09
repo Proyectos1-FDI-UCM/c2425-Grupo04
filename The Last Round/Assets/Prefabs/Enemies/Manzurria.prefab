@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1967464169388331557}
   - component: {fileID: 6534199339364150021}
   - component: {fileID: -536503855232666632}
+  - component: {fileID: 3781029211868618390}
   m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
@@ -216,3 +217,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemigoLife: 100
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
+--- !u!114 &3781029211868618390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

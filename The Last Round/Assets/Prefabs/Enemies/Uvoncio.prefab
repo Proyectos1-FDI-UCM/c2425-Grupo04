@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -8693182855056807467}
   - component: {fileID: -8778368904597255998}
   - component: {fileID: 4033619266515250546}
+  - component: {fileID: 2471628544198058330}
   m_Layer: 10
   m_Name: Uvoncio
   m_TagString: Untagged
@@ -216,3 +217,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemigoLife: 100
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
+--- !u!114 &2471628544198058330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
