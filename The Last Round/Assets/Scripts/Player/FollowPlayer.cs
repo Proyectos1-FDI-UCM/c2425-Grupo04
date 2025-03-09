@@ -29,7 +29,9 @@ public class FollowPlayer : MonoBehaviour
     private BoxCollider2D boxCollider;
     private GameObject FollowObject, player;
     private Vector3 EnemyPlayer, difference;
-    private bool IsThereWall = false, IsSprinting = false;
+    private bool IsThereWall = false, IsSprinting = false, InvertX = false, InvertY = false;
+    private CollisionDetecter cD;
+    private float rotation;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,6 +48,7 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         if (GetComponent<BoxCollider2D>() != null) boxCollider = GetComponent<BoxCollider2D>();
+        cD = PivotObject.GetComponent<CollisionDetecter>();
     }
 
     /// <summary>
@@ -59,19 +62,10 @@ public class FollowPlayer : MonoBehaviour
 
         GetObjectVector();
 
-        if (!IsSprinting)
-        {
-            float rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, rotation);
-        }
-
         IsSprinting = PivotObject.GetComponent<ManzarieteMovement>().Sprinting();
 
-
-
-
-
-
+        rotation = Mathf.Atan2(ObjectPos.y, ObjectPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
 
         //Ajustar collider de manzariete
         if (player == null) player = GameManager.Instance.GetPlayer();
@@ -83,7 +77,6 @@ public class FollowPlayer : MonoBehaviour
 
             boxCollider.size = new Vector2(tmp, 1);
             boxCollider.offset = new Vector2(tmp / 2, 0);
-
         }
     }
     #endregion
@@ -123,10 +116,22 @@ public class FollowPlayer : MonoBehaviour
         //⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         #endregion
 
-        if (FollowObject != null && PivotObject != null)
+        if (FollowObject != null && PivotObject != null && !IsSprinting)
             ObjectPos = new Vector3(FollowObject.transform.position.x - PivotObject.transform.position.x,
                               FollowObject.transform.position.y - PivotObject.transform.position.y,
                               0);
+
+        //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
+        if ((cD.GetCollisions()[2] && ObjectPos.x > 0) || (cD.GetCollisions()[3] && ObjectPos.x < 0))
+        {
+            ObjectPos.x *= -1;
+        }
+
+        //Si colisiona en las zonas encima o debajo solo invierte el eje y
+        if ((cD.GetCollisions()[0] && ObjectPos.y > 0) || (cD.GetCollisions()[1] && ObjectPos.y < 0))
+        {
+            ObjectPos.y *= -1;
+        }
         #endregion
     }
 
