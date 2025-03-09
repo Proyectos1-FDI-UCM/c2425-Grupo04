@@ -232,6 +232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2294677398502530525}
+  - {fileID: 9627793684372477}
   m_Father: {fileID: 8138933576077900459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4046262584483984079
@@ -442,7 +443,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9627793684372477}
   - {fileID: 8564384819749941846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -518,6 +518,7 @@ MonoBehaviour:
   JugoDeManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
   SemillaDeManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
   AttackCube: {fileID: 7995536849386412423}
+  followplayer: {fileID: 4046262584483984079}
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,7 +670,7 @@ Transform:
   - {fileID: 5654450033382686226}
   - {fileID: 7636334526244363801}
   - {fileID: 378168016366798714}
-  m_Father: {fileID: 8138933576077900459}
+  m_Father: {fileID: 8564384819749941846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6858926833649659788
 MonoBehaviour:

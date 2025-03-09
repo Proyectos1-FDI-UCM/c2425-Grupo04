@@ -37,13 +37,10 @@ public class ManzarieteMovement : MonoBehaviour
     private bool IsCharging = false,
                  IsSprinting = false,
                  InRange = false,
-                 IsThereWall = false,
-                 InvertX = false,
-                 InvertY = false;
+                 IsThereWall = false;
     private Rigidbody2D rb;
     private CollisionDetecter cD;
     private GameObject recurso;
-    private Vector3 CubePosition;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -117,19 +114,16 @@ public class ManzarieteMovement : MonoBehaviour
                 rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
 
                 // -Sensación de rebote-
-                InvertX = false; InvertY = false;
                 //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
                 if ((cD.GetCollisions()[2] && LastPlayerPosition.x > 0) || (cD.GetCollisions()[3] && LastPlayerPosition.x < 0))
                 {
                     LastPlayerPosition.x *= -1;
-                    InvertX = true;
                 }
                     
                 //Si colisiona en las zonas encima o debajo solo invierte el eje y
                 if ((cD.GetCollisions()[0] && LastPlayerPosition.y > 0) || (cD.GetCollisions()[1] && LastPlayerPosition.y < 0))
                 {
                     LastPlayerPosition.y *= -1;
-                    InvertY = true;
                 }
                     
 
@@ -147,7 +141,7 @@ public class ManzarieteMovement : MonoBehaviour
                 rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
                 rb.velocity = Vector3.zero;
                 IsSprinting = false;
-                //AttackCube.SetActive(false);
+                AttackCube.SetActive(false);
                 SprintSpeed = tmp;
             }
         }
@@ -173,14 +167,6 @@ public class ManzarieteMovement : MonoBehaviour
     public bool Sprinting()
     {
         return IsSprinting;
-    }
-    public bool invertx()
-    {
-        return InvertX;
-    }
-    public bool inverty()
-    {
-        return InvertY;
     }
     public void GetDamage(float Pdamage)
     {
