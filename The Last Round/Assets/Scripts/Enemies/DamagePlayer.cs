@@ -55,7 +55,7 @@ public class DamagePlayer : MonoBehaviour
     #region Métodos Privados
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<PlayerHealth>() != null && cooldown <= 0 && GameManager.Instance.GetPlayer().GetComponent<PlayerHealth>().hasPlayerDied())
+        if(collision.gameObject.GetComponent<PlayerHealth>() != null && cooldown <= 0)
         {
             collision.gameObject.GetComponent<PlayerHealth>().HitPlayer(damage);
             cooldown = 2;
@@ -64,7 +64,7 @@ public class DamagePlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerHealth>() != null && cooldown <= 0 && GameManager.Instance.GetPlayer().GetComponent<PlayerHealth>().hasPlayerDied())
+        if (collision.gameObject.GetComponent<PlayerHealth>() != null && cooldown <= 0)
         {
             collision.gameObject.GetComponent<PlayerHealth>().HitPlayer(damage);
         }

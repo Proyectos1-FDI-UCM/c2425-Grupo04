@@ -48,8 +48,8 @@ public class UIManager_Combate : MonoBehaviour
     void Update()
     {
         if (playerHealth == null) playerHealth = GameManager.Instance.GetPlayer().GetComponent<PlayerHealth>();
-        
         //Activa la UI de GameOver si el jugador pierde
+
         gameOverUI.SetActive(playerHealth.hasPlayerDied());
     }
     #endregion
