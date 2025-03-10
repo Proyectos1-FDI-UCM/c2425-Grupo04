@@ -33,6 +33,7 @@ public class CollisionDetecter : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private bool[] collisions = new bool[4];
+    private GameObject[] objects = new GameObject[4];
     private bool ResetCollisions = false;
     #endregion
 
@@ -45,6 +46,7 @@ public class CollisionDetecter : MonoBehaviour
             for (int i = 0; i < collisions.Length; i++)
             {
                 collisions[i] = false;
+                objects[i] = null;
             }
             ResetCollisions = false;
         }
@@ -68,14 +70,21 @@ public class CollisionDetecter : MonoBehaviour
     public void Reset()
     {
         ResetCollisions = true;
+    }
 
-        if (ResetCollisions)
+    //Función que resetea una Layer en especifico
+    public void ResetLayer(int Layer)
+    {
+        for (int i = 0; i < collisions.Length; i++)
         {
-            for (int i = 0; i < collisions.Length; i++)
+            if (objects[i] != null && objects[i].gameObject.layer == Layer)
             {
                 collisions[i] = false;
+                Debug.Log("E U P");
             }
-            ResetCollisions = false;
+
+            if (objects[i] != null)
+            Debug.Log("Ole Ole " + objects[i].name + " " + objects[i].layer);
         }
     }
     #endregion
@@ -91,30 +100,35 @@ public class CollisionDetecter : MonoBehaviour
             if (normal.y > 0.5f)
             {
                 collisions[1] = true;
+                objects[1] = collision.gameObject;
             }
             if (normal.y < -0.5f)
             {
                 collisions[0] = true;
+                objects[0] = collision.gameObject;
             }
 
             if (normal.x > 0.5f)
             {
                 collisions[3] = true;
+                objects[3] = collision.gameObject;
             }
             if (normal.x < -0.5f)
             {
                 collisions[2] = true;
+                objects[2] = collision.gameObject;
             }
-        }      
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         for (int i = 0; i < collisions.Length; i++)
         {
             collisions[i] = false;
+            objects[i] = null;
         }
     }
     #endregion   
 
 } // class CollisionDetecter 
-// namespace
+  // namespace

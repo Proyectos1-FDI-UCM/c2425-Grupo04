@@ -112,7 +112,11 @@ public class ManzarieteMovement : MonoBehaviour
             {
                 //Excluir las colisiones de Enemigos y Jugador (atravesarlos)
                 rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
-                GetComponent<CollisionDetecter>().Reset();
+
+                //Reseteamos las colisiones con las capas excluidas anteriormente
+                GetComponent<CollisionDetecter>().ResetLayer(6 /*Player*/);
+                GetComponent<CollisionDetecter>().ResetLayer(10 /*Enemy*/);
+
                 // -Sensación de rebote- durante movimiento
                 //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
                 if ((cD.GetCollisions()[2] && LastPlayerPosition.x > 0) || (cD.GetCollisions()[3] && LastPlayerPosition.x < 0))
