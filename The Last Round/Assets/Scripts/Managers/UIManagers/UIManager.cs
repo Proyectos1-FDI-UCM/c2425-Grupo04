@@ -54,6 +54,29 @@ public class UIManager : MonoBehaviour
     private float TypeSpeed;
     [SerializeField]
     private Button option1Button, option2Button;
+
+
+
+    [SerializeField]
+    private Button regresarMats;
+
+    [Header("ELEMENTOS BOTONES MATERIALES")]
+    [SerializeField]
+    private Button[] materials = new Button[8];
+
+    [SerializeField]
+    private TextMeshProUGUI[] matNums = new TextMeshProUGUI[8];
+
+
+    [Header("ELEMENTOS MATERIALES EN CESTA")]
+    [SerializeField]
+    private Image[] matCestaImages = new Image[8];
+
+    [SerializeField]
+    private TextMeshProUGUI[] matsNumsEnCesta = new TextMeshProUGUI[8];
+
+
+    
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -67,6 +90,10 @@ public class UIManager : MonoBehaviour
     private Color ClientC, invisible, visible;
     private float DisappearSpeed;
     private DataContainer.Bebida Drink;
+
+
+    private int[] placeholderUntilInventory = new int[8] {10,10,10,10,10,10,10,10};
+    private int[] matsEnCesta = new int [8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -111,6 +138,11 @@ public class UIManager : MonoBehaviour
         ClientC.g = 255;
         ClientC.b = 255;
         ClientC.a = 255;
+
+
+
+
+        
     }
 
     /// <summary>
@@ -141,6 +173,23 @@ public class UIManager : MonoBehaviour
             }
         }
 
+
+        for (int i = 0; i < placeholderUntilInventory.Length; i++)
+        {
+            matNums[i].text = placeholderUntilInventory[i].ToString();
+            matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
+
+            if (matsEnCesta[i] > 0) matCestaImages[i].gameObject.SetActive(true);
+            else matCestaImages[i].gameObject.SetActive(false);
+        }
+        int matsTotales = 0;
+        for (int i = 0; i < matsEnCesta.Length; i++)
+        {
+            matsTotales += matsEnCesta[i];
+        }
+
+        if (matsTotales > 0) regresarMats.gameObject.SetActive(true);
+        else regresarMats.gameObject.SetActive(false);
     }
     #endregion
 
@@ -309,6 +358,39 @@ public class UIManager : MonoBehaviour
 
         #endregion
 
+    }
+
+
+    public void SumarMaterial(Button material)
+    {
+        int i = 0;
+        bool selectedMatFound = false;
+
+        while (i < materials.Length && !selectedMatFound)
+        {
+            if (material ==  materials[i]) selectedMatFound = true;
+            else i++;
+        }
+        Debug.Log(i);
+
+        if (placeholderUntilInventory[i] > 0)
+        {
+            matsEnCesta[i]++;
+            placeholderUntilInventory[i]--;
+        }
+        Debug.Log(matsEnCesta[0] + " , " + matsEnCesta[1] + " , " + matsEnCesta[2] + " , " + matsEnCesta[3] + " , " + matsEnCesta[4] + " , " + matsEnCesta[5] + " , " + matsEnCesta[6] + " , " + matsEnCesta[7]);
+
+        
+    }
+
+
+    public void RegresarMats ()
+    {
+        for (int i = 0; i < matsEnCesta.Length; i++)
+        {
+            placeholderUntilInventory[i] += matsEnCesta[i];
+            matsEnCesta[i] = 0;
+        }
     }
 
     #endregion //termina región de bartender

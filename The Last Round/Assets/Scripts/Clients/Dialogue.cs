@@ -116,7 +116,7 @@ public class Dialogue : MonoBehaviour
         color.g = Mathf.Clamp(color.g + Time.deltaTime * AppearSpeed, 0, 255);
         color.b = Mathf.Clamp(color.b + Time.deltaTime * AppearSpeed, 0, 255);
         spriteRenderer.color = color/255;
-        Debug.Log(color.r);
+        //Debug.Log(color.r);
         if (spriteRenderer.color.r == 1)
         ClientAppear = true;
 
