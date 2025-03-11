@@ -171,6 +171,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 464266047}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: servirBText
+      value: 
+      objectReference: {fileID: 238110478}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: ServirButton
       value: 
       objectReference: {fileID: 1917428897}
@@ -6200,19 +6204,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -222132210917062480, guid: 59e5747075bc6264db881fd45d331952, type: 3}
       propertyPath: dialogue1.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -222132210917062480, guid: 59e5747075bc6264db881fd45d331952, type: 3}
       propertyPath: dialogue1.Array.data[6].BadText
-      value: Ponme un (bebida)
+      value: '>:('
       objectReference: {fileID: 0}
     - target: {fileID: -222132210917062480, guid: 59e5747075bc6264db881fd45d331952, type: 3}
       propertyPath: dialogue1.Array.data[6].estatus
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -222132210917062480, guid: 59e5747075bc6264db881fd45d331952, type: 3}
       propertyPath: dialogue1.Array.data[6].GoodText
-      value: "\xBFMe podr\xEDa poner un (bebida)?"
+      value: Gracias
       objectReference: {fileID: 0}
     - target: {fileID: 6418729241491501350, guid: 59e5747075bc6264db881fd45d331952, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6675,7 +6679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1917428895}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 29138468}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: Servir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2030843843
 GameObject:
   m_ObjectHideFlags: 0
