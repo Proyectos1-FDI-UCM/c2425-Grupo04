@@ -133,9 +133,9 @@ public class GameManager : MonoBehaviour
     }
     // ---RECOGIDA DE UIMANAGERS---
 
-    public void IncreaseResource(int i)
+    public float IncreaseResource(int i)
     {
-        recursos[i] += 1;
+        return recursos[i] += 1;
     }
     public static GameManager Instance
     {
