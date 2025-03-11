@@ -518,7 +518,6 @@ MonoBehaviour:
   JugoDeManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
   SemillaDeManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
   AttackCube: {fileID: 7995536849386412423}
-  followplayer: {fileID: 4046262584483984079}
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +662,7 @@ Transform:
   m_GameObject: {fileID: 7995536849386412423}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.542, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
