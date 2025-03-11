@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText,//DIALOGOS Y MONÓLOGOS
 
-                    recompensa, material1, material2, material3, nombreBebida;//BEBIDAS
+                    recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
     [SerializeField]
     private Image DrinkImage, material1Image, material2Image, material3Image;
     [SerializeField]
@@ -85,12 +85,12 @@ public class UIManager : MonoBehaviour
     private DataContainer.Texto[] dialogue;
     private int way; // 0 = good way , 1 = bad way
     private int DialogueLine = 0;
-    private bool SkipDialogue = false, ClientDisappear = false;
+    private bool SkipDialogue = false, ClientDisappear = false, matsReqEnCesta = false;
     private SpriteRenderer Client;
     private Color ClientC, invisible, visible;
     private float DisappearSpeed;
     private DataContainer.Bebida Drink;
-
+    private bool mat1Yes = true, mat2Yes = true, mat3Yes = true;
 
     private int[] placeholderUntilInventory = new int[8] {10,10,10,10,10,10,10,10};
     private int[] matsEnCesta = new int [8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
@@ -190,6 +190,66 @@ public class UIManager : MonoBehaviour
 
         if (matsTotales > 0) regresarMats.gameObject.SetActive(true);
         else regresarMats.gameObject.SetActive(false);
+
+        if (Drink.materials != null)
+        {
+            //Mira si cada uno de los materiales estan en la cesta
+            for (int i =0; i < matsEnCesta.Length; i++)
+            {
+                if (Drink.materials.Length >= 1 && matCestaImages[i].sprite == Drink.materials[0].materialImage)
+                {
+                    if(matsEnCesta[i] >= Drink.materials[0].amount)
+                    {
+                        mat1Yes = true;
+                    }
+                    else
+                    {
+                        mat1Yes = false;
+                    }
+                }
+                if (Drink.materials.Length >= 2 && matCestaImages[i].sprite == Drink.materials[1].materialImage)
+                {
+                    if (matsEnCesta[i] >= Drink.materials[1].amount)
+                    {
+                        mat2Yes = true;
+                    }
+                    else
+                    {
+                        mat2Yes = false;
+                    }
+                }
+                if (Drink.materials.Length >= 3 && matCestaImages[i].sprite == Drink.materials[2].materialImage)
+                {
+                    if (matsEnCesta[i] >= Drink.materials[2].amount)
+                    {
+                        mat3Yes = true;
+                    }
+                    else
+                    {
+                        mat3Yes = false;
+                    }
+                }
+            }
+            //Si todos los materiales estan el la cesta
+            if(mat1Yes && mat2Yes && mat3Yes)
+            {
+                matsReqEnCesta = true;
+            }
+            else
+            {
+                matsReqEnCesta = false;
+            }
+        }
+        
+        //Cambio de texto del boton de servir si estan los materiales pedidos en la cesta
+        if (matsReqEnCesta)
+        {
+            servirBText.text = "Servir";
+        }
+        else
+        {
+            servirBText.text = "No servir";
+        }
     }
     #endregion
 
@@ -316,7 +376,6 @@ public class UIManager : MonoBehaviour
 
         else if (dialogue[DialogueLine].estatus == DataContainer.Estado.bebida)
         {
-            dialogueSkipButton.gameObject.SetActive(false);
             string DialogueOnly = GoodBadDialogue();
             //Todo esto se cambia despues de terminar de pedir
             dialogueSkipButton.gameObject.SetActive(false); //Desactiva el botón de continuar/saltar
@@ -338,6 +397,7 @@ public class UIManager : MonoBehaviour
                 material3.text = $"x{Drink.materials[2].amount}";
                 material3Image.sprite = Drink.materials[2].materialImage;
                 material3Image.color = visible;
+                mat3Yes = false;
             }
                 
             if (Drink.materials.Length >= 2)
@@ -345,6 +405,7 @@ public class UIManager : MonoBehaviour
                 material2.text = $"x{Drink.materials[1].amount}";
                 material2Image.sprite = Drink.materials[1].materialImage;
                 material2Image.color = visible;
+                mat2Yes = false;
             }
                 
             if (Drink.materials.Length >= 1)
@@ -352,6 +413,7 @@ public class UIManager : MonoBehaviour
                 material1.text = $"x{Drink.materials[0].amount}";
                 material1Image.sprite = Drink.materials[0].materialImage;
                 material1Image.color = visible;
+                mat1Yes = false;
             }
                 
         }
@@ -371,14 +433,14 @@ public class UIManager : MonoBehaviour
             if (material ==  materials[i]) selectedMatFound = true;
             else i++;
         }
-        Debug.Log(i);
+        //Debug.Log(i);
 
         if (placeholderUntilInventory[i] > 0)
         {
             matsEnCesta[i]++;
             placeholderUntilInventory[i]--;
         }
-        Debug.Log(matsEnCesta[0] + " , " + matsEnCesta[1] + " , " + matsEnCesta[2] + " , " + matsEnCesta[3] + " , " + matsEnCesta[4] + " , " + matsEnCesta[5] + " , " + matsEnCesta[6] + " , " + matsEnCesta[7]);
+        //Debug.Log(matsEnCesta[0] + " , " + matsEnCesta[1] + " , " + matsEnCesta[2] + " , " + matsEnCesta[3] + " , " + matsEnCesta[4] + " , " + matsEnCesta[5] + " , " + matsEnCesta[6] + " , " + matsEnCesta[7]);
 
         
     }
@@ -391,6 +453,51 @@ public class UIManager : MonoBehaviour
             placeholderUntilInventory[i] += matsEnCesta[i];
             matsEnCesta[i] = 0;
         }
+    }
+
+
+    public void Servir()
+    {
+        if (matsReqEnCesta)//Si están los materiales requeridos en el pedido, quita la cantidad del pedido de la cesta
+        {
+            for(int i = 0; i<matsEnCesta.Length; i++)
+            {
+                if(matsEnCesta[i] > 0)
+                {
+                    for(int j = 0; j < Drink.materials.Length; j++)
+                    {
+                        if(matCestaImages[i].sprite == Drink.materials[j].materialImage)
+                        {
+                            matsEnCesta[i] -= Drink.materials[j].amount;
+                        }
+                    }
+                }
+            }
+            //Como ha hecho el encargo pedido, el dialogo ira por good
+            way = 0;
+        }
+        else
+        {
+            //Si no ha hecho el encargo pedido, no se quitan ningun material de la cesta y el dialogo ira por bad
+            way = 1;
+        }
+        //Devuelve resto al inventario
+        RegresarMats();
+
+        //Desactiva los botones y limpia el encargo y recompensas y activa los del dialogo
+        ServirButton.gameObject.SetActive(false);
+        dialogueSkipButton.gameObject.SetActive(true);
+        recompensa.text = " ";
+        nombreBebida.text = " ";
+        material1.text = " ";
+        material1Image.color = invisible;
+        material2.text = " ";
+        material2Image.color = invisible;
+        material3.text = " ";
+        material3Image.color = invisible;
+        //Escribe siguiente dialogo
+        DialogueLine++;
+        StartCoroutine(Write());
     }
 
     #endregion //termina región de bartender
