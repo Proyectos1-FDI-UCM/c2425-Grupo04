@@ -92,7 +92,7 @@ public class UIManager : MonoBehaviour
     private DataContainer.Bebida Drink;
 
 
-    private int[] placeholderUntilInventory = new int[8] {10,10,10,10,10,10,10,10};
+    private float[] recursos;
     private int[] matsEnCesta = new int [8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
     #endregion
 
@@ -139,7 +139,7 @@ public class UIManager : MonoBehaviour
         ClientC.b = 255;
         ClientC.a = 255;
 
-
+        recursos = GameManager.Instance.GetRecursos();
 
 
         
@@ -174,9 +174,9 @@ public class UIManager : MonoBehaviour
         }
 
 
-        for (int i = 0; i < placeholderUntilInventory.Length; i++)
+        for (int i = 0; i < recursos.Length; i++)
         {
-            matNums[i].text = placeholderUntilInventory[i].ToString();
+            matNums[i].text = recursos[i].ToString();
             matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
 
             if (matsEnCesta[i] > 0) matCestaImages[i].gameObject.SetActive(true);
@@ -373,10 +373,10 @@ public class UIManager : MonoBehaviour
         }
         Debug.Log(i);
 
-        if (placeholderUntilInventory[i] > 0)
+        if (recursos[i] > 0)
         {
             matsEnCesta[i]++;
-            placeholderUntilInventory[i]--;
+            recursos[i]--;
         }
         Debug.Log(matsEnCesta[0] + " , " + matsEnCesta[1] + " , " + matsEnCesta[2] + " , " + matsEnCesta[3] + " , " + matsEnCesta[4] + " , " + matsEnCesta[5] + " , " + matsEnCesta[6] + " , " + matsEnCesta[7]);
 
@@ -388,7 +388,7 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < matsEnCesta.Length; i++)
         {
-            placeholderUntilInventory[i] += matsEnCesta[i];
+            recursos[i] += matsEnCesta[i];
             matsEnCesta[i] = 0;
         }
     }

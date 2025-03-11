@@ -155,6 +155,11 @@ public class GameManager : MonoBehaviour
         return Player;
     }
 
+    public float[] GetRecursos()
+    {
+        return recursos;
+    } 
+
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
