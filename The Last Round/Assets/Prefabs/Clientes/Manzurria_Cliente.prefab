@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppearSpeed: 100
   dialogue0:
-  - GoodText: hola
+  - GoodText: hola soy Manzurria
     BadText: dialogo malo
     estatus: 0
     emisor: 0
@@ -120,8 +120,9 @@ MonoBehaviour:
     estatus: 0
     emisor: 0
   dialogue1:
-  - GoodText: adios adios adios adios adios adios adios adios adios adios adios adios
-      adios adios adios adios adios adios adios adios adios adios adios adios
+  - GoodText: soy manzurria adios adios adios adios adios adios adios adios adios
+      adios adios adios adios adios adios adios adios adios adios adios adios adios
+      adios
     BadText: dialogo malo
     estatus: 0
     emisor: 0
@@ -144,6 +145,10 @@ MonoBehaviour:
   - GoodText: "\xBFMe podr\xEDa poner un (bebida)?"
     BadText: Ponme un (bebida)
     estatus: 2
+    emisor: 0
+  - GoodText: Gracias
+    BadText: '>:('
+    estatus: 0
     emisor: 0
   BebidasPosibles:
   - name: 0
