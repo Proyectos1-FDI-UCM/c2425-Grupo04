@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-
-
-
-
-
+    [Header("Número de enemigos")]
+    [SerializeField] int Uvoncio = 10;
+    [SerializeField] int Manzurria = 10;
+    [SerializeField] int Grapenade = 10;
+    [SerializeField] int Manzariete = 10;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -44,13 +44,15 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[8];
+    private int[] numEnemigos = new int[4];
 
     //0 = Jugo de Uva       //3 = Jugo de manzana
     //1 = Piel de Uva       //4 = Piel de manzana
     //2 = Semilla de Uva    //5 = Semilla manzana
-
     //6 = Hielo             //7 = Levadura
 
+    //0 = Uvoncio           //1 = Manzurria
+    //2 = Grapenade         //3 = Manzariete
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -106,7 +108,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
+        numEnemigos[0] = Uvoncio;
+        numEnemigos[1] = Manzurria;
+        numEnemigos[2] = Grapenade;
+        numEnemigos[3] = Manzariete;
     }
     #endregion
 
@@ -137,6 +142,17 @@ public class GameManager : MonoBehaviour
     {
         return recursos[i] += 1;
     }
+
+    /// <summary>
+    /// Reduce el número de enemigos en el contador. 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
+    /// </summary>
+    /// <param name="i"></param>
+    /// <returns> int </returns>
+    public int MataEnemigo(int i)
+    {
+        return numEnemigos[i] -= 1;
+    }
+
     public static GameManager Instance
     {
         get

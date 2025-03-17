@@ -28,6 +28,10 @@ public class EnemyLife : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
+    private int numeroUvoncios;
+    private int numeroManzurrias;
+    private int numeroGrapenades;
+    private int numeroManzarietes;
 
     #endregion
     
@@ -55,10 +59,30 @@ public class EnemyLife : MonoBehaviour
     {
         if(EnemigoLife <= 0)
         {
-            if (GetComponent<UvonciosMovement>() != null) GetComponent<UvonciosMovement>().InsRec();
-            else if (GetComponent<ManzarieteMovement>() != null) GetComponent<ManzarieteMovement>().InsRec();
-            else if (GetComponent<GrapenadeMovement>() != null) GetComponent<GrapenadeMovement>().InsRec();
-            else if (GetComponent<ManzurriaMovement>() != null) GetComponent<ManzurriaMovement>().InsRec();
+            if (GetComponent<UvonciosMovement>() != null)
+            {
+                GetComponent<UvonciosMovement>().InsRec();
+                numeroUvoncios = GameManager.Instance.MataEnemigo(0);
+                Debug.Log("Uvoncio matado. Quedan " + numeroUvoncios);
+            }
+            else if (GetComponent<ManzarieteMovement>() != null)
+            {
+                GetComponent<ManzarieteMovement>().InsRec();
+                numeroManzarietes = GameManager.Instance.MataEnemigo(3);
+                Debug.Log("Manzariete matado. Quedan " + numeroManzarietes);
+            }
+            else if (GetComponent<GrapenadeMovement>() != null)
+            {
+                GetComponent<GrapenadeMovement>().InsRec();
+                numeroGrapenades = GameManager.Instance.MataEnemigo(2);
+                Debug.Log("Grapenade matado. Quedan " + numeroGrapenades);
+            }
+            else if (GetComponent<ManzurriaMovement>() != null)
+            {
+                GetComponent<ManzurriaMovement>().InsRec();
+                numeroManzurrias = GameManager.Instance.MataEnemigo(1);
+                Debug.Log("Manzurria matado. Quedan " + numeroManzurrias);
+            }
 
             if (GetComponent<PlaceMark>() != null) GetComponent<PlaceMark>().GrapenadeWasDestroy();
 
