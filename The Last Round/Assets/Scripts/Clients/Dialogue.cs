@@ -68,7 +68,7 @@ public class Dialogue : MonoBehaviour
         {
             dialogue = dialogue1;
         }
-
+        //CONFLICTO
         //Elige la bebida que va a pedir
         int tmp1;
         int[] contador = GameManager.Instance.GetEnemyCounter();
