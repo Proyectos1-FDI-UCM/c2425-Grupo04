@@ -108,10 +108,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        numEnemigos[0] = Uvoncio;
-        numEnemigos[1] = Manzurria;
-        numEnemigos[2] = Grapenade;
-        numEnemigos[3] = Manzariete;
+
     }
     #endregion
 
@@ -146,11 +143,18 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Reduce el número de enemigos en el contador. 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
     /// </summary>
-    /// <param name="i"></param>
     /// <returns> int </returns>
     public int MataEnemigo(int i)
     {
         return numEnemigos[i] -= 1;
+    }
+
+    public void ResetEnemyCounter()
+    {
+        numEnemigos[0] = Uvoncio;
+        numEnemigos[1] = Manzurria;
+        numEnemigos[2] = Grapenade;
+        numEnemigos[3] = Manzariete;
     }
 
     public static GameManager Instance
