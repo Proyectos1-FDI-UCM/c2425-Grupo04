@@ -82,15 +82,15 @@ public class ClientSpawner : MonoBehaviour
 
         do
         {
-            rnd = Random.Range(0, 9); //genera un numero al azar entre el 0 y el 8
+            rnd = UnityEngine.Random.Range(0, 9); //genera un numero al azar entre el 0 y el 8
+            if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
+            {
+                rnd = Mathf.CeilToInt(rnd / 2f);
+            }
+            Debug.Log(clients[rnd].name);
         }
-        while (rnd == 1 && contador[1] + contador[3] <= 0 || rnd == 3 && contador[1] + contador[3] <= 0 ||
-               rnd == 2 && contador[0] + contador[2] <= 0 || rnd == 4 && contador[0] + contador[2] <= 0 );
-
-        if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
-        {
-            rnd = Mathf.CeilToInt(rnd / 2f);
-        }
+        while (rnd == 1 && contador[1] <= 0 || rnd == 3 && contador[3] <= 0 ||
+               rnd == 2 && contador[2] <= 0 || rnd == 0 && contador[0] <= 0 );
         
         Instantiate(clients[rnd], transform.position, Quaternion.identity);
     }

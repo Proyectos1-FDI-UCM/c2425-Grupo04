@@ -94,7 +94,7 @@ public class Dialogue : MonoBehaviour
                 }
                 j++;
             }
-            
+            Debug.Log(BebidasPosibles[tmp1].name);
         }
         while (BebidasPosibles[tmp1].type == DataContainer.DrinkType.Manzana && contador[1] + contador[3] <= 0  && !tmp2||
                BebidasPosibles[tmp1].type == DataContainer.DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);

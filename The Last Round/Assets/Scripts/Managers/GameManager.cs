@@ -26,10 +26,10 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [Header("Número de enemigos")]
-    [SerializeField] int Uvoncio = 10;
-    [SerializeField] int Manzurria = 10;
-    [SerializeField] int Grapenade = 10;
-    [SerializeField] int Manzariete = 10;
+    [SerializeField] int Uvoncio;
+    [SerializeField] int Manzurria;
+    [SerializeField] int Grapenade;
+    [SerializeField] int Manzariete;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
