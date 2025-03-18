@@ -26,7 +26,8 @@ public class Dialogue : MonoBehaviour
     private DataContainer.Texto[] dialogue0, dialogue1;
     [SerializeField]
     private DataContainer.Bebida[] BebidasPosibles;
-    //Hola
+    [SerializeField]
+    private bool ElAlcalde;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -73,6 +74,12 @@ public class Dialogue : MonoBehaviour
         int[] contador = GameManager.Instance.GetEnemyCounter();
         float[] recursos = GameManager.Instance.GetRecursos();
         bool tmp2 = true;
+
+        // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
+        if (ElAlcalde) 
+        {
+            BebidaPedida.reward *= 2;
+        }
 
         //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
         //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
