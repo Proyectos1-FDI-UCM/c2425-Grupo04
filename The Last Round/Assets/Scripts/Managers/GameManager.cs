@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
 
     //0 = Uvoncio           //1 = Manzurria
     //2 = Grapenade         //3 = Manzariete
+
+    private float NivelSospechosos = 0;
+    private float Dineros = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -110,6 +113,13 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    private void Update()
+    {
+        //podeis quitarlo tras comprobar que estos funciona
+        Debug.Log(NivelSospechosos);
+        Debug.Log(Dineros);
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -144,6 +154,24 @@ public class GameManager : MonoBehaviour
     /// Reduce el número de enemigos en el contador. 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
     /// </summary>
     /// <returns> int </returns>
+    /// 
+    public float increaseDinero(int i)
+    {
+        return Dineros += i;
+    }
+
+    public float increaseSospechosos(int i)
+    {
+        if (NivelSospechosos < 8 && NivelSospechosos >= 0)
+        {
+            if (NivelSospechosos == 1 && i == -2 || NivelSospechosos == 0 && i == -2)
+                NivelSospechosos = 0;
+            else
+                NivelSospechosos += i;
+
+        }
+        return NivelSospechosos;
+    }
     public int MataEnemigo(int i)
     {
         return numEnemigos[i] -= 1;

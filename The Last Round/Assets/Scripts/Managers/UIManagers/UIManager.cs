@@ -94,6 +94,7 @@ public class UIManager : MonoBehaviour
 
     private float[] recursos;
     private int[] matsEnCesta = new int [8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
+    private bool IfHavefalse = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -169,6 +170,12 @@ public class UIManager : MonoBehaviour
             if (Client.color.r == 0)
             {
                 Destroy(Client.gameObject);
+                if (IfHavefalse == true)
+                {
+
+                }
+                else if (IfHavefalse == false)
+                    GameManager.Instance.increaseSospechosos(-2);
                 ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
@@ -314,8 +321,18 @@ public class UIManager : MonoBehaviour
 
         //Si el texto del botón corresponde con la opción buena, el dialogo sigue el buen camino.
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
-        if (option1BText.text == dialogue[DialogueLine].GoodText) way = 0;
-        else way = 1;
+        if (option1BText.text == dialogue[DialogueLine].GoodText)
+        {
+            IfHavefalse = false;
+            way = 0;
+        }
+
+        else
+        {
+            GameManager.Instance.increaseSospechosos(1);
+            way = 1;
+            IfHavefalse = true;
+        }
 
         //Escribe la respuesta del jugador
         DialogueLine++;
@@ -331,8 +348,18 @@ public class UIManager : MonoBehaviour
 
         //Si el texto del botón corresponde con la opción buena, el dialogo sigue el buen camino.
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
-        if (option2BText.text == dialogue[DialogueLine].GoodText) way = 0;
-        else way = 1;
+        if (option2BText.text == dialogue[DialogueLine].GoodText)
+        {
+            way = 0;
+            IfHavefalse = false;
+        }
+
+        else
+        {
+            GameManager.Instance.increaseSospechosos(1);
+            way = 1;
+            IfHavefalse = true;
+        }
 
         //Escribe la respuesta del jugador
         DialogueLine++;
@@ -475,6 +502,7 @@ public class UIManager : MonoBehaviour
             }
             //Como ha hecho el encargo pedido, el dialogo ira por good
             way = 0;
+            GameManager.Instance.increaseDinero(50);
         }
         else
         {
