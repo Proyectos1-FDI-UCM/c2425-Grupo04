@@ -69,19 +69,19 @@ public class DataContainer
 
     public enum MaterialName
     {
-        //Materiales Manzana
-        Piel_de_manzana,
-        JugoDeManzana,
-        SemillaDeManzana,
-
         //Materiales Uva
         PielDeUva,
         JugoDeUva,
         SemillaDeUva,
 
+        //Materiales Manzana
+        Piel_de_manzana,
+        JugoDeManzana,
+        SemillaDeManzana,
+
         //Recursos naturales
-        hielo,
-        levadura,
+        Hielo,
+        levadura
     }
 
     [System.Serializable]
@@ -90,13 +90,6 @@ public class DataContainer
         public MaterialName name;
         public int amount;
         public Sprite materialImage;
-
-        public materials (MaterialName name, int amount, Sprite materialImage)
-        {
-            this.name = name;
-            this.amount = amount;
-            this.materialImage = materialImage;
-        }
     }
 
     [System.Serializable]

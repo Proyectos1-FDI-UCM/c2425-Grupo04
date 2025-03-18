@@ -69,7 +69,34 @@ public class Dialogue : MonoBehaviour
         }
 
         //Elige la bebida que va a pedir
-        int tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
+        int tmp1;
+        int[] contador = GameManager.Instance.GetEnemyCounter();
+        float[] recursos = GameManager.Instance.GetRecursos();
+        bool tmp2 = true;
+
+        //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
+        //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
+
+        do
+        {
+            tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
+
+            //TENGO MATERIALES PARA HACER ESA BEBIDA?
+            int j = 0;
+            
+            while (j < BebidasPosibles[tmp1].materials.Length && tmp2)
+            {
+                if (BebidasPosibles[tmp1].materials[j].amount < recursos[(int)BebidasPosibles[tmp1].materials[j].name])
+                {
+                    tmp2 = false;
+                }
+            }
+            j++;
+        }
+        while (BebidasPosibles[tmp1].type == DataContainer.DrinkType.Manzana && contador[1] + contador[3] <= 0  && !tmp2||
+               BebidasPosibles[tmp1].type == DataContainer.DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
+
+
         BebidaPedida = BebidasPosibles[tmp1];
 
         //Hace un replace de la palabra "(bebida)" en el diálogo por el nombre de la bebida pedida
@@ -87,7 +114,7 @@ public class Dialogue : MonoBehaviour
                 //y el masculino en femenino en caso de ser una sidra
 
                 //Filtro 1 y 2
-                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)",$"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
                 dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
 
                 //Filtro 3
@@ -115,10 +142,10 @@ public class Dialogue : MonoBehaviour
         color.r = Mathf.Clamp(color.r + Time.deltaTime * AppearSpeed, 0, 255);
         color.g = Mathf.Clamp(color.g + Time.deltaTime * AppearSpeed, 0, 255);
         color.b = Mathf.Clamp(color.b + Time.deltaTime * AppearSpeed, 0, 255);
-        spriteRenderer.color = color/255;
+        spriteRenderer.color = color / 255;
         //Debug.Log(color.r);
         if (spriteRenderer.color.r == 1)
-        ClientAppear = true;
+            ClientAppear = true;
 
         if (ClientAppear && !DialogueGiven)
         {
@@ -128,7 +155,7 @@ public class Dialogue : MonoBehaviour
                 uiManager.GetDialogue(dialogue);
                 uiManager.GetClientSprite(spriteRenderer, AppearSpeed);
             }
-                
+
             DialogueGiven = true;
         }
     }

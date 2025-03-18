@@ -23,8 +23,11 @@ public class ClientSpawner : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
+    /// <summary>
+    /// 0 es alcalde, 1 y 3 manzanas, 2 y 4 uvas
+    /// </summary>
     [SerializeField]
-    private GameObject[] clients; //0 es alcalde, y el resto son los demas
+    private GameObject[] clients;
 
     #endregion
     
@@ -73,7 +76,16 @@ public class ClientSpawner : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Spawn()
     {
-        int rnd = Random.Range(0, 9); //genera un numero al azar entre el 0 y el 8
+        int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
+
+        int[] contador = GameManager.Instance.GetEnemyCounter();
+
+        do
+        {
+            rnd = Random.Range(0, 9); //genera un numero al azar entre el 0 y el 8
+        }
+        while (rnd == 1 && contador[1] + contador[3] <= 0 || rnd == 3 && contador[1] + contador[3] <= 0 ||
+               rnd == 2 && contador[0] + contador[2] <= 0 || rnd == 4 && contador[0] + contador[2] <= 0 );
 
         if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
         {
