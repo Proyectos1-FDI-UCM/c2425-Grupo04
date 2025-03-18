@@ -119,6 +119,10 @@ MonoBehaviour:
     BadText: mal
     estatus: 0
     emisor: 0
+  - GoodText: Ponme un (bebida)
+    BadText: (bebida)
+    estatus: 2
+    emisor: 0
   dialogue1:
   - GoodText: soy el alcalde adios adios adios adios adios adios adios adios adios
       adios adios adios adios adios adios adios adios adios adios adios adios adios
@@ -225,3 +229,4 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 487074c1c1507f64e93441932d2c7d34, type: 3}
     reward: 2
     type: 0
+  ElAlcalde: 0

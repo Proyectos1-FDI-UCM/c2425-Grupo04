@@ -4,11 +4,10 @@
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
-using System;
-using UnityEngine;
-using UnityEngine.UIElements;
-// Añadir aquí el resto de directivas using
 
+using UnityEngine;
+// Añadir aquí el resto de directivas using
+using System;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -70,16 +69,17 @@ public class Dialogue : MonoBehaviour
         {
             dialogue = dialogue1;
         }
+
+        // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
+        if (ElAlcalde)
+        {
+            BebidaPedida.reward *= 2;
+        }
+
         int tmp1;
         int[] contador = GameManager.Instance.GetEnemyCounter();
         float[] recursos = GameManager.Instance.GetRecursos();
         bool tmp2 = true;
-
-        // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
-        if (ElAlcalde) 
-        {
-            BebidaPedida.reward *= 2;
-        }
 
         //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
         //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
@@ -97,8 +97,9 @@ public class Dialogue : MonoBehaviour
                 {
                     tmp2 = false;
                 }
+                j++;
             }
-            j++;
+            
         }
         while (BebidasPosibles[tmp1].type == DataContainer.DrinkType.Manzana && contador[1] + contador[3] <= 0  && !tmp2||
                BebidasPosibles[tmp1].type == DataContainer.DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);

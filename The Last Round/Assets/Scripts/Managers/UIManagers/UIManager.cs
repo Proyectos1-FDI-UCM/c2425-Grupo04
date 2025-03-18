@@ -27,9 +27,6 @@ using UnityEngine;
 // Añadir aquí el resto de directivas using
 using TMPro;
 using System.Collections;
-using System.Transactions;
-using UnityEngine.InputSystem;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
@@ -140,10 +137,7 @@ public class UIManager : MonoBehaviour
         ClientC.b = 255;
         ClientC.a = 255;
 
-        recursos = GameManager.Instance.GetRecursos();
-
-
-        
+        recursos = GameManager.Instance.GetRecursos(); 
     }
 
     /// <summary>
