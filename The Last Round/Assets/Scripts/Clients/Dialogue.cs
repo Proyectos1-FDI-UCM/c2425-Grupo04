@@ -64,12 +64,11 @@ public class Dialogue : MonoBehaviour
         {
             dialogue = dialogue0;
         }
-        else if (tmp == 2)
+
+        else if (tmp == 1)
         {
             dialogue = dialogue1;
         }
-        //CONFLICTO
-        //Elige la bebida que va a pedir
         int tmp1;
         int[] contador = GameManager.Instance.GetEnemyCounter();
         float[] recursos = GameManager.Instance.GetRecursos();
