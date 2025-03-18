@@ -328,7 +328,7 @@ public class UIManager : MonoBehaviour
             IfHavefalse = true;
         }
 
-        //Escribe la respuesta del jugador
+
         DialogueLine++;
         StartCoroutine(Write());
     }
@@ -356,6 +356,7 @@ public class UIManager : MonoBehaviour
         }
 
         //Escribe la respuesta del jugador
+
         DialogueLine++;
         StartCoroutine(Write());
     }
@@ -518,8 +519,7 @@ public class UIManager : MonoBehaviour
         material3.text = " ";
         material3Image.color = invisible;
         //Escribe siguiente dialogo
-        DialogueLine++;
-        StartCoroutine(Write());
+        SkipButton();
     }
 
     #endregion //termina región de bartender
