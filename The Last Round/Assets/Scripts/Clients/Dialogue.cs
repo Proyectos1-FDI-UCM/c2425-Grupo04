@@ -26,6 +26,7 @@ public class Dialogue : MonoBehaviour
     private DataContainer.Texto[] dialogue0, dialogue1;
     [SerializeField]
     private DataContainer.Bebida[] BebidasPosibles;
+    //Hola
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
