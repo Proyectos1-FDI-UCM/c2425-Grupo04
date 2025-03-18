@@ -23,7 +23,12 @@ public class DataContainer
     {
         monologo, dialogo, bebida
     }
-
+    
+    public enum DrinkType
+    {
+        Manzana,
+        Uva
+    }
     [System.Serializable]
     public struct Texto
     {
@@ -93,6 +98,7 @@ public class DataContainer
             this.materialImage = materialImage;
         }
     }
+
     [System.Serializable]
     public struct Bebida
     {
@@ -100,13 +106,14 @@ public class DataContainer
         public materials[] materials;
         public Sprite image;
         public int reward;
-
-        public Bebida (DrinkName name, materials[] materials,Sprite image, int reward)
+        public DrinkType type;
+        public Bebida(DrinkName name, materials[] materials, Sprite image, int reward, DrinkType type)
         {
             this.name = name;
             this.materials = materials;
             this.image = image;
             this.reward = reward;
+            this.type = type;
         }
     }
     
