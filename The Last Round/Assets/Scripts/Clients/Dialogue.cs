@@ -64,7 +64,7 @@ public class Dialogue : MonoBehaviour
         {
             dialogue = dialogue0;
         }
-        else if (tmp == 1)
+        else if (tmp == 2)
         {
             dialogue = dialogue1;
         }
