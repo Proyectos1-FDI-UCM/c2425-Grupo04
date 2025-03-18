@@ -70,11 +70,6 @@ public class Dialogue : MonoBehaviour
             dialogue = dialogue1;
         }
 
-        // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
-        if (ElAlcalde)
-        {
-            BebidaPedida.reward *= 2;
-        }
 
         int tmp1;
         int[] contador = GameManager.Instance.GetEnemyCounter();
@@ -159,6 +154,11 @@ public class Dialogue : MonoBehaviour
         {
             if (uiManager != null)
             {
+                // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
+                if (ElAlcalde)
+                {
+                    BebidaPedida.reward = 2 * BebidaPedida.reward;
+                }
                 uiManager.GetDrink(BebidaPedida);
                 uiManager.GetDialogue(dialogue);
                 uiManager.GetClientSprite(spriteRenderer, AppearSpeed);

@@ -229,4 +229,4 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 487074c1c1507f64e93441932d2c7d34, type: 3}
     reward: 2
     type: 0
-  ElAlcalde: 0
+  ElAlcalde: 1
