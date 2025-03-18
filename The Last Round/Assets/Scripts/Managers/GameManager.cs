@@ -150,11 +150,6 @@ public class GameManager : MonoBehaviour
         return recursos[i] += 1;
     }
 
-    /// <summary>
-    /// Reduce el número de enemigos en el contador. 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
-    /// </summary>
-    /// <returns> int </returns>
-    /// 
     public float increaseDinero(int i)
     {
         return Dineros += i;
@@ -174,6 +169,11 @@ public class GameManager : MonoBehaviour
     }
 
     // ---CONTADOR DE ENEMIGOS---
+
+    /// <summary>
+    /// Reduce el número de enemigos en el contador. 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
+    /// </summary>
+    /// <returns> int </returns>
     public int MataEnemigo(int i)
     {
         return numEnemigos[i] -= 1;
@@ -187,6 +187,11 @@ public class GameManager : MonoBehaviour
         numEnemigos[3] = Manzariete;
     }
 
+
+    /// <summary>
+    /// 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
+    /// </summary>
+    /// <returns> int[] </returns>
     public int[] GetEnemyCounter()
     {
         return numEnemigos;
