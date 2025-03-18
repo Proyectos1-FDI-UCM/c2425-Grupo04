@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
+        ResetEnemyCounter();
     }
 
     private void Update()
@@ -172,6 +172,8 @@ public class GameManager : MonoBehaviour
         }
         return NivelSospechosos;
     }
+
+    // ---CONTADOR DE ENEMIGOS---
     public int MataEnemigo(int i)
     {
         return numEnemigos[i] -= 1;
@@ -184,6 +186,12 @@ public class GameManager : MonoBehaviour
         numEnemigos[2] = Grapenade;
         numEnemigos[3] = Manzariete;
     }
+
+    public int[] GetEnemyCounter()
+    {
+        return numEnemigos;
+    }
+    // ---CONTADOR DE ENEMIGOS---
 
     public static GameManager Instance
     {
