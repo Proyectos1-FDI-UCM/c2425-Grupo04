@@ -159,9 +159,9 @@ public class Dialogue : MonoBehaviour
                 {
                     BebidaPedida.reward = 2 * BebidaPedida.reward;
                 }
+                uiManager.GetClientSprite(spriteRenderer);
                 uiManager.GetDrink(BebidaPedida);
                 uiManager.GetDialogue(dialogue);
-                uiManager.GetClientSprite(spriteRenderer, AppearSpeed);
             }
 
             DialogueGiven = true;

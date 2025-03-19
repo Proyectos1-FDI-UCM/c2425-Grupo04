@@ -52,7 +52,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Button option1Button, option2Button;
 
-
+    [SerializeField]
+    private float DisappearSpeed;
 
     [SerializeField]
     private Button regresarMats;
@@ -85,7 +86,6 @@ public class UIManager : MonoBehaviour
     private bool SkipDialogue = false, ClientDisappear = false, matsReqEnCesta = false;
     private SpriteRenderer Client;
     private Color ClientC, invisible, visible;
-    private float DisappearSpeed;
     private DataContainer.Bebida Drink;
     private bool mat1Yes = true, mat2Yes = true, mat3Yes = true;
 
@@ -161,14 +161,12 @@ public class UIManager : MonoBehaviour
         if (Client != null)
         {
             Client.color = ClientC / 255;
-            if (Client.color.r == 0)
+            Debug.Log($"R: {Client.color.r}     G:{Client.color.g}     B:{Client.color.b}");
+            if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0)
             {
-                Destroy(Client.gameObject);
-                if (IfHavefalse == true)
-                {
+                //Destroy(Client.gameObject);
 
-                }
-                else if (IfHavefalse == false)
+                if (!IfHavefalse)
                     GameManager.Instance.increaseSospechosos(-2);
                 ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
             }
@@ -259,10 +257,9 @@ public class UIManager : MonoBehaviour
     #region Bartender
 
     //UIManager recoge al cliente y su velocidad de aparición, que utilizará para desaparecer.
-    public void GetClientSprite(SpriteRenderer Client, float Speed)
+    public void GetClientSprite(SpriteRenderer Client)
     {
         this.Client = Client;
-        DisappearSpeed = Speed;
     }
 
     //UIManager recoge el dialogo que se va a escribir ese dia
