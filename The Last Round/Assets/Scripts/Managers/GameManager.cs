@@ -116,9 +116,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //podeis quitarlo tras comprobar que estos funciona
-        Debug.Log(NivelSospechosos);
-        Debug.Log(Dineros);
+        //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
+       // Debug.Log(NivelSospechosos);
+        //Debug.Log(Dineros);
     }
     #endregion
 

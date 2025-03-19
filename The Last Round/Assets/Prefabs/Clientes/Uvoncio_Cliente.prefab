@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2510957792824250114}
   - component: {fileID: 8755036878347728107}
-  - component: {fileID: 9103401856347748054}
+  - component: {fileID: -2610122414002574193}
   m_Layer: 10
   m_Name: Uvoncio_Cliente
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9103401856347748054
+--- !u!114 &-2610122414002574193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppearSpeed: 100
   dialogue0:
-  - GoodText: hola soy uvoncio
+  - GoodText: hola soy el Uvoncio
     BadText: dialogo malo
     estatus: 0
     emisor: 0
@@ -119,9 +119,14 @@ MonoBehaviour:
     BadText: mal
     estatus: 0
     emisor: 0
+  - GoodText: Ponme un (bebida)
+    BadText: (bebida)
+    estatus: 2
+    emisor: 0
   dialogue1:
-  - GoodText: soy uvoncio adios adios adios adios adios adios adios adios adios adios
+  - GoodText: soy un uvoncio adios adios adios adios adios adios adios adios adios
       adios adios adios adios adios adios adios adios adios adios adios adios adios
+      adios
     BadText: dialogo malo
     estatus: 0
     emisor: 0
@@ -150,16 +155,91 @@ MonoBehaviour:
     estatus: 0
     emisor: 0
   BebidasPosibles:
-  - name: 0
+  - name: 7
     materials:
     - name: 0
+      amount: 10
+      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: f2062d8a4e6b82a40afceb101a030ce8, type: 3}
+    reward: 2
+    type: 1
+  - name: 8
+    materials:
+    - name: 0
+      amount: 10
+      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: a96b7399145e4c54d9d7d9410af3293a, type: 3}
+    reward: 2
+    type: 1
+  - name: 9
+    materials:
+    - name: 0
+      amount: 10
+      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 1
+      amount: 10
+      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 5c8610e9352b1cd42988742e825753ee, type: 3}
+    reward: 2
+    type: 1
+  - name: 10
+    materials:
+    - name: 1
+      amount: 10
+      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 2
+      amount: 10
+      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 875a43377a995be4f8e662fd16bef982, type: 3}
+    reward: 2
+    type: 1
+  - name: 11
+    materials:
+    - name: 1
+      amount: 10
+      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 8d590f90e4da80543a53312e316d09f6, type: 3}
+    reward: 2
+    type: 1
+  - name: 12
+    materials:
+    - name: 2
+      amount: 10
+      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    - name: 7
+      amount: 2
+      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: ed69ca4650947a945a2dcd166fdc5c52, type: 3}
+    reward: 2
+    type: 1
+  - name: 13
+    materials:
+    - name: 2
+      amount: 10
+      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
+    image: {fileID: 21300000, guid: 7fcb280fe3158ab4fa26a022ca71d6cb, type: 3}
+    reward: 2
+    type: 1
+  - name: 0
+    materials:
+    - name: 3
       amount: 10
       materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: a9c4b1ce0870ef6458a5d66de0a694ef, type: 3}
     reward: 2
+    type: 0
   - name: 1
     materials:
-    - name: 0
+    - name: 3
       amount: 10
       materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     - name: 6
@@ -167,22 +247,24 @@ MonoBehaviour:
       materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: 96e854073fbbfe140a6fdbeecff42f1d, type: 3}
     reward: 2
+    type: 0
   - name: 2
     materials:
-    - name: 0
+    - name: 3
       amount: 10
       materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 1
+    - name: 4
       amount: 10
       materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: 5895df2746850a446ba07c2b9d3ff516, type: 3}
     reward: 2
+    type: 0
   - name: 3
     materials:
-    - name: 1
+    - name: 4
       amount: 10
       materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 2
+    - name: 5
       amount: 10
       materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     - name: 6
@@ -190,9 +272,10 @@ MonoBehaviour:
       materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: 0e0f6fc4e5a42a742925f408146c064e, type: 3}
     reward: 2
+    type: 0
   - name: 4
     materials:
-    - name: 1
+    - name: 4
       amount: 10
       materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     - name: 6
@@ -200,9 +283,10 @@ MonoBehaviour:
       materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: 5cd4d5329a2ca1b4ea2034abff60c9bb, type: 3}
     reward: 2
+    type: 0
   - name: 5
     materials:
-    - name: 2
+    - name: 5
       amount: 10
       materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     - name: 6
@@ -210,10 +294,13 @@ MonoBehaviour:
       materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: 8eb8b7eec13c0f24e8ab89d1644055e2, type: 3}
     reward: 2
+    type: 0
   - name: 6
     materials:
-    - name: 2
+    - name: 5
       amount: 10
       materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
     image: {fileID: 21300000, guid: 487074c1c1507f64e93441932d2c7d34, type: 3}
     reward: 2
+    type: 0
+  ElAlcalde: 0
