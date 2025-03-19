@@ -37,7 +37,7 @@ public class CameraLogic : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void LateUpdate()
     {
         if (player == null)
         {
