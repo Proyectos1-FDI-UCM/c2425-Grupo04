@@ -88,7 +88,7 @@ public class Dialogue : MonoBehaviour
             
             while (j < BebidasPosibles[tmp1].materials.Length && tmp2)
             {
-                if (BebidasPosibles[tmp1].materials[j].amount < recursos[(int)BebidasPosibles[tmp1].materials[j].name])
+                if (BebidasPosibles[tmp1].materials[j].amount > recursos[(int)BebidasPosibles[tmp1].materials[j].name])
                 {
                     tmp2 = false;
                 }
