@@ -72,8 +72,8 @@ public class MoveToPlayer : MonoBehaviour
         if (Player != null && enemy != null)
             //Localiza el vector que une el jugador con el objeto
             EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
-            /*   []  . .  []    UN  */Player.transform.position.y - enemy.transform.position.y,
-            /*  \___________/  SAPO */0);
+                                      Player.transform.position.y - enemy.transform.position.y,
+                                      0);
 
         if ((cD.GetCollisions()[0] && EnemyPlayer.y > 0) ||
             (cD.GetCollisions()[1] && EnemyPlayer.y < 0) ||
