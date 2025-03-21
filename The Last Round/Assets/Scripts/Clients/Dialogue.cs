@@ -22,7 +22,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField]
     float AppearSpeed;
     [SerializeField]
-    private Texto[] dialogue0, dialogue1;
+    private dialogue[] dialogues;
     [SerializeField]
     private GameObject[] BebidasPosibles;
     [SerializeField]
@@ -58,17 +58,9 @@ public class Dialogue : MonoBehaviour
         spriteRenderer.color = color;
 
         //Elige el diálogo que contar
-        int tmp = UnityEngine.Random.Range(0, 2);
+        int tmp = UnityEngine.Random.Range(0, dialogues.Length);
 
-        if (tmp == 0)
-        {
-            dialogue = dialogue0;
-        }
-
-        else if (tmp == 1)
-        {
-            dialogue = dialogue1;
-        }
+        dialogue = dialogues[tmp].Lines;
 
 
         int tmp1;
@@ -96,7 +88,7 @@ public class Dialogue : MonoBehaviour
             }
             Debug.Log(BebidasPosibles[tmp1].name);
         }
-        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.manzana && contador[1] + contador[3] <= 0  && !tmp2||
+        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
                BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.uva && contador[0] + contador[2] <= 0 && !tmp2);
 
 
@@ -167,7 +159,7 @@ public class Dialogue : MonoBehaviour
                     //                                                                               //
                     //                                                                               //
                     ///////////////////////////////////////////////////////////////////////////////////
-                    
+
                     int price = BebidaPedida.GetComponent<CastDrink>().GetDrinkReward();
                     price = 2 * BebidaPedida.GetComponent<CastDrink>().GetDrinkReward();
                 }

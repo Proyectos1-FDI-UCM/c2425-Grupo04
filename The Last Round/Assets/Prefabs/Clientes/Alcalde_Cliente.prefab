@@ -98,60 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AppearSpeed: 100
-  dialogue0:
-  - goodText: h
-    badText: e
-    estatus: 0
-    emisor: 0
-  - goodText: bueno
-    badText: malo
-    estatus: 1
-    emisor: 0
-  - goodText: respuesta buena
-    badText: respuesta mala
-    estatus: 0
-    emisor: 1
-  - goodText: digo algo bueno
-    badText: digo algo malo
-    estatus: 0
-    emisor: 1
-  - goodText: me dice algo bueno
-    badText: me dice algo malo
-    estatus: 0
-    emisor: 0
-  - goodText: tienes (bebida)
-    badText: dame un (bebida)
-    estatus: 2
-    emisor: 0
-  dialogue1:
-  - goodText: j
-    badText: a
-    estatus: 0
-    emisor: 0
-  - goodText: bueno
-    badText: malo
-    estatus: 1
-    emisor: 0
-  - goodText: respuesta buena
-    badText: respuesta mala
-    estatus: 0
-    emisor: 1
-  - goodText: digo algo bueno
-    badText: digo algo malo
-    estatus: 0
-    emisor: 1
-  - goodText: me dice algo bueno
-    badText: me dice algo  malo
-    estatus: 0
-    emisor: 0
-  - goodText: tienes (bebida)
-    badText: dame  un (bebida)
-    estatus: 2
-    emisor: 0
-  - goodText: gracias
-    badText: que asquito
-    estatus: 0
-    emisor: 0
+  dialogues:
+  - Lines:
+    - goodText: 
+      badText: 
+      estatus: 0
+      emisor: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}

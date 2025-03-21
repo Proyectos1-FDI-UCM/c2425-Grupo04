@@ -24,4 +24,9 @@ public struct Texto
     public Emisor emisor;
 }
 
+[System.Serializable]
+public struct dialogue
+{ 
+    public Texto[] Lines;
+}
 // namespace
