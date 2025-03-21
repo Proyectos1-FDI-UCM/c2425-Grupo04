@@ -8,7 +8,6 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using UnityEngine.PlayerLoop;
 
 /// <summary>
 /// Esta class es para el enemigo Manzariete
@@ -19,14 +18,8 @@ public class ManzarieteMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    public float RangeAttack;
-    public float ChargeTime;
-    public float SprintSpeed;
-    public float SprintTime;
-    [SerializeField] GameObject PielDeManzana;
-    [SerializeField] GameObject JugoDeManzana;
-    [SerializeField] GameObject SemillaDeManzana;
-    [SerializeField] GameObject AttackCube;
+    [SerializeField] private float RangeAttack, ChargeTime, SprintSpeed, SprintTime;
+    [SerializeField] private GameObject PielDeManzana, JugoDeManzana, SemillaDeManzana, AttackCube;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
