@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2169959742904558284}
   - component: {fileID: 7532338370178221829}
   - component: {fileID: 367418925511207165}
+  - component: {fileID: -837531858381799586}
   m_Layer: 12
   m_Name: Semilla de uva
   m_TagString: Recursos
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-837531858381799586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426234617602587107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa910ed9c61fa34195d59a23066bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2

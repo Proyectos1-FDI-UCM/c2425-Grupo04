@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782879144881708976}
   - component: {fileID: 6583411926380595558}
+  - component: {fileID: -4721636901835395599}
   m_Layer: 0
   m_Name: Raki
   m_TagString: Untagged
@@ -84,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4721636901835395599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3753307967784241883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc534767d442597469c1aada464afdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drink:
+    name: 9
+    materials:
+    - material: {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
+      amount: 10
+    - material: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
+      amount: 10
+    reward: 2
+    type: 1

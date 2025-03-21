@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 7647636162628053722}
   - component: {fileID: 978938882152986648}
   - component: {fileID: 31166917548904745}
+  - component: {fileID: 5738383244709065236}
   m_Layer: 7
   m_Name: Hielo spawner
   m_TagString: Untagged
@@ -354,3 +355,16 @@ MonoBehaviour:
   detectdistancia: 2
   HoldingTime: 4
   limitrecursos: 5
+--- !u!114 &5738383244709065236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386558954586013951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa910ed9c61fa34195d59a23066bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 6

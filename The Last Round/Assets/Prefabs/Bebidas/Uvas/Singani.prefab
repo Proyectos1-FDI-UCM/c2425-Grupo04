@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6763051997660251129}
   - component: {fileID: 8328327866297317606}
+  - component: {fileID: 4579918741874302471}
   m_Layer: 0
   m_Name: Singani
   m_TagString: Untagged
@@ -84,3 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4579918741874302471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468166360879465270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc534767d442597469c1aada464afdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drink:
+    name: 13
+    materials:
+    - material: {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
+      amount: 10
+    reward: 2
+    type: 1

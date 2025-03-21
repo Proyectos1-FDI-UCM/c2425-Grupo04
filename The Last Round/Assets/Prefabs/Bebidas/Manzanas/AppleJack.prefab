@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9218756341068744231}
   - component: {fileID: 5053937435227956446}
+  - component: {fileID: 3673920001130656009}
   m_Layer: 0
   m_Name: AppleJack
   m_TagString: Untagged
@@ -84,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3673920001130656009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466163709615206520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc534767d442597469c1aada464afdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drink:
+    name: 1
+    materials:
+    - material: {fileID: 4423979788562637781, guid: 97d86ae7791e3d34c804925006e91441, type: 3}
+      amount: 10
+    - material: {fileID: 1552366190605961034, guid: b7e14f2f4b982a04586562899a05e8fc, type: 3}
+      amount: 2
+    reward: 2
+    type: 0

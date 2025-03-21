@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8880501173670369827}
   - component: {fileID: 3709636784129389225}
+  - component: {fileID: -7997948029581591663}
   m_Layer: 0
   m_Name: Calvado
   m_TagString: Untagged
@@ -84,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7997948029581591663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50095138309564695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc534767d442597469c1aada464afdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drink:
+    name: 2
+    materials:
+    - material: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
+      amount: 10
+    - material: {fileID: 4423979788562637781, guid: 97d86ae7791e3d34c804925006e91441, type: 3}
+      amount: 10
+    reward: 2
+    type: 0

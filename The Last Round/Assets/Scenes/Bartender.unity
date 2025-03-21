@@ -203,6 +203,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 464266040}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: DisappearSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: material1Image
       value: 
       objectReference: {fileID: 460876895}

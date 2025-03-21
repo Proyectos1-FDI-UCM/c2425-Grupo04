@@ -1,10 +1,12 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Este archivo estará contenido en las bebidas
+// sirve para configurarlas y extraer su información
+// Víctor Martínez Moreno
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Dynamic;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -13,18 +15,15 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class NewBehaviourScript : MonoBehaviour
+public class CastDrink : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+
+    [SerializeField] private Bebida Drink;
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -35,21 +34,21 @@ public class NewBehaviourScript : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        
+
     }
 
     /// <summary>
@@ -57,18 +56,35 @@ public class NewBehaviourScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+    //Devuelve el nombre de la bebida
+    public DrinkName GetDrinkName()
+    {
+        return Drink.name;
+    }
 
+    //Devuelve los materiales necesarios para crear la bebida
+    public NeededMaterial[] GetDrinkMaterials()
+    {
+        return Drink.materials;
+    }
+
+    //Devuelve el tipo de la bebida
+    public DrinkType GetDrinkType()
+    {
+        return Drink.type;
+    }
+    
+    //Devuelve el precio de la bebida
+    public int GetDrinkReward()
+    {
+        return Drink.reward;
+    }
     #endregion
     
     // ---- MÉTODOS PRIVADOS ----
@@ -80,5 +96,5 @@ public class NewBehaviourScript : MonoBehaviour
 
     #endregion   
 
-} // class NewBehaviourScript 
+} // class CastDrink 
 // namespace

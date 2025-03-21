@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1215474241544156649}
   - component: {fileID: 8641427891063264900}
   - component: {fileID: 1701980307929089589}
+  - component: {fileID: -6051100493378704792}
   m_Layer: 12
   m_Name: Jugo de uva
   m_TagString: Recursos
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6051100493378704792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914084072581436179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa910ed9c61fa34195d59a23066bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 1

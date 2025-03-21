@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7965103945087150158}
   - component: {fileID: 8878814387447978843}
-  - component: {fileID: 7575660900473034782}
+  - component: {fileID: 4327728938111598986}
   m_Layer: 0
   m_Name: Manzariete_Cliente
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7575660900473034782
+--- !u!114 &4327728938111598986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,208 +99,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppearSpeed: 100
   dialogue0:
-  - GoodText: hola soy el Manzariete
-    BadText: dialogo malo
+  - goodText: h
+    badText: e
     estatus: 0
     emisor: 0
-  - GoodText: adios
-    BadText: dialogoMalo
+  - goodText: bueno
+    badText: malo
     estatus: 1
     emisor: 0
-  - GoodText: Opcion 1
-    BadText: Opcion 2
+  - goodText: respuesta buena
+    badText: respuesta mala
     estatus: 0
     emisor: 1
-  - GoodText: Respuesta Opcion 1 por parte de Orion
-    BadText: Respuesta Opcion 2 por parte de Orion
+  - goodText: digo algo bueno
+    badText: digo algo malo
     estatus: 0
     emisor: 1
-  - GoodText: bien
-    BadText: mal
+  - goodText: me dice algo bueno
+    badText: me dice algo malo
     estatus: 0
     emisor: 0
-  - GoodText: Ponme un (bebida)
-    BadText: (bebida)
+  - goodText: tienes (bebida)
+    badText: dame un (bebida)
     estatus: 2
     emisor: 0
   dialogue1:
-  - GoodText: soy el Manzariete adios adios adios adios adios adios adios adios adios
-      adios adios adios adios adios adios adios adios adios adios adios adios adios
-      adios
-    BadText: dialogo malo
+  - goodText: j
+    badText: a
     estatus: 0
     emisor: 0
-  - GoodText: hola
-    BadText: dialogo malo
+  - goodText: bueno
+    badText: malo
     estatus: 1
     emisor: 0
-  - GoodText: Opcion 1
-    BadText: Opcion 2
+  - goodText: respuesta buena
+    badText: respuesta mala
     estatus: 0
     emisor: 1
-  - GoodText: Respuesta Opcion 1 por parte de Orion
-    BadText: Respuesta Opcion 2 por parte de Orion
+  - goodText: digo algo bueno
+    badText: digo algo malo
     estatus: 0
     emisor: 1
-  - GoodText: bien
-    BadText: mal
+  - goodText: me dice algo bueno
+    badText: me dice algo  malo
     estatus: 0
     emisor: 0
-  - GoodText: "\xBFMe podr\xEDa poner un (bebida)?"
-    BadText: Ponme un (bebida)
+  - goodText: tienes (bebida)
+    badText: dame  un (bebida)
     estatus: 2
     emisor: 0
-  - GoodText: Gracias
-    BadText: '>:('
+  - goodText: gracias
+    badText: que asquito
     estatus: 0
     emisor: 0
   BebidasPosibles:
-  - name: 7
-    materials:
-    - name: 0
-      amount: 10
-      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: f2062d8a4e6b82a40afceb101a030ce8, type: 3}
-    reward: 2
-    type: 1
-  - name: 8
-    materials:
-    - name: 0
-      amount: 10
-      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 7
-      amount: 2
-      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: a96b7399145e4c54d9d7d9410af3293a, type: 3}
-    reward: 2
-    type: 1
-  - name: 9
-    materials:
-    - name: 0
-      amount: 10
-      materialImage: {fileID: 1492577202, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 1
-      amount: 10
-      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 5c8610e9352b1cd42988742e825753ee, type: 3}
-    reward: 2
-    type: 1
-  - name: 10
-    materials:
-    - name: 1
-      amount: 10
-      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 2
-      amount: 10
-      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 7
-      amount: 2
-      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 875a43377a995be4f8e662fd16bef982, type: 3}
-    reward: 2
-    type: 1
-  - name: 11
-    materials:
-    - name: 1
-      amount: 10
-      materialImage: {fileID: 2033341483, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 7
-      amount: 2
-      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 8d590f90e4da80543a53312e316d09f6, type: 3}
-    reward: 2
-    type: 1
-  - name: 12
-    materials:
-    - name: 2
-      amount: 10
-      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 7
-      amount: 2
-      materialImage: {fileID: -1979290389, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: ed69ca4650947a945a2dcd166fdc5c52, type: 3}
-    reward: 2
-    type: 1
-  - name: 13
-    materials:
-    - name: 2
-      amount: 10
-      materialImage: {fileID: 1147818630, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 7fcb280fe3158ab4fa26a022ca71d6cb, type: 3}
-    reward: 2
-    type: 1
-  - name: 0
-    materials:
-    - name: 3
-      amount: 10
-      materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: a9c4b1ce0870ef6458a5d66de0a694ef, type: 3}
-    reward: 2
-    type: 0
-  - name: 1
-    materials:
-    - name: 3
-      amount: 10
-      materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 6
-      amount: 2
-      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 96e854073fbbfe140a6fdbeecff42f1d, type: 3}
-    reward: 2
-    type: 0
-  - name: 2
-    materials:
-    - name: 3
-      amount: 10
-      materialImage: {fileID: -768723093, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 4
-      amount: 10
-      materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 5895df2746850a446ba07c2b9d3ff516, type: 3}
-    reward: 2
-    type: 0
-  - name: 3
-    materials:
-    - name: 4
-      amount: 10
-      materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 5
-      amount: 10
-      materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 6
-      amount: 2
-      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 0e0f6fc4e5a42a742925f408146c064e, type: 3}
-    reward: 2
-    type: 0
-  - name: 4
-    materials:
-    - name: 4
-      amount: 10
-      materialImage: {fileID: 1463078628, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 6
-      amount: 2
-      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 5cd4d5329a2ca1b4ea2034abff60c9bb, type: 3}
-    reward: 2
-    type: 0
-  - name: 5
-    materials:
-    - name: 5
-      amount: 10
-      materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    - name: 6
-      amount: 2
-      materialImage: {fileID: 247236831, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 8eb8b7eec13c0f24e8ab89d1644055e2, type: 3}
-    reward: 2
-    type: 0
-  - name: 6
-    materials:
-    - name: 5
-      amount: 10
-      materialImage: {fileID: 619621594, guid: d48be8913af48734fa30d4abe6a11b92, type: 3}
-    image: {fileID: 21300000, guid: 487074c1c1507f64e93441932d2c7d34, type: 3}
-    reward: 2
-    type: 0
+  - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
+  - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
+  - {fileID: 50095138309564695, guid: 53a633e144d84824da0ab7158c9ecd95, type: 3}
+  - {fileID: 2569410387497727134, guid: f27731f859f3edd47b73c5c1594fc208, type: 3}
+  - {fileID: 3966013472983896360, guid: 7cdb398cae0d54247ac09dcc30309438, type: 3}
+  - {fileID: 6424972971031596228, guid: 349733cbd8815b143b33634a42661e2d, type: 3}
+  - {fileID: 3578497006778180916, guid: 5aaa928b1c977c44cb21225b71532b2c, type: 3}
+  - {fileID: 8459704648988062013, guid: 58afd8ac4f825bc47b8d4dccb2f2f4e7, type: 3}
+  - {fileID: 2010269815963506285, guid: 22aa43d414f1d0f4ea89f38fb53b8f33, type: 3}
+  - {fileID: 1347559461043959922, guid: 170b2cb5efceeca459396d311900ca0d, type: 3}
+  - {fileID: 3753307967784241883, guid: f90419596515d854a94991dcef7b2b47, type: 3}
+  - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
+  - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
+  - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
   ElAlcalde: 0

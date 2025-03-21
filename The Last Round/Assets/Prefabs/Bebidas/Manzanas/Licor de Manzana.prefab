@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6468793438202149463}
   - component: {fileID: 461260191697256262}
+  - component: {fileID: 3018576099469617640}
   m_Layer: 0
   m_Name: Licor de Manzana
   m_TagString: Untagged
@@ -84,3 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3018576099469617640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966013472983896360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc534767d442597469c1aada464afdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drink:
+    name: 3
+    materials:
+    - material: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
+      amount: 10
+    - material: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
+      amount: 10
+    - material: {fileID: 1552366190605961034, guid: b7e14f2f4b982a04586562899a05e8fc, type: 3}
+      amount: 2
+    reward: 2
+    type: 0

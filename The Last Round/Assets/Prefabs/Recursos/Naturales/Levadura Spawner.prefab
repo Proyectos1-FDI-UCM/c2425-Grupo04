@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2640174471585558114}
   - component: {fileID: -5657462362455344652}
   - component: {fileID: 4228548961209126714}
+  - component: {fileID: 4210823676919848411}
   m_Layer: 12
   m_Name: Levadura Spawner
   m_TagString: Untagged
@@ -106,6 +107,19 @@ PolygonCollider2D:
       - {x: 0.52159953, y: 0.41801798}
       - {x: 0.3012333, y: 0.8376868}
   m_UseDelaunayMesh: 0
+--- !u!114 &4210823676919848411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441737181335942706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa910ed9c61fa34195d59a23066bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 7
 --- !u!1 &5137125781000437851
 GameObject:
   m_ObjectHideFlags: 0

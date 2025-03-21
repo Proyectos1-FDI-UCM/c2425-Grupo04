@@ -22,9 +22,9 @@ public class Dialogue : MonoBehaviour
     [SerializeField]
     float AppearSpeed;
     [SerializeField]
-    private DataContainer.Texto[] dialogue0, dialogue1;
+    private Texto[] dialogue0, dialogue1;
     [SerializeField]
-    private DataContainer.Bebida[] BebidasPosibles;
+    private GameObject[] BebidasPosibles;
     [SerializeField]
     private bool ElAlcalde;
     #endregion
@@ -34,11 +34,11 @@ public class Dialogue : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private UIManager uiManager;
-    private DataContainer.Texto[] dialogue;
+    private Texto[] dialogue;
     private bool ClientAppear = false, DialogueGiven = false;
     private SpriteRenderer spriteRenderer;
     private Color color;
-    private DataContainer.Bebida BebidaPedida;
+    private GameObject BebidaPedida;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -85,10 +85,10 @@ public class Dialogue : MonoBehaviour
 
             //TENGO MATERIALES PARA HACER ESA BEBIDA?
             int j = 0;
-            
-            while (j < BebidasPosibles[tmp1].materials.Length && tmp2)
+            NeededMaterial[] sources = BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkMaterials();
+            while (j < sources.Length && tmp2)
             {
-                if (BebidasPosibles[tmp1].materials[j].amount > recursos[(int)BebidasPosibles[tmp1].materials[j].name])
+                if (sources[j].amount > recursos[(int)sources[j].material.GetComponent<CastMaterial>().GetSourceName()])
                 {
                     tmp2 = false;
                 }
@@ -96,8 +96,8 @@ public class Dialogue : MonoBehaviour
             }
             Debug.Log(BebidasPosibles[tmp1].name);
         }
-        while (BebidasPosibles[tmp1].type == DataContainer.DrinkType.Manzana && contador[1] + contador[3] <= 0  && !tmp2||
-               BebidasPosibles[tmp1].type == DataContainer.DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
+        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.manzana && contador[1] + contador[3] <= 0  && !tmp2||
+               BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.uva && contador[0] + contador[2] <= 0 && !tmp2);
 
 
         BebidaPedida = BebidasPosibles[tmp1];
@@ -108,7 +108,7 @@ public class Dialogue : MonoBehaviour
 
         while (i < dialogue.Length && !enc)
         {
-            if (dialogue[i].estatus == DataContainer.Estado.bebida)
+            if (dialogue[i].estatus == Estado.bebida)
             {
                 enc = true;
 
@@ -117,17 +117,17 @@ public class Dialogue : MonoBehaviour
                 //y el masculino en femenino en caso de ser una sidra
 
                 //Filtro 1 y 2
-                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
-                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].goodText = dialogue[i].goodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].badText = dialogue[i].badText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
 
                 //Filtro 3
-                if (BebidaPedida.name == DataContainer.DrinkName.Sidra)
+                if (BebidaPedida.GetComponent<CastDrink>().GetDrinkName() == DrinkName.Sidra)
                 {
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("ese", "esa");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("este", "esta");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("aquel", "aquella");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("un", "una");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("el", "la");
+                    dialogue[i].goodText = dialogue[i].goodText.Replace("ese", "esa");
+                    dialogue[i].goodText = dialogue[i].goodText.Replace("este", "esta");
+                    dialogue[i].goodText = dialogue[i].goodText.Replace("aquel", "aquella");
+                    dialogue[i].goodText = dialogue[i].goodText.Replace("un", "una");
+                    dialogue[i].goodText = dialogue[i].goodText.Replace("el", "la");
                 }
             }
             i++;
@@ -157,7 +157,19 @@ public class Dialogue : MonoBehaviour
                 // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
                 if (ElAlcalde)
                 {
-                    BebidaPedida.reward = 2 * BebidaPedida.reward;
+                    ///////////////////////////////////////////////////////////////////////////////////
+                    //                                                                               //
+                    //                                                                               //
+                    // ESTA PARTE HAY QUE CAMBIARLA                                                  //
+                    // NO SE PUEDE EDITAR EL PRECIO DE LA BEBIDA                                     //
+                    // EL ALCALDE TIENE QUE TENER UN IDENTIFICADOR QUE PUEDA DETECTAR EL UIMANAGER   //
+                    // Y GAME MANAGER, QUIENES SE ENCARGAN DE ESCRIBIR EL PRECIO Y DAR LA RECOMPENSA //
+                    //                                                                               //
+                    //                                                                               //
+                    ///////////////////////////////////////////////////////////////////////////////////
+                    
+                    int price = BebidaPedida.GetComponent<CastDrink>().GetDrinkReward();
+                    price = 2 * BebidaPedida.GetComponent<CastDrink>().GetDrinkReward();
                 }
                 uiManager.GetClientSprite(spriteRenderer);
                 uiManager.GetDrink(BebidaPedida);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 679102220210475423}
   - component: {fileID: 6294834214338698284}
   - component: {fileID: 4403407286023928397}
+  - component: {fileID: -8137337458540739878}
   m_Layer: 12
   m_Name: Semilla de manzana
   m_TagString: Recursos
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8137337458540739878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7608541299565768669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa910ed9c61fa34195d59a23066bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 5

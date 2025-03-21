@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2229538711700713055}
   - component: {fileID: 9222138991923215777}
+  - component: {fileID: 2785212363459878925}
   m_Layer: 0
   m_Name: Grappa
   m_TagString: Untagged
@@ -84,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2785212363459878925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010269815963506285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc534767d442597469c1aada464afdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drink:
+    name: 12
+    materials:
+    - material: {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
+      amount: 10
+    - material: {fileID: 6568526389686244491, guid: 368fe0d15567dae4f9e9a8297eb353a8, type: 3}
+      amount: 2
+    reward: 2
+    type: 1
