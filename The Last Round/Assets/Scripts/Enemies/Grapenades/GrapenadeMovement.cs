@@ -69,7 +69,7 @@ public class GrapenadeMovement : MonoBehaviour
         {
             if ((cD.GetCollisions()[0] && -EnemyPlayer.y > 0) || (cD.GetCollisions()[1] && -EnemyPlayer.y < 0)) EnemyPlayer.y = 0;
             if ((cD.GetCollisions()[2] && -EnemyPlayer.x > 0) || (cD.GetCollisions()[3] && -EnemyPlayer.x < 0)) EnemyPlayer.x = 0;
-            rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed * Time.deltaTime;
+            rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
         }
         else
         {

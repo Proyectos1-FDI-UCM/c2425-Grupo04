@@ -56,12 +56,12 @@ public class PlayerMovement : MonoBehaviour
     {
         dashing = GetComponent<PlayerDash>().dash();
 
-        MoveDirection = (Vector3)InputManager.Instance.MovementVector;
+        MoveDirection = InputManager.Instance.MovementVector;
 
         if ((cD.GetCollisions()[0] && MoveDirection.y > 0) || cD.GetCollisions()[1] && MoveDirection.y < 0) MoveDirection.y = 0;
         if ((cD.GetCollisions()[2] && MoveDirection.x > 0) || cD.GetCollisions()[3] && MoveDirection.x < 0) MoveDirection.x = 0;
 
-        MoveDirection = MoveDirection.normalized;
+        
 
         if (MoveDirection != Vector3.zero)
         {
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         if (!dashing)
-        rb.velocity = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
+        rb.velocity = MoveDirection * MoveSpeed;
     }
    
 

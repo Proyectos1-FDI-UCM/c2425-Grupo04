@@ -512,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeAttack: 5
   ChargeTime: 2
-  SprintSpeed: 300
+  SprintSpeed: 5
   SprintTime: 2
   PielDeManzana: {fileID: 4423979788562637781, guid: c6573b28f7d3e0446acc468cfb26e940, type: 3}
   JugoDeManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c42fb7d890e2147863a7e3b9e7e745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 50
+  Speed: 1
 --- !u!50 &6434944096096345892
 Rigidbody2D:
   serializedVersion: 4

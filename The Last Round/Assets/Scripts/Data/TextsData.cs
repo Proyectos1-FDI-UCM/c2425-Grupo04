@@ -44,6 +44,7 @@ public struct Texto
     public Emisor emisor;
 
     public bool Generic;
+    [HideInInspector]
     public bool WasSaid;
 }
 

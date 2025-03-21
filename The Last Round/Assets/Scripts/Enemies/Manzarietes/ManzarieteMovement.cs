@@ -131,7 +131,7 @@ public class ManzarieteMovement : MonoBehaviour
                 }
 
                 //movimiento
-                rb.velocity = LastPlayerPosition * SprintSpeed * Time.fixedDeltaTime;
+                rb.velocity = LastPlayerPosition * SprintSpeed;
 
                 //Frenado final
                 if (Stimer < SprintTime / 3.5f && SprintSpeed > tmp / 20)

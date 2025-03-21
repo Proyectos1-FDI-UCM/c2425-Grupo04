@@ -75,22 +75,22 @@ public class ManzurriaMovement : MonoBehaviour
         if (recursornd == 1)
         {
             recurso = PielDeManzana;
-            Debug.Log("Manzurria: Piel de manzana");
+            //Debug.Log("Manzurria: Piel de manzana");
         }
         else if (recursornd == 2)
         {
             recurso = JugoDeManzana;
-            Debug.Log("Manzurria: Jugo de manzana");
+           // Debug.Log("Manzurria: Jugo de manzana");
         }
         else if (recursornd == 3)
         {
             recurso = SemillaDeManzana;
-            Debug.Log("Manzurria: Semilla de manzana");
+           // Debug.Log("Manzurria: Semilla de manzana");
         }
         else
         {
             recurso = null;
-            Debug.Log("Manzurria: Sin material");
+            //Debug.Log("Manzurria: Sin material");
         }
 
         if (recurso != null)

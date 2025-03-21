@@ -7,9 +7,6 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -102,7 +99,7 @@ public class PlayerDash : MonoBehaviour
         
         isDashing = true;
         cooldownTimer = DashCooldown;
-        rb.velocity = new Vector3(LastDirection.x * DashSpeed* Time.fixedDeltaTime, LastDirection.y * DashSpeed* Time.fixedDeltaTime);
+        rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed);
       
     }
 

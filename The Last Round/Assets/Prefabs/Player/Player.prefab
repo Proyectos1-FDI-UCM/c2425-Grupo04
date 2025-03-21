@@ -315,8 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c3016ed47e9cc4ab96302a293c99d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashSpeed: 500
-  DashDuration: 0.2
+  DashSpeed: 20
+  DashDuration: 0
   DashCooldown: 1
 --- !u!114 &804797766998022290
 MonoBehaviour:
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71f3b78d51c175409d88d5124166c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 250
+  MoveSpeed: 2
 --- !u!61 &-3617351769904225931
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -52,20 +52,12 @@ public class MoveToPlayer : MonoBehaviour
     #region Métodos públicos
     public void Move(GameObject enemy)
     {
-        EnemyPlayer = UpdateVector(enemy);
-        //Convierte este vector en un vector unitario
-        //Al hacer que todos los vectores midan 1u no hace falta normalizar el vector
-        if (EnemyPlayer.x != 0 && EnemyPlayer.y != 0 && EnemyPlayer.x * EnemyPlayer.x +
-          /*QUE HUECO MAS FEO QUE HAY AQUÍ, LO RELLENO*/EnemyPlayer.y * EnemyPlayer.y != 0)
-            EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x +
-              /*Y AQUÍ IGUAL MACHO*/  EnemyPlayer.y * EnemyPlayer.y);
-
-        else if (EnemyPlayer.x != 0) EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.x * EnemyPlayer.x);
-        else if (EnemyPlayer.y != 0) EnemyPlayer /= Mathf.Sqrt(EnemyPlayer.y * EnemyPlayer.y);
+        EnemyPlayer = UpdateVector(enemy).normalized;
 
         //Mueve al objeto
-        rb.velocity = EnemyPlayer * Speed * Time.deltaTime;
+        rb.velocity = EnemyPlayer * Speed;
     }
+
     public Vector3 UpdateVector(GameObject enemy)
     {
 
@@ -89,7 +81,7 @@ public class MoveToPlayer : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    
+
     #endregion
 } // class MoveToPlayer 
 // namespace
