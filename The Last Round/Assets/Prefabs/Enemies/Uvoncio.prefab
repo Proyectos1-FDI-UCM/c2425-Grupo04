@@ -214,8 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Basedamage: 10
-  cooldown: 2
+  damage: 10
 --- !u!114 &6600120042038612327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,5 +260,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 150
-  "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
+  Life: 0
+  "ContadorDa\xF1o": {fileID: 0}

@@ -616,13 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Basedamage: 0
   cooldown: 0
-=======
-  Basedamage: 15
-  cooldown: 2
->>>>>>> Stashed changes
 --- !u!114 &1169319636879482080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,8 +663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
-  "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
+  Life: 0
+  "ContadorDa\xF1o": {fileID: 0}
 --- !u!1 &7995536849386412423
 GameObject:
   m_ObjectHideFlags: 0

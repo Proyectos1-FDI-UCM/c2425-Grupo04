@@ -20,16 +20,15 @@ public class Health : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private float Life;
     [SerializeField] GameObject ContadorDaño;
+
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
-    private TextMeshProUGUI gameOverUI;
+    bool PlayerhasDied = false;
     private EnemyType enemy;
-    private PlayerMovement pm;
-    private UIManager_Combate UIManagerC;
-    private bool playerDied = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -38,23 +37,18 @@ public class Health : MonoBehaviour
     void Start()
     {
 
-        // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
+       // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
 
         if (GetComponent<CastEnemy>() != null)
-            enemy = GetComponent<CastEnemy>().GetEnemyType();
-
-        pm = GetComponent<PlayerMovement>();
+        enemy = GetComponent<CastEnemy>().GetEnemyType();
     }
 
 
     void Update()
     {
-        if (Life == 0 && pm != null)
-        {
-            playerDied = true;
-        }
+        
     }
     #endregion
 
@@ -75,10 +69,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    public bool PlayerDied()
-    {
-        return playerDied;
-    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -87,7 +77,10 @@ public class Health : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
+    public bool hasPlayerDied()
+    {
+        return PlayerhasDied;
+    }
 
     /// <summary>
     /// Se encarga de manejar la muerte del objeto
@@ -108,6 +101,11 @@ public class Health : MonoBehaviour
         {
             GameManager.Instance.MataEnemigo(enemy);
             Destroy(gameObject);
+        }
+        //Si es el jugador se activa el proceso de menú de muerte
+        else
+        {
+            PlayerhasDied = true;
         }
     }
     #endregion
