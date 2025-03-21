@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -396,7 +396,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -616,7 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  Basedamage: 0
+  cooldown: 0
 --- !u!114 &1169319636879482080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +674,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9627793684372477}
-  - component: {fileID: 6858926833649659788}
   - component: {fileID: 5003139532727408007}
   - component: {fileID: 3195908509858417651}
   - component: {fileID: 4229558073117866278}
@@ -703,18 +703,6 @@ Transform:
   - {fileID: 378168016366798714}
   m_Father: {fileID: 8564384819749941846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6858926833649659788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995536849386412423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02c89a7b2d4d8e4fb8048ef0d2112ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &5003139532727408007
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -832,7 +820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  Basedamage: 0
+  cooldown: 0
 --- !u!50 &8768969245836937094
 Rigidbody2D:
   serializedVersion: 4

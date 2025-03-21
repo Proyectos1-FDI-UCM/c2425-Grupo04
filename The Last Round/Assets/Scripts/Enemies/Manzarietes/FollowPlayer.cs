@@ -30,7 +30,7 @@ public class FollowPlayer : MonoBehaviour
     private GameObject FollowObject, player;
     private Vector3 EnemyPlayer, difference;
     private bool IsThereWall = false, IsSprinting = false;
-    private CollisionDetecter cD;
+    private CollisionDetector cD;
     private float rotation;
     #endregion
 
@@ -48,7 +48,7 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         if (GetComponent<BoxCollider2D>() != null) boxCollider = GetComponent<BoxCollider2D>();
-        cD = PivotObject.GetComponent<CollisionDetecter>();
+        cD = PivotObject.GetComponent<CollisionDetector>();
     }
 
     /// <summary>
@@ -102,13 +102,13 @@ public class FollowPlayer : MonoBehaviour
                               0);
 
         //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
-        if (((cD.GetCollisions()[2] && ObjectPos.x > 0) || (cD.GetCollisions()[3] && ObjectPos.x < 0)) && IsSprinting)
+        if (((cD.GetCollisions(Directions.East) && ObjectPos.x > 0) || (cD.GetCollisions(Directions.West) && ObjectPos.x < 0)) && IsSprinting)
         {
             ObjectPos.x *= -1;
         }
 
         //Si colisiona en las zonas encima o debajo solo invierte el eje y
-        if (((cD.GetCollisions()[0] && ObjectPos.y > 0) || (cD.GetCollisions()[1] && ObjectPos.y < 0)) && IsSprinting)
+        if (((cD.GetCollisions(Directions.North) && ObjectPos.y > 0) || (cD.GetCollisions(Directions.South) && ObjectPos.y < 0)) && IsSprinting)
         {
            ObjectPos.y *= -1;
         }

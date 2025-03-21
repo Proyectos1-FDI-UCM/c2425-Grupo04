@@ -67,15 +67,18 @@ public class Damage : MonoBehaviour
 
     private void Hurt(GameObject collision)
     {
+        bool IsEnemy = collision.GetComponent<CastEnemy>() != null;
+        bool ImEnemy = GetComponent<CastEnemy>() != null;
+        Health health = collision.GetComponent<Health>();
         //Hago daño si colisiono contra algo que tiene vida
         //Si soy un enemigo y colisiono contra algo que no es un enemigo
         //Si no soy un enemigo y colisiono contra un enemigo
         //Si el cooldown ha pasado
-        if (collision.GetComponent<Health>() != null && timer <= 0 &&
-            ((GetComponent<CastEnemy>() == null && collision.GetComponent<CastEnemy>() != null) ||
-             (GetComponent<CastEnemy>() != null && collision.GetComponent<CastEnemy>() == null)))
+
+        if (health != null && timer <= 0 &&
+            ((!ImEnemy && IsEnemy) || (ImEnemy && !IsEnemy)))
         {
-            collision.GetComponent<Health>().getdamage(Basedamage);
+            health.GetDamage(Basedamage);
             timer = cooldown;
         }
     }

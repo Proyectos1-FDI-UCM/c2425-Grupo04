@@ -27,7 +27,7 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
-    private CollisionDetecter cD;
+    private CollisionDetector cD;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -39,7 +39,7 @@ public class MoveToPlayer : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        cD = GetComponent<CollisionDetecter>();
+        cD = GetComponent<CollisionDetector>();
     }
     void Update()
     {
@@ -67,12 +67,12 @@ public class MoveToPlayer : MonoBehaviour
                                       Player.transform.position.y - enemy.transform.position.y,
                                       0);
 
-        if ((cD.GetCollisions()[0] && EnemyPlayer.y > 0) ||
-            (cD.GetCollisions()[1] && EnemyPlayer.y < 0) ||
+        if ((cD.GetCollisions(Directions.North) && EnemyPlayer.y > 0) ||
+            (cD.GetCollisions(Directions.South) && EnemyPlayer.y < 0) ||
             (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1)) EnemyPlayer.y = 0;
 
-        if ((cD.GetCollisions()[2] && EnemyPlayer.x > 0) ||
-            (cD.GetCollisions()[3] && EnemyPlayer.x < 0) ||
+        if ((cD.GetCollisions(Directions.East) && EnemyPlayer.x > 0) ||
+            (cD.GetCollisions(Directions.West) && EnemyPlayer.x < 0) ||
             (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1)) EnemyPlayer.x = 0;
 
         return EnemyPlayer;

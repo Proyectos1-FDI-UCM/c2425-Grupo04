@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
     /// <summary>
     /// Recibe el daño a recibir y se lo resta a la vida del objeto que tenga este script, 
     /// </summary>
-    public void getdamage(float damage)
+    public void GetDamage(float damage)
     {
         Life -= damage;
         text.text = damage.ToString();

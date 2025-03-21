@@ -5,20 +5,22 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
-
+public enum Directions
+{
+    North,
+    South,
+    East,
+    West,
+}
 /// <summary>
-/// Contiene un método que devuelve un array de booleanos
-/// True = está en colisión / False = no está en colisión
-/// Array: 
-///   [0] = N
-///   [1] = S
-///   [2] = E
-///   [3] = W
+/// Se encarga de detectar colisiones con otros objetos, este es capaz de devolver un booleano por cada dirección
+/// El booleano devuelto permite saber al objeto que lo pide si está colisionando o no en esa dirección
 /// </summary>
-public class CollisionDetecter : MonoBehaviour
+public class CollisionDetector : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -56,23 +58,26 @@ public class CollisionDetecter : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     /// <summary>
-    /// Array: 
-    ///   [0] = N or UP,  
-    ///   [1] = S or DOWN,  
-    ///   [2] = E or RIGHT,  
-    ///   [3] = W or LEFT.
+    /// Devuelve true si está colisionando y false si no lo está
+    /// toma como argumento un enum del tipo "Directions" y devuelve el booleano de esa dirección
     /// </summary>
     /// <returns></returns>
-    public bool[] GetCollisions()
+    public bool GetCollisions(Directions direction)
     {
-        return collisions;
+        return collisions[(int)direction];
     }
-    public void Reset()
+
+    /// <summary>
+    /// Refresca todas las colisiones
+    /// </summary>
+    public void Refresh()
     {
         ResetCollisions = true;
     }
 
-    //Función que resetea una Layer en especifico
+    /// <summary>
+    /// Reseta una layer en específico y toma como argumento el número de la capa
+    /// </summary>
     public void ResetLayer(int Layer)
     {
         for (int i = 0; i < collisions.Length; i++)
@@ -99,23 +104,23 @@ public class CollisionDetecter : MonoBehaviour
 
             if (normal.y > 0.5f)
             {
-                collisions[1] = true;
+                collisions[(int)Directions.South] = true;
                 objects[1] = collision.gameObject;
             }
             if (normal.y < -0.5f)
             {
-                collisions[0] = true;
+                collisions[(int)Directions.North] = true;
                 objects[0] = collision.gameObject;
             }
 
             if (normal.x > 0.5f)
             {
-                collisions[3] = true;
+                collisions[(int)Directions.West] = true;
                 objects[3] = collision.gameObject;
             }
             if (normal.x < -0.5f)
             {
-                collisions[2] = true;
+                collisions[(int)Directions.East] = true;
                 objects[2] = collision.gameObject;
             }
         }

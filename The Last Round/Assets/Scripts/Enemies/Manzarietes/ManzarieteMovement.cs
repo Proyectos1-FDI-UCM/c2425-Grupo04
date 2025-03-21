@@ -32,7 +32,7 @@ public class ManzarieteMovement : MonoBehaviour
                  InRange = false,
                  IsThereWall = false;
     private Rigidbody2D rb;
-    private CollisionDetecter cD;
+    private CollisionDetector cD;
     private GameObject recurso;
     #endregion
 
@@ -44,7 +44,7 @@ public class ManzarieteMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
-        cD = GetComponent<CollisionDetecter>();
+        cD = GetComponent<CollisionDetector>();
     }
     private void FixedUpdate()
     {
@@ -107,18 +107,18 @@ public class ManzarieteMovement : MonoBehaviour
                 rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
 
                 //Reseteamos las colisiones con las capas excluidas anteriormente
-                GetComponent<CollisionDetecter>().ResetLayer(6 /*Player*/);
-                GetComponent<CollisionDetecter>().ResetLayer(10 /*Enemy*/);
+                GetComponent<CollisionDetector>().ResetLayer(6 /*Player*/);
+                GetComponent<CollisionDetector>().ResetLayer(10 /*Enemy*/);
 
                 // -Sensación de rebote- durante movimiento
                 //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
-                if ((cD.GetCollisions()[2] && LastPlayerPosition.x > 0) || (cD.GetCollisions()[3] && LastPlayerPosition.x < 0))
+                if ((cD.GetCollisions(Directions.East) && LastPlayerPosition.x > 0) || (cD.GetCollisions(Directions.West) && LastPlayerPosition.x < 0))
                 {
                     LastPlayerPosition.x *= -1;
                 }
 
                 //Si colisiona en las zonas encima o debajo solo invierte el eje y
-                if ((cD.GetCollisions()[0] && LastPlayerPosition.y > 0) || (cD.GetCollisions()[1] && LastPlayerPosition.y < 0))
+                if ((cD.GetCollisions(Directions.North) && LastPlayerPosition.y > 0) || (cD.GetCollisions(Directions.South) && LastPlayerPosition.y < 0))
                 {
                     LastPlayerPosition.y *= -1;
                 }
