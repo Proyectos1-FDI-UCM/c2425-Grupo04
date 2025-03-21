@@ -441,5 +441,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 0
-  "ContadorDa\xF1o": {fileID: 0}
+  Life: 50
+  "ContadorDa\xF1o": {fileID: 7532583761371892575, guid: c99eb6bcd397c6c45a343254e201ac12, type: 3}
