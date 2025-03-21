@@ -8,6 +8,9 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
+/// <summary>
+/// Se utiliza para identificar cada uno de los recursos en el juego.
+/// </summary>
 public enum MaterialName
 {
     //Materiales Uva

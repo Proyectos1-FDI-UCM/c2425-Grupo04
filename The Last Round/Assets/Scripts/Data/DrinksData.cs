@@ -8,6 +8,8 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
+//Los tipos de bebidas son de manzana o de uva
+//estos identificadores se usan para restringir un tipo de bebidas u otras cuando no queden enemigos
 public enum DrinkType
 {
     manzana,
@@ -39,6 +41,10 @@ public enum DrinkName
     Singani,
 }
 
+/// <summary>
+/// Almacena la información de cuanta cantidad de un material se necesita.
+/// Las bebidas tienen un array de este tipo para saber qué y cuantos materiales necesitan
+/// </summary>
 [System.Serializable]
 public struct NeededMaterial
 {
@@ -46,6 +52,10 @@ public struct NeededMaterial
     public int amount;
 }
 
+/// <summary>
+/// Contienen toda la información de una bebida.
+/// Su nombre, sus materiales, su precio o recompensa y su tipo
+/// </summary>
 [System.Serializable]
 public struct Bebida
 {
