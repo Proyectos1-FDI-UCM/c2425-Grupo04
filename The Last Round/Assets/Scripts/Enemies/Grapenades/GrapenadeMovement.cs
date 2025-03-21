@@ -61,6 +61,8 @@ public class GrapenadeMovement : MonoBehaviour
         if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
         {
             rb.velocity = Vector3.zero;
+            if (!GetComponent<PlaceMark>().MarcaInstanciada())
+            GetComponent<PlaceMark>().MarcarJugador();
         }
         else if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
         {

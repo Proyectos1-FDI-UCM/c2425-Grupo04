@@ -87,6 +87,7 @@ public class ProjectileMovement : MonoBehaviour
         if (marca != null && collision.gameObject == marca)
         {
             Vector3 tmp = marca.transform.position;
+            marca.GetComponent<MarcaBehaviour>().MarcaEliminada();
             Destroy(marca);
             GetComponent<Explosion>().Explode(tmp);
             Destroy(gameObject);

@@ -19,16 +19,13 @@ public class PlaceMark : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private GameObject MarcaPrefab;
-    [SerializeField] private float marcaCooldown = 0.8f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Rigidbody2D rb;
     private GameObject marcaInstanciada;
     private GameObject Player;
     private bool marcaInstanciadaBool = false;
-    private float cooldown;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -44,44 +41,39 @@ public class PlaceMark : MonoBehaviour
     /// </summary>
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        cooldown = marcaCooldown;
+
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {
-        if (marcaInstanciada == null && rb.velocity == Vector2.zero && cooldown <= 0)
-        {
-                MarcarJugador();
-        }
-
+    { 
         if (Player == null)
             Player = GameManager.Instance.GetPlayer();
-
-        if (rb.velocity == Vector2.zero)
-        {
-            cooldown -= Time.deltaTime;
-        }
-        if(rb.velocity != Vector2.zero)
-        {
-            cooldown = marcaCooldown;
-        }
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+    public void MarcarJugador()
+    {
+        if (Player != null)
+        {
+            marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
+            marcaInstanciada.GetComponent<MarcaBehaviour>().SetEmisor(this);
+        }
+
+
+        marcaInstanciadaBool = true;
+
+        if (marcaInstanciada != null && marcaInstanciada.GetComponent<Shoot>() != null)
+            marcaInstanciada.GetComponent<Shoot>().Shooting();
+    }
+
     public void EliminarMarca()
     {
-        if (MarcaPrefab != null)
-        {
-            Destroy(marcaInstanciada);
-            marcaInstanciada = null;
-            marcaInstanciadaBool = false;
-        }
+        marcaInstanciadaBool = false;
     }
 
     public bool MarcaInstanciada()
@@ -100,16 +92,7 @@ public class PlaceMark : MonoBehaviour
     #region Métodos Privados
 
     //Si la marca se choca con el proyectil del Grapenade (llega a su destino), la marca se destruye
-    private void MarcarJugador()
-    {
-        if (Player != null)
-            marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
 
-        marcaInstanciadaBool = true;
-
-        if (marcaInstanciada != null && marcaInstanciada.GetComponent<Shoot>() != null)
-        marcaInstanciada.GetComponent<Shoot>().Shooting();
-    }
     #endregion   
 
 } // class PlaceMark 
