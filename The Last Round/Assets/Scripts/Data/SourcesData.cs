@@ -11,7 +11,7 @@ using UnityEngine;
 /// <summary>
 /// Se utiliza para identificar cada uno de los recursos en el juego.
 /// </summary>
-public enum MaterialName
+public enum SourceName
 {
     //Materiales Uva
     pielDeUva,

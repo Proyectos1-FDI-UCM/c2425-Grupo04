@@ -72,29 +72,33 @@ public class Precursos : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         string objectName = collision.gameObject.name;
-        if (collision.gameObject.CompareTag("Recursos"))
+        if (collision.gameObject.GetComponent<CastMaterial>() != null)
         {
-            if (objectName == "Jugo de uva(Clone)")
+            SourceName source = GetComponent<CastMaterial>().GetSourceName();
+            // - MATERIALES DE MANZANAS -
+            if (source == SourceName.jugoDeUva)
             {
                 GameManager.Instance.IncreaseResource(0);
             }
-            else if (objectName == "Piel de uva negra(Clone)" || objectName == "Piel de uva roja(Clone)")
+            else if (source == SourceName.pielDeUva)
             {
                 GameManager.Instance.IncreaseResource(1);
             }
-            else if (objectName == "Semilla de uva(Clone)")
+            else if (source == SourceName.semillaDeUva)
             {
                 GameManager.Instance.IncreaseResource(2);
             }
-            else if (objectName == "Jugo de manzana(Clone)")
+
+            // - MATERIALES DE UVAS -
+            else if (source == SourceName.jugoDeManzana)
             {
                 GameManager.Instance.IncreaseResource(3);
             }
-            else if (objectName == "Piel de manzana verde(Clone)" || objectName == "Piel de manzana roja(Clone)")
+            else if (source == SourceName.piel_de_manzana)
             {
                 GameManager.Instance.IncreaseResource(4);
             }
-            else if (objectName == "Semilla de manzana(Clone)")
+            else if (source == SourceName.semillaDeManzana)
             {
                 GameManager.Instance.IncreaseResource(5);
             }
