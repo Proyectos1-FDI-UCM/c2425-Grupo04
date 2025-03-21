@@ -27,7 +27,6 @@ public class Health : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
-    bool PlayerhasDied = false;
     private EnemyType enemy;
     #endregion
 
@@ -77,10 +76,6 @@ public class Health : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    public bool hasPlayerDied()
-    {
-        return PlayerhasDied;
-    }
 
     /// <summary>
     /// Se encarga de manejar la muerte del objeto
@@ -105,7 +100,7 @@ public class Health : MonoBehaviour
         //Si es el jugador se activa el proceso de menú de muerte
         else
         {
-            PlayerhasDied = true;
+            GameManager.Instance.GetUIC().GetComponent<UIManager_Combate>().GameOverUI();
         }
     }
     #endregion
