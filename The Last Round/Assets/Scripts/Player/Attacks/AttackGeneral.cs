@@ -8,10 +8,7 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEditor;
 
 
 /// <summary>

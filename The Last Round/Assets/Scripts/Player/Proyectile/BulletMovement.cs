@@ -75,16 +75,6 @@ public class BulletMovement : MonoBehaviour
         Destroy(gameObject);
     }
     #endregion
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("IsColliding");
-        if (collision.gameObject.GetComponent<Health>() != null)
-        {
-            collision.gameObject.GetComponent<Health>().getdamage(PBdamage);
-            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
-        }
-        Destroy(gameObject);
-    }
    
 } // class BulletMovement 
 // namespace

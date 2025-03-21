@@ -8,8 +8,6 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using System.Collections;
-using System.Threading;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -28,7 +26,7 @@ public class MeleeAttack : MonoBehaviour
     public float duration;
 
     [SerializeField]
-    public float PMdamage =50;
+    public float PMdamage;
 
     #endregion
 
@@ -93,17 +91,6 @@ public class MeleeAttack : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("IsColliding");
-
-        if (collision.gameObject.GetComponent<Health>() != null)
-        {
-            collision.gameObject.GetComponent<Health>().getdamage(PMdamage);
-            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
-        }
-    }
 
     #endregion   
 

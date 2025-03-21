@@ -1,5 +1,5 @@
 //---------------------------------------------------------
-// Script encargado de hacer daño al jugador mediante ataques de los enemigos
+// Script encargado de hacer daño a todo lo que tenga vida siempre que no sea un aliado
 // Víctor Castro Álvarez
 // The Last Round
 // Proyectos 1 - Curso 2024-25
@@ -13,17 +13,19 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class DamagePlayer : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] int damage = 10;
+    [SerializeField] private int Basedamage;
+    [SerializeField] private float cooldown;
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private float cooldown = 0;
+
+    private float timer;
 
     #endregion
 
@@ -36,7 +38,7 @@ public class DamagePlayer : MonoBehaviour
 
     private void Update()
     {
-        cooldown -= Time.deltaTime;
+        timer -= Time.deltaTime;
     }
 
     #endregion
@@ -55,18 +57,26 @@ public class DamagePlayer : MonoBehaviour
     #region Métodos Privados
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<Health>() != null && cooldown <= 0)
-        {
-            collision.gameObject.GetComponent<Health>().getdamage(damage);
-            cooldown = 2;
-        }
+        Hurt(collision.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Health>() != null && cooldown <= 0)
+        Hurt(collision.gameObject);
+    }
+
+    private void Hurt(GameObject collision)
+    {
+        //Hago daño si colisiono contra algo que tiene vida
+        //Si soy un enemigo y colisiono contra algo que no es un enemigo
+        //Si no soy un enemigo y colisiono contra un enemigo
+        //Si el cooldown ha pasado
+        if (collision.GetComponent<Health>() != null && timer <= 0 &&
+            ((GetComponent<CastEnemy>() == null && collision.GetComponent<CastEnemy>() != null) ||
+             (GetComponent<CastEnemy>() != null && collision.GetComponent<CastEnemy>() == null)))
         {
-            collision.gameObject.GetComponent<Health>().getdamage(damage);
+            collision.GetComponent<Health>().getdamage(Basedamage);
+            timer = cooldown;
         }
     }
 
