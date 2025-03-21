@@ -31,7 +31,6 @@ public enum Estado
 /// <summary>
 /// Recoge toda la información de los textos.
 /// La respuesta positiva, la respuesta negativa, el estado del texto y el emisor.
-/// Además dos booleanos que indican si es un texto genérico (se puede decir más de una vez) y si se ha dicho en caso de que no sea genérico para no repetirlo
 /// </summary>
 [System.Serializable]
 public struct Texto
@@ -42,19 +41,19 @@ public struct Texto
     public string badText;
     public Estado estatus;
     public Emisor emisor;
-
-    [HideInInspector]
-    public bool WasSaid;
 }
 
 /// <summary>
 /// Es un array de Textos que se utilizará para poder añadir diferentes dialogos en un mismo cliente
 /// Los arrays bidimensionales no se pueden serializar pero el array de un tipo conformado por otro array si que lo es
+/// /// Además dos booleanos que indican si es un texto genérico (se puede decir más de una vez) y si se ha dicho en caso de que no sea genérico para no repetirlo
 /// </summary>
 [System.Serializable]
 public struct dialogue
 {
-    public Texto[] Lines;
     public bool Generic;
+    public Texto[] Lines;
+    [HideInInspector]
+    public bool WasSaid;
 }
 // namespace
