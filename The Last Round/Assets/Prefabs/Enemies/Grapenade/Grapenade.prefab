@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 2081887693429624808}
   - component: {fileID: 7059407794517612056}
   - component: {fileID: 1439747126237554738}
-  - component: {fileID: -3116217465529469313}
   - component: {fileID: -4186157297869434190}
   - component: {fileID: -4248386505096863681}
   - component: {fileID: 5548616965777618740}
+  - component: {fileID: 8463700218095806002}
   m_Layer: 10
   m_Name: Grapenade
   m_TagString: Untagged
@@ -219,20 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MarcaPrefab: {fileID: 1352360049607005943, guid: 3c878446afa3f874f92c42d3551984ed, type: 3}
   marcaCooldown: 0.8
---- !u!114 &-3116217465529469313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8156365099456941090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf1aac67931118459c5f9ee9f198a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemigoLife: 100
-  "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
 --- !u!114 &-4186157297869434190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,3 +265,17 @@ MonoBehaviour:
   PielManzanaVerde: {fileID: 4423979788562637781, guid: 3b412591cec210b439ed4bed2d57831a, type: 3}
   JugoManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
   SemillaManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
+--- !u!114 &8463700218095806002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156365099456941090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 0
+  "ContadorDa\xF1o": {fileID: 0}

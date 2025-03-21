@@ -23,7 +23,7 @@ public class UIManager_Combate : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    PlayerHealth playerHealth;
+    Health playerHealth;
 
 
 
@@ -47,7 +47,7 @@ public class UIManager_Combate : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth == null) playerHealth = GameManager.Instance.GetPlayer().GetComponent<PlayerHealth>();
+        if (playerHealth == null) playerHealth = GameManager.Instance.GetPlayer().GetComponent<Health>();
         //Activa la UI de GameOver si el jugador pierde
 
         gameOverUI.SetActive(playerHealth.hasPlayerDied());

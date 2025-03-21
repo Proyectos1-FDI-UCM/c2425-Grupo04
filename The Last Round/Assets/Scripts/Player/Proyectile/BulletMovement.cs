@@ -78,9 +78,9 @@ public class BulletMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("IsColliding");
-        if (collision.gameObject.GetComponent<EnemyLife>() != null)
+        if (collision.gameObject.GetComponent<Health>() != null)
         {
-            collision.gameObject.GetComponent<EnemyLife>().getdamage(PBdamage);
+            collision.gameObject.GetComponent<Health>().getdamage(PBdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
         Destroy(gameObject);

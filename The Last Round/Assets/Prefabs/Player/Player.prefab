@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: -3617351769904225931}
   - component: {fileID: 4833271650817062454}
   - component: {fileID: 820203511282710093}
-  - component: {fileID: 5296209686737139927}
+  - component: {fileID: 2304853324603788476}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b83e8da0609aed64d9f52d076746c16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5296209686737139927
+--- !u!114 &2304853324603788476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,11 +424,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7749647460839375097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e54bdcf841c02945ad484f80e452241, type: 3}
+  m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  "ContadorDa\xF1o": {fileID: 7532583761371892575, guid: c99eb6bcd397c6c45a343254e201ac12, type: 3}
+  Life: 0
+  "ContadorDa\xF1o": {fileID: 0}
 --- !u!1 &8896659813823150935
 GameObject:
   m_ObjectHideFlags: 0

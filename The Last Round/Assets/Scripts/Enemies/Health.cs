@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 // Añadir aquí el resto de directivas using
 
@@ -15,11 +14,11 @@ using TMPro;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class EnemyLife : MonoBehaviour
+public class Health : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private float EnemigoLife = 100;
+    [SerializeField] private float Life;
     [SerializeField] GameObject ContadorDaño;
 
 
@@ -28,6 +27,7 @@ public class EnemyLife : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
+    bool PlayerhasDied = false;
     private EnemyType enemy;
     #endregion
 
@@ -36,12 +36,6 @@ public class EnemyLife : MonoBehaviour
 
     void Start()
     {
-        if (gameObject.GetComponent<BasicFruitsMovement>())
-            EnemigoLife = 150f;
-        else if (gameObject.GetComponent<ManzarieteMovement>())
-            EnemigoLife = 100f;
-        else if (gameObject.GetComponent<GrapenadeMovement>())
-            EnemigoLife = 50f;
 
        // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
@@ -54,13 +48,8 @@ public class EnemyLife : MonoBehaviour
 
     void Update()
     {
-        if (EnemigoLife <= 0)
+        if (Life <= 0)
         {
-            if (GetComponent<CastEnemy>() != null)
-            {
-                GameManager.Instance.MataEnemigo(enemy);
-            }
-            
             if (GetComponent<SourceSpawn>() != null)
             {
                 GetComponent<SourceSpawn>().Spawn();
@@ -68,7 +57,15 @@ public class EnemyLife : MonoBehaviour
 
             if (GetComponent<PlaceMark>() != null) GetComponent<PlaceMark>().GrapenadeWasDestroy();
 
-            Destroy(gameObject);
+            if (GetComponent<CastEnemy>() != null)
+            {
+                GameManager.Instance.MataEnemigo(enemy);
+                Destroy(gameObject);
+            }
+            else
+            {
+                PlayerhasDied = true;
+            }
         }
     }
     #endregion
@@ -77,7 +74,7 @@ public class EnemyLife : MonoBehaviour
     #region Métodos públicos
     public void getdamage(float damage)
     {
-        EnemigoLife -= damage;
+        Life -= damage;
         text.text = damage.ToString();
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
     }
@@ -90,7 +87,10 @@ public class EnemyLife : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
+    public bool hasPlayerDied()
+    {
+        return PlayerhasDied;
+    }
     #endregion
 
 } // class EnemyLife 

@@ -98,9 +98,9 @@ public class MeleeAttack : MonoBehaviour
     {
         //Debug.Log("IsColliding");
 
-        if (collision.gameObject.GetComponent<EnemyLife>() != null)
+        if (collision.gameObject.GetComponent<Health>() != null)
         {
-            collision.gameObject.GetComponent<EnemyLife>().getdamage(PMdamage);
+            collision.gameObject.GetComponent<Health>().getdamage(PMdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
     }

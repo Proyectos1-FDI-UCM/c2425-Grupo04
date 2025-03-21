@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: -8782203060869379033}
   - component: {fileID: 1967464169388331557}
   - component: {fileID: 6534199339364150021}
-  - component: {fileID: -536503855232666632}
   - component: {fileID: 3781029211868618390}
   - component: {fileID: 49618604380489305}
   - component: {fileID: -5734780511582492412}
   - component: {fileID: 2160052165129266735}
+  - component: {fileID: 5114985475094809603}
   m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
@@ -190,20 +190,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-536503855232666632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf1aac67931118459c5f9ee9f198a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemigoLife: 100
-  "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
 --- !u!114 &3781029211868618390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +248,17 @@ MonoBehaviour:
   PielManzanaVerde: {fileID: 4423979788562637781, guid: 3b412591cec210b439ed4bed2d57831a, type: 3}
   JugoManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
   SemillaManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
+--- !u!114 &5114985475094809603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 0
+  "ContadorDa\xF1o": {fileID: 0}
