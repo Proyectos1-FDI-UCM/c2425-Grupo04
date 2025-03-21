@@ -7,8 +7,6 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using UnityEngine.InputSystem;
-using UnityEngine.Pool;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -79,12 +77,12 @@ public class RecursoSpawner : MonoBehaviour
             if (timer <= 0)
             {
                 timer = HoldingTime;
-                if (gameObject.name == "Hielo spawner")
+                if (GetComponent<CastMaterial>().GetSourceName() == SourceName.hielo)
                 {
                     GameManager.Instance.IncreaseResource(6);
                     recursosacado += 1;
                 }
-                else if (gameObject.name == "Levadura Spawner")
+                else if (GetComponent<CastMaterial>().GetSourceName() == SourceName.levadura)
                 {
                     GameManager.Instance.IncreaseResource(7);
                     recursosacado += 1;

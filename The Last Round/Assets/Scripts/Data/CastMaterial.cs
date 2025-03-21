@@ -18,7 +18,7 @@ public class CastMaterial : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    [SerializeField] private MaterialName material;
+    [SerializeField] private SourceName material;
 
     #endregion
     
@@ -62,7 +62,7 @@ public class CastMaterial : MonoBehaviour
     #region Métodos públicos
     
     //Devuelve el nombre del recurso
-    public MaterialName GetSourceName()
+    public SourceName GetSourceName()
     {
         return material;
     }
