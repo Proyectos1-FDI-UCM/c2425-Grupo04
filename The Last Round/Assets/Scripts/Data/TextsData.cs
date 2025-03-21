@@ -43,7 +43,6 @@ public struct Texto
     public Estado estatus;
     public Emisor emisor;
 
-    public bool Generic;
     [HideInInspector]
     public bool WasSaid;
 }
@@ -56,5 +55,6 @@ public struct Texto
 public struct dialogue
 {
     public Texto[] Lines;
+    public bool Generic;
 }
 // namespace

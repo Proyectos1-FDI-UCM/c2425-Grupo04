@@ -104,14 +104,20 @@ MonoBehaviour:
       badText: 
       estatus: 0
       emisor: 0
+      Generic: 0
+      WasSaid: 0
     - goodText: 
       badText: 
       estatus: 0
       emisor: 0
+      Generic: 0
+      WasSaid: 0
     - goodText: 
       badText: 
       estatus: 0
       emisor: 0
+      Generic: 0
+      WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
