@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2457804718850968155}
   - component: {fileID: 2458284249715589062}
   - component: {fileID: 2174978058411586280}
+  - component: {fileID: 5944551185403689570}
   m_Layer: 11
   m_Name: AreaDeImpacto
   m_TagString: Untagged
@@ -149,3 +150,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5944551185403689570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132182722160169298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
