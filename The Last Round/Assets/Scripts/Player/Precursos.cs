@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -28,7 +27,6 @@ public class Precursos : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Rigidbody2D rb;
 
     #endregion
 
@@ -45,7 +43,7 @@ public class Precursos : MonoBehaviour
     /// </summary>
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
     /// <summary>
