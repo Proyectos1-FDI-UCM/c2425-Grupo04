@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  Basedamage: 20
+  cooldown: 5
 --- !u!58 &2174978058411586280
 CircleCollider2D:
   m_ObjectHideFlags: 0
