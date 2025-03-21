@@ -1,12 +1,10 @@
 //---------------------------------------------------------
-// Este archivo estará contenido en las bebidas
-// sirve para configurarlas y extraer su información
-// Víctor Martínez Moreno
+// Contiene el movimiento del enemigo "Uvoncio"
+// Letian Liye
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Dynamic;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -15,24 +13,16 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class CastDrink : MonoBehaviour
+public class BasicFruitsMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-
-    [SerializeField] private Bebida Drink;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
-
+    private MoveToPlayer moveToplayer;
+    private GameObject recurso;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -48,53 +38,34 @@ public class CastDrink : MonoBehaviour
     /// </summary>
     void Start()
     {
-
+        moveToplayer = GetComponent<MoveToPlayer>();
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
-
+        if (moveToplayer != null)
+            moveToplayer.Move(gameObject);
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    //Devuelve el nombre de la bebida
-    public DrinkName GetDrinkName()
-    {
-        return Drink.name;
-    }
-
-    //Devuelve los materiales necesarios para crear la bebida
-    public NeededMaterial[] GetDrinkMaterials()
-    {
-        return Drink.materials;
-    }
-
-    //Devuelve el tipo de la bebida
-    public DrinkType GetDrinkType()
-    {
-        return Drink.type;
-    }
-    
-    //Devuelve el precio de la bebida
-    public int GetDrinkReward()
-    {
-        return Drink.reward;
-    }
-    #endregion
-    
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
+    // Documentar cada método que aparece aquí con ///<summary>
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+    // Ejemplo: GetPlayerController
 
-    #endregion   
+    #endregion
 
-} // class CastDrink 
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+
+
+    #endregion
+
+} // class UvonciosMovement 
 // namespace

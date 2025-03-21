@@ -96,26 +96,11 @@ public class MeleeAttack : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("IsColliding");
-        UvonciosMovement uva = collision.gameObject.GetComponent<UvonciosMovement>();
-        if (uva != null)
+        //Debug.Log("IsColliding");
+
+        if (collision.gameObject.GetComponent<EnemyLife>() != null)
         {
-            uva.GetDamage(PMdamage);
-            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
-        }
-        else if (collision.gameObject.GetComponent<ManzurriaMovement>() != null)
-        {
-            collision.gameObject.GetComponent<ManzurriaMovement>().GetDamage(PMdamage);
-            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
-        }
-        else if (collision.gameObject.GetComponent<ManzarieteMovement>() != null)
-        {
-            collision.gameObject.GetComponent<ManzarieteMovement>().GetDamage(PMdamage);
-            GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
-        }
-        else if (collision.gameObject.GetComponent<GrapenadeMovement>() != null)
-        {
-            collision.gameObject.GetComponent<GrapenadeMovement>().GetDamage(PMdamage);
+            collision.gameObject.GetComponent<EnemyLife>().getdamage(PMdamage);
             GameManager.Instance.GetPlayer().GetComponent<CollisionDetecter>().Reset();
         }
     }

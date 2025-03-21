@@ -22,9 +22,6 @@ public class GrapenadeMovement : MonoBehaviour
     private float range;
     [SerializeField]
     private float marchaAtrasSpeed;
-    [SerializeField] GameObject PielDeUva;
-    [SerializeField] GameObject JugoDeUva;
-    [SerializeField] GameObject SemillaDeUva;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -85,41 +82,7 @@ public class GrapenadeMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void GetDamage(float Pdamage)
-    {
-        GetComponent<EnemyLife>().getdamage(Pdamage);
-    }
-    public void InsRec()
-    {
-        int recursornd = Random.Range(0, 4);
-        if (recursornd == 1)
-        {
-            recurso = PielDeUva;
-            Debug.Log("Grapenade: Piel de uva");
-        }
-        else if (recursornd == 2)
-        {
-            recurso = JugoDeUva;
-            Debug.Log("Grapenade: Jugo de uva");
-        }
-        else if (recursornd == 3)
-        {
-            recurso = SemillaDeUva;
-            Debug.Log("Grapenade: Semilla de uva");
 
-        }
-        else
-        {
-            recurso = null;
-            Debug.Log("Grapenade: Sin material");
-        }
-
-        if (recurso != null)
-        {
-            Instantiate(recurso, transform.position, Quaternion.identity);
-
-        }
-    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

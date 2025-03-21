@@ -19,7 +19,7 @@ public class ManzarieteMovement : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private float RangeAttack, ChargeTime, SprintSpeed, SprintTime;
-    [SerializeField] private GameObject PielDeManzana, JugoDeManzana, SemillaDeManzana, AttackCube;
+    [SerializeField] private GameObject AttackCube;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -164,38 +164,7 @@ public class ManzarieteMovement : MonoBehaviour
     {
         return IsSprinting;
     }
-    public void GetDamage(float Pdamage)
-    {
-        GetComponent<EnemyLife>().getdamage(Pdamage);
-    }
-    public void InsRec()
-    {
-        int recursornd = Random.Range(0, 4);
-        if (recursornd == 1)
-        {
-            recurso = PielDeManzana;
-            Debug.Log("Manzariete: Piel de manzana");
-        }
-        else if (recursornd == 2)
-        {
-            recurso = JugoDeManzana;
-            Debug.Log("Manzariete: Jugo de manzana");
-        }
-        else if (recursornd == 3)
-        {
-            recurso = SemillaDeManzana;
-            Debug.Log("Manzariete: Semilla de manzana");
-        }
-        else
-        {
-            recurso = null;
-            Debug.Log("Manzariete: Sin material");
-        }
-        if (recurso != null)
-        {
-            Instantiate(recurso, transform.position, Quaternion.identity);
-        }
-    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

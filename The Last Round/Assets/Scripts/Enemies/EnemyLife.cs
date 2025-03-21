@@ -28,66 +28,48 @@ public class EnemyLife : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
-    private int numeroUvoncios;
-    private int numeroManzurrias;
-    private int numeroGrapenades;
-    private int numeroManzarietes;
-
+    private EnemyType enemy;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     void Start()
     {
-        if (gameObject.GetComponent<UvonciosMovement>())
+        if (gameObject.GetComponent<BasicFruitsMovement>())
             EnemigoLife = 150f;
         else if (gameObject.GetComponent<ManzarieteMovement>())
             EnemigoLife = 100f;
-        else if (gameObject.GetComponent<ManzurriaMovement>())
-            EnemigoLife = 150f;
         else if (gameObject.GetComponent<GrapenadeMovement>())
             EnemigoLife = 50f;
 
-        Debug.Log(gameObject.name+" Enemigo tiene " + EnemigoLife);
+       // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (GetComponent<CastEnemy>() != null)
+        enemy = GetComponent<CastEnemy>().GetEnemyType();
     }
 
-  
+
     void Update()
     {
-        if(EnemigoLife <= 0)
+        if (EnemigoLife <= 0)
         {
-            if (GetComponent<UvonciosMovement>() != null)
+            if (GetComponent<CastEnemy>() != null)
             {
-                GetComponent<UvonciosMovement>().InsRec();
-                numeroUvoncios = GameManager.Instance.MataEnemigo(0);
-                Debug.Log("Uvoncio matado. Quedan " + numeroUvoncios);
+                GameManager.Instance.MataEnemigo(enemy);
             }
-            else if (GetComponent<ManzarieteMovement>() != null)
+            
+            if (GetComponent<SourceSpawn>() != null)
             {
-                GetComponent<ManzarieteMovement>().InsRec();
-                numeroManzarietes = GameManager.Instance.MataEnemigo(3);
-                Debug.Log("Manzariete matado. Quedan " + numeroManzarietes);
-            }
-            else if (GetComponent<GrapenadeMovement>() != null)
-            {
-                GetComponent<GrapenadeMovement>().InsRec();
-                numeroGrapenades = GameManager.Instance.MataEnemigo(2);
-                Debug.Log("Grapenade matado. Quedan " + numeroGrapenades);
-            }
-            else if (GetComponent<ManzurriaMovement>() != null)
-            {
-                GetComponent<ManzurriaMovement>().InsRec();
-                numeroManzurrias = GameManager.Instance.MataEnemigo(1);
-                Debug.Log("Manzurria matado. Quedan " + numeroManzurrias);
+                GetComponent<SourceSpawn>().Spawn();
             }
 
             if (GetComponent<PlaceMark>() != null) GetComponent<PlaceMark>().GrapenadeWasDestroy();
 
             Destroy(gameObject);
-        }    
+        }
     }
     #endregion
 
@@ -97,11 +79,11 @@ public class EnemyLife : MonoBehaviour
     {
         EnemigoLife -= damage;
         text.text = damage.ToString();
-        Instantiate(ContadorDaño, gameObject.transform.position , Quaternion.identity);
+        Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
     }
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -109,7 +91,7 @@ public class EnemyLife : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class EnemyLife 
 // namespace

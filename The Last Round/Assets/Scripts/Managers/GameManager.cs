@@ -171,12 +171,11 @@ public class GameManager : MonoBehaviour
     // ---CONTADOR DE ENEMIGOS---
 
     /// <summary>
-    /// Reduce el número de enemigos en el contador. 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
+    /// Reduce el número de enemigos en el contador
     /// </summary>
-    /// <returns> int </returns>
-    public int MataEnemigo(int i)
+    public void MataEnemigo(EnemyType enemy)
     {
-        return numEnemigos[i] -= 1;
+        numEnemigos[(int)enemy] -= 1;
     }
 
     public void ResetEnemyCounter()

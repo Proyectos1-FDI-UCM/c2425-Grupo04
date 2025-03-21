@@ -14,7 +14,7 @@ using UnityEngine;
 /// </summary>
 public enum Emisor
 {
-    cliente, jugador
+    Cliente, Jugador
 }
 
 /// <summary>
@@ -25,7 +25,7 @@ public enum Emisor
 /// </summary>
 public enum Estado
 {
-    monologo, dialogo, bebida
+    Monologo, Dialogo, Bebida
 }
 
 /// <summary>
@@ -36,11 +36,11 @@ public enum Estado
 public struct Texto
 {
     [TextArea(4, 6)]
-    public string goodText;
+    public string GoodText;
     [TextArea(4, 6)]
-    public string badText;
-    public Estado estatus;
-    public Emisor emisor;
+    public string BadText;
+    public Estado Estatus;
+    public Emisor Emisor;
 }
 
 /// <summary>

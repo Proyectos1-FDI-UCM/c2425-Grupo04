@@ -10,13 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 8138933576077900459}
   - component: {fileID: 1085765543050600987}
-  - component: {fileID: -8391005742121546459}
   - component: {fileID: 524050083081553167}
   - component: {fileID: -8782203060869379033}
   - component: {fileID: 1967464169388331557}
   - component: {fileID: 6534199339364150021}
   - component: {fileID: -536503855232666632}
   - component: {fileID: 3781029211868618390}
+  - component: {fileID: 49618604380489305}
+  - component: {fileID: -5734780511582492412}
+  - component: {fileID: 2160052165129266735}
   m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
@@ -91,21 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8391005742121546459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eaaf504e6e903a4ebc2b51d605f644c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PielDeManzana: {fileID: 4423979788562637781, guid: 3b412591cec210b439ed4bed2d57831a, type: 3}
-  JugoDeManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
-  SemillaDeManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +217,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &49618604380489305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536b31d0979321b41b2427bd5d15e3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5734780511582492412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+--- !u!114 &2160052165129266735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007a4e39026104a49a8e5e015e2d8ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PielUvaNegra: {fileID: 1588765575249928956, guid: 65cc181693cacb14e85b3e8e28f2f82f, type: 3}
+  PielUvaRoja: {fileID: 1588765575249928956, guid: b39780a62f53df749b0864a6cbde14ec, type: 3}
+  JugoUva: {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
+  SemillaUva: {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
+  PielManzanaRoja: {fileID: 4423979788562637781, guid: c6573b28f7d3e0446acc468cfb26e940, type: 3}
+  PielManzanaVerde: {fileID: 4423979788562637781, guid: 3b412591cec210b439ed4bed2d57831a, type: 3}
+  JugoManzana: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
+  SemillaManzana: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}

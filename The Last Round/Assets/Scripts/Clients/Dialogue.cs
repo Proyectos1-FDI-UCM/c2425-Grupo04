@@ -80,7 +80,7 @@ public class Dialogue : MonoBehaviour
             NeededMaterial[] sources = BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkMaterials();
             while (j < sources.Length && tmp2)
             {
-                if (sources[j].amount > recursos[(int)sources[j].material.GetComponent<CastMaterial>().GetSourceName()])
+                if (sources[j].Amount > recursos[(int)sources[j].Material.GetComponent<CastMaterial>().GetSourceName()])
                 {
                     tmp2 = false;
                 }
@@ -88,8 +88,8 @@ public class Dialogue : MonoBehaviour
             }
             Debug.Log(BebidasPosibles[tmp1].name);
         }
-        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
-               BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.uva && contador[0] + contador[2] <= 0 && !tmp2);
+        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
+               BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
 
 
         BebidaPedida = BebidasPosibles[tmp1];
@@ -100,7 +100,7 @@ public class Dialogue : MonoBehaviour
 
         while (i < dialogue.Length && !enc)
         {
-            if (dialogue[i].estatus == Estado.bebida)
+            if (dialogue[i].Estatus == Estado.Bebida)
             {
                 enc = true;
 
@@ -109,17 +109,17 @@ public class Dialogue : MonoBehaviour
                 //y el masculino en femenino en caso de ser una sidra
 
                 //Filtro 1 y 2
-                dialogue[i].goodText = dialogue[i].goodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
-                dialogue[i].badText = dialogue[i].badText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
 
                 //Filtro 3
                 if (BebidaPedida.GetComponent<CastDrink>().GetDrinkName() == DrinkName.Sidra)
                 {
-                    dialogue[i].goodText = dialogue[i].goodText.Replace("ese", "esa");
-                    dialogue[i].goodText = dialogue[i].goodText.Replace("este", "esta");
-                    dialogue[i].goodText = dialogue[i].goodText.Replace("aquel", "aquella");
-                    dialogue[i].goodText = dialogue[i].goodText.Replace("un", "una");
-                    dialogue[i].goodText = dialogue[i].goodText.Replace("el", "la");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("ese", "esa");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("este", "esta");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("aquel", "aquella");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("un", "una");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("el", "la");
                 }
             }
             i++;

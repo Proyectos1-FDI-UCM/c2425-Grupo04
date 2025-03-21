@@ -14,17 +14,17 @@ using UnityEngine;
 public enum SourceName
 {
     //Materiales Uva
-    pielDeUva,
-    jugoDeUva,
-    semillaDeUva,
+    PielDeUva,
+    JugoDeUva,
+    SemillaDeUva,
 
     //Materiales Manzana
-    piel_de_manzana,
-    jugoDeManzana,
-    semillaDeManzana,
+    Piel_de_manzana,
+    JugoDeManzana,
+    SemillaDeManzana,
 
     //Recursos naturales
-    hielo,
-    levadura
+    Hielo,
+    Levadura
 }
 // namespace

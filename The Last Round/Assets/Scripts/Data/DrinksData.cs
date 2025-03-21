@@ -12,13 +12,12 @@ using UnityEngine;
 //estos identificadores se usan para restringir un tipo de bebidas u otras cuando no queden enemigos
 public enum DrinkType
 {
-    manzana,
-    uva
+    Manzana,
+    Uva
 }
 
 /// <summary>
-/// Nombres de las bebidas, únicos en mayusculas debido a que son nombres propios
-/// Estos se escribirán en el juego más adelante
+/// Nombres de las bebidas.
 /// </summary>
 public enum DrinkName
 {
@@ -48,8 +47,8 @@ public enum DrinkName
 [System.Serializable]
 public struct NeededMaterial
 {
-    public GameObject material;
-    public int amount;
+    public GameObject Material;
+    public int Amount;
 }
 
 /// <summary>
@@ -59,9 +58,9 @@ public struct NeededMaterial
 [System.Serializable]
 public struct Bebida
 {
-    public DrinkName name;
-    public NeededMaterial[] materials;
-    public int reward;
-    public DrinkType type;
+    public DrinkName Name;
+    public NeededMaterial[] Materials;
+    public int Reward;
+    public DrinkType Type;
 }
 // namespace

@@ -129,7 +129,7 @@ public class UIManager : MonoBehaviour
     {
         if (dialogueSkipBText != null)
         {
-            if (dialogue != null && (dialogue[DialogueLine].goodText == dialogueBox.text || dialogue[DialogueLine].badText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
+            if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
             else dialogueSkipBText.text = "Saltar";
         }
 
@@ -178,9 +178,9 @@ public class UIManager : MonoBehaviour
             //Mira si cada uno de los materiales estan en la cesta
             for (int i = 0; i < matsEnCesta.Length; i++)
             {
-                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].material.GetComponent<SpriteRenderer>().sprite)
+                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Material.GetComponent<SpriteRenderer>().sprite)
                 {
-                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].amount)
+                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Amount)
                     {
                         mat1Yes = true;
                     }
@@ -189,9 +189,9 @@ public class UIManager : MonoBehaviour
                         mat1Yes = false;
                     }
                 }
-                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].material.GetComponent<SpriteRenderer>().sprite)
+                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Material.GetComponent<SpriteRenderer>().sprite)
                 {
-                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].amount)
+                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Amount)
                     {
                         mat2Yes = true;
                     }
@@ -200,9 +200,9 @@ public class UIManager : MonoBehaviour
                         mat2Yes = false;
                     }
                 }
-                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 3 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].material.GetComponent<SpriteRenderer>().sprite)
+                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 3 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Material.GetComponent<SpriteRenderer>().sprite)
                 {
-                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].amount)
+                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Amount)
                     {
                         mat3Yes = true;
                     }
@@ -265,7 +265,7 @@ public class UIManager : MonoBehaviour
     //Al pulsar continuar, empieza a escribir la siguiente frase
     public void SkipButton()
     {
-        if (dialogue != null && (dialogue[DialogueLine].goodText == dialogueBox.text || dialogue[DialogueLine].badText == dialogueBox.text)) //Si el texto ha acabado queremos que pase al siguiente
+        if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) //Si el texto ha acabado queremos que pase al siguiente
         {
             if (DialogueLine < dialogue.GetLength(0) - 1) //Si queda texto pasa al siguiente
             {
@@ -295,7 +295,7 @@ public class UIManager : MonoBehaviour
 
         //Si el texto del botón corresponde con la opción buena, el dialogo sigue el buen camino.
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
-        if (option1BText.text == dialogue[DialogueLine].goodText)
+        if (option1BText.text == dialogue[DialogueLine].GoodText)
         {
             IfHavefalse = false;
             way = 0;
@@ -322,7 +322,7 @@ public class UIManager : MonoBehaviour
 
         //Si el texto del botón corresponde con la opción buena, el dialogo sigue el buen camino.
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
-        if (option2BText.text == dialogue[DialogueLine].goodText)
+        if (option2BText.text == dialogue[DialogueLine].GoodText)
         {
             way = 0;
             IfHavefalse = false;
@@ -349,7 +349,7 @@ public class UIManager : MonoBehaviour
 
         #region Comportamiento del diálogo
 
-        if (dialogue[DialogueLine].estatus == Estado.dialogo) //si es dialogo
+        if (dialogue[DialogueLine].Estatus == Estado.Dialogo) //si es dialogo
         {
             //oculta el boton de saltar o continuar y activa las opciones
             dialogueSkipButton.gameObject.SetActive(false);
@@ -363,20 +363,20 @@ public class UIManager : MonoBehaviour
             int tmp = UnityEngine.Random.Range(0, 2);
             if (tmp == 0)
             {
-                option1BText.text = dialogue[DialogueLine].goodText;
-                option2BText.text = dialogue[DialogueLine].badText;
+                option1BText.text = dialogue[DialogueLine].GoodText;
+                option2BText.text = dialogue[DialogueLine].BadText;
             }
             else
             {
-                option1BText.text = dialogue[DialogueLine].badText;
-                option2BText.text = dialogue[DialogueLine].goodText;
+                option1BText.text = dialogue[DialogueLine].BadText;
+                option2BText.text = dialogue[DialogueLine].GoodText;
             }
         }
         #endregion
 
         #region Comportamiento de la bebida
 
-        else if (dialogue[DialogueLine].estatus == Estado.bebida)
+        else if (dialogue[DialogueLine].Estatus == Estado.Bebida)
         {
             string DialogueOnly = GoodBadDialogue();
             //Todo esto se cambia despues de terminar de pedir
@@ -396,24 +396,24 @@ public class UIManager : MonoBehaviour
             //Actualiza el listado de materiales
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 3)
             {
-                material3.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].amount}";
-                material3Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].material.GetComponent<SpriteRenderer>().sprite;
+                material3.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Amount}";
+                material3Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Material.GetComponent<SpriteRenderer>().sprite;
                 material3Image.color = visible;
                 mat3Yes = false;
             }
 
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2)
             {
-                material2.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].amount}";
-                material2Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].material.GetComponent<SpriteRenderer>().sprite;
+                material2.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Amount}";
+                material2Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Material.GetComponent<SpriteRenderer>().sprite;
                 material2Image.color = visible;
                 mat2Yes = false;
             }
 
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1)
             {
-                material1.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].amount}";
-                material1Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].material.GetComponent<SpriteRenderer>().sprite;
+                material1.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Amount}";
+                material1Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Material.GetComponent<SpriteRenderer>().sprite;
                 material1Image.color = visible;
                 mat1Yes = false;
             }
@@ -468,9 +468,9 @@ public class UIManager : MonoBehaviour
                 {
                     for (int j = 0; j < Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length; j++)
                     {
-                        if (matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].material.GetComponent<SpriteRenderer>().sprite)
+                        if (matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].Material.GetComponent<SpriteRenderer>().sprite)
                         {
-                            matsEnCesta[i] -= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].amount;
+                            matsEnCesta[i] -= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].Amount;
                         }
                     }
                 }
@@ -545,11 +545,11 @@ public class UIManager : MonoBehaviour
         string dialogueOnly;
         if (way == 0) //good way
         {
-            dialogueOnly = dialogue[DialogueLine].goodText;
+            dialogueOnly = dialogue[DialogueLine].GoodText;
         }
         else //bad text
         {
-            dialogueOnly = dialogue[DialogueLine].badText;
+            dialogueOnly = dialogue[DialogueLine].BadText;
         }
 
         return dialogueOnly;
