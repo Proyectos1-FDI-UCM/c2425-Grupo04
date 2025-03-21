@@ -1,5 +1,5 @@
 //---------------------------------------------------------
-// Controla la vida del enemigo
+// Se encarga de gestionar la vida de los objetos
 // Letian Liye
 // The Last Round
 // Proyectos 1 - Curso 2024-25
@@ -48,35 +48,25 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (Life <= 0)
-        {
-            if (GetComponent<SourceSpawn>() != null)
-            {
-                GetComponent<SourceSpawn>().Spawn();
-            }
-
-            if (GetComponent<PlaceMark>() != null) GetComponent<PlaceMark>().GrapenadeWasDestroy();
-
-            if (GetComponent<CastEnemy>() != null)
-            {
-                GameManager.Instance.MataEnemigo(enemy);
-                Destroy(gameObject);
-            }
-            else
-            {
-                PlayerhasDied = true;
-            }
-        }
+        
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
+    /// <summary>
+    /// Recibe el daño a recibir y se lo resta a la vida del objeto que tenga este script, 
+    /// </summary>
     public void getdamage(float damage)
     {
         Life -= damage;
         text.text = damage.ToString();
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
+
+        if (Life <= 0)
+        {
+            Kill(); //Si su vida es 0 o menor el objeto muere
+        }
     }
 
     #endregion
@@ -90,6 +80,33 @@ public class Health : MonoBehaviour
     public bool hasPlayerDied()
     {
         return PlayerhasDied;
+    }
+
+    /// <summary>
+    /// Se encarga de manejar la muerte del objeto
+    /// </summary>
+    private void Kill()
+    {
+        //Si puede spawnear algo al morir se spawnea
+        if (GetComponent<SourceSpawn>() != null)
+        {
+            GetComponent<SourceSpawn>().Spawn();
+        }
+
+        //Si es un Grapenade con el componente PlaceMark se le avisa de que el Grapenade ha sido eliminado
+        if (GetComponent<PlaceMark>() != null) GetComponent<PlaceMark>().GrapenadeWasDestroy();
+
+        //Si es un enemigo se resta del contador de enemigos y se destruye
+        if (GetComponent<CastEnemy>() != null)
+        {
+            GameManager.Instance.MataEnemigo(enemy);
+            Destroy(gameObject);
+        }
+        //Si es el jugador se activa el proceso de menú de muerte
+        else
+        {
+            PlayerhasDied = true;
+        }
     }
     #endregion
 
