@@ -24,6 +24,8 @@ public class Shoot : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [SerializeField]
     private GameObject proyectil;
+    [SerializeField]
+    private float cooldown = 3f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -34,7 +36,7 @@ public class Shoot : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    float cooldown = 3f, timer;
+    float timer;
     bool shooted = false;
     
     #endregion

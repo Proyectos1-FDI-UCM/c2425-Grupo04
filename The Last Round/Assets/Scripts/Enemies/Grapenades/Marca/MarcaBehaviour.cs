@@ -34,6 +34,7 @@ public class MarcaBehaviour : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private bool follow = true;
+    private PlaceMark emisor;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -75,10 +76,21 @@ public class MarcaBehaviour : MonoBehaviour
     }
     public void GrapenadeWasDestroy()
     {
-        if (follow) Destroy(gameObject);
+        if (follow)
+        {
+            MarcaEliminada();
+            Destroy(gameObject);
+        }
     }
     #endregion
-
+    public void MarcaEliminada()
+    {
+        emisor.EliminarMarca();
+    }
+    public void SetEmisor(PlaceMark emisor)
+    {
+        this.emisor = emisor;
+    }
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
