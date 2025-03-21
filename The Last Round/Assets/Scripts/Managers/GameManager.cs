@@ -145,14 +145,14 @@ public class GameManager : MonoBehaviour
     }
     // ---RECOGIDA DE UIMANAGERS---
 
-    public float IncreaseResource(int i)
+    public void IncreaseResource(SourceName source)
     {
-        return recursos[i] += 1;
+        recursos[(int)source] += 1;
     }
 
-    public float increaseDinero(int i)
+    public void increaseDinero(int reward)
     {
-        return Dineros += i;
+        Dineros += reward;
     }
 
     public float increaseSospechosos(int i)

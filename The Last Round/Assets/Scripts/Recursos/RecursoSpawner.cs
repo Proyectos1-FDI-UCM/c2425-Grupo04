@@ -19,7 +19,7 @@ public class RecursoSpawner : MonoBehaviour
 
     [SerializeField]
     private float detectdistancia = 1.2f, HoldingTime = 0;
-    [SerializeField] 
+    [SerializeField]
     private float limitrecursos = 5;
     #endregion
 
@@ -29,7 +29,7 @@ public class RecursoSpawner : MonoBehaviour
     private GameObject player;
     private float timer = 0;
     private float recursosacado = 0;
-
+    private SourceName source;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,6 +46,7 @@ public class RecursoSpawner : MonoBehaviour
     void Start()
     {
         timer = HoldingTime;
+        source = GetComponent<CastMaterial>().GetSourceName();
     }
 
     /// <summary>
@@ -57,7 +58,7 @@ public class RecursoSpawner : MonoBehaviour
 
         distanciaconjugador = Vector2.Distance(transform.position, player.transform.position);
 
-        
+
 
         //Comprobamos que el jugador se encuentra en la distancia de recolección
         if (distanciaconjugador <= detectdistancia)
@@ -77,16 +78,9 @@ public class RecursoSpawner : MonoBehaviour
             if (timer <= 0)
             {
                 timer = HoldingTime;
-                if (GetComponent<CastMaterial>().GetSourceName() == SourceName.hielo)
-                {
-                    GameManager.Instance.IncreaseResource(6);
-                    recursosacado += 1;
-                }
-                else if (GetComponent<CastMaterial>().GetSourceName() == SourceName.levadura)
-                {
-                    GameManager.Instance.IncreaseResource(7);
-                    recursosacado += 1;
-                }
+
+                GameManager.Instance.IncreaseResource(source);
+                recursosacado += 1;
 
                 if (recursosacado >= limitrecursos)
                     Destroy(gameObject);

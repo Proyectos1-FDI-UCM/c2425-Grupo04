@@ -25,20 +25,20 @@ public class Precursos : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-   
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Rigidbody2D rb;
-    
+
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -53,7 +53,7 @@ public class Precursos : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+
     }
     #endregion
 
@@ -69,40 +69,18 @@ public class Precursos : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+    /// <summary>
+    /// Detecta las colisiones y si es un recurso pregunta cuál es para añadirlo al inventario y destruirlo
+    /// </summary>
     void OnCollisionEnter2D(Collision2D collision)
     {
         string objectName = collision.gameObject.name;
         if (collision.gameObject.GetComponent<CastMaterial>() != null)
         {
-            SourceName source = GetComponent<CastMaterial>().GetSourceName();
-            // - MATERIALES DE MANZANAS -
-            if (source == SourceName.jugoDeUva)
-            {
-                GameManager.Instance.IncreaseResource(0);
-            }
-            else if (source == SourceName.pielDeUva)
-            {
-                GameManager.Instance.IncreaseResource(1);
-            }
-            else if (source == SourceName.semillaDeUva)
-            {
-                GameManager.Instance.IncreaseResource(2);
-            }
+            SourceName source = collision.gameObject.GetComponent<CastMaterial>().GetSourceName();
+            GameManager.Instance.IncreaseResource(source);
 
-            // - MATERIALES DE UVAS -
-            else if (source == SourceName.jugoDeManzana)
-            {
-                GameManager.Instance.IncreaseResource(3);
-            }
-            else if (source == SourceName.piel_de_manzana)
-            {
-                GameManager.Instance.IncreaseResource(4);
-            }
-            else if (source == SourceName.semillaDeManzana)
-            {
-                GameManager.Instance.IncreaseResource(5);
-            }
-            Destroy(collision.gameObject); 
+            Destroy(collision.gameObject);
         }
     }
 

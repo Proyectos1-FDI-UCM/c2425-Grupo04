@@ -477,7 +477,7 @@ public class UIManager : MonoBehaviour
             }
             //Como ha hecho el encargo pedido, el dialogo ira por good
             way = 0;
-            GameManager.Instance.increaseDinero(50);
+            GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward());
         }
         else
         {
