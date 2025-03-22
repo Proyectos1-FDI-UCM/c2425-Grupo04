@@ -391,7 +391,14 @@ public class UIManager : MonoBehaviour
             DrinkImage.color = visible;
 
             //Actualiza la recompensa
-            recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward()} monedas";
+            if (Client.gameObject.GetComponent<Dialogue>().GetAlcalde())
+            {
+                recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward()*2} monedas";
+            }
+            else
+            {
+                recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward()} monedas";
+            }
 
             //Actualiza el listado de materiales
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 3)
@@ -477,7 +484,15 @@ public class UIManager : MonoBehaviour
             }
             //Como ha hecho el encargo pedido, el dialogo ira por good
             way = 0;
-            GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward());
+            if (Client.gameObject.GetComponent<Dialogue>().GetAlcalde())
+            {
+                GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward()*2);
+            }
+            else
+            {
+                GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward());
+            }
+            
         }
         else
         {

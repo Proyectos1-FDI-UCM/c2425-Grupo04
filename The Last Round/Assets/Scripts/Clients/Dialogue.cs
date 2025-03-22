@@ -60,7 +60,9 @@ public class Dialogue : MonoBehaviour
         //Elige el diálogo que contar
         int tmp = UnityEngine.Random.Range(0, dialogues.Length);
 
-        dialogue = dialogues[tmp].Lines;
+        if (tmp > 0)
+            dialogue = dialogues[tmp].Lines;
+        else dialogue = null;
 
 
         int tmp1;
@@ -146,23 +148,6 @@ public class Dialogue : MonoBehaviour
         {
             if (uiManager != null)
             {
-                // Si el cliente es el alcalde, duplica la recompensa por dos al valor de la bebida
-                if (ElAlcalde)
-                {
-                    ///////////////////////////////////////////////////////////////////////////////////
-                    //                                                                               //
-                    //                                                                               //
-                    // ESTA PARTE HAY QUE CAMBIARLA                                                  //
-                    // NO SE PUEDE EDITAR EL PRECIO DE LA BEBIDA                                     //
-                    // EL ALCALDE TIENE QUE TENER UN IDENTIFICADOR QUE PUEDA DETECTAR EL UIMANAGER   //
-                    // Y GAME MANAGER, QUIENES SE ENCARGAN DE ESCRIBIR EL PRECIO Y DAR LA RECOMPENSA //
-                    //                                                                               //
-                    //                                                                               //
-                    ///////////////////////////////////////////////////////////////////////////////////
-
-                    int price = BebidaPedida.GetComponent<CastDrink>().GetDrinkReward();
-                    price = 2 * BebidaPedida.GetComponent<CastDrink>().GetDrinkReward();
-                }
                 uiManager.GetClientSprite(spriteRenderer);
                 uiManager.GetDrink(BebidaPedida);
                 uiManager.GetDialogue(dialogue);
@@ -180,7 +165,10 @@ public class Dialogue : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public bool GetAlcalde()
+    {
+        return ElAlcalde;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
