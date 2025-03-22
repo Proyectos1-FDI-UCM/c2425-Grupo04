@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7518684922501916710}
   - component: {fileID: 1978045876930256187}
   - component: {fileID: -2849588759333819268}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: GrapenadeProyectil
   m_TagString: Untagged
   m_Icon: {fileID: 0}

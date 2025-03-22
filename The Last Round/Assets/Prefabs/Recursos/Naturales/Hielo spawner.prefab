@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5278054885694552908}
   - component: {fileID: 5308755173187317511}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Hexagon Flat-Top (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020218389031214499}
   - component: {fileID: 7299570541155876846}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Hexagon Flat-Top (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1341569856406864686}
   - component: {fileID: 8487902584974419462}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 978938882152986648}
   - component: {fileID: 31166917548904745}
   - component: {fileID: 5738383244709065236}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Hielo spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

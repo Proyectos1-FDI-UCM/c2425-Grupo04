@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5793794841154945488}
   - component: {fileID: -1585645059310999107}
   - component: {fileID: 2131818074551578245}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: MarcaGrapenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,3 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proyectil: {fileID: 4242593371902539852, guid: d7ddd0a48d3440c41a075df35d84f824, type: 3}
+  cooldown: 3

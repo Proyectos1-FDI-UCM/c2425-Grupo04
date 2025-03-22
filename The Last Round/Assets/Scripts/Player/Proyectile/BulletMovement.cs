@@ -69,7 +69,10 @@ public class BulletMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
