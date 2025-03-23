@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Instancia única de la clase (singleton).
     /// </summary>
+    private ScenesManager ScenesManager;
     private UIManager UIManager;
     private UIManager_Combate UIManagerCombate;
     private UIManagerUpgrades UIManagerUpgrades;
@@ -128,6 +129,11 @@ public class GameManager : MonoBehaviour
     #region Métodos públicos
 
     // --- RECOGIDA DE UIMANAGERS ---
+
+    public ScenesManager GetScenesManager()
+    {
+        return ScenesManager;
+    }
     public UIManager GetUI()
     {
         return UIManager;
@@ -152,6 +158,11 @@ public class GameManager : MonoBehaviour
     public void GiveUIU(UIManagerUpgrades UIManagerUpgrades)
     {
         this.UIManagerUpgrades = UIManagerUpgrades;
+    }
+
+    public void GiveScenesManager(ScenesManager scenesManager)
+    {
+        this.ScenesManager = scenesManager;
     }
     // --- FIN RECOGIDA DE UIMANAGERS ---
 
@@ -193,6 +204,12 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < objets.Length; i++)
         {
             objets[i].Refresh();
+        }
+
+
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3]  <= 0)
+        {
+            ScenesManager.CreditScenes();
         }
     }
 

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoHito1/UvoncioManzurriaScene.unity
     guid: 0ec248e93dd32d44683d51c8132c35ef
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: a2886e0be66a29c40bf47811ba341f68
   m_configObjects: {}

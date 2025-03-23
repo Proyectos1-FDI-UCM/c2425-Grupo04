@@ -68,7 +68,7 @@ public class ScenesManager : MonoBehaviour
 
     void Start()
     {
-        
+        GameManager.Instance.GiveScenesManager(this);
         //Debug.Log(currentScene);
     }
 
@@ -100,11 +100,16 @@ public class ScenesManager : MonoBehaviour
         {
             currentScene++;
         }
-        else if (currentScene >= 3)
+        else if (currentScene == 3)
         {
             currentScene = 1;
         }
         SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+    }
+
+    public void CreditScenes()
+    {
+        SceneManager.LoadScene(7);
     }
     #endregion
 
