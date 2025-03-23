@@ -181,11 +181,19 @@ public class GameManager : MonoBehaviour
     // ---CONTADOR DE ENEMIGOS---
 
     /// <summary>
-    /// Reduce el número de enemigos en el contador
+    /// Reduce el número de enemigos en el contador y refresca las colisiones
     /// </summary>
     public void MataEnemigo(EnemyType enemy)
     {
         numEnemigos[(int)enemy] -= 1;
+
+        //Cada vez que un enemigo muere, se refrescan las colisiones
+        CollisionDetector[] objets = FindObjectsOfType<CollisionDetector>();
+
+        for (int i = 0; i < objets.Length; i++)
+        {
+            objets[i].Refresh();
+        }
     }
 
     public void ResetEnemyCounter()
