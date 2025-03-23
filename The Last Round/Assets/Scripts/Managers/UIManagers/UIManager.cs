@@ -156,22 +156,32 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        //Actualiza la cantidad de materiales
         for (int i = 0; i < recursos.Length; i++)
         {
+            //Actualiza la cantidad de materiales al inventario que tienes
             matNums[i].text = recursos[i].ToString();
-            matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
 
+            //Actualiza la cantidad de materiales que hay en la cesta
+            matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
+            
+            //En el caso de la cesta, si no hay ningún material simplemente no se verá el material
             if (matsEnCesta[i] > 0) matCestaImages[i].gameObject.SetActive(true);
             else matCestaImages[i].gameObject.SetActive(false);
         }
+
+        //Contador con todos los materiales añadidos a la cesta
         int matsTotales = 0;
         for (int i = 0; i < matsEnCesta.Length; i++)
         {
             matsTotales += matsEnCesta[i];
         }
 
+        //Si hay algún material en la cesta permite regresarlos
+        //Si no hay ningún material en la cesta, no da esa opción
         if (matsTotales > 0) regresarMats.gameObject.SetActive(true);
         else regresarMats.gameObject.SetActive(false);
+
 
         if (Drink != null && Drink.GetComponent<CastDrink>().GetDrinkMaterials() != null)
         {
@@ -449,9 +459,8 @@ public class UIManager : MonoBehaviour
             matsEnCesta[i]++;
             recursos[i]--;
         }
+
         //Debug.Log(matsEnCesta[0] + " , " + matsEnCesta[1] + " , " + matsEnCesta[2] + " , " + matsEnCesta[3] + " , " + matsEnCesta[4] + " , " + matsEnCesta[5] + " , " + matsEnCesta[6] + " , " + matsEnCesta[7]);
-
-
     }
 
 

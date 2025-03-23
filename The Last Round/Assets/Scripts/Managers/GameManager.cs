@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private UIManager UIManager;
     private UIManager_Combate UIManagerCombate;
+    private UIManagerUpgrades UIManagerUpgrades;
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[8];
@@ -126,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     #region Métodos públicos
 
-    // ---RECOGIDA DE UIMANAGERS---
+    // --- RECOGIDA DE UIMANAGERS ---
     public UIManager GetUI()
     {
         return UIManager;
@@ -135,6 +136,11 @@ public class GameManager : MonoBehaviour
     {
         return UIManagerCombate;
     }
+    public UIManagerUpgrades GetUIU()
+    {
+        return UIManagerUpgrades;
+    }
+
     public void GiveUI(UIManager UIManager)
     {
         this.UIManager = UIManager;
@@ -143,7 +149,11 @@ public class GameManager : MonoBehaviour
     {
         this.UIManagerCombate = UIManagerCombate;
     }
-    // ---RECOGIDA DE UIMANAGERS---
+    public void GiveUIU(UIManagerUpgrades UIManagerUpgrades)
+    {
+        this.UIManagerUpgrades = UIManagerUpgrades;
+    }
+    // --- FIN RECOGIDA DE UIMANAGERS ---
 
     public void IncreaseResource(SourceName source)
     {
