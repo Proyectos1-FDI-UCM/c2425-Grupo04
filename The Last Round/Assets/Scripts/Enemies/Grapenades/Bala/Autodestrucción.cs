@@ -1,6 +1,6 @@
 //---------------------------------------------------------
-// Instancia a los clientes dependiendo de su probabilidad de aparecer
-// Aryan Guerrero Iruela
+// Breve descripción del contenido del archivo
+// Responsable de la creación de este archivo
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class ClientSpawner : MonoBehaviour
+public class Autodestrucción : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,41 +22,35 @@ public class ClientSpawner : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
-    /// <summary>
-    /// 0 es alcalde, 1 y 3 manzanas, 2 y 4 uvas
-    /// </summary>
     [SerializeField]
-    private GameObject[] clients;
-
+    float TimerTicTac;
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
-    private GameObject[] ValidClients;
-    private int HowManyValid = 0; //Contar cuantos son los clientes posibles de aparecer
-    private int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
-    private bool Alcalde = false;
-    int[] contador = GameManager.Instance.GetEnemyCounter(); //Contador de enemigos
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
 
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        ValidClients = new GameObject[clients.Length];
-        Spawn();
+        
     }
 
     /// <summary>
@@ -64,7 +58,8 @@ public class ClientSpawner : MonoBehaviour
     /// </summary>
     void Update()
     {
-
+        TimerTicTac -= Time.deltaTime;
+        if (TimerTicTac <= 0) Destroy(gameObject);
     }
     #endregion
 
@@ -75,39 +70,9 @@ public class ClientSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Spawn()
-    {
 
-        //Comprueba cuantos y cuales clientes son válidos
-        for (int i = 0; i < clients.Length; i++)
-        {
-            //Si el hay más de 0 enemigos del tipo del cliente, entonces el cliente es válido
-            if (clients[i] != null && clients[i].GetComponent<CastEnemy>() != null &&
-                contador[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] > 0)
-            {
-                //Si el cliente válido es el alcalde, marco que el alcalde es un cliente válido
-                if (!Alcalde && clients[i].GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde) Alcalde = true;
-
-                ValidClients[HowManyValid] = clients[i];
-                HowManyValid++;
-            }
-        }
-
-        int tmp = 1;
-        if (Alcalde) tmp = 0;
-
-        rnd = UnityEngine.Random.Range(tmp, (HowManyValid * 2) + 1); //genera un numero al azar entre el 0 y el 8
-
-        //if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
-        //{
-        rnd = Mathf.CeilToInt(rnd / 2f); // 0/2 = 0
-        //}
-
-        //Una vez tiene el cliente, se instancia
-        Instantiate(clients[rnd], transform.position, Quaternion.identity);
-    }
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -115,7 +80,7 @@ public class ClientSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class ClientSpawner 
+} // class Autodestrucción 
 // namespace

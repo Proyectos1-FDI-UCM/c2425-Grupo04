@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8071242714375427224}
   - component: {fileID: 6938934032235092378}
   - component: {fileID: -373416675069452181}
+  - component: {fileID: 8794014346913877680}
   m_Layer: 0
   m_Name: Grapenade_Cliente
   m_TagString: Untagged
@@ -115,3 +116,16 @@ MonoBehaviour:
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
   ElAlcalde: 0
+--- !u!114 &8794014346913877680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070363422668539935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
