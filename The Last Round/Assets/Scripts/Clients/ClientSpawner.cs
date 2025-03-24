@@ -30,32 +30,31 @@ public class ClientSpawner : MonoBehaviour
     private GameObject[] clients;
 
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
-    private GameObject[] ValidClients;
-    private int HowManyValid = 0; //Contar cuantos son los clientes posibles de aparecer
-    private int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
-    private bool Alcalde = false;
-    int[] contador = GameManager.Instance.GetEnemyCounter(); //Contador de enemigos
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
 
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        ValidClients = new GameObject[clients.Length];
         Spawn();
     }
 
@@ -64,7 +63,7 @@ public class ClientSpawner : MonoBehaviour
     /// </summary>
     void Update()
     {
-
+        
     }
     #endregion
 
@@ -77,37 +76,26 @@ public class ClientSpawner : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Spawn()
     {
+        int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
 
-        //Comprueba cuantos y cuales clientes son válidos
-        for (int i = 0; i < clients.Length; i++)
+        int[] contador = GameManager.Instance.GetEnemyCounter();
+
+        do
         {
-            //Si el hay más de 0 enemigos del tipo del cliente, entonces el cliente es válido
-            if (clients[i] != null && clients[i].GetComponent<CastEnemy>() != null &&
-                contador[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] > 0)
+            rnd = UnityEngine.Random.Range(0, 9); //genera un numero al azar entre el 0 y el 8
+            if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
             {
-                //Si el cliente válido es el alcalde, marco que el alcalde es un cliente válido
-                if (!Alcalde && clients[i].GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde) Alcalde = true;
-
-                ValidClients[HowManyValid] = clients[i];
-                HowManyValid++;
+                rnd = Mathf.CeilToInt(rnd / 2f);
             }
+            Debug.Log(clients[rnd].name);
         }
-
-        int tmp = 1;
-        if (Alcalde) tmp = 0;
-
-        rnd = UnityEngine.Random.Range(tmp, (HowManyValid * 2) + 1); //genera un numero al azar entre el 0 y el 8
-
-        //if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
-        //{
-        rnd = Mathf.CeilToInt(rnd / 2f); // 0/2 = 0
-        //}
-
-        //Una vez tiene el cliente, se instancia
+        while (rnd == 1 && contador[1] <= 0 || rnd == 3 && contador[3] <= 0 ||
+               rnd == 2 && contador[2] <= 0 || rnd == 0 && contador[0] <= 0 );
+        
         Instantiate(clients[rnd], transform.position, Quaternion.identity);
     }
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -115,7 +103,7 @@ public class ClientSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
 } // class ClientSpawner 
 // namespace

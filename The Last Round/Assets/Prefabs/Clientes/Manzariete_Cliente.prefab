@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7965103945087150158}
   - component: {fileID: 8878814387447978843}
   - component: {fileID: 4327728938111598986}
-  - component: {fileID: 117324497337548113}
   m_Layer: 0
   m_Name: Manzariete_Cliente
   m_TagString: Untagged
@@ -99,7 +98,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AppearSpeed: 100
-  dialogues: []
+  dialogue0:
+  - goodText: h
+    badText: e
+    estatus: 0
+    emisor: 0
+  - goodText: bueno
+    badText: malo
+    estatus: 1
+    emisor: 0
+  - goodText: respuesta buena
+    badText: respuesta mala
+    estatus: 0
+    emisor: 1
+  - goodText: digo algo bueno
+    badText: digo algo malo
+    estatus: 0
+    emisor: 1
+  - goodText: me dice algo bueno
+    badText: me dice algo malo
+    estatus: 0
+    emisor: 0
+  - goodText: tienes (bebida)
+    badText: dame un (bebida)
+    estatus: 2
+    emisor: 0
+  dialogue1:
+  - goodText: j
+    badText: a
+    estatus: 0
+    emisor: 0
+  - goodText: bueno
+    badText: malo
+    estatus: 1
+    emisor: 0
+  - goodText: respuesta buena
+    badText: respuesta mala
+    estatus: 0
+    emisor: 1
+  - goodText: digo algo bueno
+    badText: digo algo malo
+    estatus: 0
+    emisor: 1
+  - goodText: me dice algo bueno
+    badText: me dice algo  malo
+    estatus: 0
+    emisor: 0
+  - goodText: tienes (bebida)
+    badText: dame  un (bebida)
+    estatus: 2
+    emisor: 0
+  - goodText: gracias
+    badText: que asquito
+    estatus: 0
+    emisor: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
@@ -116,16 +168,3 @@ MonoBehaviour:
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
   ElAlcalde: 0
---- !u!114 &117324497337548113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772254827288310451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 2

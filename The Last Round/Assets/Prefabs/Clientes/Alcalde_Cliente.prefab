@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7159777715069209738}
   - component: {fileID: 5262175714029716590}
   - component: {fileID: -128754099345329513}
-  - component: {fileID: 5587409268786420900}
   m_Layer: 0
   m_Name: Alcalde_Cliente
   m_TagString: Untagged
@@ -100,21 +99,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppearSpeed: 100
   dialogues:
-  - Generic: 0
-    Lines:
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-    WasSaid: 0
+  - Lines:
+    - goodText: 
+      badText: 
+      estatus: 0
+      emisor: 0
+      Generic: 0
+      WasSaid: 0
+    - goodText: 
+      badText: 
+      estatus: 0
+      emisor: 0
+      Generic: 0
+      WasSaid: 0
+    - goodText: 
+      badText: 
+      estatus: 0
+      emisor: 0
+      Generic: 0
+      WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
@@ -131,16 +134,3 @@ MonoBehaviour:
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
   ElAlcalde: 1
---- !u!114 &5587409268786420900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6055525616243255898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 4

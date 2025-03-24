@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] int Manzurria;
     [SerializeField] int Grapenade;
     [SerializeField] int Manzariete;
-    [SerializeField] int Alcalde;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,7 +46,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[8];
-    private int[] numEnemigos = new int[5];
+    private int[] numEnemigos = new int[4];
 
     //0 = Jugo de Uva       //3 = Jugo de manzana
     //1 = Piel de Uva       //4 = Piel de manzana
@@ -208,7 +207,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] + numEnemigos[4]  <= 0)
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3]  <= 0)
         {
             ScenesManager.CreditScenes();
         }
@@ -216,12 +215,10 @@ public class GameManager : MonoBehaviour
 
     public void ResetEnemyCounter()
     {
-
-        numEnemigos[(int)EnemyType.Uvoncio] = Uvoncio;
-        numEnemigos[(int)EnemyType.Manzurria] = Manzurria;
-        numEnemigos[(int)EnemyType.Grapenade] = Grapenade;
-        numEnemigos[(int)EnemyType.Manzariete] = Manzariete;
-        numEnemigos[(int)EnemyType.Alcalde] = Alcalde;
+        numEnemigos[0] = Uvoncio;
+        numEnemigos[1] = Manzurria;
+        numEnemigos[2] = Grapenade;
+        numEnemigos[3] = Manzariete;
     }
 
 
