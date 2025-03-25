@@ -20,6 +20,8 @@ public class MoveToPlayer : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
     float Speed;
+    [SerializeField]
+    private BoxCollider2D LimiteDelMapa; // Asignar esto en el Inspector
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -28,6 +30,7 @@ public class MoveToPlayer : MonoBehaviour
     private GameObject Player;
     private Rigidbody2D rb;
     private CollisionDetector cD;
+    private Bounds Limites; //Bounds es una estructura en Unity que representa un cubo o caja delimitadora, para definir áreas dentro de las cuales se pueden restringir objetos
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -40,6 +43,9 @@ public class MoveToPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cD = GetComponent<CollisionDetector>();
+
+        if (LimiteDelMapa != null)
+            Limites = LimiteDelMapa.bounds;
     }
     void Update()
     {
@@ -54,8 +60,17 @@ public class MoveToPlayer : MonoBehaviour
     {
         EnemyPlayer = UpdateVector(enemy).normalized;
 
-        //Mueve al objeto
-        rb.velocity = EnemyPlayer * Speed;
+        ////Mueve al objeto
+        //rb.velocity = EnemyPlayer * Speed;
+
+        EnemyPlayer = UpdateVector(enemy).normalized;
+        Vector2 newPosition = rb.position + ((Vector2)EnemyPlayer * Speed * Time.fixedDeltaTime);
+
+        // Mathf.Clamp(valor, mínimo, máximo), para restringir la posición dentro de los límites del mapa impidiendo que salga de bounds el enemigo
+        newPosition.x = Mathf.Clamp(newPosition.x, Limites.min.x, Limites.max.x);
+        newPosition.y = Mathf.Clamp(newPosition.y, Limites.min.y, Limites.max.y);
+
+        rb.position = newPosition;
     }
 
     public Vector3 UpdateVector(GameObject enemy)
