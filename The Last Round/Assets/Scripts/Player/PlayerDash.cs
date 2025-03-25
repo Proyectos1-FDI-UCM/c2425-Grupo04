@@ -20,7 +20,6 @@ public class PlayerDash : MonoBehaviour
     public float DashSpeed = 10f;
     public float DashDuration = 0.2f;
     public float DashCooldown = 1f;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -52,7 +51,6 @@ public class PlayerDash : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
         LastDirection = GetComponent<PlayerMovement>().GetLastDirection();
         if (InputManager.Instance.DashWasPressedThisFrame() && CanDash())
         {
@@ -92,7 +90,14 @@ public class PlayerDash : MonoBehaviour
     #region Métodos Privados
     bool CanDash()
     {
-        return cooldownTimer <= 0 && !isDashing && LastDirection != Vector3.zero;
+        if (!GameManager.Instance.GetBoolUpgrade(0)) //si no tiene la mejora no puede hacer dash
+        {
+            return false;
+        }
+        else
+        {
+            return cooldownTimer <= 0 && !isDashing && LastDirection != Vector3.zero;
+        }
     }
     void StartDash()
     {

@@ -172,7 +172,7 @@ public class UIManagerUpgrades : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void ChangeDesc(TextMeshProUGUI textBox, int level, int element)
     {
-        textBox.text = "Nivel actual:       " + level + "\nSiguiente nivel:    " + (level + 1) + "\n" + descripciones[element]; //cambiar mas tarde
+        textBox.text = "Nivel actual:       " + level + "\nSiguiente nivel:    " + (level + 1) + "\n" + descripciones[element];
     }
     #endregion
 

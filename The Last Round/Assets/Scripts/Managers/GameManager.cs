@@ -118,13 +118,7 @@ public class GameManager : MonoBehaviour
     {
         ResetEnemyCounter();
 
-        //Inicializa las mejoras a nivel 1
-        upgradeBool[0] = false;
-        upgradeBool[1] = false;
-        upgradeLevel[0] = 1;
-        upgradeLevel[1] = 1;
-        upgradeLevel[2] = 1;
-        upgradeLevel[3] = 1;
+
     }
 
     private void Update()
@@ -346,6 +340,14 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         // De momento no hay nada que inicializar
+
+        //Inicializacion de las mejoras
+        upgradeBool[0] = false;
+        upgradeBool[1] = false;
+        upgradeLevel[0] = 0;
+        upgradeLevel[1] = 0;
+        upgradeLevel[2] = 0;
+        upgradeLevel[3] = 0;
     }
 
     private void TransferSceneState()

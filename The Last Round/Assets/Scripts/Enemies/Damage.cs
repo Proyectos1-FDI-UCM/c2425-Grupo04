@@ -19,14 +19,12 @@ public class Damage : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private int Basedamage;
     [SerializeField] private float cooldown;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
     private float timer;
-
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -78,7 +76,17 @@ public class Damage : MonoBehaviour
         if (health != null && timer <= 0 &&
             ((!ImEnemy && IsEnemy) || (ImEnemy && !IsEnemy)))
         {
-            health.GetDamage(Basedamage);
+            float mejoraDmg = 0;
+            if (GetComponent<MeleeAttack>() != null) //si es el cuerpo a cuerpo
+            {
+                mejoraDmg = 0.1f * Basedamage * GameManager.Instance.GetUpgradeLevel(1); //mejora un 10% el daño por cada nivel de mejora
+            }
+            else if (GetComponent<BulletMovement>() != null) //si es la bala
+            {
+                mejoraDmg = 0.1f * Basedamage * GameManager.Instance.GetUpgradeLevel(0);
+            }
+
+            health.GetDamage(Basedamage + mejoraDmg);
             timer = cooldown;
         }
     }
