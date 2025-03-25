@@ -896,7 +896,7 @@ MonoBehaviour:
   - {fileID: 616486683}
   - {fileID: 240208000}
   - {fileID: 1197445978}
-  dineroTotal: {fileID: 863265708}
+  dineroTotalText: {fileID: 863265708}
 --- !u!4 &496633240
 Transform:
   m_ObjectHideFlags: 0

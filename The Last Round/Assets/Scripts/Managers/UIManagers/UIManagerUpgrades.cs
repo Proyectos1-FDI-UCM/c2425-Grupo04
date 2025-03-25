@@ -39,7 +39,7 @@ public class UIManagerUpgrades : MonoBehaviour
     [SerializeField]
     private Image[] coinImg = new Image[3]; //0 es arma distancia, 1 es dash, 2 es daño distancia
     [SerializeField]
-    private TextMeshProUGUI dineroTotal;
+    private TextMeshProUGUI dineroTotalText;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -50,7 +50,7 @@ public class UIManagerUpgrades : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    
+    private float dineroTotal;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -121,7 +121,8 @@ public class UIManagerUpgrades : MonoBehaviour
     /// </summary>
     void Update()
     {
-        dineroTotal.text = GameManager.Instance.GetDineros().ToString();
+        dineroTotal = GameManager.Instance.GetDineros();
+        dineroTotalText.text = dineroTotal.ToString();
     }
     #endregion
 
@@ -130,25 +131,31 @@ public class UIManagerUpgrades : MonoBehaviour
     
     public void UpgradeNormal(int element)
     {
-        GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
-        GameManager.Instance.IncreaseUpgradeLevel(element); //Sube el nivel de la mejora
-        ChangeDesc(descs[element], GameManager.Instance.GetUpgradeLevel(element), element); //Cambia su descripcion
+        if (dineroTotal >= costeNormales)
+        {
+            GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
+            GameManager.Instance.IncreaseUpgradeLevel(element); //Sube el nivel de la mejora
+            ChangeDesc(descs[element], GameManager.Instance.GetUpgradeLevel(element), element); //Cambia su descripcion
+        }
     }
 
     public void UpgradeUnico(int element) //Solo para dash y arma a distancia
     {
-        GameManager.Instance.BoolUpgrade(element-4); //Pone a true el bool la mejora, en gamemanager dash es 0 y arma a distancia es 1
-        GameManager.Instance.DecreaseDinero(costeUnicos);
-        buttons[element].interactable = false; //desactiva el boton y cambia su descripcion
-        costBox[element].text = "Ya adquirida";
-        descs[element].text = "Ya adquirida";
-        coinImg[element - 4].enabled = false;
-        if (element == 4) //si es el arma a distancia
+        if (dineroTotal >= costeUnicos)
         {
-            buttons[0].interactable = true; //activa el boton de mejora de daño a distancia y cambia su descripcion y texto de coste
-            costBox[0].text = "x" + costeNormales;
-            ChangeDesc(descs[0], GameManager.Instance.GetUpgradeLevel(0), 0);
-            coinImg[2].enabled = true;
+            GameManager.Instance.BoolUpgrade(element - 4); //Pone a true el bool la mejora, en gamemanager dash es 0 y arma a distancia es 1
+            GameManager.Instance.DecreaseDinero(costeUnicos);
+            buttons[element].interactable = false; //desactiva el boton y cambia su descripcion
+            costBox[element].text = "Ya adquirida";
+            descs[element].text = "Ya adquirida";
+            coinImg[element - 4].enabled = false;
+            if (element == 4) //si es el arma a distancia
+            {
+                buttons[0].interactable = true; //activa el boton de mejora de daño a distancia y cambia su descripcion y texto de coste
+                costBox[0].text = "x" + costeNormales;
+                ChangeDesc(descs[0], GameManager.Instance.GetUpgradeLevel(0), 0);
+                coinImg[2].enabled = true;
+            }
         }
     }
 

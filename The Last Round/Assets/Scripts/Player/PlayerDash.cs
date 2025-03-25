@@ -90,7 +90,7 @@ public class PlayerDash : MonoBehaviour
     #region Métodos Privados
     bool CanDash()
     {
-        if (!GameManager.Instance.GetBoolUpgrade(0)) //si no tiene la mejora no puede hacer dash
+        if (!GameManager.Instance.GetBoolUpgrade(1)) //si no tiene la mejora no puede hacer dash
         {
             return false;
         }

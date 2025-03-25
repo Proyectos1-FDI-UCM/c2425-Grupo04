@@ -86,8 +86,8 @@ public class AttackGeneral : MonoBehaviour
 
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame())
         {
-            if (weaponType) weaponType = false;
-            else if  (!weaponType && GameManager.Instance.GetBoolUpgrade(1)) weaponType = true;
+            if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
+            else if  (!weaponType) weaponType = true;
         }
 
         if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0)
