@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
 
     private float NivelSospechosos = 0;
     private float Dineros = 0;
+
+    private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
+    private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -114,6 +117,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ResetEnemyCounter();
+
+        //Inicializa las mejoras a nivel 1
+        upgradeBool[0] = false;
+        upgradeBool[1] = false;
+        upgradeLevel[0] = 1;
+        upgradeLevel[1] = 1;
+        upgradeLevel[2] = 1;
+        upgradeLevel[3] = 1;
     }
 
     private void Update()
@@ -176,6 +187,17 @@ public class GameManager : MonoBehaviour
         Dineros += reward;
     }
 
+    public void DecreaseDinero(int cost) //Resta una cantidad al dinero total
+    {
+        if (cost > Dineros) Dineros = 0;
+        else Dineros -= cost;
+    }
+
+    public float GetDineros()
+    {
+        return Dineros;
+    }
+
     public float increaseSospechosos(int i)
     {
         if (NivelSospechosos < 8 && NivelSospechosos >= 0)
@@ -187,6 +209,26 @@ public class GameManager : MonoBehaviour
 
         }
         return NivelSospechosos;
+    }
+
+    public int GetUpgradeLevel(int element) //Devuelve el nivel de la mejora correspondiente
+    {
+        return upgradeLevel[element];
+    }
+
+    public bool GetBoolUpgrade(int element) //Devuelve si esa mejora (dash o arma a distancia) esta adquirida
+    {
+        return upgradeBool[element];
+    }
+
+    public void IncreaseUpgradeLevel(int element) //Sube de nivel a la mejora
+    {
+        upgradeLevel[element]++;
+    }
+
+    public void BoolUpgrade(int element) //Adquiere esa mejora
+    {
+        upgradeBool[element] = true;
     }
 
     // ---CONTADOR DE ENEMIGOS---
