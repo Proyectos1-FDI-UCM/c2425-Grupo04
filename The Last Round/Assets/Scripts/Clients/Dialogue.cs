@@ -60,9 +60,7 @@ public class Dialogue : MonoBehaviour
         //Elige el diálogo que contar
         int tmp = UnityEngine.Random.Range(0, dialogues.Length);
 
-        if (tmp > 0)
-            dialogue = dialogues[tmp].Lines;
-        else dialogue = null;
+        dialogue = dialogues[tmp].Lines;
 
 
         int tmp1;
