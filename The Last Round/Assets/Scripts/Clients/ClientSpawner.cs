@@ -91,8 +91,11 @@ public class ClientSpawner : MonoBehaviour
         }
         while (rnd == 1 && contador[1] <= 0 || rnd == 3 && contador[3] <= 0 ||
                rnd == 2 && contador[2] <= 0 || rnd == 0 && contador[0] <= 0 );
+
+
         
         Instantiate(clients[rnd], transform.position, Quaternion.identity);
+        
     }
     #endregion
     
