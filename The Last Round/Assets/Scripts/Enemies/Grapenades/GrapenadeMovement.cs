@@ -31,6 +31,8 @@ public class GrapenadeMovement : MonoBehaviour
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
     private GameObject recurso;
+    private Collider2D ObjectCollider;
+    private float minX = -19f, maxX = 19f, minY = -10.625f, maxY = 10.625f;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -49,6 +51,7 @@ public class GrapenadeMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
         cD = GetComponent<CollisionDetector>();
+        ObjectCollider = GetComponent<Collider2D>();
     }
 
     /// <summary>
@@ -62,12 +65,29 @@ public class GrapenadeMovement : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             if (!GetComponent<PlaceMark>().MarcaInstanciada())
-            GetComponent<PlaceMark>().MarcarJugador();
+                GetComponent<PlaceMark>().MarcarJugador();
         }
         else if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
         {
-            if ((cD.GetCollisions(Directions.North) && -EnemyPlayer.y > 0) || (cD.GetCollisions(Directions.South) && -EnemyPlayer.y < 0)) EnemyPlayer.y = 0;
-            if ((cD.GetCollisions(Directions.East) && -EnemyPlayer.x > 0) || (cD.GetCollisions(Directions.West) && -EnemyPlayer.x < 0)) EnemyPlayer.x = 0;
+            Vector3 posMinX, posMinY, posMaxX, posMaxY;
+
+            posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+            posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+            posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+            posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+
+            if ((cD.GetCollisions(Directions.North) && -EnemyPlayer.y > 0) ||
+                (cD.GetCollisions(Directions.South) && -EnemyPlayer.y < 0) ||
+                (-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
+                (-EnemyPlayer.y > 0 && posMaxY.y >= maxY))
+                EnemyPlayer.y = 0;
+
+            if ((cD.GetCollisions(Directions.East) && -EnemyPlayer.x > 0) ||
+                (cD.GetCollisions(Directions.West) && -EnemyPlayer.x < 0) ||
+                (-EnemyPlayer.x < 0 && posMinX.x <= minX) ||
+                (-EnemyPlayer.x > 0 && posMaxX.x >= maxX))
+                EnemyPlayer.x = 0;
+
             rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
         }
         else

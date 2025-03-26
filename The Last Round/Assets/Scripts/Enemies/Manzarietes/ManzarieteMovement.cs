@@ -34,6 +34,8 @@ public class ManzarieteMovement : MonoBehaviour
     private Rigidbody2D rb;
     private CollisionDetector cD;
     private GameObject recurso;
+    private Collider2D ObjectCollider;
+    private float minX = -19f, maxX = 19f, minY = -10.625f, maxY = 10.625f;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,6 +47,7 @@ public class ManzarieteMovement : MonoBehaviour
         moveToplayer = GetComponent<MoveToPlayer>();
         tmp = SprintSpeed;
         cD = GetComponent<CollisionDetector>();
+        ObjectCollider = GetComponent<Collider2D>();
     }
     private void FixedUpdate()
     {
@@ -112,13 +115,27 @@ public class ManzarieteMovement : MonoBehaviour
 
                 // -Sensación de rebote- durante movimiento
                 //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
-                if ((cD.GetCollisions(Directions.East) && LastPlayerPosition.x > 0) || (cD.GetCollisions(Directions.West) && LastPlayerPosition.x < 0))
+
+                Vector3 posMinX, posMinY, posMaxX, posMaxY;
+
+                posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+                posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+                posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+                posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+
+                if ((cD.GetCollisions(Directions.East) && LastPlayerPosition.x > 0) ||
+                    (cD.GetCollisions(Directions.West) && LastPlayerPosition.x < 0) ||
+                    (LastPlayerPosition.x < 0 && posMinX.x <= minX) ||
+                    (LastPlayerPosition.x > 0 && posMaxX.x >= maxX))
                 {
                     LastPlayerPosition.x *= -1;
                 }
 
                 //Si colisiona en las zonas encima o debajo solo invierte el eje y
-                if ((cD.GetCollisions(Directions.North) && LastPlayerPosition.y > 0) || (cD.GetCollisions(Directions.South) && LastPlayerPosition.y < 0))
+                if ((cD.GetCollisions(Directions.North) && LastPlayerPosition.y > 0) ||
+                    (cD.GetCollisions(Directions.South) && LastPlayerPosition.y < 0) ||
+                    (LastPlayerPosition.y < 0 && posMinY.y <= minY) ||
+                    (LastPlayerPosition.y > 0 && posMaxY.y >= maxY))
                 {
                     LastPlayerPosition.y *= -1;
                 }

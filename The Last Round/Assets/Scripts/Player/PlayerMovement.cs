@@ -7,8 +7,6 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 
 
 /// <summary>
@@ -19,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    
+
 
     [SerializeField]
     float MoveSpeed;
@@ -33,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 MoveDirection;
     private bool dashing;
     private CollisionDetector cD;
+    private Collider2D ObjectCollider;
+    private float minX = -19f, maxX = 19f, minY = -10.625f, maxY = 10.625f;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         GameManager.Instance.GivePlayer(gameObject);
         rb = GetComponent<Rigidbody2D>();
         cD = GetComponent<CollisionDetector>();
+        ObjectCollider = GetComponent<Collider2D>();
     }
 
     /// <summary>
@@ -58,20 +59,36 @@ public class PlayerMovement : MonoBehaviour
 
         MoveDirection = InputManager.Instance.MovementVector;
 
-        if ((cD.GetCollisions(Directions.North) && MoveDirection.y > 0) || cD.GetCollisions(Directions.South) && MoveDirection.y < 0) MoveDirection.y = 0;
-        if ((cD.GetCollisions(Directions.East) && MoveDirection.x > 0) || cD.GetCollisions(Directions.West) && MoveDirection.x < 0) MoveDirection.x = 0;
+        Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-        
+        posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+        posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+
+
+        if ((cD.GetCollisions(Directions.North) && MoveDirection.y > 0) ||
+            cD.GetCollisions(Directions.South) && MoveDirection.y < 0 ||
+            (MoveDirection.y < 0 && posMinY.y <= minY) ||
+            (MoveDirection.y > 0 && posMaxY.y >= maxY))
+            MoveDirection.y = 0;
+
+        if ((cD.GetCollisions(Directions.East) && MoveDirection.x > 0) ||
+            cD.GetCollisions(Directions.West) && MoveDirection.x < 0 ||
+            (MoveDirection.x < 0 && posMinX.x <= minX) ||
+            (MoveDirection.x > 0 && posMaxX.x >= maxX)) MoveDirection.x = 0;
+
+
 
         if (MoveDirection != Vector3.zero)
         {
-            LastDirection = MoveDirection; 
+            LastDirection = MoveDirection;
         }
-        
+
         if (!dashing)
-        rb.velocity = MoveDirection * MoveSpeed;
+            rb.velocity = MoveDirection * MoveSpeed;
     }
-   
+
 
     #endregion
 
@@ -81,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return LastDirection;
     }
-    
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

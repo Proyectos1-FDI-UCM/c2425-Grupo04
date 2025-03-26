@@ -20,8 +20,6 @@ public class MoveToPlayer : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
     float Speed;
-    [SerializeField]
-    private BoxCollider2D LimiteDelMapa; // Asignar esto en el Inspector
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -30,7 +28,8 @@ public class MoveToPlayer : MonoBehaviour
     private GameObject Player;
     private Rigidbody2D rb;
     private CollisionDetector cD;
-    private Bounds Limites; //Bounds es una estructura en Unity que representa un cubo o caja delimitadora, para definir áreas dentro de las cuales se pueden restringir objetos
+    private Collider2D ObjectCollider;
+    private float minX = -19f, maxX = 19f, minY = -10.625f, maxY = 10.625f;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -43,9 +42,7 @@ public class MoveToPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cD = GetComponent<CollisionDetector>();
-
-        if (LimiteDelMapa != null)
-            Limites = LimiteDelMapa.bounds;
+        ObjectCollider = GetComponent<Collider2D>();
     }
     void Update()
     {
@@ -61,20 +58,17 @@ public class MoveToPlayer : MonoBehaviour
         EnemyPlayer = UpdateVector(enemy).normalized;
 
         ////Mueve al objeto
-        //rb.velocity = EnemyPlayer * Speed;
-
-        EnemyPlayer = UpdateVector(enemy).normalized;
-        Vector2 newPosition = rb.position + ((Vector2)EnemyPlayer * Speed * Time.fixedDeltaTime);
-
-        // Mathf.Clamp(valor, mínimo, máximo), para restringir la posición dentro de los límites del mapa impidiendo que salga de bounds el enemigo
-        newPosition.x = Mathf.Clamp(newPosition.x, Limites.min.x, Limites.max.x);
-        newPosition.y = Mathf.Clamp(newPosition.y, Limites.min.y, Limites.max.y);
-
-        rb.position = newPosition;
+        rb.velocity = EnemyPlayer * Speed;
     }
 
     public Vector3 UpdateVector(GameObject enemy)
     {
+        Vector3 posMinX, posMinY, posMaxX, posMaxY;
+
+        posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+        posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
         if (Player != null && enemy != null)
             //Localiza el vector que une el jugador con el objeto
@@ -84,11 +78,15 @@ public class MoveToPlayer : MonoBehaviour
 
         if ((cD.GetCollisions(Directions.North) && EnemyPlayer.y > 0) ||
             (cD.GetCollisions(Directions.South) && EnemyPlayer.y < 0) ||
-            (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1)) EnemyPlayer.y = 0;
+            (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1) ||
+            (EnemyPlayer.y < 0 && posMinY.y <= minY) ||
+            (EnemyPlayer.y > 0 && posMaxY.y >= maxY)) EnemyPlayer.y = 0;
 
         if ((cD.GetCollisions(Directions.East) && EnemyPlayer.x > 0) ||
             (cD.GetCollisions(Directions.West) && EnemyPlayer.x < 0) ||
-            (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1)) EnemyPlayer.x = 0;
+            (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1) ||
+            (EnemyPlayer.x < 0 && posMinX.x <= minX) ||
+            (EnemyPlayer.x > 0 && posMaxX.x >= maxX)) EnemyPlayer.x = 0;
 
         return EnemyPlayer;
     }
