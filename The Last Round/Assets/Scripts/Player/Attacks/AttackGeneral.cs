@@ -25,7 +25,7 @@ public class AttackGeneral : MonoBehaviour
     [SerializeField]
     private Transform customCursor;
 
-    
+
 
     [SerializeField]
     private Transform pivot; //centro de rotación
@@ -86,10 +86,9 @@ public class AttackGeneral : MonoBehaviour
 
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame())
         {
-            if (weaponType) weaponType = false;
+            if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
             else if  (!weaponType) weaponType = true;
         }
-
 
         if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0)
         {

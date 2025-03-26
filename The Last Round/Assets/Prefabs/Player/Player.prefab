@@ -161,6 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Basedamage: 50
   cooldown: 0.2
+  isMelee: 1
+  isBullet: 0
 --- !u!1 &6734408476227581735
 GameObject:
   m_ObjectHideFlags: 0

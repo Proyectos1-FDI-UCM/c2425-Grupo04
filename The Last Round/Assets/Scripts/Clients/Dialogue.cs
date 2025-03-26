@@ -58,9 +58,38 @@ public class Dialogue : MonoBehaviour
         spriteRenderer.color = color;
 
         //Elige el diálogo que contar
-        int tmp = UnityEngine.Random.Range(0, dialogues.Length);
+        int tmp;// = UnityEngine.Random.Range(0, dialogues.Length);
+        bool properDialogue = false;
 
-        dialogue = dialogues[tmp].Lines;
+        do {
+            tmp = UnityEngine.Random.Range(0,dialogues.Length);
+
+            if (dialogues[tmp].Generic) 
+            {
+                dialogue = dialogues[tmp].Lines;
+                Debug.Log("Repetible");
+                properDialogue = true;
+            }
+
+            else
+            {
+                //Debug.Log(dialogues[tmp].WasSaid);
+
+                if (dialogues[tmp].WasSaid == false)
+                {
+                    dialogue = dialogues[tmp].Lines;
+                    dialogues[tmp].WasSaid = true;
+                    properDialogue = true;
+                    Debug.Log("No repetible no dicho");
+                }
+                else Debug.Log("NO REPETIBLE NO DICHO");
+            }
+
+
+        } while (!properDialogue);
+
+        //dialogue = dialogues[tmp].Lines;
+
 
 
         int tmp1;

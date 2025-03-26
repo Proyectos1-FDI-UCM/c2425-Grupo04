@@ -40,10 +40,13 @@ public class Health : MonoBehaviour
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
 
-        if (GetComponent<CastEnemy>() != null)
-        enemy = GetComponent<CastEnemy>().GetEnemyType();
+        if (GetComponent<CastEnemy>() != null) enemy = GetComponent<CastEnemy>().GetEnemyType();
+        else if (GetComponent<CastEnemy>() == null)
+        {
+            Life = Life + 0.1f * Life * GameManager.Instance.GetUpgradeLevel(2); //Sube la vida un 10% por cada nivel de la mejora
+        }
     }
-
+    
 
     void Update()
     {

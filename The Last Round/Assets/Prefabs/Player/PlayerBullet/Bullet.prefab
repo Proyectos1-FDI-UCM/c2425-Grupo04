@@ -161,6 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Basedamage: 25
   cooldown: 1
+  isBullet: 1
+  isMelee: 0
 --- !u!50 &-7643204301025848592
 Rigidbody2D:
   serializedVersion: 4
