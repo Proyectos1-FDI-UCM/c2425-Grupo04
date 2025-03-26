@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 464266043}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: TypeSpeed
-      value: 0.1
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: material1
@@ -2293,7 +2293,7 @@ PrefabInstance:
       propertyPath: m_text
       value: '
 
-        
+
 
 '
       objectReference: {fileID: 0}
@@ -2307,7 +2307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_margin.x
-      value: 157.44882
+      value: 180.32825
       objectReference: {fileID: 0}
     - target: {fileID: 6501990251619141734, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_margin.y

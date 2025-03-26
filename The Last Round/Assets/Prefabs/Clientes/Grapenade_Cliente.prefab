@@ -429,6 +429,588 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 1
     WasSaid: 0
+  - Generic: 0
+    Lines:
+    - GoodText: "\xBFEres una fresa? Es la primera vez que veo a alguien como t\xFA
+        por aqu\xED.\r\n"
+      BadText: "\xBFEres una fresa? Es la primera vez que veo a alguien como t\xFA
+        por aqu\xED.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'Bueno, tampoco llevo mucho tiempo en el bar.
+
+'
+      BadText: 'Bueno, tampoco llevo mucho tiempo en el bar.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno, por lo menos eres mejor que esos malditos gatos\u2026\r\n"
+      BadText: "Bueno, por lo menos eres mejor que esos malditos gatos\u2026\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Seguirle la corriente
+      BadText: Preguntarle sobre los gatos
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ya, es incre\xEDble que el alcalde todav\xEDa no haya hecho nada
+        sobre ellos.\r\n"
+      BadText: "\xBFQu\xE9 quieres decir? \xBFQu\xE9 gatos?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFA que s\xED? Deber\xEDamos quejarnos. No pueden seguir siendo
+        nuestros vecinos esos sucios bichos pulgosos. Si fuera por m\xED, ya hace
+        tiempo que los habr\xEDa echado.\r"
+      BadText: "\xBF\xBFC\xF3mo que qu\xE9 gatos?? \xBFEs que t\xFA est\xE1s de su
+        lado? Seguro que eres un esp\xEDa suyo o algo\u2026\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Por supuesto. Yo tambi\xE9n pienso lo mismo. Aunque ahora que lo
+        dices, hace tiempo que no veo ninguno por la zona\u2026\r\n"
+      BadText: "Bueno, rel\xE1jate, es que vengo de lejos. Adem\xE1s, \xBFpor qu\xE9
+        tanto odio? No he visto a ninguno pasar cerca de Fermentia.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Claro, para eso me pagan. Dame las gracias de que no veas a ning\xFAn
+        gato por aqu\xED cerca. Y mientras siga vivo, eso seguir\xE1 siendo as\xED.\r\n"
+      BadText: "\xA1Porque no les dejamos! Que si no, esas alima\xF1as vienen y se
+        llevan todo lo que tenemos. No ser\xEDa la primera vez que pasa\u2026\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Bueno, \xBFquieres pedir algo? Seguro que te relajas con una bebida.\r\n"
+      BadText: "Bueno, \xBFquieres pedir algo? Seguro que te relajas con una bebida.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tienes raz\xF3n. Voy a relajarme que para eso los tenemos controlados.
+        Por cierto, he visto que tienes bebidas de lo m\xE1s peculiares. Nunca hab\xEDa
+        visto nada parecido.\r\n"
+      BadText: "Tienes raz\xF3n. Voy a relajarme que para eso los tenemos controlados.
+        Por cierto, he visto que tienes bebidas de lo m\xE1s peculiares. Nunca hab\xEDa
+        visto nada parecido.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Es que los materiales vienen de la capital. Son de exportaci\xF3n.\r\n"
+      BadText: "Es que los materiales vienen de la capital. Son de exportaci\xF3n.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno, ponme una (bebida), que me pica la curiosidad a ver c\xF3mo
+        sabe.\r\n"
+      BadText: "Bueno, ponme una (bebida), que me pica la curiosidad a ver c\xF3mo
+        sabe.\r\n"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Tiene un sabor\u2026 No s\xE9 c\xF3mo decirlo\u2026 Familiar. No
+        s\xE9 c\xF3mo describirlo. \xBFSeguro que vienen de la capital? Me suena
+        de algo\r\n"
+      BadText: "\xBF\xA1No tienes los materiales!? \xBF\xBFPero qu\xE9 clase de bar
+        es este??\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: " \xA1Te lo aseguro! Los ingredientes llegan frescos al bar sin ning\xFAn
+        tipo de manipulaci\xF3n. No te preocupes.\r\n"
+      BadText: 'Lo siento mucho, justo nos hemos quedado cortos, y no puedo hacerte
+        esa bebida.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno si t\xFA lo dices\u2026\r\n"
+      BadText: "Que sepas que no pienso volver. Haces buena compa\xF1\xEDa, pero
+        no puedes vivir s\xF3lo de hablar con gente\u2026 \r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ya me pasar\xE9 otro d\xEDa a probar otra cosa. Buen d\xEDa.\r\n"
+      BadText: "Que sepas que no pienso volver. No te mereces ni propina\u2026\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Igualmente, compa\xF1ero.\r\n"
+      BadText: "Me disculpo. Espero que puedas reconsiderarlo y darnos otra oportunidad
+        otro d\xEDa. Hasta luego.\r\n"
+      Estatus: 0
+      Emisor: 1
+    WasSaid: 0
+  - Generic: 0
+    Lines:
+    - GoodText: ...
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Bienvenido. \xBFQu\xE9 te pongo?\r\n"
+      BadText: "Bienvenido. \xBFQu\xE9 te pongo?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: ...
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: " \xBFO quieres hablar de algo? Me suelen decir que soy bueno escuchando\r\n"
+      BadText: " \xBFO quieres hablar de algo? Me suelen decir que soy bueno escuchando\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: ...
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Supongo que te lo dir\xE9, no puedo estar todo el d\xEDa aqu\xED
+        sentado sin decir nada.\r\n"
+      BadText: "Supongo que te lo dir\xE9, no puedo estar todo el d\xEDa aqu\xED
+        sentado sin decir nada.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Me imagino que ya te habr\xE1s dado cuenta, pero hay un asesino
+        en serie en el pueblo. Se pasa las noches matando a habitantes, y se est\xE1
+        volviendo un poco dif\xEDcil de soportar.\r\n"
+      BadText: "Me imagino que ya te habr\xE1s dado cuenta, pero hay un asesino en
+        serie en el pueblo. Se pasa las noches matando a habitantes, y se est\xE1
+        volviendo un poco dif\xEDcil de soportar.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Pero no s\xF3lo est\xE1 \xE9l. Hay otro bando que est\xE1 planeando
+        ir a Felidoria a devolverles el favor porque el asesino es un gato.\r\n"
+      BadText: "Pero no s\xF3lo est\xE1 \xE9l. Hay otro bando que est\xE1 planeando
+        ir a Felidoria a devolverles el favor porque el asesino es un gato.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Est\xE1n tan cegados por el odio que lo \xFAnico que se les ocurre
+        es utilizar m\xE1s recursos en planear una venganza que en detener al gato
+        que tenemos nosotros. No puedo m\xE1s.\r"
+      BadText: "Est\xE1n tan cegados por el odio que lo \xFAnico que se les ocurre
+        es utilizar m\xE1s recursos en planear una venganza que en detener al gato
+        que tenemos nosotros. No puedo m\xE1s.\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Tienes raz\xF3n. Voy a relajarme que para eso los tenemos controlados.
+        Por cierto, he visto que tienes bebidas de lo m\xE1s peculiares. Nunca hab\xEDa
+        visto nada parecido.\r\n"
+      BadText: "Tienes raz\xF3n. Voy a relajarme que para eso los tenemos controlados.
+        Por cierto, he visto que tienes bebidas de lo m\xE1s peculiares. Nunca hab\xEDa
+        visto nada parecido.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Consolarlo
+      BadText: Defender al resto
+      Estatus: 0
+      Emisor: 0
+    - GoodText: " Mira que es raro o\xEDr esas palabras por parte de un Grapenade.
+        Tiene que ser muy dif\xEDcil tener un punto de vista tan distinto del de
+        tus compa\xF1eros.\r"
+      BadText: "A lo mejor, si todos est\xE1n diciendo lo mismo ser\xE1 por algo...
+        Tienes que cambiar un poco. Hacerte fuerte y enfrentarlo de forma inteligente.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Ni te lo imaginas. Hay veces que pienso que habr\xEDa sido mejor
+        si me hubiera vuelto un granjero. Sin pensamientos ni decisiones complicadas,
+        y sin luchar.\r"
+      BadText: "\xBFMe est\xE1s diciendo que deber\xEDamos atacar Felidoria en vez
+        de defendernos?\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Yo te veo con el valor para luchar por Fermentia. Te est\xE1s quejando
+        de tus compa\xF1eros, pero nunca de las batallas de todas las noches contra
+        el gato.\r"
+      BadText: "No necesariamente. Haz lo que t\xFA quieras, pero deber\xEDas pensar
+        m\xE1s en el bienestar de tus vecinos, y teniendo la oportunidad de evitar
+        que vengan m\xE1s gatos a atacar...\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Ya, tienes raz\xF3n... En fin, voy a pedir, que te estoy contando
+        toda mi vida. Ponme un (bebida), por favor.\r\n"
+      BadText: "Ya, tienes raz\xF3n... En fin, voy a pedir, que te estoy contando
+        toda mi vida. Ponme un (bebida), por favor.\r\n"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Marchando\r"
+      BadText: "Lo siento... No puedo servirte lo que me has pedido.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Muchas gracias. Est\xE1 muy rico."
+      BadText: "\xBFNo te queda?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Es de esperar, es producto local.\r"
+      BadText: 'No, lo siento mucho. La siguiente vez que vengas invita la casa.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFC\xF3mo que producto local? No me suena que se cultive algo
+        parecido a esto por esta zona.\r\n"
+      BadText: "No, no hace falta. Es culpa m\xEDa por pedir eso cuando no pod\xEDas
+        prepararlo...\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "No te preocupes por eso...\r"
+      BadText: "De verdad que lo siento mucho.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: 'Bueno, me despido, que se me acaba el descanso.
+
+'
+      BadText: 'Bueno, me despido, que se me acaba el descanso.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Adi\xF3s, espero que vuelvas a pasarte por aqu\xED.\r\n"
+      BadText: "Adi\xF3s, espero que vuelvas a pasarte por aqu\xED.\r\n"
+      Estatus: 0
+      Emisor: 1
+    WasSaid: 0
+  - Generic: 0
+    Lines:
+    - GoodText: ...
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Bienvenido. \xBFQu\xE9 te pongo?\r\n"
+      BadText: "Bienvenido. \xBFQu\xE9 te pongo?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: ...
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: " \xBFO quieres hablar de algo? Me suelen decir que soy bueno escuchando\r\n"
+      BadText: " \xBFO quieres hablar de algo? Me suelen decir que soy bueno escuchando\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: ...
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Supongo que te lo dir\xE9, no puedo estar todo el d\xEDa aqu\xED
+        sentado sin decir nada.\r\n"
+      BadText: "Supongo que te lo dir\xE9, no puedo estar todo el d\xEDa aqu\xED
+        sentado sin decir nada.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Me imagino que ya te habr\xE1s dado cuenta, pero hay un asesino
+        en serie en el pueblo. Se pasa las noches matando a habitantes, y se est\xE1
+        volviendo un poco dif\xEDcil de soportar.\r\n"
+      BadText: "Me imagino que ya te habr\xE1s dado cuenta, pero hay un asesino en
+        serie en el pueblo. Se pasa las noches matando a habitantes, y se est\xE1
+        volviendo un poco dif\xEDcil de soportar.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Pero no s\xF3lo est\xE1 \xE9l. Hay otro bando que est\xE1 planeando
+        ir a Felidoria a devolverles el favor porque el asesino es un gato.\r\n"
+      BadText: "Pero no s\xF3lo est\xE1 \xE9l. Hay otro bando que est\xE1 planeando
+        ir a Felidoria a devolverles el favor porque el asesino es un gato.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Est\xE1n tan cegados por el odio que lo \xFAnico que se les ocurre
+        es utilizar m\xE1s recursos en planear una venganza que en detener al gato
+        que tenemos nosotros. No puedo m\xE1s.\r"
+      BadText: "Est\xE1n tan cegados por el odio que lo \xFAnico que se les ocurre
+        es utilizar m\xE1s recursos en planear una venganza que en detener al gato
+        que tenemos nosotros. No puedo m\xE1s.\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Tienes raz\xF3n. Voy a relajarme que para eso los tenemos controlados.
+        Por cierto, he visto que tienes bebidas de lo m\xE1s peculiares. Nunca hab\xEDa
+        visto nada parecido.\r\n"
+      BadText: "Tienes raz\xF3n. Voy a relajarme que para eso los tenemos controlados.
+        Por cierto, he visto que tienes bebidas de lo m\xE1s peculiares. Nunca hab\xEDa
+        visto nada parecido.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Consolarlo
+      BadText: Defender al resto
+      Estatus: 0
+      Emisor: 0
+    - GoodText: " Mira que es raro o\xEDr esas palabras por parte de un Grapenade.
+        Tiene que ser muy dif\xEDcil tener un punto de vista tan distinto del de
+        tus compa\xF1eros.\r"
+      BadText: "A lo mejor, si todos est\xE1n diciendo lo mismo ser\xE1 por algo...
+        Tienes que cambiar un poco. Hacerte fuerte y enfrentarlo de forma inteligente.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Ni te lo imaginas. Hay veces que pienso que habr\xEDa sido mejor
+        si me hubiera vuelto un granjero. Sin pensamientos ni decisiones complicadas,
+        y sin luchar.\r"
+      BadText: "\xBFMe est\xE1s diciendo que deber\xEDamos atacar Felidoria en vez
+        de defendernos?\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Yo te veo con el valor para luchar por Fermentia. Te est\xE1s quejando
+        de tus compa\xF1eros, pero nunca de las batallas de todas las noches contra
+        el gato.\r"
+      BadText: "No necesariamente. Haz lo que t\xFA quieras, pero deber\xEDas pensar
+        m\xE1s en el bienestar de tus vecinos, y teniendo la oportunidad de evitar
+        que vengan m\xE1s gatos a atacar...\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Ya, tienes raz\xF3n... En fin, voy a pedir, que te estoy contando
+        toda mi vida. Ponme un (bebida), por favor.\r\n"
+      BadText: "Ya, tienes raz\xF3n... En fin, voy a pedir, que te estoy contando
+        toda mi vida. Ponme un (bebida), por favor.\r\n"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Marchando\r"
+      BadText: "Lo siento... No puedo servirte lo que me has pedido.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Muchas gracias. Est\xE1 muy rico."
+      BadText: "\xBFNo te queda?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Es de esperar, es producto local.\r"
+      BadText: 'No, lo siento mucho. La siguiente vez que vengas invita la casa.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFC\xF3mo que producto local? No me suena que se cultive algo
+        parecido a esto por esta zona.\r\n"
+      BadText: "No, no hace falta. Es culpa m\xEDa por pedir eso cuando no pod\xEDas
+        prepararlo...\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "No te preocupes por eso...\r"
+      BadText: "De verdad que lo siento mucho.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: 'Bueno, me despido, que se me acaba el descanso.
+
+'
+      BadText: 'Bueno, me despido, que se me acaba el descanso.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Adi\xF3s, espero que vuelvas a pasarte por aqu\xED.\r\n"
+      BadText: "Adi\xF3s, espero que vuelvas a pasarte por aqu\xED.\r\n"
+      Estatus: 0
+      Emisor: 1
+    WasSaid: 0
+  - Generic: 0
+    Lines:
+    - GoodText: "\xBFCu\xE1ntas bebidas tengo que pedirte para estar aqu\xED el m\xE1ximo
+        tiempo posible? Necesito reflexionar.\r\n"
+      BadText: "\xBFCu\xE1ntas bebidas tengo que pedirte para estar aqu\xED el m\xE1ximo
+        tiempo posible? Necesito reflexionar.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Las que t\xFA quieras. Si quieres comentar algo, yo soy todo o\xEDdos.\r\n"
+      BadText: "Las que t\xFA quieras. Si quieres comentar algo, yo soy todo o\xEDdos.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Muchas gracias por tu hospitalidad. Estoy llevando una investigaci\xF3n
+        sobre las muertes. Resulta que la mayor\xEDa de v\xEDctimas comparten una
+        cosa en com\xFAn.\r\n"
+      BadText: "Muchas gracias por tu hospitalidad. Estoy llevando una investigaci\xF3n
+        sobre las muertes. Resulta que la mayor\xEDa de v\xEDctimas comparten una
+        cosa en com\xFAn.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFOh? \xBFQu\xE9 podr\xEDa ser eso?\r\n"
+      BadText: "\xBFOh? \xBFQu\xE9 podr\xEDa ser eso?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "A casi todos les falta algo. Ya sea la piel, el jugo, las semillas\u2026
+        Parece que ese gato no mata indiscriminadamente.\r\n"
+      BadText: "A casi todos les falta algo. Ya sea la piel, el jugo, las semillas\u2026
+        Parece que ese gato no mata indiscriminadamente.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "No darle informaci\xF3n"
+      BadText: "Darle informaci\xF3n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFY qu\xE9 conclusiones sacas de eso?\r\n"
+      BadText: 'Es verdad. Y de hecho, parece ser una parte proporcional de todos
+        los materiales la que falta. No hay ninguno que sobresalga del resto.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno, todav\xEDa no tengo ninguna pista conclusiva. Necesito investigar
+        m\xE1s.\r\n"
+      BadText: "\xBFY t\xFA c\xF3mo sabes eso? \xBFEst\xE1s relacionado con las muertes?
+        \xBFQu\xE9 escondes?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'A lo mejor tienes que cambiar de perspectiva.
+
+'
+      BadText: "\xBFYo? No, yo no tengo nada que esconder. Simplemente es lo que
+        he deducido con lo que me has dicho y lo que he estado viendo estos d\xEDas,
+        nada m\xE1s.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFQu\xE9 quieres decir? Creo que lo que tengo es bastante importante.\r"
+      BadText: "No me f\xEDo de ti. Casi mejor pienso en solitario. Ponte a limpiar
+        un vaso o algo.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "No lo niego, pero. \xBFte has planteado c\xF3mo puede aparecer e
+        irse sin levantar sospechas?\r\n"
+      BadText: ...
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Claro, no lo hab\xEDa pensado. Es posible que haya alguien escondi\xE9ndolo\u2026
+        Pero, \xBFc\xF3mo empiezo a investigar eso?\r\n"
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "A lo mejor un trago te ayudar\xEDa a organizar tus ideas\r\n"
+      BadText: "Bueno, si no vas a pedir nada\u2026\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tienes raz\xF3n, me hace falta un poco de alcohol para que fluyan
+        las ideas.\r\n"
+      BadText: "No te preocupes, no te voy a poner a hablar sin pagar.\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ponme una bebida. La que quieras, me da igual.\r"
+      BadText: "Ponme una bebida. La que quieras, me da igual.\r"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Esta bebida es bastante peculiar. \xBFEs artesanal?\r\n"
+      BadText: "\xBFNo puedes servirme?\r\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ese es mi objetivo a futuro. Por ahora tendr\xE1s que conformarte
+        con materiales de la capital.\r\n"
+      BadText: "No, lo siento, me qued\xE9 sin materiales por hoy. Ha sido un d\xEDa
+        duro.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno, est\xE1 rico igualmente. Muchas gracias. Me despido.\r\n"
+      BadText: 'Bueno, tu presencia me ha ayudado a salir de este atasco. Muchas
+        gracias.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'Claro. No dudes en volver cuando necesites alguien con quien hablar.
+
+'
+      BadText: 'De nada. Siempre estoy disponible para hablar si lo necesitas.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo dudes. Hasta luego, misterioso bartender.\r"
+      BadText: "Claro. No dudes que volver\xE9, a ver si a la siguiente me puedes
+        dar algo de beber. Adi\xF3s.\r"
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 0
+    Lines:
+    - GoodText: "\xBFCu\xE1ntas bebidas tengo que pedirte para estar aqu\xED el m\xE1ximo
+        tiempo posible? Necesito reflexionar.\r\n"
+      BadText: "\xBFCu\xE1ntas bebidas tengo que pedirte para estar aqu\xED el m\xE1ximo
+        tiempo posible? Necesito reflexionar.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Las que t\xFA quieras. Si quieres comentar algo, yo soy todo o\xEDdos.\r\n"
+      BadText: "Las que t\xFA quieras. Si quieres comentar algo, yo soy todo o\xEDdos.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Muchas gracias por tu hospitalidad. Estoy llevando una investigaci\xF3n
+        sobre las muertes. Resulta que la mayor\xEDa de v\xEDctimas comparten una
+        cosa en com\xFAn.\r\n"
+      BadText: "Muchas gracias por tu hospitalidad. Estoy llevando una investigaci\xF3n
+        sobre las muertes. Resulta que la mayor\xEDa de v\xEDctimas comparten una
+        cosa en com\xFAn.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFOh? \xBFQu\xE9 podr\xEDa ser eso?\r\n"
+      BadText: "\xBFOh? \xBFQu\xE9 podr\xEDa ser eso?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "A casi todos les falta algo. Ya sea la piel, el jugo, las semillas\u2026
+        Parece que ese gato no mata indiscriminadamente.\r\n"
+      BadText: "A casi todos les falta algo. Ya sea la piel, el jugo, las semillas\u2026
+        Parece que ese gato no mata indiscriminadamente.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "Contribuir sin aportar informaci\xF3n"
+      BadText: "Darle informaci\xF3n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFY qu\xE9 conclusiones sacas de eso?\r\n"
+      BadText: 'Es verdad. Y de hecho, parece ser una parte proporcional de todos
+        los materiales la que falta. No hay ninguno que sobresalga del resto.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno, todav\xEDa no tengo ninguna pista conclusiva. Necesito investigar
+        m\xE1s.\r\n"
+      BadText: "\xBFY t\xFA c\xF3mo sabes eso? \xBFEst\xE1s relacionado con las muertes?
+        \xBFQu\xE9 escondes?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'A lo mejor tienes que cambiar de perspectiva.
+
+'
+      BadText: "\xBFYo? No, yo no tengo nada que esconder. Simplemente es lo que
+        he deducido con lo que me has dicho y lo que he estado viendo estos d\xEDas,
+        nada m\xE1s.\r"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFQu\xE9 quieres decir? Creo que lo que tengo es bastante importante.\r"
+      BadText: "No me f\xEDo de ti. Casi mejor pienso en solitario. Ponte a limpiar
+        un vaso o algo.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "No lo niego, pero. \xBFte has planteado c\xF3mo puede aparecer e
+        irse sin levantar sospechas?\r\n"
+      BadText: ...
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Claro, no lo hab\xEDa pensado. Es posible que haya alguien escondi\xE9ndolo\u2026
+        Pero, \xBFc\xF3mo empiezo a investigar eso?\r\n"
+      BadText: ...
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "A lo mejor un trago te ayudar\xEDa a organizar tus ideas\r\n"
+      BadText: "Bueno, si no vas a pedir nada\u2026\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tienes raz\xF3n, me hace falta un poco de alcohol para que fluyan
+        las ideas.\r\n"
+      BadText: "No te preocupes, no te voy a poner a hablar sin pagar.\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ponme una bebida. La que quieras, me da igual.\r"
+      BadText: "Ponme una bebida. La que quieras, me da igual.\r"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Esta bebida es bastante peculiar. \xBFEs artesanal?\r\n"
+      BadText: "\xBFNo puedes servirme?\r\r"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ese es mi objetivo a futuro. Por ahora tendr\xE1s que conformarte
+        con materiales de la capital.\r\n"
+      BadText: "No, lo siento, me qued\xE9 sin materiales por hoy. Ha sido un d\xEDa
+        duro.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno, est\xE1 rico igualmente. Muchas gracias. Me despido.\r\n"
+      BadText: 'Bueno, tu presencia me ha ayudado a salir de este atasco. Muchas
+        gracias.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'Claro. No dudes en volver cuando necesites alguien con quien hablar.
+
+'
+      BadText: 'De nada. Siempre estoy disponible para hablar si lo necesitas.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo dudes. Hasta luego, misterioso bartender.\r"
+      BadText: "Claro. No dudes que volver\xE9, a ver si a la siguiente me puedes
+        dar algo de beber. Adi\xF3s.\r"
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
