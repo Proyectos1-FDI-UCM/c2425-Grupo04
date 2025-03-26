@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2510957792824250114}
   - component: {fileID: 8755036878347728107}
   - component: {fileID: -7006834372356157504}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Uvoncio_Cliente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AppearSpeed: 100
-  dialogues: []
+  dialogues:
+  - Generic: 1
+    Lines:
+    - GoodText: "\xA1Uf! No hay nada como una buena bebida despu\xE9s de un d\xEDa
+        en el vi\xF1edo. Hoy fue agotador, pero la cosecha se ve prometedora."
+      BadText: "\xA1Uf! No hay nada como una buena bebida despu\xE9s de un d\xEDa
+        en el vi\xF1edo. Hoy fue agotador, pero la cosecha se ve prometedora."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFCosecha dif\xEDcil?"
+      BadText: "\xBFCosecha dif\xEDcil?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Siempre lo es!  Solo espero que el clima no nos juegue una mala
+        pasada. "
+      BadText: "\xA1Siempre lo es!  Solo espero que el clima no nos juegue una mala
+        pasada. "
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Comprender y alentar
+      BadText: "por qu\xE9 no cambies"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Debe ser un trabajo duro, pero gratificante. Seguro que este a\xF1o
+        tendr\xE1s el mejor vino."
+      BadText: "\xBFNo te cansas de hacer siempre lo mismo? Tal vez deber\xEDas buscar
+        otro oficio."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Exactamente! Cultivar uvas no es solo un trabajo, es una tradici\xF3n,
+        un arte. Me alegra que alguien lo entienda. "
+      BadText: "\xBFOtro oficio? \xA1Ja! \xBFY qu\xE9 har\xEDa si no? Mi familia
+        ha cultivado uvas durante generaciones. Solo alguien que no entienda el valor
+        del trabajo dir\xEDa eso\u2026"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Debe ser una sensaci\xF3n incre\xEDble. Ver el fruto de tu esfuerzo
+        convertirse en algo que todos disfrutan."
+      BadText: "Solo dec\xEDa que a veces es bueno probar cosas nuevas. No era mi
+        intenci\xF3n ofenderte."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Lo es. Y aunque el trabajo es duro, tambi\xE9n tiene su encanto.
+        Es un estilo de vida. No lo cambiar\xEDa por nada."
+      BadText: "No s\xE9\u2026 suena como algo que dir\xEDa alguien que no respeta
+        nuestras tradiciones. "
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Suena hermoso. Deber\xEDas estar orgulloso."
+      BadText: "No era mi intenci\xF3n faltar el respeto. Solo fue un comentario."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Lo estoy! Y me alegra que alguien lo valore. Salud por las buenas
+        cosechas y por los que saben apreciarlas. "
+      BadText: "Hmm\u2026 No s\xE9\u2026 Hay algo en ti que me da una sensaci\xF3n
+        extra\xF1a. Pero bueno, supongo que solo fue un malentendido\u2026"
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
