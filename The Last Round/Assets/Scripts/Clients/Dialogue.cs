@@ -64,7 +64,7 @@ public class Dialogue : MonoBehaviour
         do {
             tmp = UnityEngine.Random.Range(0,dialogues.Length);
 
-            if (dialogues[tmp].Generic) 
+            if (dialogues[tmp].Generic)
             {
                 dialogue = dialogues[tmp].Lines;
                 Debug.Log("Repetible");
@@ -144,11 +144,11 @@ public class Dialogue : MonoBehaviour
                 //Filtro 3
                 if (BebidaPedida.GetComponent<CastDrink>().GetDrinkName() == DrinkName.Sidra)
                 {
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("ese", "esa");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("este", "esta");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("aquel", "aquella");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("un", "una");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace("el", "la");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" ese ", " esa ");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" este ", "esta ");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" aquel ", " aquella ");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" un ", " una ");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" el ", " la ");
                 }
             }
             i++;
