@@ -21,24 +21,33 @@ public class UIManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField]
-    TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText,//DIALOGOS Y MONÓLOGOS
 
-                    recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
-    [SerializeField]
-    private Image DrinkImage, material1Image, material2Image, material3Image;
-    [SerializeField]
-    Button dialogueSkipButton, ServirButton;
     [SerializeField]
     private float TypeSpeed;
-    [SerializeField]
-    private Button option1Button, option2Button;
 
     [SerializeField]
     private float DisappearSpeed;
 
     [SerializeField]
+    private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText,//DIALOGOS Y MONÓLOGOS
+
+                    recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
+    [SerializeField]
+    private Image DrinkImage, material1Image, material2Image, material3Image;
+    [SerializeField]
+    private Button dialogueSkipButton, ServirButton;
+
+    [SerializeField]
+    private Button option1Button, option2Button;
+
+
+    [Header ("SISTEMA DE CREACIÓN DE BEBIDAS")]
+    [SerializeField]
     private Button regresarMats;
+
+    [Header("MATERIALES DE LAS BEBIDAS")]
+    [SerializeField]
+    private GameObject[] Sources;
 
     [Header("ELEMENTOS BOTONES MATERIALES")]
     [SerializeField]
@@ -70,7 +79,7 @@ public class UIManager : MonoBehaviour
     private Color ClientC, invisible, visible;
     private GameObject Drink;
     private bool mat1Yes = true, mat2Yes = true, mat3Yes = true;
-
+    private int buttonUsing = 0;
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
     private bool IfHavefalse = false;
@@ -120,6 +129,12 @@ public class UIManager : MonoBehaviour
         ClientC.a = 255;
 
         recursos = GameManager.Instance.GetRecursos();
+
+        for (int j = 0; j < matNums.Length; j++)
+        {
+            //Actualiza los textos
+            matNums[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].ToString();
+        }
     }
 
     /// <summary>
@@ -160,11 +175,13 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < recursos.Length; i++)
         {
             //Actualiza la cantidad de materiales al inventario que tienes
-            matNums[i].text = recursos[i].ToString();
+            //matNums[i].text = recursos[i].ToString();
+
+            //¿EN EL UPDATE? NO SE YO, LO VOY A BAJAR UN POCO A LOS METODOS QUE ALTERAN LA CESTA
 
             //Actualiza la cantidad de materiales que hay en la cesta
-            matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
-            
+            //matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
+
             //En el caso de la cesta, si no hay ningún material simplemente no se verá el material
             if (matsEnCesta[i] > 0) matCestaImages[i].gameObject.SetActive(true);
             else matCestaImages[i].gameObject.SetActive(false);
@@ -403,7 +420,7 @@ public class UIManager : MonoBehaviour
             //Actualiza la recompensa
             if (Client.gameObject.GetComponent<Dialogue>().GetAlcalde())
             {
-                recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward()*2} monedas";
+                recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward() * 2} monedas";
             }
             else
             {
@@ -444,33 +461,87 @@ public class UIManager : MonoBehaviour
 
     public void SumarMaterial(Button material)
     {
-        int i = 0;
-        bool selectedMatFound = false;
-
-        while (i < materials.Length && !selectedMatFound)
+        //Antes de hacer nada busco el botón y le pregunto si tiene mas de 1 de material para proceder con el resto
+        if(material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
         {
-            if (material == materials[i]) selectedMatFound = true;
-            else i++;
-        }
-        //Debug.Log(i);
+            bool enc = false;
+            int i = 0;
 
-        if (recursos[i] > 0)
-        {
+            //Coloca el sprite correspondiente en el primer botón posible si no hay otro botón ocupando el mismo material
+            //Si no hay botón se ahorra la busqueda y simplemente añade la imagen
+            if (buttonUsing != 0)
+            {
+                //Si hay alguno usandose hace una busqueda dentro de los usados para ver si el material ha sido ya usado
+                //Solo en caso de no haber sido usado, pone su imagen en el siguiente botón e incrementa el valor de los botones usados
+                while (i < buttonUsing && !enc)
+                {
+                    if (matCestaImages[i].sprite == material.GetComponent<Image>().sprite)
+                        enc = true;
+                    else i++;
+                }
+            }
+
+            if (!enc)
+            {
+                matCestaImages[i].sprite = material.GetComponent<Image>().sprite;
+                buttonUsing++;
+            }
+
+            //Suma 1 a la cantidad de la cesta
             matsEnCesta[i]++;
-            recursos[i]--;
-        }
 
-        //Debug.Log(matsEnCesta[0] + " , " + matsEnCesta[1] + " , " + matsEnCesta[2] + " , " + matsEnCesta[3] + " , " + matsEnCesta[4] + " , " + matsEnCesta[5] + " , " + matsEnCesta[6] + " , " + matsEnCesta[7]);
+            //Actualizar texto
+            matCestaImages[i].GetComponentInChildren<TextMeshProUGUI>().text = matsEnCesta[i].ToString();
+
+
+            //Busca el material del botón que ha sido pulsado y resta 1 a su cantidad
+            enc = false;
+            i = 0;
+            while (i < Sources.Length && !enc)
+            {
+                if (Sources[i].GetComponent<SpriteRenderer>().sprite == material.GetComponent<Image>().sprite)
+                    enc = true;
+                else i++;
+            }
+            recursos[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()]--;
+
+            //Actualiza los textos
+            matNums[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()].ToString();
+        }
     }
 
 
     public void RegresarMats()
     {
-        for (int i = 0; i < matsEnCesta.Length; i++)
+        //Hacen un recorrido por todos los botones que se están usando en la cesta (que tienen al menos un material)
+        for (int i = 0; i < buttonUsing; i++)
         {
-            recursos[i] += matsEnCesta[i];
+            // i es la imagen de la cesta sobre la que se posiciona
+
+            //Busca el material de la imagen donde se encuentra en los botones y le pasa su cantidad de materiales
+            int j = 0;
+            bool enc = false;
+            while (j < Sources.Length && !enc)
+            {
+                //Si encuentra el recurso al que equivale la imagen lo marca como encontrado
+                if (matCestaImages[i].sprite == Sources[j].GetComponent<SpriteRenderer>().sprite)
+                    enc = true;
+
+                //Mientras tanto sigue buscando
+                else j++;
+            }
+            //Una vez encontrado el recurso nos vamos a su posición en el array de recursos y le sumamos lo que había en la imagen
+            recursos[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()] += matsEnCesta[i];
+            //reiniciamos la cantidad de la imagen de la cesta
             matsEnCesta[i] = 0;
+            //reiniciamos la imagen de la cesta
+            matCestaImages[i].sprite = null;
+
+            //Actualiza los textos
+            matNums[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].ToString();
+            matCestaImages[i].GetComponentInChildren<TextMeshProUGUI>().text = matsEnCesta[i].ToString();
         }
+        buttonUsing = 0;
     }
 
 
@@ -495,13 +566,13 @@ public class UIManager : MonoBehaviour
             way = 0;
             if (Client.gameObject.GetComponent<Dialogue>().GetAlcalde())
             {
-                GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward()*2);
+                GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward() * 2);
             }
             else
             {
                 GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward());
             }
-            
+
         }
         else
         {
