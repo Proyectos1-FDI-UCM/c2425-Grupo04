@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7159777715069209738}
   - component: {fileID: 5262175714029716590}
   - component: {fileID: -128754099345329513}
+  - component: {fileID: 6278243454537734406}
   m_Layer: 0
   m_Name: Alcalde_Cliente
   m_TagString: Untagged
@@ -115,3 +116,16 @@ MonoBehaviour:
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
   ElAlcalde: 0
+--- !u!114 &6278243454537734406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055525616243255898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 4

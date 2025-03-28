@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
 
 
@@ -30,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int Manzurria;
     [SerializeField] int Grapenade;
     [SerializeField] int Manzariete;
+    [SerializeField, Range(0,1)] int Alcalde;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[8];
-    private int[] numEnemigos = new int[4];
+    private int[] numEnemigos = new int[5];
 
     //0 = Jugo de Uva       //3 = Jugo de manzana
     //1 = Piel de Uva       //4 = Piel de manzana
