@@ -25,11 +25,15 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [Header("Número de enemigos")]
-    [SerializeField] int Uvoncio;
-    [SerializeField] int Manzurria;
-    [SerializeField] int Grapenade;
-    [SerializeField] int Manzariete;
-    [SerializeField, Range(0,1)] int Alcalde;
+    [SerializeField] private int Uvoncio;
+    [SerializeField] private int Manzurria;
+    [SerializeField] private int Grapenade;
+    [SerializeField] private int Manzariete;
+    [SerializeField, Range(0, 1)] int Alcalde;
+    [Header("Límites")]
+    [SerializeField] private float MapWidth;
+    [SerializeField] private float MapHeight;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -124,7 +128,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
-       // Debug.Log(NivelSospechosos);
+        // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
     }
     #endregion
@@ -171,11 +175,14 @@ public class GameManager : MonoBehaviour
     }
     // --- FIN RECOGIDA DE UIMANAGERS ---
 
+    // --- GESTIÓN DE RECURSOS ---
     public void IncreaseResource(SourceName source)
     {
         recursos[(int)source] += 1;
     }
+    // --- FIN GESTIÓN DE RECURSOS ---
 
+    // --- GESTIÓN ECONÓMICA ---
     public void increaseDinero(int reward)
     {
         Dineros += reward;
@@ -191,7 +198,7 @@ public class GameManager : MonoBehaviour
     {
         return Dineros;
     }
-
+    // --- FIN GESTIÓN ECONÓMICA ---
     public float increaseSospechosos(int i)
     {
         if (NivelSospechosos < 8 && NivelSospechosos >= 0)
@@ -205,6 +212,15 @@ public class GameManager : MonoBehaviour
         return NivelSospechosos;
     }
 
+    public float GetMapHeight()
+    {
+        return MapHeight;
+    }
+
+    public float GetMapWidth()
+    {
+        return MapWidth;
+    }
     public int GetUpgradeLevel(int element) //Devuelve el nivel de la mejora correspondiente
     {
         return upgradeLevel[element];
