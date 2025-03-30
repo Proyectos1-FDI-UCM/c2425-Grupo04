@@ -1040,7 +1040,7 @@ MonoBehaviour:
       Emisor: 0
     - GoodText: "Me has intrigado. \xBFQu\xE9 dicen las leyendas?\r\n"
       BadText: "Hah. \xBFDemonios? \xBFDe verdad crees en esas cosas?\r\n"
-      Estatus: 1
+      Estatus: 0
       Emisor: 1
     - GoodText: "Se dice que los gatos no solo son asesinos\u2026 sino criaturas
         de otro mundo. Demonios disfrazados de carne y pelaje.\r\n"
@@ -1087,8 +1087,8 @@ MonoBehaviour:
         gustar\xEDa probar su veracidad."
       Estatus: 0
       Emisor: 1
-    - GoodText: 'G: Vale... Ponme un (bebida), aunque lo dijeras en forma de burla.'
-      BadText: 'G: Vale... Ponme un (bebida), aunque lo dijeras en forma de burla.'
+    - GoodText: Vale... Ponme un (bebida), aunque lo dijeras en forma de burla.
+      BadText: Vale... Ponme un (bebida), aunque lo dijeras en forma de burla.
       Estatus: 2
       Emisor: 0
     - GoodText: "... \xBFA qu\xE9 miras?"
@@ -1970,7 +1970,6 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
-  ElAlcalde: 0
 --- !u!114 &-3269070614424845339
 MonoBehaviour:
   m_ObjectHideFlags: 0
