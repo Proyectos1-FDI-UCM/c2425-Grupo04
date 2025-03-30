@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashing;
     private CollisionDetector cD;
     private Collider2D ObjectCollider;
-    private float minX = -19f, maxX = 19f, minY = -10.625f, maxY = 10.625f;
+    private float minX = -1, maxX = -1, minY = -1, maxY = -1;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -61,6 +61,14 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
+        if (minX == -1 || minY == -1 || maxX == -1 || maxY == -1)
+        {
+            maxX = GameManager.Instance.GetMapWidth() / 2;
+            minX = -maxX;
+
+            maxY = GameManager.Instance.GetMapHeight() / 2;
+            minY = -maxY;
+        }
         posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
         posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
         posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
