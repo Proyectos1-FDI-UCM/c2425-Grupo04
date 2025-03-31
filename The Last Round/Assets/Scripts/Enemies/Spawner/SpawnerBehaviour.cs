@@ -10,7 +10,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Se encarga de spawnear un objeto en la posición del objeto que tiene el componente
+/// Se encarga de spawnear un objeto en la posición del objeto que tiene el componente y verificar si el spawner es visible
 /// </summary>
 public class SpawnerBehaviour : MonoBehaviour
 {
@@ -32,6 +32,8 @@ public class SpawnerBehaviour : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
+    private bool Visible;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -75,8 +77,18 @@ public class SpawnerBehaviour : MonoBehaviour
     {
         Instantiate(SpawnObject, transform.position, Quaternion.identity);
     }
+
+    /// <summary>
+    /// Devuelve si el spawner se ve o no en la cámara
+    /// </summary>
+    /// <returns></returns>
+    public bool IsVisible()
+    {
+        //Debug.Log(Visible);
+        return Visible;
+    }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -84,6 +96,25 @@ public class SpawnerBehaviour : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+
+    //---IMPORTANTE---
+    //Para que los siguientes métodos funcionen el objeto tiene que tener al menos un render
+    //(spriteRenderer por ejemplo vale)
+    /// <summary>
+    /// Si el objeto se ve en cámara marca que se puede ver
+    /// </summary>
+    private void OnBecameVisible()
+    {
+        Visible = true;
+    }
+
+    /// <summary>
+    /// Si el objeto no se ve en cámara marca que no se puede ver
+    /// </summary>
+    private void OnBecameInvisible()
+    {
+        Visible = false;
+    }
     #endregion   
 
 } // class SpawnerBehaviour 

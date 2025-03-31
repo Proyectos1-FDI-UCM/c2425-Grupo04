@@ -1080,8 +1080,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: THE LAST ROUND
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb1ce1b29e813c7448c21ee2fe65c793, type: 2}
-  m_sharedMaterial: {fileID: -4015172392483417678, guid: eb1ce1b29e813c7448c21ee2fe65c793, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1353,7 +1353,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Uvoncio
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: MapWidth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: MapHeight
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
