@@ -101,59 +101,296 @@ MonoBehaviour:
   dialogues:
   - Generic: 1
     Lines:
-    - GoodText: "\xA1Uf! No hay nada como una buena bebida despu\xE9s de un d\xEDa
-        en el vi\xF1edo. Hoy fue agotador, pero la cosecha se ve prometedora."
-      BadText: "\xA1Uf! No hay nada como una buena bebida despu\xE9s de un d\xEDa
-        en el vi\xF1edo. Hoy fue agotador, pero la cosecha se ve prometedora."
-      Estatus: 0
+    - GoodText: "\xA1Uf! Nada mejor que una (bebida) despu\xE9s de un d\xEDa en el
+        vi\xF1edo.\r\n"
+      BadText: "\xA1Uf! Nada mejor que una (bebida) despu\xE9s de un d\xEDa en el
+        vi\xF1edo.\r\n"
+      Estatus: 2
       Emisor: 0
     - GoodText: "\xBFCosecha dif\xEDcil?"
       BadText: "\xBFCosecha dif\xEDcil?"
       Estatus: 0
       Emisor: 1
-    - GoodText: "\xA1Siempre lo es!  Solo espero que el clima no nos juegue una mala
-        pasada. "
-      BadText: "\xA1Siempre lo es!  Solo espero que el clima no nos juegue una mala
-        pasada. "
+    - GoodText: ' Mucho. La cosecha viene bien, pero siempre hay riesgos.'
+      BadText: ' Mucho. La cosecha viene bien, pero siempre hay riesgos.'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFComo qu\xE9?"
+      BadText: "\xBFComo qu\xE9?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: " El clima. Si hiela, todo se pierde. Un a\xF1o entero de esfuerzo,
+        tirado.\r\n"
+      BadText: " El clima. Si hiela, todo se pierde. Un a\xF1o entero de esfuerzo,
+        tirado.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: Comprender y alentar
-      BadText: "por qu\xE9 no cambies"
+    - GoodText: Debe ser un trabajo duro, pero gratificante.
+      BadText: "\xBFNo te aburre hacer siempre lo mismo?"
       Estatus: 0
       Emisor: 1
-    - GoodText: "Debe ser un trabajo duro, pero gratificante. Seguro que este a\xF1o
-        tendr\xE1s el mejor vino."
-      BadText: "\xBFNo te cansas de hacer siempre lo mismo? Tal vez deber\xEDas buscar
-        otro oficio."
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "\xA1Exactamente! Cultivar uvas no es solo un trabajo, es una tradici\xF3n,
-        un arte. Me alegra que alguien lo entienda. "
-      BadText: "\xBFOtro oficio? \xA1Ja! \xBFY qu\xE9 har\xEDa si no? Mi familia
-        ha cultivado uvas durante generaciones. Solo alguien que no entienda el valor
-        del trabajo dir\xEDa eso\u2026"
+    - GoodText: "\xA1Exacto! Ver crecer las uvas es especial. Es un arte."
+      BadText: "\xBFAburrido? \xA1Esto es tradici\xF3n!\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Debe ser una sensaci\xF3n incre\xEDble. Ver el fruto de tu esfuerzo
-        convertirse en algo que todos disfrutan."
-      BadText: "Solo dec\xEDa que a veces es bueno probar cosas nuevas. No era mi
-        intenci\xF3n ofenderte."
+    - GoodText: Debe sentirse bien ver el resultado.
+      BadText: No quise ofender.
       Estatus: 0
       Emisor: 1
-    - GoodText: "Lo es. Y aunque el trabajo es duro, tambi\xE9n tiene su encanto.
-        Es un estilo de vida. No lo cambiar\xEDa por nada."
-      BadText: "No s\xE9\u2026 suena como algo que dir\xEDa alguien que no respeta
-        nuestras tradiciones. "
+    - GoodText: "Mucho. Desde la ma\xF1ana hasta el atardecer, todo tiene su encanto.\r\n"
+      BadText: "As\xED suena\u2026 Aqu\xED cada quien cumple su rol. No nos gustan
+        los que piensan distinto.\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Suena hermoso. Deber\xEDas estar orgulloso."
-      BadText: "No era mi intenci\xF3n faltar el respeto. Solo fue un comentario."
+    - GoodText: Suena hermoso. Se nota que lo amas.
+      BadText: Solo era un comentario.
       Estatus: 0
       Emisor: 1
-    - GoodText: "\xA1Lo estoy! Y me alegra que alguien lo valore. Salud por las buenas
-        cosechas y por los que saben apreciarlas. "
-      BadText: "Hmm\u2026 No s\xE9\u2026 Hay algo en ti que me da una sensaci\xF3n
-        extra\xF1a. Pero bueno, supongo que solo fue un malentendido\u2026"
+    - GoodText: "\xA1Lo amo! Salud por la buena cosecha. (Levanta la copa.) "
+      BadText: "No s\xE9\u2026 Algo en ti no me gusta. Dame algo fuerte. "
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: 'Ayer vi algo raro en el campo. Un ruido entre los arbustos.
+
+'
+      BadText: 'Ayer vi algo raro en el campo. Un ruido entre los arbustos.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFUn animal?\r\n"
+      BadText: "\xBFUn animal?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9. Pero si es un intruso, no durar\xE1 mucho.\r\n"
+      BadText: "No lo s\xE9. Pero si es un intruso, no durar\xE1 mucho.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFPor qu\xE9 dices eso?\r\n"
+      BadText: "\xBFPor qu\xE9 dices eso?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Todos en el pueblo sabemos qu\xE9 hacer. Si algo amenaza nuestra
+        paz, lo eliminamos. "
+      BadText: "Todos en el pueblo sabemos qu\xE9 hacer. Si algo amenaza nuestra
+        paz, lo eliminamos. "
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "Es bueno que todos se cuiden entre s\xED."
+      BadText: Eso suena un poco exagerado.
+      Estatus: 1
+      Emisor: 1
+    - GoodText: "\xA1Exacto! Aqu\xED nos protegemos unos a otros.\r\n"
+      BadText: "\xBFExagerado? Solo los intrusos dicen eso.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "As\xED es como los pueblos sobreviven."
+      BadText: No quise decir nada malo.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED. Un pueblo unido es un pueblo fuerte"
+      BadText: "Hmph\u2026 A veces la gente nueva hace demasiadas preguntas.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Me alegra saber que estoy en un lugar seguro.
+      BadText: "Solo me sorprendi\xF3 tu determinaci\xF3n."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Lo est\xE1s. Mientras seas de los nuestros\u2026 "
+      BadText: "No s\xE9\u2026 Algo en ti no me cuadra.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Bueno, te pongo (bebida)?
+      BadText: 'Bueno, quieres un (bebida)?
+
+'
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: Hola! Quiero un (bebida)!
+      BadText: Hola! Quiero un (bebida)!
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Esta bebida\u2026 tiene un sabor curioso.\r\n"
+      BadText: "Esta bebida\u2026 tiene un sabor curioso.\r\n"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "\xBFTe gusta?"
+      BadText: "\xBFTe gusta?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED\u2026 pero tiene algo distinto. No s\xE9 qu\xE9 es.\r\n"
+      BadText: "S\xED\u2026 pero tiene algo distinto. No s\xE9 qu\xE9 es.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'Tal vez es un ingrediente especial.
+
+'
+      BadText: 'Tal vez es un ingrediente especial.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Hmph\u2026 He probado muchas cosas en mi vida. Esto es nuevo."
+      BadText: "Hmph\u2026 He probado muchas cosas en mi vida. Esto es nuevo."
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Es mi receta secreta. Un toque especial.
+      BadText: "Tal vez es solo tu imaginaci\xF3n."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Interesante! Me gusta la gente que innova.\r\n"
+      BadText: "\xBFImaginaci\xF3n? No me gusta cuando intentan enga\xF1arme.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Siempre busco sorprender a mis clientes.
+      BadText: "No es mi intenci\xF3n, solo digo que a veces los sabores enga\xF1an."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: 'Eso es bueno. Un buen bartender siempre deja huella.
+
+'
+      BadText: "Tal vez\u2026 O tal vez hay algo que no quieres decirme.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Entonces, \xBFte sirvo otra?"
+      BadText: No hay nada raro en la bebida.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED, pero esta vez presta atenci\xF3n\u2026 Quiero descubrir ese
+        toque secreto."
+      BadText: "Hmm\u2026 No s\xE9\u2026"
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "Hoy vi a unos Grapenades en el pueblo. Siempre parecen tan serios\u2026\r\n"
+      BadText: "Hoy vi a unos Grapenades en el pueblo. Siempre parecen tan serios\u2026\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFTe llevas bien con ellos?"
+      BadText: "\xBFTe llevas bien con ellos?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno\u2026 No dir\xEDa que mal, pero son distintos. Siempre en
+        alerta, siempre con sus reglas.\r\n"
+      BadText: "Bueno\u2026 No dir\xEDa que mal, pero son distintos. Siempre en alerta,
+        siempre con sus reglas.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFCrees que exageran?\r\n"
+      BadText: "\xBFCrees que exageran?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9. Dicen que su disciplina nos mantiene a salvo. Pero
+        a veces siento que no conf\xEDan en nosotros.\r\n"
+      BadText: "No lo s\xE9. Dicen que su disciplina nos mantiene a salvo. Pero a
+        veces siento que no conf\xEDan en nosotros.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "Es bueno tenerlos cerca. Su experiencia puede ser \xFAtil."
+      BadText: "Quiz\xE1s solo quieren sentirse superiores."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED\u2026 Supongo que es bueno tener alguien que proteja el pueblo.\r\n"
+      BadText: "\xBFSuperiores? Nunca lo hab\xEDa pensado\u2026\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Cada quien cumple su rol. Ustedes cultivan, ellos vigilan.
+      BadText: "Siempre act\xFAan como si supieran m\xE1s que los dem\xE1s."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED\u2026 aunque su forma de ver las cosas es muy distinta."
+      BadText: "Hmph\u2026 Puede que tengas raz\xF3n. A veces nos miran como si fu\xE9ramos
+        in\xFAtiles.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'Pero al final, todos quieren lo mismo: seguridad.'
+      BadText: "Quiz\xE1s no conf\xEDan en los campesinos."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: " Eso es cierto. Tal vez deber\xEDa confiar m\xE1s en ellos."
+      BadText: "Dices cosas\u2026 interesantes. Pero, \xBFpor qu\xE9 te importa tanto?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Bueno, ponme un (bebida).
+      BadText: Bueno, ponme un (bebida).
+      Estatus: 2
+      Emisor: 0
+    - GoodText: 
+      BadText: 
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 
+      BadText: 
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
+      BadText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Llegu\xE9 hace poco. Quer\xEDa empezar un negocio aqu\xED.\r\n"
+      BadText: "Llegu\xE9 hace poco. Quer\xEDa empezar un negocio aqu\xED.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Hmph\u2026 No solemos recibir muchos forasteros. La mayor\xEDa prefiere
+        irse a otras tierras.\r\n"
+      BadText: "Hmph\u2026 No solemos recibir muchos forasteros. La mayor\xEDa prefiere
+        irse a otras tierras.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFPor qu\xE9 crees que es as\xED?\r\n"
+      BadText: "\xBFPor qu\xE9 crees que es as\xED?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9\u2026 Quiz\xE1s porque somos un pueblo cerrado. Aqu\xED
+        todos nos conocemos. "
+      BadText: "No lo s\xE9\u2026 Quiz\xE1s porque somos un pueblo cerrado. Aqu\xED
+        todos nos conocemos. "
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Eso suena acogedor. Un pueblo unido es fuerte.
+      BadText: A veces es bueno dejar entrar sangre nueva.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Exacto. Aqu\xED cuidamos de los nuestros.\r\n"
+      BadText: "\xBFSangre nueva? \xBFPara qu\xE9?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Y eso es importante. No cualquiera puede encajar en una comunidad
+        as\xED."
+      BadText: "Solo dec\xEDa que el cambio puede ser bueno."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED\u2026 Aunque supongo que algunos pueden aprender.\r\n"
+      BadText: "Fermentia no necesita cambiar. Siempre hemos sido as\xED"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Con tiempo y esfuerzo, seguro que s\xED."
+      BadText: No quise ofender, solo era una idea.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tal vez\u2026 T\xFA pareces alguien que quiere encajar."
+      BadText: 'A veces, los forasteros hacen demasiadas preguntas.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Vamos, dame (bebida) para beber.
+      BadText: Vamos, dame (bebida) para beber.
+      Estatus: 2
+      Emisor: 0
+    - GoodText: 
+      BadText: 
       Estatus: 0
       Emisor: 0
     WasSaid: 0
@@ -172,4 +409,3 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
-  ElAlcalde: 0
