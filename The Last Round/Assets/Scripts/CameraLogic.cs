@@ -23,8 +23,7 @@ public class CameraLogic : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private GameObject player;
-    private float minX = -10, maxX = 10f,
-                  minY = -5.625f, maxY = 5.625f;
+    private float minX = -1, maxX = -1, minY = -1, maxY = -1;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,7 +44,23 @@ public class CameraLogic : MonoBehaviour
         }
         if (player != null)
         {
-           
+            float CameraY = Camera.main.orthographicSize;
+            float CameraX = CameraY * Camera.main.aspect;
+
+            if (minX == -1 || minY == -1 || maxX == -1 || maxY == -1)
+            {
+                maxY = (GameManager.Instance.GetMapHeight() / 2) - CameraY;
+                minY = -maxY;
+
+                maxX = (GameManager.Instance.GetMapWidth() / 2) - CameraX;
+                minX = -maxX;
+
+                
+            }
+
+            Debug.Log($"({minX}, {minY}), ({maxX}, {maxY})");
+            //Debug.Log($"({CameraX}, {CameraY})");
+
             transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, minX, maxX),
                                               Mathf.Clamp(player.transform.position.y, minY, maxY),
                                               transform.position.z);

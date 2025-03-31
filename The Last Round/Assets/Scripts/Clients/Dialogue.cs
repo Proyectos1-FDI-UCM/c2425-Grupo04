@@ -25,8 +25,6 @@ public class Dialogue : MonoBehaviour
     private dialogue[] dialogues;
     [SerializeField]
     private GameObject[] BebidasPosibles;
-    [SerializeField]
-    private bool ElAlcalde;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -192,10 +190,6 @@ public class Dialogue : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public bool GetAlcalde()
-    {
-        return ElAlcalde;
-    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

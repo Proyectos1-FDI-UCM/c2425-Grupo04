@@ -16,5 +16,6 @@ public enum EnemyType
     Manzurria,
     Manzariete,
     Grapenade,
+    Alcalde,
 }
 // namespace

@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
 
 
@@ -26,10 +25,15 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [Header("Número de enemigos")]
-    [SerializeField] int Uvoncio;
-    [SerializeField] int Manzurria;
-    [SerializeField] int Grapenade;
-    [SerializeField] int Manzariete;
+    [SerializeField] private int Uvoncio;
+    [SerializeField] private int Manzurria;
+    [SerializeField] private int Grapenade;
+    [SerializeField] private int Manzariete;
+    [SerializeField, Range(0, 1)] int Alcalde;
+    [Header("Límites")]
+    [SerializeField] private float MapWidth;
+    [SerializeField] private float MapHeight;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -46,7 +50,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos = new float[8];
-    private int[] numEnemigos = new int[4];
+    private int[] numEnemigos = new int[5];
 
     //0 = Jugo de Uva       //3 = Jugo de manzana
     //1 = Piel de Uva       //4 = Piel de manzana
@@ -124,7 +128,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
-       // Debug.Log(NivelSospechosos);
+        // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
     }
     #endregion
@@ -171,11 +175,19 @@ public class GameManager : MonoBehaviour
     }
     // --- FIN RECOGIDA DE UIMANAGERS ---
 
+    // --- GESTIÓN DE RECURSOS ---
     public void IncreaseResource(SourceName source)
     {
         recursos[(int)source] += 1;
     }
 
+    public float[] GetRecursos()
+    {
+        return recursos;
+    }
+    // --- FIN GESTIÓN DE RECURSOS ---
+
+    // --- GESTIÓN ECONÓMICA ---
     public void increaseDinero(int reward)
     {
         Dineros += reward;
@@ -191,7 +203,9 @@ public class GameManager : MonoBehaviour
     {
         return Dineros;
     }
+    // --- FIN GESTIÓN ECONÓMICA ---
 
+    // --- SISTEMA DE SOSPECHA ---
     public float increaseSospechosos(int i)
     {
         if (NivelSospechosos < 8 && NivelSospechosos >= 0)
@@ -204,7 +218,21 @@ public class GameManager : MonoBehaviour
         }
         return NivelSospechosos;
     }
+    // --- FIN SISTEMA DE SOSPECHA ---
 
+    // --- LÍMITES MAPA ---
+    public float GetMapHeight()
+    {
+        return MapHeight;
+    }
+
+    public float GetMapWidth()
+    {
+        return MapWidth;
+    }
+    // --- FIN LÍMITES MAPA ---
+
+    // --- SISTEMA DE MEJORAS ---
     public int GetUpgradeLevel(int element) //Devuelve el nivel de la mejora correspondiente
     {
         return upgradeLevel[element];
@@ -224,9 +252,9 @@ public class GameManager : MonoBehaviour
     {
         upgradeBool[element] = true;
     }
+    // --- FIN SISTEMA DE MEJORAS ---
 
     // ---CONTADOR DE ENEMIGOS---
-
     /// <summary>
     /// Reduce el número de enemigos en el contador y refresca las colisiones
     /// </summary>
@@ -257,7 +285,6 @@ public class GameManager : MonoBehaviour
         numEnemigos[3] = Manzariete;
     }
 
-
     /// <summary>
     /// 0 -> Uvoncio  |  1 -> Manzurria  |  2 -> Grapenade  |  3 -> Manzariete
     /// </summary>
@@ -266,7 +293,7 @@ public class GameManager : MonoBehaviour
     {
         return numEnemigos;
     }
-    // ---CONTADOR DE ENEMIGOS---
+    // --- FIN CONTADOR DE ENEMIGOS ---
 
     public static GameManager Instance
     {
@@ -285,11 +312,6 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
-
-    public float[] GetRecursos()
-    {
-        return recursos;
-    } 
 
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y

@@ -418,7 +418,7 @@ public class UIManager : MonoBehaviour
             DrinkImage.color = visible;
 
             //Actualiza la recompensa
-            if (Client.gameObject.GetComponent<Dialogue>().GetAlcalde())
+            if (Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
             {
                 recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward() * 2} monedas";
             }
@@ -564,7 +564,7 @@ public class UIManager : MonoBehaviour
             }
             //Como ha hecho el encargo pedido, el dialogo ira por good
             way = 0;
-            if (Client.gameObject.GetComponent<Dialogue>().GetAlcalde())
+            if (Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
             {
                 GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward() * 2);
             }
