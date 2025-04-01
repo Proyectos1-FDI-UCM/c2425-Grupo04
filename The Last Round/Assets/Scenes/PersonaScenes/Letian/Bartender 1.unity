@@ -4859,6 +4859,137 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Generic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[1].Emisor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[3].Emisor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[4].Emisor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[6].Emisor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[8].Emisor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[0].BadText
+      value: "\xA1Uf! No hay nada como una buena bebida despu\xE9s de un d\xEDa en
+        el vi\xF1edo. Hoy fue agotador, pero la cosecha se ve prometedora."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[1].BadText
+      value: "\xBFCosecha dif\xEDcil?"
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[2].BadText
+      value: "\xA1Siempre lo es!  Solo espero que el clima no nos juegue una mala
+        pasada. "
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[2].Estatus
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[3].BadText
+      value: "por qu\xE9 no cambies"
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[4].BadText
+      value: "\xBFNo te cansas de hacer siempre lo mismo? Tal vez deber\xEDas buscar
+        otro oficio."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[5].BadText
+      value: "\xBFOtro oficio? \xA1Ja! \xBFY qu\xE9 har\xEDa si no? Mi familia ha
+        cultivado uvas durante generaciones. Solo alguien que no entienda el valor
+        del trabajo dir\xEDa eso\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[6].BadText
+      value: "Solo dec\xEDa que a veces es bueno probar cosas nuevas. No era mi intenci\xF3n
+        ofenderte."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[7].BadText
+      value: "No s\xE9\u2026 suena como algo que dir\xEDa alguien que no respeta
+        nuestras tradiciones. "
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[8].BadText
+      value: "No era mi intenci\xF3n faltar el respeto. Solo fue un comentario."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[9].BadText
+      value: "Hmm\u2026 No s\xE9\u2026 Hay algo en ti que me da una sensaci\xF3n
+        extra\xF1a. Pero bueno, supongo que solo fue un malentendido\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[0].GoodText
+      value: "\xA1Uf! No hay nada como una buena bebida despu\xE9s de un d\xEDa en
+        el vi\xF1edo. Hoy fue agotador, pero la cosecha se ve prometedora."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[1].GoodText
+      value: "\xBFCosecha dif\xEDcil?"
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[2].GoodText
+      value: "\xA1Siempre lo es!  Solo espero que el clima no nos juegue una mala
+        pasada. "
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[3].GoodText
+      value: Comprender y alentar
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[4].GoodText
+      value: "Debe ser un trabajo duro, pero gratificante. Seguro que este a\xF1o
+        tendr\xE1s el mejor vino."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[5].GoodText
+      value: "\xA1Exactamente! Cultivar uvas no es solo un trabajo, es una tradici\xF3n,
+        un arte. Me alegra que alguien lo entienda. "
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[6].GoodText
+      value: "Debe ser una sensaci\xF3n incre\xEDble. Ver el fruto de tu esfuerzo
+        convertirse en algo que todos disfrutan."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[7].GoodText
+      value: "Lo es. Y aunque el trabajo es duro, tambi\xE9n tiene su encanto. Es
+        un estilo de vida. No lo cambiar\xEDa por nada."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[8].GoodText
+      value: "Suena hermoso. Deber\xEDas estar orgulloso."
+      objectReference: {fileID: 0}
+    - target: {fileID: -7006834372356157504, guid: d89e331252b2cb84d865824203e80974, type: 3}
+      propertyPath: dialogues.Array.data[1].Lines.Array.data[9].GoodText
+      value: "\xA1Lo estoy! Y me alegra que alguien lo valore. Salud por las buenas
+        cosechas y por los que saben apreciarlas. "
+      objectReference: {fileID: 0}
     - target: {fileID: 1562574269909345304, guid: d89e331252b2cb84d865824203e80974, type: 3}
       propertyPath: m_Name
       value: Uvoncio_Cliente
