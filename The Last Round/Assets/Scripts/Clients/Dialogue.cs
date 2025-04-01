@@ -73,7 +73,7 @@ public class Dialogue : MonoBehaviour
             {
                 //Debug.Log(dialogues[tmp].WasSaid);
 
-                if (dialogues[tmp].WasSaid == false)
+                if (!dialogues[tmp].WasSaid)
                 {
                     dialogue = dialogues[tmp].Lines;
                     dialogues[tmp].WasSaid = true;
@@ -86,6 +86,17 @@ public class Dialogue : MonoBehaviour
 
         } while (!properDialogue);
 
+        //OTRA OPCIÓN MÁS LIMPIA <----- Propongo
+        //do
+        //{
+        //
+        //    tmp = UnityEngine.Random.Range(0, dialogues.Length);
+        //
+        //} while (!dialogues[tmp].Generic && dialogues[tmp].WasSaid);
+        //if (!dialogues[tmp].Generic)
+        //{
+        //    dialogues[tmp].WasSaid = true;
+        //}
         //dialogue = dialogues[tmp].Lines;
 
 
