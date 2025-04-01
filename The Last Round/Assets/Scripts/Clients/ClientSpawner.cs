@@ -30,7 +30,7 @@ public class ClientSpawner : MonoBehaviour
     private GameObject[] clients;
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -39,7 +39,7 @@ public class ClientSpawner : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    private GameObject[] TidyClients;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -55,6 +55,12 @@ public class ClientSpawner : MonoBehaviour
     /// </summary>
     void Start()
     {
+        TidyClients = new GameObject[clients.Length];
+        //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
+        for (int i = 0; i < TidyClients.Length; i++)
+        {
+            TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
+        }
         Spawn();
     }
 
@@ -82,19 +88,20 @@ public class ClientSpawner : MonoBehaviour
 
         do
         {
-            rnd = UnityEngine.Random.Range(0, 9); //genera un numero al azar entre el 0 y el 8
+            //genera un numero al azar entre el 0 y el doble de clientes - 1
+            rnd = UnityEngine.Random.Range(0, (TidyClients.Length * 2)-1);
             if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
             {
                 rnd = Mathf.CeilToInt(rnd / 2f);
             }
-            Debug.Log(clients[rnd].name);
+            Debug.Log(TidyClients[rnd].name);
         }
-        while (rnd == 1 && contador[1] <= 0 || rnd == 3 && contador[3] <= 0 ||
-               rnd == 2 && contador[2] <= 0 || rnd == 0 && contador[0] <= 0 );
+        //Vuelve a pedir un cliente si el contador en la posición del cliente pedido es menor o igual a 0
+        while (contador[(int)TidyClients[rnd].GetComponent<CastEnemy>().GetEnemyType()] <= 0);
 
 
         
-        Instantiate(clients[rnd], transform.position, Quaternion.identity);
+        Instantiate(TidyClients[rnd], transform.position, Quaternion.identity);
         
     }
     #endregion

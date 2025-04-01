@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2510957792824250114}
   - component: {fileID: 8755036878347728107}
   - component: {fileID: -7006834372356157504}
+  - component: {fileID: 6352842867911195007}
   m_Layer: 0
   m_Name: Uvoncio_Cliente
   m_TagString: Untagged
@@ -150,7 +151,6 @@ MonoBehaviour:
       BadText: "No s\xE9\u2026 Algo en ti no me gusta. Dame algo fuerte. "
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: 'Ayer vi algo raro en el campo. Un ruido entre los arbustos.
@@ -209,7 +209,6 @@ MonoBehaviour:
 '
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: Hola! Quiero un (bebida)!
@@ -267,7 +266,6 @@ MonoBehaviour:
       BadText: "Hmm\u2026 No s\xE9\u2026"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Hoy vi a unos Grapenades en el pueblo. Siempre parecen tan serios\u2026\r\n"
@@ -331,7 +329,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
@@ -393,7 +390,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
@@ -409,3 +405,16 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
+--- !u!114 &6352842867911195007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562574269909345304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0

@@ -56,48 +56,19 @@ public class Dialogue : MonoBehaviour
         spriteRenderer.color = color;
 
         //Elige el diálogo que contar
-        int tmp;// = UnityEngine.Random.Range(0, dialogues.Length);
-        bool properDialogue = false;
+        int tmp;
+        int Client = (int)GetComponent<CastEnemy>().GetEnemyType();
+        //Vuelve a pedir el dialogo si este no es generico y se ha dicho anteriormente
+        do
+        {
+            tmp = UnityEngine.Random.Range(0, dialogues.Length);
+            Debug.Log($"tmp:{tmp}, dialogues:{dialogues.Length}, Client:{Client}");
+        } while (!dialogues[tmp].Generic && GameManager.Instance.HasSaid(Client, tmp));
 
-        do {
-            tmp = UnityEngine.Random.Range(0,dialogues.Length);
+        dialogue = dialogues[tmp].Lines;
 
-            if (dialogues[tmp].Generic)
-            {
-                dialogue = dialogues[tmp].Lines;
-                Debug.Log("Repetible");
-                properDialogue = true;
-            }
-
-            else
-            {
-                //Debug.Log(dialogues[tmp].WasSaid);
-
-                if (!dialogues[tmp].WasSaid)
-                {
-                    dialogue = dialogues[tmp].Lines;
-                    dialogues[tmp].WasSaid = true;
-                    properDialogue = true;
-                    Debug.Log("No repetible no dicho");
-                }
-                else Debug.Log("NO REPETIBLE NO DICHO");
-            }
-
-
-        } while (!properDialogue);
-
-        //OTRA OPCIÓN MÁS LIMPIA <----- Propongo
-        //do
-        //{
-        //
-        //    tmp = UnityEngine.Random.Range(0, dialogues.Length);
-        //
-        //} while (!dialogues[tmp].Generic && dialogues[tmp].WasSaid);
-        //if (!dialogues[tmp].Generic)
-        //{
-        //    dialogues[tmp].WasSaid = true;
-        //}
-        //dialogue = dialogues[tmp].Lines;
+        //Marco el dialogo como dicho
+        GameManager.Instance.SetSaid(Client, tmp);
 
 
 
@@ -201,6 +172,10 @@ public class Dialogue : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+    public dialogue[] GetDialogues()
+    {
+        return dialogues;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

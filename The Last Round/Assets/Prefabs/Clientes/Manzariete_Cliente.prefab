@@ -115,7 +115,6 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
-  ElAlcalde: 0
 --- !u!114 &8022893213936934657
 MonoBehaviour:
   m_ObjectHideFlags: 0

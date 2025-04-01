@@ -34,13 +34,17 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private int SourceTypes;
+
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
     [SerializeField, Range(0, 1)] int Alcalde;
+
     [Header("Límites")]
     [SerializeField] private float MapWidth;
     [SerializeField] private float MapHeight;
 
+    [Header("Clientes")]
+    [SerializeField] private GameObject[] Clientes;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -60,7 +64,7 @@ public class GameManager : MonoBehaviour
     private int[] numEnemigos;
     private float NivelSospechosos = 0;
     private float Dineros = 0;
-
+    private bool[,] DialoguesSaid;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
     private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
     #endregion
@@ -103,7 +107,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             Init();
         } // if-else somos instancia nueva o no.
-          
+
         numEnemigos = new int[Enemies.Length];
         ResetEnemyCounter();
     }
@@ -121,7 +125,18 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        //Para ocupar lo necesario para que todos los dialogos quepan dentro del array
+        //Se ve quien tiene más dialgos y se hace de ese tamaño
+        int MaxDialogues = 0;
+        for (int i = 0; i < Clientes.Length; i++)
+        {
+            if (Clientes[i].GetComponent<Dialogue>().GetDialogues().Length > MaxDialogues)
+            {
+                MaxDialogues = Clientes[i].GetComponent<Dialogue>().GetDialogues().Length;
+            }
+        }
+
+        DialoguesSaid = new bool[Clientes.Length, MaxDialogues];
         recursos = new float[SourceTypes];
     }
 
@@ -262,7 +277,7 @@ public class GameManager : MonoBehaviour
         if (numEnemigos[(int)enemy] - 1 >= 0)
         {
             numEnemigos[(int)enemy]--;
-        }   
+        }
 
         //Cada vez que un enemigo muere, se refrescan las colisiones
         CollisionDetector[] objets = FindObjectsOfType<CollisionDetector>();
@@ -273,7 +288,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3]  <= 0)
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
             ScenesManager.CreditScenes();
         }
@@ -298,6 +313,29 @@ public class GameManager : MonoBehaviour
     }
     // --- FIN CONTADOR DE ENEMIGOS ---
 
+    // --- GESTIÓN DE DIÁLOGOS
+    /// <summary>
+    /// Toma como argumento el cliente y el número de dialogo y pone su DialogueSaid en true
+    /// </summary>
+    /// <param name="client"></param>
+    /// <param name="dialogue"></param>
+    public void SetSaid(int client, int dialogue)
+    {
+        DialoguesSaid[client, dialogue] = true;
+    }
+
+    /// <summary>
+    /// Devuelve si se ha dicho o no el dialogo del cliente que se le pasa como argumento
+    /// </summary>
+    /// <param name="client"></param>
+    /// <param name="dialogue"></param>
+    /// <returns></returns>
+    public bool HasSaid(int client, int dialogue)
+    {
+        bool tmp = DialoguesSaid[client, dialogue];
+        return tmp;
+    }
+    // --- FIN GESTIÓN DIÁLOGOS
     public static GameManager Instance
     {
         get

@@ -99,7 +99,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AppearSpeed: 100
-  dialogues: []
+  dialogues:
+  - Generic: 0
+    Lines:
+    - GoodText: 
+      BadText: 
+      Estatus: 0
+      Emisor: 0
+  - Generic: 0
+    Lines:
+    - GoodText: 
+      BadText: 
+      Estatus: 0
+      Emisor: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
@@ -115,7 +127,6 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
-  ElAlcalde: 0
 --- !u!114 &8987265803561361201
 MonoBehaviour:
   m_ObjectHideFlags: 0

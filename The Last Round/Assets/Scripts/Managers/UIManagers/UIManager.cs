@@ -158,8 +158,8 @@ public class UIManager : MonoBehaviour
             if (Client != null)
             {
                 Client.color = ClientC / 255;
-                Debug.Log($"R: {ClientC.r}     G:{ClientC.g}     B:{ClientC.b}");
-                Debug.Log($"R: {Client.color.r}     G:{Client.color.g}     B:{Client.color.b}");
+                //Debug.Log($"R: {ClientC.r}     G:{ClientC.g}     B:{ClientC.b}");
+                //Debug.Log($"R: {Client.color.r}     G:{Client.color.g}     B:{Client.color.b}");
                 if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0)
                 {
                     Destroy(Client.gameObject);
