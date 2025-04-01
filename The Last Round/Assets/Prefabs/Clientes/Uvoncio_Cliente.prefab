@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2510957792824250114}
   - component: {fileID: 8755036878347728107}
   - component: {fileID: -7006834372356157504}
-  - component: {fileID: 6352842867911195007}
+  - component: {fileID: 6838881013541849228}
   m_Layer: 0
   m_Name: Uvoncio_Cliente
   m_TagString: Untagged
@@ -390,6 +390,281 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "\xDAltimamente, el pueblo est\xE1 inquieto. Dicen que alguien nos
+        est\xE1 acechando."
+      BadText: "\xDAltimamente, el pueblo est\xE1 inquieto. Dicen que alguien nos
+        est\xE1 acechando."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFA qu\xE9 te refieres?\r\n"
+      BadText: "\xBFA qu\xE9 te refieres?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9. Algunos dicen que han visto sombras moverse. Otros
+        han o\xEDdo pasos donde no deber\xEDa haber nadie.\r\n"
+      BadText: "No lo s\xE9. Algunos dicen que han visto sombras moverse. Otros han
+        o\xEDdo pasos donde no deber\xEDa haber nadie.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFNo ser\xE1 solo el viento?"
+      BadText: "\xBFNo ser\xE1 solo el viento?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tal vez\u2026 pero preferimos estar preparados."
+      BadText: "Tal vez\u2026 pero preferimos estar preparados."
+      Estatus: 1
+      Emisor: 0
+    - GoodText: 'mejor estar alerta. '
+      BadText: "Quiz\xE1s solo son imaginaciones."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: 'Exacto. No podemos confiarnos.
+
+'
+      BadText: "Hmph\u2026 Suenas demasiado tranquilo.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Un pueblo precavido es un pueblo seguro
+      BadText: Solo digo que a veces la gente imagina cosas.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Eso siempre decimos. No queremos sorpresas.
+      BadText: "\xBFT\xFA qu\xE9 sabes? \xBFNo ser\xE1 que\u2026 quieres que bajemos
+        la guardia?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Seguro que si alguien intenta hacer algo, lo atrapan enseguida.
+      BadText: Para nada. Solo intento calmarte.
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Eso espero\u2026 Porque si lo encontramos, no tendr\xE1 escapatoria."
+      BadText: " No s\xE9\u2026 No me gusta c\xF3mo hablas de esto."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Bueno, quieres algo para relajar un poco?
+      BadText: Bueno, quieres algo para relajar un poco?
+      Estatus: 0
+      Emisor: 1
+    - GoodText: si, necesito un (bebida).
+      BadText: si, necesito un (bebida).
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "Nuestro alcalde siempre dice que Fermentia es un lugar especial.
+        Que nadie podr\xE1 con nosotros."
+      BadText: "Nuestro alcalde siempre dice que Fermentia es un lugar especial.
+        Que nadie podr\xE1 con nosotros.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 'Suena confiado.
+
+'
+      BadText: 'Suena confiado.
+
+'
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Lo es. Ha liderado Fermentia por a\xF1os. No permitir\xE1 que nos
+        pase nada.\r\n"
+      BadText: "Lo es. Ha liderado Fermentia por a\xF1os. No permitir\xE1 que nos
+        pase nada.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFY la gente conf\xEDa en \xE9l?"
+      BadText: "\xBFY la gente conf\xEDa en \xE9l?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: " Por supuesto. Es un l\xEDder fuerte.\r\n"
+      BadText: " Por supuesto. Es un l\xEDder fuerte.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "Eso es bueno. Un pueblo unido necesita un l\xEDder firme."
+      BadText: Tal vez su orgullo lo ciegue. Nadie es invencible.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Exacto. Un pueblo sin l\xEDder est\xE1 perdido.\r\n"
+      BadText: "\xBFC\xF3mo dices?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Seguro que ha tomado buenas decisiones para protegerlos.
+      BadText: Solo que confiar demasiado puede ser peligroso.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: 'Siempre lo hace. Nunca nos ha fallado.
+
+'
+      BadText: "Tienes una forma rara de hablar\u2026\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Entonces Fermentia seguir\xE1 en pie por mucho tiempo."
+      BadText: No quise ofender.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Sin duda. Dame (bebida), y por nuestro alcalde!
+      BadText: " Hmph\u2026 No me gusta ese pensamiento. Bueno, quiero un (bebida).\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: 
+      BadText: 
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
+      BadText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFComo qu\xE9?\r\n"
+      BadText: "\xBFComo qu\xE9?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Luces en la noche. Sombras movi\xE9ndose. Huellas que no son nuestras.\r\n"
+      BadText: "Luces en la noche. Sombras movi\xE9ndose. Huellas que no son nuestras.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFCrees que alguien los est\xE1 espiando?\r\n"
+      BadText: "\xBFCrees que alguien los est\xE1 espiando?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9. Pero si es un intruso, lo atraparemos.\r\n"
+      BadText: "No lo s\xE9. Pero si es un intruso, lo atraparemos.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "Seguro que lo descubrir\xE1n. Nadie escapa de Fermentia."
+      BadText: "Tal vez solo est\xE1n paranoicos."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Eso mismo! No permitiremos amenazas en nuestro pueblo.\r\n"
+      BadText: "\xBFParanoicos?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Siempre es mejor estar preparados.
+      BadText: Tal vez fue solo el viento o un animal.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED\u2026 Y quien sea que ande por ah\xED, lo lamentar\xE1.\r\n"
+      BadText: 'No lo creo. Siempre hay alguien que intenta algo.
+
+'
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "No dudo de la determinaci\xF3n de Fermentia."
+      BadText: "Bueno\u2026 solo espero que no sea nada."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Nadie deber\xEDa dudarlo! Quiero un (bebida), gracias!"
+      BadText: " No s\xE9 si me gusta c\xF3mo piensas, aun eso, quiero un (bebida)
+        por favor."
+      Estatus: 2
+      Emisor: 0
+    - GoodText: 
+      BadText: 
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "Tu bar es diferente a los otros\u2026\r\n"
+      BadText: "Tu bar es diferente a los otros\u2026\r\n"
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "\xBFPara bien o para mal?\r\n"
+      BadText: "\xBFPara bien o para mal?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9 a\xFAn. Hay algo\u2026 raro en el ambiente.\r\n"
+      BadText: "No lo s\xE9 a\xFAn. Hay algo\u2026 raro en el ambiente.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFC\xF3mo raro?\r\n"
+      BadText: "\xBFC\xF3mo raro?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No s\xE9\u2026 Pero los dem\xE1s tambi\xE9n lo sienten."
+      BadText: "No s\xE9\u2026 Pero los dem\xE1s tambi\xE9n lo sienten."
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "no est\xE1n acostumbrados a algo nuevo."
+      BadText: temen lo que no entienden?
+      Estatus: 0
+      Emisor: 1
+    - GoodText: 'Tal vez. No solemos ver bares nuevos.
+
+'
+      BadText: "\xBFTemer? No, solo desconfiamos.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Dale tiempo. Pronto ser\xE1 parte del pueblo."
+      BadText: "No hay nada de qu\xE9 desconfiar."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Veremos\u2026 Por ahora, me quedo con la bebida.\r\n"
+      BadText: "Eso lo dir\xE1s t\xFA\u2026 pero yo tengo mis dudas.\r\n"
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
+  - Generic: 1
+    Lines:
+    - GoodText: Dame un (bebida)!
+      BadText: Dame un (bebida)!
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "A veces sue\xF1o con Fermentia en llamas\u2026\r\n"
+      BadText: "A veces sue\xF1o con Fermentia en llamas\u2026\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFQu\xE9? \xBFPor qu\xE9 dir\xEDas algo as\xED?\r\n"
+      BadText: "\xBFQu\xE9? \xBFPor qu\xE9 dir\xEDas algo as\xED?\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No lo s\xE9\u2026 Es un sue\xF1o extra\xF1o. Veo sombras movi\xE9ndose
+        entre las casas\u2026 y escucho gritos.\r\n"
+      BadText: "No lo s\xE9\u2026 Es un sue\xF1o extra\xF1o. Veo sombras movi\xE9ndose
+        entre las casas\u2026 y escucho gritos.\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Eso suena\u2026 perturbador.\r\n"
+      BadText: "Eso suena\u2026 perturbador.\r\n"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Lo es. Pero lo m\xE1s raro es que, en el sue\xF1o\u2026 no siento
+        miedo. Solo vac\xEDo.\r\n"
+      BadText: "Lo es. Pero lo m\xE1s raro es que, en el sue\xF1o\u2026 no siento
+        miedo. Solo vac\xEDo.\r\n"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "solo tu mente jug\xE1ndote trucos. No significa nada."
+      BadText: subconsciente te advierte de algo que no quieres ver.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "S\xED\u2026 Seguro que es solo eso. Un mal sue\xF1o."
+      BadText: "\xBFAdvertirme? \xBFDe qu\xE9?\r\n"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Nada malo pasar\xE1 en Fermentia. Est\xE1n bien protegidos."
+      BadText: "No lo s\xE9\u2026 Tal vez hay algo en Fermentia que no quieres aceptar."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Eso espero\u2026 No quiero que nada le pase a mi hogar."
+      BadText: "\xBFQu\xE9 est\xE1s insinuando?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Nada\u2026 Solo que a veces los sue\xF1os revelan cosas que tememos."
+      BadText: "Entonces no dejes que un sue\xF1o te atormente."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tienes raz\xF3n. No vale la pena preocuparse por algo que no es
+        real."
+      BadText: "No me gusta lo que dices\u2026 "
+      Estatus: 0
+      Emisor: 0
+    WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
@@ -405,7 +680,7 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
---- !u!114 &6352842867911195007
+--- !u!114 &6838881013541849228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

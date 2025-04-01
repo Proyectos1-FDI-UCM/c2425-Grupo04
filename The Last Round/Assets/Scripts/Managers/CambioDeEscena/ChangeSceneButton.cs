@@ -66,7 +66,7 @@ public class ChangeSceneButton : MonoBehaviour
     #region Métodos públicos
     public void ChangeScene()
     {
-        ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
+        ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
     }
     #endregion
     

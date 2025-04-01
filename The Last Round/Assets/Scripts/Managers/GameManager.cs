@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     private float NivelSospechosos = 0;
     private float Dineros = 0;
     private bool[,] DialoguesSaid;
+    private float musicVolume = 100f, sfxVolume = 100f;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
     private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
     #endregion
@@ -161,6 +162,11 @@ public class GameManager : MonoBehaviour
     public UIManager GetUI()
     {
         return UIManager;
+    }
+
+    public void GiveTimerToUIC(string time)
+    {
+        UIManagerCombate.Timer(time);
     }
     public UIManager_Combate GetUIC()
     {
@@ -390,6 +396,26 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
     } // ChangeScene
+
+    public void SetMusicVolume(float value)
+    {
+        musicVolume = value;
+    }
+
+    public void SetSfxVolume(float value)
+    {
+        sfxVolume = value;
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+
+    public float GetSfxVolume()
+    {
+        return sfxVolume;
+    }
 
     #endregion
 
