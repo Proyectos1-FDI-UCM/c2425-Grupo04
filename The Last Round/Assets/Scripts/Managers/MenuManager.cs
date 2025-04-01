@@ -1,5 +1,5 @@
 //---------------------------------------------------------
-// Se encarga de manejar los menus de pausa
+// Maneja los metodos que requieren los botones del menu principal
 // Aryan Guerrero Iruela
 // The Last Round
 // Proyectos 1 - Curso 2024-25
@@ -7,14 +7,13 @@
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
-using UnityEngine.UI;
-using TMPro;
+
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class PauseManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,12 +22,7 @@ public class PauseManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField]
-    private TextMeshProUGUI PauseTitle;
-    [SerializeField]
-    private Slider musicSlider, sfxSlider;
-    [SerializeField]
-    private GameObject PauseMenu;
+
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -55,9 +49,7 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //Pone el valor de los sliders al volumen que está en el gameManager
-        musicSlider.value = GameManager.Instance.GetMusicVolume();
-        sfxSlider.value = GameManager.Instance.GetSfxVolume();
+        
     }
 
     /// <summary>
@@ -66,18 +58,6 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         
-        if (InputManager.Instance.PauseWasPressedThisFrame())
-        {
-            if (PauseMenu.activeSelf)
-            {
-                ClosePauseMenu(PauseMenu);
-            }
-            else
-            {
-                OpenPauseMenu(PauseMenu);
-                Time.timeScale = 0f;
-            }
-        }
     }
     #endregion
 
@@ -89,39 +69,19 @@ public class PauseManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    //Se abre el menu que se asigna desde el boton que llama al metodo
-    public void OpenPauseMenu(GameObject menuToOpen)
+    public void StartGame()
     {
-        menuToOpen.SetActive(true);
+        GameManager.Instance.ChangeScene(1);
     }
 
-    //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
-    public void ClosePauseMenu(GameObject menuToClose)
+    public void Exit()
     {
-        menuToClose.SetActive(false);
-        if(menuToClose == PauseMenu)
-        {
-            Time.timeScale = 1f;
-        }
-    }
-
-    //Carga la escena del menu
-    public void GoToMenu()
-    {
-        GameManager.Instance.ChangeScene(0);
-        Time.timeScale = 1f;
-    }
-
-    //Le da el volumen al gameManager
-    public void MusicVolume()
-    {
-        GameManager.Instance.SetMusicVolume(musicSlider.value);
-        
-    }
-
-    public void SfxVolume()
-    {
-        GameManager.Instance.SetSfxVolume(sfxSlider.value);
+#if UNITY_STANDALONE
+            Application.Quit();
+#endif
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 
     #endregion
@@ -135,5 +95,5 @@ public class PauseManager : MonoBehaviour
 
     #endregion   
 
-} // class PauseManager 
+} // class MenuManager 
 // namespace

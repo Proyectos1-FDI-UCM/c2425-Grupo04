@@ -285,7 +285,7 @@ namespace UnityEngine.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1bdd7175-841b-4176-b124-b1b4055f43ba"",
+                    ""id"": ""36d28cb0-50f2-495d-b896-b082c907b40b"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",

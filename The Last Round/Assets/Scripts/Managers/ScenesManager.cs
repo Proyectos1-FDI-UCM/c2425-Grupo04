@@ -111,6 +111,7 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(7);
     }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
