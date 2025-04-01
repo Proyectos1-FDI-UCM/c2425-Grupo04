@@ -69,6 +69,7 @@ public class InputManager : MonoBehaviour
     private InputAction _interact;
     private InputAction _dash;
     private InputAction _changeWeapon;
+    private InputAction _pause;
 
     #endregion
 
@@ -210,6 +211,11 @@ public class InputManager : MonoBehaviour
     {
         return _changeWeapon.WasPressedThisFrame();
     }
+    public bool PauseWasPressedThisFrame()
+    {
+        return _pause.WasPressedThisFrame();
+    }
+
     // ---- MÉTODOS PRIVADOS ----
 
     #region Métodos Privados
@@ -238,6 +244,7 @@ public class InputManager : MonoBehaviour
         _interact = _theController.Player.Interact;
         _dash = _theController.Player.Dash;
         _changeWeapon = _theController.Player.ChangeWeapon;
+        _pause = _theController.Player.Pause;
     }
 
     /// <summary>
