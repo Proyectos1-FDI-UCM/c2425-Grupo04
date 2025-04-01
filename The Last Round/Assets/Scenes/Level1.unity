@@ -2815,6 +2815,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1055602424}
+    - target: {fileID: 1255664688118225615, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 142501303}
     - target: {fileID: 1258613417336747260, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
       propertyPath: m_fontAsset
       value: 

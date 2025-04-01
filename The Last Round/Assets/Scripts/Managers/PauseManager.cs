@@ -92,22 +92,17 @@ public class PauseManager : MonoBehaviour
     //Se abre el menu que se asigna desde el boton que llama al metodo
     public void OpenPauseMenu(GameObject menuToOpen)
     {
-        //menuToOpen.SetActive(true);
-
-        PauseMenu.SetActive(true);
+        menuToOpen.SetActive(true);
     }
 
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
     public void ClosePauseMenu(GameObject menuToClose)
     {
-        //menuToClose.SetActive(false);
-        //if (menuToClose == PauseMenu)
-        //{
-        //    Time.timeScale = 1f;
-        //}
-
-        PauseMenu.SetActive(false);
-        Time.timeScale = 1f;
+        menuToClose.SetActive(false);
+        if (menuToClose == PauseMenu)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     //Carga la escena del menu
