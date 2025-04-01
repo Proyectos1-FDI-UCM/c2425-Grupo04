@@ -166,7 +166,7 @@ public class UIManager : MonoBehaviour
 
                     if (!IfHavefalse)
                         GameManager.Instance.increaseSospechosos(-2);
-                    ScenesManager.sceneManagerInstance.NextScene(SceneManager.GetActiveScene().buildIndex);
+                    ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }
         }

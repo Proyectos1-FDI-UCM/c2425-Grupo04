@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using TMPro;
 // Añadir aquí el resto de directivas using
 
 
@@ -18,12 +19,15 @@ public class UIManager_Combate : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] TextMeshProUGUI timer;
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    Health playerHealth;
+    private Health playerHealth;
+    private string time;
+    private Timer timerScript;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -59,6 +63,10 @@ public class UIManager_Combate : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
+    public void Timer(string time)
+    {
+        timer.text = time;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

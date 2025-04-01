@@ -37,7 +37,7 @@ public class ScenesManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
 
-    public static ScenesManager sceneManagerInstance { get; private set; }
+    public static ScenesManager Instance { get; private set; }
 
     #endregion
 
@@ -55,14 +55,14 @@ public class ScenesManager : MonoBehaviour
 
     private void Awake()
     {
-        if (sceneManagerInstance != null && sceneManagerInstance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
         {
-            sceneManagerInstance = this;
-            DontDestroyOnLoad(sceneManagerInstance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(Instance.gameObject);
         }
     }
 

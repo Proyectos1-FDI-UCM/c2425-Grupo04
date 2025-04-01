@@ -148,6 +148,11 @@ public class GameManager : MonoBehaviour
     {
         return UIManager;
     }
+
+    public void GiveTimerToUIC(string time)
+    {
+        UIManagerCombate.Timer(time);
+    }
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
