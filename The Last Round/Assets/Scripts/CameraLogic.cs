@@ -23,7 +23,7 @@ public class CameraLogic : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private GameObject player;
-    private float minX = -1, maxX = -1, minY = -1, maxY = -1;
+    private float minX, maxX, minY, maxY;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -32,7 +32,17 @@ public class CameraLogic : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
+    private void Start()
+    {
+        float CameraY = Camera.main.orthographicSize;
+        float CameraX = CameraY * Camera.main.aspect;
 
+        maxY = (GameManager.Instance.GetMapHeight() / 2) - CameraY;
+        minY = -maxY;
+
+        maxX = (GameManager.Instance.GetMapWidth() / 2) - CameraX;
+        minX = -maxX;
+    }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
@@ -43,22 +53,8 @@ public class CameraLogic : MonoBehaviour
             player = GameManager.Instance.GetPlayer();
         }
         if (player != null)
-        {
-            float CameraY = Camera.main.orthographicSize;
-            float CameraX = CameraY * Camera.main.aspect;
-
-            if (minX == -1 || minY == -1 || maxX == -1 || maxY == -1)
-            {
-                maxY = (GameManager.Instance.GetMapHeight() / 2) - CameraY;
-                minY = -maxY;
-
-                maxX = (GameManager.Instance.GetMapWidth() / 2) - CameraX;
-                minX = -maxX;
-
-                
-            }
-
-            Debug.Log($"({minX}, {minY}), ({maxX}, {maxY})");
+        { 
+            //Debug.Log($"({minX}, {minY}), ({maxX}, {maxY})");
             //Debug.Log($"({CameraX}, {CameraY})");
 
             transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, minX, maxX),

@@ -516,6 +516,8 @@ MonoBehaviour:
   ChargeTime: 2
   SprintSpeed: 5
   SprintTime: 2
+  BreakSpeed: 20
+  BreakTime: 0.75
   AttackCube: {fileID: 7995536849386412423}
 --- !u!114 &524050083081553167
 MonoBehaviour:

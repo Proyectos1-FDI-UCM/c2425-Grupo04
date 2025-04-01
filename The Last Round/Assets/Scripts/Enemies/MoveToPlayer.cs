@@ -30,7 +30,7 @@ public class MoveToPlayer : MonoBehaviour
     private CollisionDetector cD;
     private Collider2D ObjectCollider;
     //Los inicializo a -1 para saber cuando no están definidos
-    private float minX = -1, maxX = -1, minY = -1, maxY = -1;
+    private float minX, maxX, minY, maxY;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -44,6 +44,12 @@ public class MoveToPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
+
+        maxX = GameManager.Instance.GetMapWidth() / 2;
+        minX = -maxX;
+
+        maxY = GameManager.Instance.GetMapHeight() / 2;
+        minY = -maxY;
     }
     void Update()
     {
@@ -65,13 +71,7 @@ public class MoveToPlayer : MonoBehaviour
     public Vector3 UpdateVector(GameObject enemy)
     {
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
-        if (minX == -1 || minY == -1 || maxX == -1 || maxY == -1)
-        {
-            maxX = GameManager.Instance.GetMapWidth() / 2;
-            minX = -maxX;
-            maxY = GameManager.Instance.GetMapHeight() / 2;
-            minY = -maxY;
-        }
+
         posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
         posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
         posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);

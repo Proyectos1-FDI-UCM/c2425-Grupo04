@@ -18,24 +18,42 @@ public class ManzarieteMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private float RangeAttack, ChargeTime, SprintSpeed, SprintTime;
+    //Rango de sprint, tiempo de carga del sprint, velocidad del sprint, tiempo que se hace el sprint
+    //, velocidad de frenado y tiempo de frenado
+    [SerializeField] private float RangeAttack, ChargeTime, SprintSpeed, SprintTime, BreakSpeed, BreakTime;
+
+    //Cubo de ataque que se activa solo cuando hace el sprint
     [SerializeField] private GameObject AttackCube;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    //Recogida de componente para mover al objeto
     private MoveToPlayer moveToplayer;
+
+    //Localizar la posición del jugador para hacer el sprint
     private Vector3 EnemyPlayer, LastPlayerPosition;
-    private float timer = -1, Stimer = -1, tmp;
+
+    //Timer de carga y sprint y variable para guardar la velocidad base (para el frenado)
+    private float Ctimer = -1, Stimer = -1, MaxSpeed;
+
+    //Booleanos de estado y condiciones de sprint (estar en rango y no haber una pared de por medio)
     private bool IsCharging = false,
                  IsSprinting = false,
                  InRange = false,
                  IsThereWall = false;
+
+    //El cuerpo se utiliza para mover al objeto
     private Rigidbody2D rb;
+
+    //Detector que gestiona las colisiones
     private CollisionDetector cD;
-    private GameObject recurso;
+
+    //Se ajusta el collider para saber si hay un objeto entre el jugador y el enemigo
     private Collider2D ObjectCollider;
-    private float minX = -1, maxX = -1, minY = -1, maxY = -1;
+
+    //Límites de movimiento
+    private float minX, maxX, minY, maxY;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,17 +63,18 @@ public class ManzarieteMovement : MonoBehaviour
         AttackCube.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
-        tmp = SprintSpeed;
+        MaxSpeed = SprintSpeed;
         cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
+
+        maxX = GameManager.Instance.GetMapWidth() / 2;
+        minX = -maxX;
+        maxY = GameManager.Instance.GetMapHeight() / 2;
+        minY = -maxY;
     }
     private void FixedUpdate()
     {
         EnemyPlayer = moveToplayer.UpdateVector(gameObject);
-
-        //Vector Jugador -> Enemigo sin retoques de colision
-        Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x-transform.position.x,
-                                  GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
 
         IsThereWall = GetComponentInChildren<FollowPlayer>().GetWall(); //Se comprueba si hay o no una paredentre el jugador y el enemigo
 
@@ -78,100 +97,30 @@ public class ManzarieteMovement : MonoBehaviour
 
         //Ajustar el CapsuleCollider para que siga al jugador, mas adelante en el OnTrigger se comprobará qué hay en ese camino hasta el jugador
 
+        //Si está en rango, no está cargando ni sprintando y no hay una pared de por medio, empiezaa cargar
         if (InRange && !IsCharging && !IsSprinting && !IsThereWall)
         {
             IsCharging = true;
-            timer = ChargeTime;
+            Ctimer = ChargeTime;
         }
-        else if (IsCharging)
+
+        //Si está cargando realiza el movimiento de carga
+        if (IsCharging)
         {
-            if (timer <= 0)
-            {
-                if (tmp1.x != 0 && tmp1.y != 0 && tmp1.x * tmp1.x +
-                                                                tmp1.y * tmp1.y != 0)
-                    LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x +
-                                              tmp1.y * tmp1.y);
-
-                else if (tmp1.x != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x);
-
-                else if (tmp1.y != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.y * tmp1.y);
-
-                IsCharging = false;
-                AttackCube.SetActive(true);
-                IsSprinting = true;
-                Stimer = SprintTime;
-            }
+            Charge();
         }
+        //En cambio si está sprintando realiza el movimiento de sprint
         else if (IsSprinting)
         {
-            if (Stimer > 0)
-            {
-                //Excluir las colisiones de Enemigos y Jugador (atravesarlos)
-                rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
-
-                //Reseteamos las colisiones con las capas excluidas anteriormente
-                GetComponent<CollisionDetector>().ResetLayer(6 /*Player*/);
-                GetComponent<CollisionDetector>().ResetLayer(10 /*Enemy*/);
-
-                // -Sensación de rebote- durante movimiento
-                //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
-
-                Vector3 posMinX, posMinY, posMaxX, posMaxY;
-
-                if (minX == -1 || minY == -1 || maxX == -1 || maxY == -1)
-                {
-                    maxX = GameManager.Instance.GetMapWidth() / 2;
-                    minX = -maxX;
-                    maxY = GameManager.Instance.GetMapHeight() / 2;
-                    minY = -maxY;
-                }
-
-                posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-                posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-                posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
-                posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
-
-                if ((cD.GetCollisions(Directions.East) && LastPlayerPosition.x > 0) ||
-                    (cD.GetCollisions(Directions.West) && LastPlayerPosition.x < 0) ||
-                    (LastPlayerPosition.x < 0 && posMinX.x <= minX) ||
-                    (LastPlayerPosition.x > 0 && posMaxX.x >= maxX))
-                {
-                    LastPlayerPosition.x *= -1;
-                }
-
-                //Si colisiona en las zonas encima o debajo solo invierte el eje y
-                if ((cD.GetCollisions(Directions.North) && LastPlayerPosition.y > 0) ||
-                    (cD.GetCollisions(Directions.South) && LastPlayerPosition.y < 0) ||
-                    (LastPlayerPosition.y < 0 && posMinY.y <= minY) ||
-                    (LastPlayerPosition.y > 0 && posMaxY.y >= maxY))
-                {
-                    LastPlayerPosition.y *= -1;
-                }
-
-                //movimiento
-                rb.velocity = LastPlayerPosition * SprintSpeed;
-
-                //Frenado final
-                if (Stimer < SprintTime / 3.5f && SprintSpeed > tmp / 20)
-                {
-                    SprintSpeed -= tmp / 20;
-                }
-            }
-            else
-            {
-                rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
-                rb.velocity = Vector3.zero;
-                IsSprinting = false;
-                AttackCube.SetActive(false);
-                SprintSpeed = tmp;
-            }
+            Sprint();
         }
+        //En caso contrario simplemente anda hacia el jugador
         else
         {
             moveToplayer.Move(gameObject);
         }
 
-        timer -= Time.deltaTime;
+        Ctimer -= Time.deltaTime;
         Stimer -= Time.deltaTime;
     }
     #endregion
@@ -195,6 +144,92 @@ public class ManzarieteMovement : MonoBehaviour
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
 
+    /// <summary>
+    /// Método encargado de realizar el sprint
+    /// </summary>
+    private void Sprint()
+    {
+        if (Stimer > 0)
+        {
+            //Excluir las colisiones de Enemigos y Jugador (atravesarlos)
+            rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
+
+            //Reseteamos las colisiones con las capas excluidas anteriormente
+            GetComponent<CollisionDetector>().ResetLayer(6 /*Player*/);
+            GetComponent<CollisionDetector>().ResetLayer(10 /*Enemy*/);
+
+            // -Sensación de rebote- durante movimiento
+            //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
+
+            Vector3 posMinX, posMinY, posMaxX, posMaxY;
+
+            posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+            posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+            posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+            posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+
+            if ((cD.GetCollisions(Directions.East) && LastPlayerPosition.x > 0) ||
+                (cD.GetCollisions(Directions.West) && LastPlayerPosition.x < 0) ||
+                (LastPlayerPosition.x < 0 && posMinX.x <= minX) ||
+                (LastPlayerPosition.x > 0 && posMaxX.x >= maxX))
+            {
+                LastPlayerPosition.x *= -1;
+            }
+
+            //Si colisiona en las zonas encima o debajo solo invierte el eje y
+            if ((cD.GetCollisions(Directions.North) && LastPlayerPosition.y > 0) ||
+                (cD.GetCollisions(Directions.South) && LastPlayerPosition.y < 0) ||
+                (LastPlayerPosition.y < 0 && posMinY.y <= minY) ||
+                (LastPlayerPosition.y > 0 && posMaxY.y >= maxY))
+            {
+                LastPlayerPosition.y *= -1;
+            }
+
+            //movimiento
+            rb.velocity = LastPlayerPosition * SprintSpeed;
+
+            //Frenado final
+            if (Stimer <= BreakTime && SprintSpeed > MaxSpeed / BreakSpeed)
+            {
+                SprintSpeed -= MaxSpeed / BreakSpeed;
+            }
+        }
+        else
+        {
+            rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
+            rb.velocity = Vector3.zero;
+            IsSprinting = false;
+            AttackCube.SetActive(false);
+            SprintSpeed = MaxSpeed;
+        }
+    }//Sprint
+
+    /// <summary>
+    /// Método encargado de cargar el sprint
+    /// </summary>
+    private void Charge()
+    {
+        //Vector (Jugador -> Enemigo) sin retoques de colision
+        Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x - transform.position.x,
+                                  GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
+
+        if (Ctimer <= 0)
+        {
+            if (tmp1.x != 0 && tmp1.y != 0 && tmp1.x * tmp1.x +
+                                                            tmp1.y * tmp1.y != 0)
+                LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x +
+                                          tmp1.y * tmp1.y);
+
+            else if (tmp1.x != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x);
+
+            else if (tmp1.y != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.y * tmp1.y);
+
+            IsCharging = false;
+            AttackCube.SetActive(true);
+            IsSprinting = true;
+            Stimer = SprintTime;
+        }
+    }//Charge
     #endregion
 
 } // class ManzarieteMovement 
