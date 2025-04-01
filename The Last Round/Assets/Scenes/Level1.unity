@@ -1390,6 +1390,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1617894895646996473, guid: 78ac0cdccb6bfc64e9d1894b1f4af4a9, type: 3}
+      propertyPath: time
+      value: 121
+      objectReference: {fileID: 0}
     - target: {fileID: 1082206690745158417, guid: 78ac0cdccb6bfc64e9d1894b1f4af4a9, type: 3}
       propertyPath: m_Name
       value: TimeManager
@@ -2215,8 +2219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: 180}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 339.3571, y: 180.65141}
+  m_SizeDelta: {x: 62.133, y: 50.8924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1454504165
 MonoBehaviour:
@@ -2238,7 +2242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 0:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
   m_sharedMaterial: {fileID: -1123115067090960245, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
@@ -2272,8 +2276,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

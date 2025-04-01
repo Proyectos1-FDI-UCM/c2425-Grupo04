@@ -45,6 +45,7 @@ public class Timer : MonoBehaviour
         if(time <= 0)
         {
             GameManager.Instance.ChangeScene(2);
+            GameManager.Instance.increaseSospechosos(2);
         }
         GameManager.Instance.GiveTimerToUIC(TimerText());
     }
@@ -68,17 +69,9 @@ public class Timer : MonoBehaviour
         int segundos = (int) time % 60;
         string stringTime = "00:00";
 
-        if (segundos < 10 && minutos < 10)
-        {
-            stringTime = $"0{minutos}:0{segundos}";
-        }
-        else if (segundos < 10 && minutos >= 10)
+        if (segundos < 10)
         {
             stringTime = $"{minutos}:0{segundos}";
-        }
-        else if (segundos >= 10 && minutos < 10)
-        {
-            stringTime = $"0{minutos}:{segundos}";
         }
         else
         {
