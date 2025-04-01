@@ -5,9 +5,18 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System;
 using UnityEngine;
 
-
+/// <summary>
+/// Contiene la cantidad total de un enemigo en una partida
+/// </summary>
+[System.Serializable]
+struct NumEnemy
+{
+    public EnemyType Enemy;
+    public int amount;
+}
 /// <summary>
 /// Componente responsable de la gestión global del juego. Es un singleton
 /// que orquesta el funcionamiento general de la aplicación,
@@ -24,11 +33,9 @@ public class GameManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
+    [SerializeField] private int SourceTypes;
     [Header("Número de enemigos")]
-    [SerializeField] private int Uvoncio;
-    [SerializeField] private int Manzurria;
-    [SerializeField] private int Grapenade;
-    [SerializeField] private int Manzariete;
+    [SerializeField] private NumEnemy[] Enemies;
     [SerializeField, Range(0, 1)] int Alcalde;
     [Header("Límites")]
     [SerializeField] private float MapWidth;
@@ -49,17 +56,8 @@ public class GameManager : MonoBehaviour
     private UIManagerUpgrades UIManagerUpgrades;
     private static GameManager _instance;
     private GameObject Player;
-    private float[] recursos = new float[8];
-    private int[] numEnemigos = new int[5];
-
-    //0 = Jugo de Uva       //3 = Jugo de manzana
-    //1 = Piel de Uva       //4 = Piel de manzana
-    //2 = Semilla de Uva    //5 = Semilla manzana
-    //6 = Hielo             //7 = Levadura
-
-    //0 = Uvoncio           //1 = Manzurria
-    //2 = Grapenade         //3 = Manzariete
-
+    private float[] recursos;
+    private int[] numEnemigos;
     private float NivelSospechosos = 0;
     private float Dineros = 0;
 
@@ -105,6 +103,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             Init();
         } // if-else somos instancia nueva o no.
+          
+        numEnemigos = new int[Enemies.Length];
+        ResetEnemyCounter();
     }
 
     /// <summary>
@@ -120,9 +121,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        ResetEnemyCounter();
-
-
+        
+        recursos = new float[SourceTypes];
     }
 
     private void Update()
@@ -214,7 +214,6 @@ public class GameManager : MonoBehaviour
                 NivelSospechosos = 0;
             else
                 NivelSospechosos += i;
-
         }
         return NivelSospechosos;
     }
@@ -260,7 +259,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void MataEnemigo(EnemyType enemy)
     {
-        numEnemigos[(int)enemy] -= 1;
+        if (numEnemigos[(int)enemy] - 1 >= 0)
+        {
+            numEnemigos[(int)enemy]--;
+        }   
 
         //Cada vez que un enemigo muere, se refrescan las colisiones
         CollisionDetector[] objets = FindObjectsOfType<CollisionDetector>();
@@ -279,10 +281,11 @@ public class GameManager : MonoBehaviour
 
     public void ResetEnemyCounter()
     {
-        numEnemigos[0] = Uvoncio;
-        numEnemigos[1] = Manzurria;
-        numEnemigos[2] = Grapenade;
-        numEnemigos[3] = Manzariete;
+        //Rellena el array numEnemigos en el orden del enum EnemyType con el número de ese enemigo en partida
+        for (int i = 0; i < Enemies.Length; i++)
+        {
+            numEnemigos[(int)Enemies[i].Enemy] = Enemies[i].amount;
+        }
     }
 
     /// <summary>
