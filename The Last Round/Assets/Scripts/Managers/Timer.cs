@@ -20,28 +20,31 @@ public class Timer : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] float time = 120f;
-
+    [SerializeField] GameObject gameOverUI;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        time -= Time.deltaTime;
+        if (!gameOverUI.activeSelf)
+        {
+            time -= Time.deltaTime;
+        }
         if(time <= 0)
         {
             GameManager.Instance.ChangeScene(2);
