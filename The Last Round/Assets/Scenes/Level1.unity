@@ -1100,8 +1100,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
-      propertyPath: Enemies.Array.data[4].amount
+      propertyPath: Enemies.Array.data[2].amount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[4].amount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2026,7 +2030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2304853324603788476, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: Life
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2884948545175631526, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: miau
@@ -2442,6 +2446,10 @@ PrefabInstance:
     - target: {fileID: 6236119379040924411, guid: f08d3972192a5854aaf323453309ff68, type: 3}
       propertyPath: m_Name
       value: GAME OVER
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236119379040924411, guid: f08d3972192a5854aaf323453309ff68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

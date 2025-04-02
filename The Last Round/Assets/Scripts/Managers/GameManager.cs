@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     private GameObject Player;
     private float[] recursos;
     private int[] numEnemigos;
-    private float NivelSospechosos = 7;
+    private float NivelSospechosos = 0;
     private float Dineros = 0;
     private bool[,] DialoguesSaid;
     private float musicVolume = 100f, sfxVolume = 100f;
@@ -147,9 +147,9 @@ public class GameManager : MonoBehaviour
         // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
 
-        if (NivelSospechosos >= 8)
+        if (NivelSospechosos >= 8&&UIManager!=null)
         {
-            GameManager.Instance.GetUIC().GetComponent<UIManager_Combate>().GameOverUI();
+            GameManager.Instance.GetUI().GetComponent<UIManager>().GameOverUI();
         }
     }
     
