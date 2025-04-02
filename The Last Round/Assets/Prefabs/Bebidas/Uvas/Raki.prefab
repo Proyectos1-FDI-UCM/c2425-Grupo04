@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Drink:
-    name: 9
-    materials:
-    - material: {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
-      amount: 10
-    - material: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
-      amount: 10
-    reward: 2
-    type: 1
+    Name: 9
+    Materials:
+    - Material: {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
+      Amount: 10
+    - Material: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
+      Amount: 10
+    Reward: 2
+    Type: 1

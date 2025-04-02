@@ -154,18 +154,21 @@ public class UIManager : MonoBehaviour
             ClientC.r = Mathf.Clamp(ClientC.r - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.g = Mathf.Clamp(ClientC.g - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.b = Mathf.Clamp(ClientC.b - Time.deltaTime * DisappearSpeed, 0, 255);
+            ClientC.a = Mathf.Clamp(ClientC.a - Time.deltaTime * DisappearSpeed, 0, 255);
 
             if (Client != null)
             {
                 Client.color = ClientC / 255;
                 //Debug.Log($"R: {ClientC.r}     G:{ClientC.g}     B:{ClientC.b}");
                 //Debug.Log($"R: {Client.color.r}     G:{Client.color.g}     B:{Client.color.b}");
-                if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0)
+                if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0 && Client.color.a == 0)
                 {
                     Destroy(Client.gameObject);
 
                     if (!IfHavefalse)
+                    {
                         GameManager.Instance.increaseSospechosos(-2);
+                    }   
                     ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }

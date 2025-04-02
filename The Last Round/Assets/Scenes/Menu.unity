@@ -1361,6 +1361,66 @@ PrefabInstance:
       propertyPath: MapHeight
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: SourceTypes
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Clientes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Clientes.Array.data[0]
+      value: 
+      objectReference: {fileID: 6055525616243255898, guid: 9e6419096f3b0bf4b9c541fc5bc26f18, type: 3}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Clientes.Array.data[1]
+      value: 
+      objectReference: {fileID: 6070363422668539935, guid: 608d35aa623436f45a05ecad6e87fddd, type: 3}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Clientes.Array.data[2]
+      value: 
+      objectReference: {fileID: 772254827288310451, guid: 50d9e6d5b84799e44ba9f315deffe60b, type: 3}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Clientes.Array.data[3]
+      value: 
+      objectReference: {fileID: 8656400201521462712, guid: 59e5747075bc6264db881fd45d331952, type: 3}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Clientes.Array.data[4]
+      value: 
+      objectReference: {fileID: 1562574269909345304, guid: d89e331252b2cb84d865824203e80974, type: 3}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[0].Enemy
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[1].Enemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[3].Enemy
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[4].Enemy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[2].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[3].amount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: Enemies.Array.data[4].amount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

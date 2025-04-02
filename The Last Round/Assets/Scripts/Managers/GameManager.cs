@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
-    [SerializeField, Range(0, 1)] int Alcalde;
 
     [Header("Límites")]
     [SerializeField] private float MapWidth;

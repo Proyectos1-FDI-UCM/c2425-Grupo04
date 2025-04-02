@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Drink:
-    name: 7
-    materials:
-    - material: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
-      amount: 10
-    reward: 2
-    type: 1
+    Name: 7
+    Materials:
+    - Material: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
+      Amount: 10
+    Reward: 2
+    Type: 1

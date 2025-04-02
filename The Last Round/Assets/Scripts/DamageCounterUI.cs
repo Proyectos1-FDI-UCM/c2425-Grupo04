@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 // Añadir aquí el resto de directivas using
 
@@ -15,7 +14,7 @@ using TMPro;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class ContadorDañoUI : MonoBehaviour
+public class DamageCounterUI : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -56,9 +55,11 @@ public class ContadorDañoUI : MonoBehaviour
         contadorText.color = color;
 
         transform.position += new Vector3(0, Time.deltaTime*velocidad, 0);
-
-       if (color.a <= 0f) Destroy(this.transform.parent.transform.parent.gameObject);//NO VSE PUEDE DESTRUIR EL TRANSFORM. SE HA DE DESTRUIR EL OBJETO. Elimina objeto de texto al hacerse completamente invisible
-
+        //Elimina objeto de texto al hacerse completamente invisible
+        if (color.a <= 0f)
+        {
+            Destroy(this.transform.parent.transform.parent.gameObject);
+        }
     }
     #endregion
 
