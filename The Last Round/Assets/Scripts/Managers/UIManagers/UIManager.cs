@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
+    [SerializeField] GameObject gameOverUI;
 
     [SerializeField]
     private float TypeSpeed;
@@ -598,6 +599,13 @@ public class UIManager : MonoBehaviour
         material3Image.color = invisible;
         //Escribe siguiente dialogo
         SkipButton();
+        
+    }
+    public void GameOverUI()
+    {
+        //Activa la UI de GameOver si el jugador pierde
+
+        gameOverUI.SetActive(true);
     }
 
     #endregion //termina región de bartender

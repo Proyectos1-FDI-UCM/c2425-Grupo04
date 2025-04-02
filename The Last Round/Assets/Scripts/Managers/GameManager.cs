@@ -145,7 +145,13 @@ public class GameManager : MonoBehaviour
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
         // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
+
+        if (NivelSospechosos >= 8&&UIManager!=null)
+        {
+            GameManager.Instance.GetUI().GetComponent<UIManager>().GameOverUI();
+        }
     }
+    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
