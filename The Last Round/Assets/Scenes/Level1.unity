@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_text: 0:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
-  m_sharedMaterial: {fileID: -1123115067090960245, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
+  m_sharedMaterial: {fileID: -2932597816192430570, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2030,7 +2030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2304853324603788476, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: Life
-      value: 200
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2884948545175631526, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: miau
