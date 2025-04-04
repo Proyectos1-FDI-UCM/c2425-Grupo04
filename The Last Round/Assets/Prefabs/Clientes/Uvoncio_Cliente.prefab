@@ -321,15 +321,7 @@ MonoBehaviour:
       BadText: Bueno, ponme un (bebida).
       Estatus: 2
       Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
       BadText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
@@ -386,11 +378,7 @@ MonoBehaviour:
       BadText: Vamos, dame (bebida) para beber.
       Estatus: 2
       Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "\xDAltimamente, el pueblo est\xE1 inquieto. Dicen que alguien nos
         est\xE1 acechando."
@@ -451,7 +439,7 @@ MonoBehaviour:
       BadText: si, necesito un (bebida).
       Estatus: 2
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Nuestro alcalde siempre dice que Fermentia es un lugar especial.
         Que nadie podr\xE1 con nosotros."
@@ -507,11 +495,7 @@ MonoBehaviour:
       BadText: " Hmph\u2026 No me gusta ese pensamiento. Bueno, quiero un (bebida).\r\n"
       Estatus: 2
       Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
       BadText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
@@ -564,7 +548,7 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Tu bar es diferente a los otros\u2026\n"
       BadText: "Tu bar es diferente a los otros\u2026\r\n"
@@ -604,7 +588,7 @@ MonoBehaviour:
       BadText: "Eso lo dir\xE1s t\xFA\u2026 pero yo tengo mis dudas.\r\n"
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: Dame un (bebida)!
       BadText: Dame un (bebida)!
@@ -659,7 +643,7 @@ MonoBehaviour:
       BadText: "No me gusta lo que dices\u2026 "
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Este pueblo\u2026 Est\xE1 lleno de gente con historias. Algunas
         terminan bien\u2026 otras "
@@ -719,7 +703,7 @@ MonoBehaviour:
       BadText: Dame un (bebida) .
       Estatus: 2
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Buenos d\xEDas! Me gustar\xEDa tener un (bebida) mi bartender."
       BadText: "Buenos d\xEDas! Me gustar\xEDa tener un (bebida) mi bartender."
@@ -776,7 +760,7 @@ MonoBehaviour:
       BadText: "Ten cuidado con tus palabras, o podr\xEDas ser parte de esa purga.\r\n"
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: 'Hay algo en la verdad que hace que muchos la eviten.
 
@@ -843,7 +827,7 @@ MonoBehaviour:
       BadText: Emm, un (bebida) ,gracias!
       Estatus: 2
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: Un (bebida) gracias.
       BadText: Un (bebida) gracias.
@@ -905,7 +889,7 @@ MonoBehaviour:
 '
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Buneos d\xEDas, un (bebida) ,gracias!"
       BadText: "Buneos d\xEDas, un (bebida) ,gracias!"
@@ -967,7 +951,7 @@ MonoBehaviour:
 '
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: " \"\xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
         Siempre est\xE1n a la defensiva.\""
@@ -1005,7 +989,7 @@ MonoBehaviour:
       BadText: Tal vez... Dame algo fuerte,un (bebida) porfa.
       Estatus: 2
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "He escuchado rumores sobre ti, Ori\xF3n. Dicen que no eres de aqu\xED."
       BadText: "He escuchado rumores sobre ti, Ori\xF3n. Dicen que no eres de aqu\xED."
@@ -1038,7 +1022,7 @@ MonoBehaviour:
       BadText: "Adem\xE1s de esto,dame una copa de (bebida)."
       Estatus: 2
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: .............
       BadText: .............
@@ -1096,7 +1080,7 @@ MonoBehaviour:
       BadText: Un (bebida)..
       Estatus: 2
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: Hey, un (bebida) porfa!
       BadText: Hey, un (bebida) porfa!
@@ -1146,7 +1130,7 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: Hello ,un (bebida) gracias.
       BadText: Hello ,un (bebida) gracias.
