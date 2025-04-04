@@ -203,11 +203,11 @@ MonoBehaviour:
       BadText: "No s\xE9\u2026 Algo en ti no me cuadra.\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: Bueno, te pongo (bebida)?
-      BadText: 'Bueno, quieres un (bebida)?
+    - GoodText: Bueno,dame un (bebida).
+      BadText: 'Bueno, quiero un (bebida).
 
 '
-      Estatus: 0
+      Estatus: 2
       Emisor: 0
   - Generic: 1
     Lines:
@@ -266,7 +266,7 @@ MonoBehaviour:
       BadText: "Hmm\u2026 No s\xE9\u2026"
       Estatus: 0
       Emisor: 0
-  - Generic: 1
+  - Generic: 0
     Lines:
     - GoodText: "Hoy vi a unos Grapenades en el pueblo. Siempre parecen tan serios\u2026\r\n"
       BadText: "Hoy vi a unos Grapenades en el pueblo. Siempre parecen tan serios\u2026\r\n"
@@ -544,12 +544,12 @@ MonoBehaviour:
         por favor."
       Estatus: 2
       Emisor: 0
-    - GoodText: 
-      BadText: 
-      Estatus: 0
-      Emisor: 0
   - Generic: 0
     Lines:
+    - GoodText: Buenas, un (bebida) porfa.
+      BadText: Buenas, un (bebida) porfa.
+      Estatus: 2
+      Emisor: 0
     - GoodText: "Tu bar es diferente a los otros\u2026\n"
       BadText: "Tu bar es diferente a los otros\u2026\r\n"
       Estatus: 2
@@ -588,7 +588,7 @@ MonoBehaviour:
       BadText: "Eso lo dir\xE1s t\xFA\u2026 pero yo tengo mis dudas.\r\n"
       Estatus: 0
       Emisor: 0
-  - Generic: 0
+  - Generic: 1
     Lines:
     - GoodText: Dame un (bebida)!
       BadText: Dame un (bebida)!
@@ -953,10 +953,10 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: " \"\xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
-        Siempre est\xE1n a la defensiva.\""
-      BadText: " \"\xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
-        Siempre est\xE1n a la defensiva.\""
+    - GoodText: " \xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
+        Siempre est\xE1n a la defensiva."
+      BadText: " \xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
+        Siempre est\xE1n a la defensiva."
       Estatus: 0
       Emisor: 0
     - GoodText: " \xBFY los Manzarietes?\r\n"
@@ -1018,6 +1018,10 @@ MonoBehaviour:
       BadText: "Solo digo que mi origen no deber\xEDa importar."
       Estatus: 0
       Emisor: 1
+    - GoodText: Me gusta esa actitud. Salud por un bartender confiable.
+      BadText: "Hmm\u2026 A veces s\xED importa. Y aqu\xED no nos gustan los secretos."
+      Estatus: 0
+      Emisor: 0
     - GoodText: "Adem\xE1s de esto,dame una copa de (bebida)."
       BadText: "Adem\xE1s de esto,dame una copa de (bebida)."
       Estatus: 2
