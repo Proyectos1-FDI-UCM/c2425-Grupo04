@@ -358,6 +358,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1085765543050600987, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7992104292323869361, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_Name
       value: Manzariete
@@ -367,12 +371,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7950897
+      value: 4.501
       objectReference: {fileID: 0}
     - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8622095
+      value: 0.685
       objectReference: {fileID: 0}
     - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -405,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138933576077900459, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6795723949517624898, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
@@ -1093,23 +1113,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Enemies.Array.data[0].amount
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Enemies.Array.data[1].amount
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Enemies.Array.data[2].amount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Enemies.Array.data[3].amount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Enemies.Array.data[4].amount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
