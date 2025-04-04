@@ -126,12 +126,12 @@ MonoBehaviour:
         tirado.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: duro, pero gratificante.
+    - GoodText: Duro, pero gratificante.
       BadText: "\xBFNo te aburre?"
       Estatus: 0
       Emisor: 1
     - GoodText: "\xA1Exacto! Ver crecer las uvas es especial. Es un arte."
-      BadText: "\xBFAburrido? \xA1Esto es tradici\xF3n!\r\n"
+      BadText: "\xBFAburrido? \xA1Esto es tradici\xF3n!\r"
       Estatus: 0
       Emisor: 0
     - GoodText: Debe sentirse bien ver el resultado.
@@ -147,11 +147,10 @@ MonoBehaviour:
       BadText: Solo era un comentario.
       Estatus: 0
       Emisor: 1
-    - GoodText: "\xA1Lo amo! Salud por la buena cosecha. (Levanta la copa.) "
+    - GoodText: "\xA1Lo amo! Salud por la buena cosecha."
       BadText: "No s\xE9\u2026 Algo en ti no me gusta. Dame algo fuerte. "
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: 'Ayer vi algo raro en el campo. Un ruido entre los arbustos.
@@ -210,7 +209,6 @@ MonoBehaviour:
 '
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: Hola! Quiero un (bebida)!
@@ -268,7 +266,6 @@ MonoBehaviour:
       BadText: "Hmm\u2026 No s\xE9\u2026"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Hoy vi a unos Grapenades en el pueblo. Siempre parecen tan serios\u2026\r\n"
@@ -332,7 +329,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
@@ -394,7 +390,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "\xDAltimamente, el pueblo est\xE1 inquieto. Dicen que alguien nos
@@ -456,7 +451,6 @@ MonoBehaviour:
       BadText: si, necesito un (bebida).
       Estatus: 2
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Nuestro alcalde siempre dice que Fermentia es un lugar especial.
@@ -517,7 +511,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
@@ -571,7 +564,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Tu bar es diferente a los otros\u2026\n"
@@ -612,7 +604,6 @@ MonoBehaviour:
       BadText: "Eso lo dir\xE1s t\xFA\u2026 pero yo tengo mis dudas.\r\n"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: Dame un (bebida)!
@@ -668,7 +659,6 @@ MonoBehaviour:
       BadText: "No me gusta lo que dices\u2026 "
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Este pueblo\u2026 Est\xE1 lleno de gente con historias. Algunas
@@ -729,7 +719,6 @@ MonoBehaviour:
       BadText: Dame un (bebida) .
       Estatus: 2
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Buenos d\xEDas! Me gustar\xEDa tener un (bebida) mi bartender."
@@ -787,7 +776,6 @@ MonoBehaviour:
       BadText: "Ten cuidado con tus palabras, o podr\xEDas ser parte de esa purga.\r\n"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: 'Hay algo en la verdad que hace que muchos la eviten.
@@ -855,7 +843,6 @@ MonoBehaviour:
       BadText: Emm, un (bebida) ,gracias!
       Estatus: 2
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: Un (bebida) gracias.
@@ -918,7 +905,6 @@ MonoBehaviour:
 '
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Buneos d\xEDas, un (bebida) ,gracias!"
@@ -981,7 +967,6 @@ MonoBehaviour:
 '
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: " \"\xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
@@ -1020,7 +1005,6 @@ MonoBehaviour:
       BadText: Tal vez... Dame algo fuerte,un (bebida) porfa.
       Estatus: 2
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "He escuchado rumores sobre ti, Ori\xF3n. Dicen que no eres de aqu\xED."
@@ -1054,7 +1038,6 @@ MonoBehaviour:
       BadText: "Adem\xE1s de esto,dame una copa de (bebida)."
       Estatus: 2
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: .............
@@ -1113,7 +1096,6 @@ MonoBehaviour:
       BadText: Un (bebida)..
       Estatus: 2
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: Hey, un (bebida) porfa!
@@ -1164,7 +1146,6 @@ MonoBehaviour:
       BadText: 
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: Hello ,un (bebida) gracias.
@@ -1213,7 +1194,6 @@ MonoBehaviour:
       BadText: "Ya ver\xE1s..."
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
