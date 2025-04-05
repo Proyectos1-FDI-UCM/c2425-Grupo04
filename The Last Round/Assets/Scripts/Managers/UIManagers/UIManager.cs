@@ -83,7 +83,7 @@ public class UIManager : MonoBehaviour
     private int buttonUsing = 0;
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
-    private bool IfHavefalse = false;
+    private bool PickedBadChoice = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -166,7 +166,7 @@ public class UIManager : MonoBehaviour
                 {
                     Destroy(Client.gameObject);
 
-                    if (!IfHavefalse)
+                    if (!PickedBadChoice)
                     {
                         GameManager.Instance.increaseSospechosos(-2);
                     }   
@@ -328,7 +328,6 @@ public class UIManager : MonoBehaviour
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
         if (option1BText.text == dialogue[DialogueLine].GoodText)
         {
-            IfHavefalse = false;
             way = 0;
         }
 
@@ -336,7 +335,7 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
-            IfHavefalse = true;
+            PickedBadChoice = true;
         }
 
 
@@ -356,14 +355,13 @@ public class UIManager : MonoBehaviour
         if (option2BText.text == dialogue[DialogueLine].GoodText)
         {
             way = 0;
-            IfHavefalse = false;
         }
 
         else
         {
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
-            IfHavefalse = true;
+            PickedBadChoice = true;
         }
 
         //Escribe la respuesta del jugador
