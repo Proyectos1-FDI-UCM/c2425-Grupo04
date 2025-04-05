@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Materiales_0
+      name: PielManzanaBartender
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_1
+      name: JugoManzanaBartender
       rect:
         serializedVersion: 2
         x: 16
@@ -139,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_2
+      name: SemillaManzanaBartender
       rect:
         serializedVersion: 2
         x: 32
@@ -160,7 +160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_3
+      name: Hielo
       rect:
         serializedVersion: 2
         x: 48
@@ -181,7 +181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_8
+      name: PielManzanaVerde
       rect:
         serializedVersion: 2
         x: 64
@@ -202,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_4
+      name: PielUvaBartender
       rect:
         serializedVersion: 2
         x: 0
@@ -223,7 +223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_5
+      name: JugoUvaBartender
       rect:
         serializedVersion: 2
         x: 16
@@ -244,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_6
+      name: SemillaUvaBartender
       rect:
         serializedVersion: 2
         x: 32
@@ -265,7 +265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_7
+      name: Levadura
       rect:
         serializedVersion: 2
         x: 48
@@ -286,7 +286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_12
+      name: JugoManzana
       rect:
         serializedVersion: 2
         x: 64
@@ -307,7 +307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_9
+      name: PielManzanaRoja
       rect:
         serializedVersion: 2
         x: 72
@@ -328,7 +328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_11
+      name: PielUvaRoja
       rect:
         serializedVersion: 2
         x: 72
@@ -349,7 +349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_10
+      name: PielUvaNegra
       rect:
         serializedVersion: 2
         x: 64
@@ -370,7 +370,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_13
+      name: JugoUva
       rect:
         serializedVersion: 2
         x: 72
@@ -391,7 +391,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_14
+      name: SemillaManzana
       rect:
         serializedVersion: 2
         x: 64
@@ -412,7 +412,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Materiales_15
+      name: SemillaUva
       rect:
         serializedVersion: 2
         x: 72
@@ -443,22 +443,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Materiales_0: -444187997
-      Materiales_1: 1884778200
-      Materiales_10: 493409807
-      Materiales_11: -1438928339
-      Materiales_12: 1858034465
-      Materiales_13: 96701638
-      Materiales_14: -1297896150
-      Materiales_15: 120629917
-      Materiales_2: -154071705
-      Materiales_3: -271422605
-      Materiales_4: 1071231630
-      Materiales_5: -2280980
-      Materiales_6: 2133616070
-      Materiales_7: -966647214
-      Materiales_8: -2094091476
-      Materiales_9: 1799619676
+      Hielo: -271422605
+      JugoManzana: 1858034465
+      JugoManzanaBartender: 1884778200
+      JugoUva: 96701638
+      JugoUvaBartender: -2280980
+      Levadura: -966647214
+      PielManzanaBartender: -444187997
+      PielManzanaRoja: 1799619676
+      PielManzanaVerde: -2094091476
+      PielUvaBartender: 1071231630
+      PielUvaNegra: 493409807
+      PielUvaRoja: -1438928339
+      SemillaManzana: -1297896150
+      SemillaManzanaBartender: -154071705
+      SemillaUva: 120629917
+      SemillaUvaBartender: 2133616070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
