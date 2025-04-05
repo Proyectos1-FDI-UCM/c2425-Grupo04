@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private CollisionDetector cD;
     private Collider2D ObjectCollider;
     private float minX, maxX, minY, maxY;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -48,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
@@ -93,6 +97,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (!dashing)
             rb.velocity = MoveDirection * MoveSpeed;
+
+        animator.SetFloat("Horizontal", Mathf.Abs(MoveDirection.x));
+        animator.SetFloat("Vertical", MoveDirection.y);
+        animator.SetFloat("Speed", MoveDirection.sqrMagnitude);
+        if(MoveDirection.x < 0)
+        {
+            //Si se mueve a la izquierda, flip al Sprite Renderer
+            spriteRenderer.flipX = true;
+        }
+        else if(MoveDirection.x > 0)
+        {
+            //Si se mueve a la derecha, no hay flip al Sprite Renderer
+            spriteRenderer.flipX = false;
+        }
+        //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
     }
 
 
