@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8485452074526760800}
   - component: {fileID: 3179799503839937220}
   m_Layer: 8
-  m_Name: Levadura Spawner
+  m_Name: Levadura Spawner 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: -1113904495
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 376da479ba1f6f4488074cc1d3f7e163, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 434bba9521324614895642bd866dabd1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
