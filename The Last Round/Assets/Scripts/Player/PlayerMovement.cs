@@ -60,9 +60,7 @@ public class PlayerMovement : MonoBehaviour
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {
-        dashing = GetComponent<PlayerDash>().dash();
-
+    { 
         MoveDirection = InputManager.Instance.MovementVector;
 
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
@@ -90,9 +88,16 @@ public class PlayerMovement : MonoBehaviour
         {
             LastDirection = MoveDirection;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        dashing = GetComponent<PlayerDash>().dash();
 
         if (!dashing)
+        {
             rb.velocity = MoveDirection * MoveSpeed;
+        }
     }
 
 

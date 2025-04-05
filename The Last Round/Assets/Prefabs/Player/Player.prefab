@@ -161,8 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Basedamage: 50
   cooldown: 0.2
-  isMelee: 1
-  isBullet: 0
 --- !u!1 &6734408476227581735
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +398,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7749647460839375097}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0

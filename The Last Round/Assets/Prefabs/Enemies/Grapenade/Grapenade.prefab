@@ -159,7 +159,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8156365099456941090}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -218,7 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MarcaPrefab: {fileID: 1352360049607005943, guid: 3c878446afa3f874f92c42d3551984ed, type: 3}
-  marcaCooldown: 0.8
 --- !u!114 &-4186157297869434190
 MonoBehaviour:
   m_ObjectHideFlags: 0
