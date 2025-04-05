@@ -72,8 +72,8 @@ public class Precursos : MonoBehaviour
     /// </summary>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        string objectName = collision.gameObject.name;
-        if (collision.gameObject.GetComponent<CastMaterial>() != null)
+        if (collision.gameObject.GetComponent<CastMaterial>() != null &&
+            collision.gameObject.GetComponent<RecursoSpawner>() == null)
         {
             SourceName source = collision.gameObject.GetComponent<CastMaterial>().GetSourceName();
             GameManager.Instance.IncreaseResource(source);

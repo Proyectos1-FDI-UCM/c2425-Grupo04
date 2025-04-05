@@ -27,7 +27,6 @@ public class GrapenadeMovement : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private Rigidbody2D rb;
-    private CollisionDetector cD;
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
     private GameObject recurso;
@@ -50,7 +49,6 @@ public class GrapenadeMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
-        cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
@@ -82,15 +80,11 @@ public class GrapenadeMovement : MonoBehaviour
             posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
             posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
-            if ((cD.GetCollisions(Directions.North) && -EnemyPlayer.y > 0) ||
-                (cD.GetCollisions(Directions.South) && -EnemyPlayer.y < 0) ||
-                (-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
+            if ((-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
                 (-EnemyPlayer.y > 0 && posMaxY.y >= maxY))
                 EnemyPlayer.y = 0;
 
-            if ((cD.GetCollisions(Directions.East) && -EnemyPlayer.x > 0) ||
-                (cD.GetCollisions(Directions.West) && -EnemyPlayer.x < 0) ||
-                (-EnemyPlayer.x < 0 && posMinX.x <= minX) ||
+            if ((-EnemyPlayer.x < 0 && posMinX.x <= minX) ||
                 (-EnemyPlayer.x > 0 && posMaxX.x >= maxX))
                 EnemyPlayer.x = 0;
 

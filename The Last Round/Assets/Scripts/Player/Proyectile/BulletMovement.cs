@@ -71,7 +71,10 @@ public class BulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.GetComponent<PlayerMovement>() == null)
+        {
+            Destroy(gameObject);
+        }  
     }
     private void OnBecameInvisible()
     {

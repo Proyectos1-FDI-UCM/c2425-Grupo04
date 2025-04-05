@@ -290,15 +290,6 @@ public class GameManager : MonoBehaviour
             numEnemigos[(int)enemy]--;
         }
 
-        //Cada vez que un enemigo muere, se refrescan las colisiones
-        CollisionDetector[] objets = FindObjectsOfType<CollisionDetector>();
-
-        for (int i = 0; i < objets.Length; i++)
-        {
-            objets[i].Refresh();
-        }
-
-
         if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
             ScenesManager.CreditScenes();
