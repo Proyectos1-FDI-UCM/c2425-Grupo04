@@ -65,6 +65,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI[] matsNumsEnCesta = new TextMeshProUGUI[8];
 
+    [SerializeField] TextMeshProUGUI dineroTotalText;
+    private float dineroTotal;
+
 
 
     #endregion
@@ -99,6 +102,10 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+       
+        dineroTotal = GameManager.Instance.GetDineros();
+        dineroTotalText.text = dineroTotal.ToString();
+        Debug.Log(dineroTotal);
         GameManager.Instance.GiveUI(this);
         if (ServirButton != null) ServirButton.gameObject.SetActive(false);
         if (recompensa != null) recompensa.text = " ";
@@ -143,6 +150,10 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        dineroTotal = GameManager.Instance.GetDineros();
+        dineroTotalText.text = dineroTotal.ToString();
+
+
         if (dialogueSkipBText != null)
         {
             if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
@@ -271,6 +282,8 @@ public class UIManager : MonoBehaviour
     #region Bartender
 
     //UIManager recoge al cliente y su velocidad de aparición, que utilizará para desaparecer.
+    
+
     public void GetClientSprite(SpriteRenderer Client)
     {
         this.Client = Client;

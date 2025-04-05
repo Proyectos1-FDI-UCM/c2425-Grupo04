@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     private float[] recursos;
     private int[] numEnemigos;
     private float NivelSospechosos = 0;
-    private float Dineros = 0;
+    public  float Dineros = 50;
     private bool[,] DialoguesSaid;
     private float musicVolume = 100f, sfxVolume = 100f;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
     {
         //Para ocupar lo necesario para que todos los dialogos quepan dentro del array
         //Se ve quien tiene más dialgos y se hace de ese tamaño
+        Dineros = 100;
         int MaxDialogues = 0;
         for (int i = 0; i < Clientes.Length; i++)
         {
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
         {
             GameManager.Instance.GetUI().GetComponent<UIManager>().GameOverUI();
         }
+       
     }
     
     #endregion
@@ -173,6 +175,7 @@ public class GameManager : MonoBehaviour
     {
         UIManagerCombate.Timer(time);
     }
+   
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
