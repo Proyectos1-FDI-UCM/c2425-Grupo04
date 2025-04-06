@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD
+
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
         // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
@@ -153,9 +153,9 @@ public class GameManager : MonoBehaviour
             GameManager.Instance.GetUI().GetComponent<UIManager>().GameOverUI();
         }
        
-=======
+
         
->>>>>>> 6721a1938a4603444d373c99c74506589fe0625b
+
     }
 
     #endregion
