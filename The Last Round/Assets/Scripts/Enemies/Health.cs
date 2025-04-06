@@ -8,7 +8,7 @@
 using UnityEngine;
 using TMPro;
 // Añadir aquí el resto de directivas using
-
+using UnityEngine.UI;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -20,8 +20,8 @@ public class Health : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private float Life;
     [SerializeField] GameObject ContadorDaño;
-
-
+    [SerializeField, Tooltip("En Enemigo esta en hijo y jugador esta en canvas general")] 
+    private Slider barraVida;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,8 +39,12 @@ public class Health : MonoBehaviour
        // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
-
-        if (GetComponent<CastEnemy>() != null) enemy = GetComponent<CastEnemy>().GetEnemyType();
+        barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
+        if (GetComponent<CastEnemy>() != null) 
+        {
+            enemy = GetComponent<CastEnemy>().GetEnemyType();
+            barraVida.gameObject.SetActive(false);
+        }
         else if (GetComponent<CastEnemy>() == null)
         {
             Life = Life + 0.1f * Life * GameManager.Instance.GetUpgradeLevel(2); //Sube la vida un 10% por cada nivel de la mejora
@@ -61,10 +65,11 @@ public class Health : MonoBehaviour
     /// </summary>
     public void GetDamage(float damage)
     {
+        barraVida.gameObject.SetActive(true);
         Life -= damage;
         text.text = damage.ToString();
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
-
+        barraVida.value = Life;
         if (Life <= 0)
         {
             Kill(); //Si su vida es 0 o menor el objeto muere

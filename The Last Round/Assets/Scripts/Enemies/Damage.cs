@@ -19,6 +19,7 @@ public class Damage : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private int Basedamage;
     [SerializeField] private float cooldown;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
