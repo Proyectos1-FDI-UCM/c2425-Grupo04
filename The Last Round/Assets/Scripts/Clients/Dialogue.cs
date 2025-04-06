@@ -117,20 +117,20 @@ public class Dialogue : MonoBehaviour
                 //además sustituye los "_" por espacios
                 //y el masculino en femenino en caso de ser una sidra
 
+                //Filtro 3
+                if (BebidaPedida.GetComponent<CastDrink>().GetDrinkName() == DrinkName.Sidra)
+                {
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" ese (", " esa (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" este (", "esta (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" aquel (", " aquella (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" un (", " una (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" el (", " la (");
+                }
+
                 //Filtro 1 y 2
                 Debug.Log(BebidaPedida.name);
                 dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
                 dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
-
-                //Filtro 3
-                if (BebidaPedida.GetComponent<CastDrink>().GetDrinkName() == DrinkName.Sidra)
-                {
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" ese ", " esa ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" este ", "esta ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" aquel ", " aquella ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" un ", " una ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" el ", " la ");
-                }
             }
             i++;
         }
