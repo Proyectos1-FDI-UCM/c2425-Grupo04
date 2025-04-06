@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< HEAD
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
         // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
@@ -152,8 +153,11 @@ public class GameManager : MonoBehaviour
             GameManager.Instance.GetUI().GetComponent<UIManager>().GameOverUI();
         }
        
+=======
+        
+>>>>>>> 6721a1938a4603444d373c99c74506589fe0625b
     }
-    
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -235,16 +239,18 @@ public class GameManager : MonoBehaviour
     // --- FIN GESTIÓN ECONÓMICA ---
 
     // --- SISTEMA DE SOSPECHA ---
-    public float increaseSospechosos(int i)
+    public void increaseSospechosos(int i)
     {
-        if (NivelSospechosos < 8 && NivelSospechosos >= 0)
+        NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
+
+        //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
+        // Debug.Log(NivelSospechosos);
+        //Debug.Log(Dineros);
+
+        if (NivelSospechosos >= 8 && UIManager != null)
         {
-            if (NivelSospechosos == 1 && i == -2 || NivelSospechosos == 0 && i == -2)
-                NivelSospechosos = 0;
-            else
-                NivelSospechosos += i;
+            UIManager.GameOverUI();
         }
-        return NivelSospechosos;
     }
     // --- FIN SISTEMA DE SOSPECHA ---
 

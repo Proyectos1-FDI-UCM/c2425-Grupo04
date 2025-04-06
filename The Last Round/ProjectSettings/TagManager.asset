@@ -13,11 +13,11 @@ TagManager:
   - WALL
   - Water
   - UI
-  - Alive
+  - Player
   - Ground
   - Build
   - EnemyAttack
-  - 
+  - Enemy
   - Attack
   - Recursos
   - 

@@ -67,6 +67,8 @@ public class ResetGame : MonoBehaviour
     {
         GameManager.Instance.ResetEnemyCounter();
         Debug.Log("Contadores de enemigos reseteados");
+
+        Time.timeScale = 1f;
     }
 
     #endregion

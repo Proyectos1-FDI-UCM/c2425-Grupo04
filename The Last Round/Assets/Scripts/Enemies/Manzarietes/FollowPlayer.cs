@@ -99,7 +99,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<Rigidbody2D>() != null && collision.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        if ((collision.GetComponent<Rigidbody2D>() != null && collision.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static) || collision.gameObject.GetComponent<CastEnemy>() != null)
         {
             IsThereWall = true;
         }
@@ -107,7 +107,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Rigidbody2D>() != null && collision.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+        if ((collision.GetComponent<Rigidbody2D>() != null && collision.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static) || collision.gameObject.GetComponent<CastEnemy>() != null)
         {
             IsThereWall = false;
         }

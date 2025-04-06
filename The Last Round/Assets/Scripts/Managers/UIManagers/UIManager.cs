@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
                     recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
     [SerializeField]
-    private Image DrinkImage, material1Image, material2Image, material3Image;
+    private Image DrinkImage, material1Image, material2Image, material3Image, CharacterPortrait;
     [SerializeField]
     private Button dialogueSkipButton, ServirButton;
 
@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
     private int buttonUsing = 0;
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
-    private bool IfHavefalse = false;
+    private bool PickedBadChoice = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -107,6 +107,11 @@ public class UIManager : MonoBehaviour
         dineroTotalText.text = dineroTotal.ToString();
         Debug.Log(dineroTotal);
         GameManager.Instance.GiveUI(this);
+
+        //Comprueba si el GameManager ha sumado 2 al sistema de sospecha antes de cambiar de escena
+        //Si es así y el resultado es 8 o mayor
+        GameManager.Instance.increaseSospechosos(0);
+
         if (ServirButton != null) ServirButton.gameObject.SetActive(false);
         if (recompensa != null) recompensa.text = " ";
         if (nombreBebida != null) nombreBebida.text = " ";
@@ -160,7 +165,6 @@ public class UIManager : MonoBehaviour
             else dialogueSkipBText.text = "Saltar";
         }
 
-
         if (ClientDisappear)
         {
             ClientC.r = Mathf.Clamp(ClientC.r - Time.deltaTime * DisappearSpeed, 0, 255);
@@ -177,7 +181,7 @@ public class UIManager : MonoBehaviour
                 {
                     Destroy(Client.gameObject);
 
-                    if (!IfHavefalse)
+                    if (!PickedBadChoice)
                     {
                         GameManager.Instance.increaseSospechosos(-2);
                     }   
@@ -341,7 +345,6 @@ public class UIManager : MonoBehaviour
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
         if (option1BText.text == dialogue[DialogueLine].GoodText)
         {
-            IfHavefalse = false;
             way = 0;
         }
 
@@ -349,7 +352,7 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
-            IfHavefalse = true;
+            PickedBadChoice = true;
         }
 
 
@@ -369,14 +372,13 @@ public class UIManager : MonoBehaviour
         if (option2BText.text == dialogue[DialogueLine].GoodText)
         {
             way = 0;
-            IfHavefalse = false;
         }
 
         else
         {
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
-            IfHavefalse = true;
+            PickedBadChoice = true;
         }
 
         //Escribe la respuesta del jugador
@@ -470,6 +472,10 @@ public class UIManager : MonoBehaviour
             }
 
         }
+
+        #endregion
+
+        #region Comportamiento del retrato
 
         #endregion
 
@@ -619,6 +625,7 @@ public class UIManager : MonoBehaviour
         //Activa la UI de GameOver si el jugador pierde
 
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     #endregion //termina región de bartender
