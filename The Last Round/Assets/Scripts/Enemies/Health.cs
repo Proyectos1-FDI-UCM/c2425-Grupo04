@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
         barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
+        barraVida.value = Life;
         if (GetComponent<CastEnemy>() != null) 
         {
             enemy = GetComponent<CastEnemy>().GetEnemyType();
