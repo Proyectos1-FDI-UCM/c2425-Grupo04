@@ -50,3 +50,4 @@ MonoBehaviour:
   - {fileID: 7992104292323869361, guid: ae4760010385de84fb699fab435eb8b9, type: 3}
   - {fileID: 7992104292323869361, guid: 423f0129b023ad04e8d650cf7a56ea22, type: 3}
   - {fileID: 8156365099456941090, guid: cf72a05f0ea30394285462d5b3bc3909, type: 3}
+  MaxEnemiesInScene: 5
