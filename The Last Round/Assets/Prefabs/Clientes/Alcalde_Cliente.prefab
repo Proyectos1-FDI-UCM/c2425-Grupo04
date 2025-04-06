@@ -99,7 +99,227 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AppearSpeed: 100
-  dialogues: []
+  dialogues:
+  - Generic: 1
+    Lines:
+    - GoodText: "Buenos d\xEDas, Fresa. \xBFQuedan bebidas o ya te las bebiste todas
+        t\xFA?"
+      BadText: "Buenos d\xEDas, Fresa. \xBFQuedan bebidas o ya te las bebiste todas
+        t\xFA?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Si llegas un minuto m\xE1s tarde, te toca agua del grifo. Pero a\xFAn
+        hay."
+      BadText: "Si llegas un minuto m\xE1s tarde, te toca agua del grifo. Pero a\xFAn
+        hay."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "He so\xF1ado que el pueblo entero me persegu\xEDa con antorchas.
+        Jah, lo raro es que era m\xE1s tranquilo que las ma\xF1anas reales."
+      BadText: "He so\xF1ado que el pueblo entero me persegu\xEDa con antorchas.
+        Jah, lo raro es que era m\xE1s tranquilo que las ma\xF1anas reales."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Y eso que no te has metido a\xFAn con la prensa de hoy."
+      BadText: "Y eso que no te has metido a\xFAn con la prensa de hoy."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFY t\xFA qu\xE9? \xBFNoche tranquila?"
+      BadText: "\xBFY t\xFA qu\xE9? \xBFNoche tranquila?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Como siempre. Cerrar, limpiar, dormir. Mi vida es una postal aburrida.
+      BadText: Como siempre. Cerrar, limpiar, dormir. Mi vida es una postal aburrida.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Toma algo, no cura el estr\xE9s, pero al menos calienta las manos."
+      BadText: "Toma algo, no cura el estr\xE9s, pero al menos calienta las manos."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Te har\xE9 caso, ponme un (bebida)."
+      BadText: "Te har\xE9 caso, ponme un (bebida)."
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Esto s\xED que es vida."
+      BadText: "Pero\u2026"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "\xBFNo sabe un poco raro?"
+      BadText: "\xBFNo hab\xEDas dicho qu\xE9 quedaban bebidas?"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Respuesta seria
+      BadText: Responder con confianza
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Hoy el cargamento se me cay\xF3 al venir, quiz\xE1s me equivoqu\xE9
+        con los ingredientes que hab\xEDa. "
+      BadText: 'No debe fiarse nunca de nadie, jeje. '
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Un error lo comete cualquiera, volver\xE9 otro d\xEDa entonces,
+        adi\xF3s."
+      BadText: "Tomo nota, caballero, me ir\xE9 por el momento, tenga un buen d\xEDa."
+      Estatus: 0
+      Emisor: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "\xBFMe recuerdas c\xF3mo se llama esto de levantarse temprano y
+        fingir que todo va bien?"
+      BadText: "\xBFMe recuerdas c\xF3mo se llama esto de levantarse temprano y fingir
+        que todo va bien?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Se llama martes. O mi\xE9rcoles. No cambia mucho."
+      BadText: "Se llama martes. O mi\xE9rcoles. No cambia mucho."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Hoy ni a mi perro he podido sacar. Se qued\xF3 en la cama mir\xE1ndome
+        como si yo fuera el loco."
+      BadText: "Hoy ni a mi perro he podido sacar. Se qued\xF3 en la cama mir\xE1ndome
+        como si yo fuera el loco."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Tu perro es m\xE1s sabio que la mitad del ayuntamiento."
+      BadText: "Tu perro es m\xE1s sabio que la mitad del ayuntamiento."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFT\xFA crees que, si dej\xE1ramos de hacer como que todo est\xE1
+        bien, pasar\xEDa algo?"
+      BadText: "\xBFT\xFA crees que, si dej\xE1ramos de hacer como que todo est\xE1
+        bien, pasar\xEDa algo?"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: 'Alentar a investigar '
+      BadText: "\u201C\xBFPara qu\xE9 seguir investigando?\u201D"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tomar un trago est\xE1 bien, pero recuerda qu\xE9 sucede en este
+        pueblo todas las noches."
+      BadText: "Pasar\xEDa que me quedar\xEDas mirando igual, pero sin un trago en
+        la mano. "
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Es cierto que hay un asesino suelo, no se nos puede olvidar.
+      BadText: "Pero fresita, \xBFC\xF3mo dices eso habiendo un asesino suelto?..."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: En cualquier caso, hablando de tragos, dame un (bebida) por favor.
+      BadText: En cualquier caso, hablando de tragos, dame un (bebida) por favor.
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "\xA1Qu\xE9 sabor!, alg\xFAn d\xEDa me tiene que dar la receta de
+        esto."
+      BadText: "Pero bueno fresita, \xBFno le queda?, a este paso se volver\xE1 mi
+        peor enemigo jajaja. Volver\xE9 otro d\xEDa entonces, pase un buen d\xEDa."
+      Estatus: 0
+      Emisor: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "\xBFSabes qu\xE9 tienen en com\xFAn t\xFA y el panadero? Que son
+        los \xFAnicos que madrugan m\xE1s que yo."
+      BadText: "\xBFSabes qu\xE9 tienen en com\xFAn t\xFA y el panadero? Que son
+        los \xFAnicos que madrugan m\xE1s que yo."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "La diferencia es que \xE9l amasa pan y yo cobro para olvidarlos."
+      BadText: "La diferencia es que \xE9l amasa pan y yo cobro para olvidarlos."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No s\xE9 c\xF3mo haces para no volverte loco con tanto rumor suelto."
+      BadText: "No s\xE9 c\xF3mo haces para no volverte loco con tanto rumor suelto."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Aqu\xED los rumores entran con hielo y salen con resaca."
+      BadText: "Aqu\xED los rumores entran con hielo y salen con resaca."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Y anoche\u2026 no viste nada raro al cerrar, \xBFno? Me dijeron
+        que alguien rondaba por tu calle."
+      BadText: "Y anoche\u2026 no viste nada raro al cerrar, \xBFno? Me dijeron que
+        alguien rondaba por tu calle."
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Bromear
+      BadText: Defensiva
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Vi a un mapache husmeando en la basura. Si era un asesino, se disfrazaba
+        bien.
+      BadText: "\xBFDesde cu\xE1ndo me preguntas lo que hago despu\xE9s de cerrar?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Entonces al asesino tiene bigotes y cuatro patas, que alivio.
+      BadText: "Curiosidades de alcalde, a veces las palabras dicen m\xE1s que los
+        hechos."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Ponme un (bebida), pero hazlo fuerte. Hoy siento que el pueblo me
+        pesa m\xE1s que de costumbre."
+      BadText: "Ponme un (bebida), pero hazlo fuerte. Hoy siento que el pueblo me
+        pesa m\xE1s que de costumbre."
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "\xBFVes? Por esto vengo aqu\xED y no me quedo en el despacho."
+      BadText: "\xBFSucede algo?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Me lo tomar\xE9 como un alago"
+      BadText: No sirvo bebida a quien carga el pueblo, no vaya a ser que se le caiga
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Si, aunque me va a tocar volver a \xE9l ahora mismo, pase un buen
+        d\xEDa."
+      BadText: "Empiezo a pensar que eres mejor psic\xF3logo que barman."
+      Estatus: 0
+      Emisor: 0
+  - Generic: 1
+    Lines:
+    - GoodText: "\xBFT\xFA abres temprano porque te gusta o porque odias dormir?"
+      BadText: "\xBFT\xFA abres temprano porque te gusta o porque odias dormir?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Abro temprano porque los problemas tambi\xE9n madrugan."
+      BadText: "Abro temprano porque los problemas tambi\xE9n madrugan."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Anoche se oyeron sirenas. Otra vez cerca de la plaza.
+      BadText: Anoche se oyeron sirenas. Otra vez cerca de la plaza.
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "No me digas que justo esa noche t\xFA no estabas por aqu\xED."
+      BadText: "No me digas que justo esa noche t\xFA no estabas por aqu\xED."
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "\u201CEstaba aqu\xED\u201D"
+      BadText: Respuesta evasiva
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Estaba aqu\xED, como siempre. Cerr\xE9 a las dos y recog\xED solo.
+        Pregunta al borracho de la esquina si no me crees."
+      BadText: "Anoche estuve\u2026 donde siempre acabo. \xBFTe sirve? "
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Si hasta el borracho te cubre, entonces s\xED que est\xE1s integrado
+        en este pueblo."
+      BadText: "No. No me sirve. Pero ya sabes, todo acaba saliendo. Como los cuerpos
+        en el r\xEDo."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Vamos a por un \u201CDesayuno l\xEDquido\u201D."
+      BadText: "Vamos a por un \u201CDesayuno l\xEDquido\u201D."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Ponme un (bebida).
+      BadText: Ponme un (bebida).
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "A este ritmo, acabar\xE9 corriendo detr\xE1s del asesino con un
+        vaso en la mano. Nos vemos."
+      BadText: "\xBFQu\xE9? \xBFNo me das la bebida? Menuda decepci\xF3n\u2026 Hasta
+        la pr\xF3xima."
+      Estatus: 0
+      Emisor: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
