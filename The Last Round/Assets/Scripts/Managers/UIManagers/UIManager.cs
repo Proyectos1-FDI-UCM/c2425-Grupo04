@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
                     recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
     [SerializeField]
-    private Image DrinkImage, material1Image, material2Image, material3Image;
+    private Image DrinkImage, material1Image, material2Image, material3Image, CharacterPortrait;
     [SerializeField]
     private Button dialogueSkipButton, ServirButton;
 
@@ -148,7 +148,6 @@ public class UIManager : MonoBehaviour
             if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
             else dialogueSkipBText.text = "Saltar";
         }
-
 
         if (ClientDisappear)
         {
@@ -455,6 +454,10 @@ public class UIManager : MonoBehaviour
             }
 
         }
+
+        #endregion
+
+        #region Comportamiento del retrato
 
         #endregion
 
