@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -3908666299912020331}
   - component: {fileID: 5114985475094809603}
   - component: {fileID: 2940290787922086070}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
   m_Icon: {fileID: 0}

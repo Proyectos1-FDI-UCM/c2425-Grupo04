@@ -219,9 +219,9 @@ public class ManzarieteMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Si detecta la colisión con algún objeto mientras hace el sprint da el efecto de rebote
-        //En realidad esto se aplica a todos los objetos a excepción de la capa "Alive" (Enemigos y jugadores)
+        //En realidad esto se aplica a todos los objetos a excepción de la capa "Player" (jugadores)
         //Esto es porque el collider "no trigger" que se encarga de la reacción de frenado, excluye a esta capa
-        //Los objetos en la capa "Alive" activan otro collider trigger por lo que con ellos esta función no se llama.
+        //Los objetos en la capa "Player" activan otro collider trigger por lo que con ellos esta función no se llama.
         if (IsSprinting)
         {
             Vector2 tmp = collision.contacts[0].normal;

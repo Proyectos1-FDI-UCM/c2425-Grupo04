@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3998202571656968249}
   - component: {fileID: -1302714598762450460}
   - component: {fileID: 8971501028595896084}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Uvoncio
   m_TagString: Untagged
   m_Icon: {fileID: 0}

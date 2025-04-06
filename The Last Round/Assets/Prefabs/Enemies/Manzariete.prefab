@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8564384819749941846}
   - component: {fileID: 4046262584483984079}
   - component: {fileID: 8711947958306887889}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6403719088797789129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.65, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,7 +90,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.45, y: 0.45}
   m_EdgeRadius: 0
 --- !u!1 &7992104292323869361
 GameObject:
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 1533601853116992235}
   - component: {fileID: 6263155476328059646}
   - component: {fileID: 7734903972893655741}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Manzariete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.90909094, z: 0.2}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8564384819749941846}
   m_Father: {fileID: 0}

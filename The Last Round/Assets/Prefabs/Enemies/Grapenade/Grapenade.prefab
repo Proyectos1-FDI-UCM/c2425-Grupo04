@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -9182157900723723110}
   - component: {fileID: 8463700218095806002}
   - component: {fileID: 7949263453700417427}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Grapenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
