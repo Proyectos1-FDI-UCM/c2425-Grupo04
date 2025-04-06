@@ -128,7 +128,7 @@ public class Dialogue : MonoBehaviour
                 }
 
                 //Filtro 1 y 2
-                Debug.Log(BebidaPedida.name);
+                //Debug.Log(BebidaPedida.name);
                 dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
                 dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
             }
