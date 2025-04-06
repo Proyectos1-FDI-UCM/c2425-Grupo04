@@ -100,6 +100,11 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveUI(this);
+
+        //Comprueba si el GameManager ha sumado 2 al sistema de sospecha antes de cambiar de escena
+        //Si es así y el resultado es 8 o mayor
+        GameManager.Instance.increaseSospechosos(0);
+
         if (ServirButton != null) ServirButton.gameObject.SetActive(false);
         if (recompensa != null) recompensa.text = " ";
         if (nombreBebida != null) nombreBebida.text = " ";
@@ -607,6 +612,7 @@ public class UIManager : MonoBehaviour
         //Activa la UI de GameOver si el jugador pierde
 
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     #endregion //termina región de bartender

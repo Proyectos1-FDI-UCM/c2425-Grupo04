@@ -109,7 +109,7 @@ public class Health : MonoBehaviour
         //Si es el jugador se activa el proceso de menú de muerte
         else
         {
-            GameManager.Instance.GetUIC().GetComponent<UIManager_Combate>().GameOverUI();
+            GameManager.Instance.GetUIC().GameOverUI();
         }
     }
     #endregion

@@ -18,7 +18,7 @@ public class UIManager_Combate : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject gameOverUI;
+    [SerializeField] GameObject gameOverUI, PlayerLife;
     [SerializeField] TextMeshProUGUI timer;
 
     #endregion
@@ -61,6 +61,9 @@ public class UIManager_Combate : MonoBehaviour
         //Activa la UI de GameOver si el jugador pierde
 
         gameOverUI.SetActive(true);
+        timer.gameObject.SetActive(false);
+        PlayerLife.SetActive(false);
+        Time.timeScale = 0f;
     }
 
     public void Timer(string time)

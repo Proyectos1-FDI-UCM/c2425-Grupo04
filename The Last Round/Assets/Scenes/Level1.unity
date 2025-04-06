@@ -2261,7 +2261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60, y: -70}
+  m_AnchoredPosition: {x: -60, y: -41.1}
   m_SizeDelta: {x: 62, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1454504165
@@ -2803,6 +2803,10 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1454504165}
+    - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
+      propertyPath: PlayerLife
+      value: 
+      objectReference: {fileID: 1584462163}
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: gameOverUI
       value: 
