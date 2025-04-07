@@ -36,7 +36,6 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private bool PlayerWasDetected = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----

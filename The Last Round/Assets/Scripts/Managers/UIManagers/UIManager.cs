@@ -483,11 +483,6 @@ public class UIManager : MonoBehaviour
         }
 
         #endregion
-
-        #region Comportamiento del retrato
-
-        #endregion
-
     }
 
 
