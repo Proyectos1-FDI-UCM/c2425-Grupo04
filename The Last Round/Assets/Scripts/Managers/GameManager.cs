@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour
             numEnemigos[(int)enemy]--;
         }
 
-        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 1)
         {
             ScenesManager.CreditScenes();
         }
