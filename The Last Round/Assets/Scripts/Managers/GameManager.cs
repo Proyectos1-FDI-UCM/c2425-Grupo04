@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
     private float musicVolume = 100f, sfxVolume = 100f;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
     private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
+
+    private bool currentWeapon;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -392,6 +394,13 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return Player;
+    }
+
+
+    public void WeaponSwitch(bool playerWep)
+    {
+        currentWeapon = playerWep;
+        UIManagerCombate.SwitchWeaponDisplay(currentWeapon);
     }
 
     /// <summary>

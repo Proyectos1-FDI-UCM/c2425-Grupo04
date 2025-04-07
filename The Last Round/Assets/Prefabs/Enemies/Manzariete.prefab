@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a5e6dacb771834a9f685ad6e19d4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangeAttack: 7
+  RangeAttack: 5
   ChargeTime: 2
   SprintSpeed: 5
   SprintTime: 2
