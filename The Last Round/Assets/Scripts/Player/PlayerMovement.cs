@@ -134,9 +134,16 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.Instance.GetUIC().PressE();
         }
-        else if (collider.GetComponent<RecursoSpawner>() != null)
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.GetComponent<RecursoSpawner>() != null)
         {
-            GameManager.Instance.GetUIC().HoldE();
+            float timer, holdingTime;
+            timer = collision.GetComponent<RecursoSpawner>().GetTimer();
+            holdingTime = collision.GetComponent<RecursoSpawner>().GetHoldingTime();
+
+            GameManager.Instance.GetUIC().HoldE(timer, holdingTime);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

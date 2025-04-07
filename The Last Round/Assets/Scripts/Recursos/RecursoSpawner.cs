@@ -23,7 +23,6 @@ public class RecursoSpawner : MonoBehaviour
     private float detectdistancia = 1.2f, HoldingTime = 0;
     [SerializeField]
     private float limitrecursos = 5;
-    public GameObject promptUI;
     [SerializeField] GameObject Contadorrecurso;
     #endregion
 
@@ -52,8 +51,6 @@ public class RecursoSpawner : MonoBehaviour
        
         timer = HoldingTime;
         source = GetComponent<CastMaterial>().GetSourceName();
-        if (promptUI != null)
-            promptUI.SetActive(false);
     }
 
     /// <summary>
@@ -70,31 +67,13 @@ public class RecursoSpawner : MonoBehaviour
         //Comprobamos que el jugador se encuentra en la distancia de recolección
         if (distanciaconjugador <= detectdistancia)
         {
-             if (promptUI != null)
-            {
-                promptUI.SetActive(true);
-                TextMeshProUGUI tmp = promptUI.GetComponent<TextMeshProUGUI>();
-                tmp.text = "E";
-            }
             //Contador del hold
             if (InputManager.Instance.InteractIsPressed())//Si mantiene se va restando el timer
             {
-                if(promptUI != null)
-                {
-                    TextMeshProUGUI tmp = promptUI.GetComponent<TextMeshProUGUI>();
-                    tmp.text = timer.ToString("F1");
-                }
-               
-                
                 timer -= Time.deltaTime;
             }
             if (InputManager.Instance.InteractWasReleasedThisFrame()) //En el momento en el que se suelta el timer del hold se resetea
             {
-                if (promptUI != null)
-                
-                    
-                
-              
                 timer = HoldingTime;
             }
 
@@ -117,12 +96,6 @@ public class RecursoSpawner : MonoBehaviour
         else
         {
             timer = HoldingTime;
-            if (promptUI != null)
-            {
-                promptUI.SetActive(false);
-            }
-
-            
         }
     }
     #endregion
@@ -134,7 +107,14 @@ public class RecursoSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public float GetHoldingTime()
+    {
+        return HoldingTime;
+    }
+    public float GetTimer()
+    {
+        return timer;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

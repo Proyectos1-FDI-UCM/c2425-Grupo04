@@ -109,9 +109,9 @@ public class UIManager_Combate : MonoBehaviour
     {
         InteractMessage.text = "PRESIONE [E]";
     }
-    public void HoldE()
+    public void HoldE(float timer, float holdingTime)
     {
-        InteractMessage.text = "MANTÉN [E]";
+        InteractMessage.text = $"MANTÉN [E]  {Mathf.Round((holdingTime-timer)*100)/100} / {holdingTime}";
     }
     public void ClearMessage()
     {
