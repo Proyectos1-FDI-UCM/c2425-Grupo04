@@ -21,9 +21,11 @@ public class UIManager_Combate : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI, PlayerLife;
     [SerializeField] TextMeshProUGUI timer;
+    [SerializeField] TextMeshProUGUI population;
     [SerializeField] Image currentWeapon;
     [SerializeField] Sprite weaponDistanceImage;
     [SerializeField] Sprite weaponMeleeImage;
+    
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -31,6 +33,7 @@ public class UIManager_Combate : MonoBehaviour
     private Health playerHealth;
     private string time;
     private Timer timerScript;
+    int populationNum = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -47,11 +50,16 @@ public class UIManager_Combate : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveUIC(this);
+
+        for (int i = 0; i < GameManager.Instance.GetEnemyCounter().Length; i++)
+        {
+            populationNum += GameManager.Instance.GetEnemyCounter()[i];
+        }
+        population.text = $"Población: {populationNum}";
     }
 
     private void Update()
     {
-
         if (playerHealth == null)
             playerHealth = GameManager.Instance.GetPlayer().GetComponent<Health>();
     }
@@ -85,6 +93,16 @@ public class UIManager_Combate : MonoBehaviour
         {
             currentWeapon.sprite = weaponMeleeImage;
         }
+    }
+
+    public void ChangePopulation()
+    {
+        population.text = $"Población: {populationNum}";
+    }
+
+    public int GetPopulationNum()
+    {
+        return populationNum;
     }
     #endregion
 
