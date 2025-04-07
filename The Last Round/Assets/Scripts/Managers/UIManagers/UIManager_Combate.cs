@@ -19,12 +19,13 @@ public class UIManager_Combate : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject gameOverUI, PlayerLife;
-    [SerializeField] TextMeshProUGUI timer;
-    [SerializeField] TextMeshProUGUI population;
-    [SerializeField] Image currentWeapon;
-    [SerializeField] Sprite weaponDistanceImage;
-    [SerializeField] Sprite weaponMeleeImage;
+    [SerializeField] private GameObject gameOverUI, PlayerLife;
+    [SerializeField] private TextMeshProUGUI timer;
+    [SerializeField] private TextMeshProUGUI population;
+    [SerializeField] private TextMeshProUGUI InteractMessage;
+    [SerializeField] private Image currentWeapon;
+    [SerializeField] private Sprite weaponDistanceImage;
+    [SerializeField] private Sprite weaponMeleeImage;
     
     #endregion
 
@@ -102,6 +103,19 @@ public class UIManager_Combate : MonoBehaviour
     {
         populationNum--;
         population.text = $"Población: {populationNum}";
+    }
+
+    public void PressE()
+    {
+        InteractMessage.text = "PRESIONE [E]";
+    }
+    public void HoldE()
+    {
+        InteractMessage.text = "MANTÉN [E]";
+    }
+    public void ClearMessage()
+    {
+        InteractMessage.text = "";
     }
     #endregion
 

@@ -127,6 +127,25 @@ public class PlayerMovement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.GetComponent<CambioEscenaAlcantarilla>() != null)
+        {
+            GameManager.Instance.GetUIC().PressE();
+        }
+        else if (collider.GetComponent<RecursoSpawner>() != null)
+        {
+            GameManager.Instance.GetUIC().HoldE();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<CambioEscenaAlcantarilla>() != null || collision.GetComponent<RecursoSpawner>() != null)
+        {
+            GameManager.Instance.GetUIC().ClearMessage();
+        }
+    }
     #endregion
 
 } // class PlayerMovement 
