@@ -101,6 +101,6 @@ MonoBehaviour:
     Name: 13
     Materials:
     - Material: {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
-      Amount: 10
-    Reward: 2
+      Amount: 6
+    Reward: 4
     Type: 1

@@ -101,8 +101,8 @@ MonoBehaviour:
     Name: 8
     Materials:
     - Material: {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
-      Amount: 10
+      Amount: 6
     - Material: {fileID: 6568526389686244491, guid: 368fe0d15567dae4f9e9a8297eb353a8, type: 3}
       Amount: 2
-    Reward: 2
+    Reward: 4
     Type: 1

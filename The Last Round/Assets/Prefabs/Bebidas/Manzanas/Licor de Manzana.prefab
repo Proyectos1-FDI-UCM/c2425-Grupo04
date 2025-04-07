@@ -101,10 +101,10 @@ MonoBehaviour:
     Name: 3
     Materials:
     - Material: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
-      Amount: 10
+      Amount: 6
     - Material: {fileID: 7608541299565768669, guid: 186c8c8201023e8499370890a0e4cfe1, type: 3}
-      Amount: 10
+      Amount: 6
     - Material: {fileID: 1552366190605961034, guid: b7e14f2f4b982a04586562899a05e8fc, type: 3}
       Amount: 2
-    Reward: 2
+    Reward: 4
     Type: 0

@@ -109,7 +109,7 @@ public class ScenesManager : MonoBehaviour
 
     public void CreditScenes()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(4);
     }
 
     #endregion
