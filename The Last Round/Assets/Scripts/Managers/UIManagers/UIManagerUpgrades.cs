@@ -68,7 +68,7 @@ public class UIManagerUpgrades : MonoBehaviour
     {
         GameManager.Instance.GiveUIU(this);
 
-        GameManager.Instance.increaseDinero(100); //Solo para testear
+        //GameManager.Instance.increaseDinero(100); //Solo para testear
 
         //Pone el precio
         costBox[1].text = "x" + costeNormales;

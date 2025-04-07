@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI;
 
+    [SerializeField] Sprite OrionSprite;
+
     [SerializeField]
     private float TypeSpeed;
 
@@ -34,7 +36,7 @@ public class UIManager : MonoBehaviour
 
                     recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
     [SerializeField]
-    private Image DrinkImage, material1Image, material2Image, material3Image;
+    private Image DrinkImage, material1Image, material2Image, material3Image, CharacterPortrait;
     [SerializeField]
     private Button dialogueSkipButton, ServirButton;
 
@@ -65,6 +67,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI[] matsNumsEnCesta = new TextMeshProUGUI[8];
 
+    [SerializeField] TextMeshProUGUI dineroTotalText;
+    private float dineroTotal;
+
 
 
     #endregion
@@ -83,7 +88,7 @@ public class UIManager : MonoBehaviour
     private int buttonUsing = 0;
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
-    private bool IfHavefalse = false;
+    private bool PickedBadChoice = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -99,7 +104,16 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+       
+        dineroTotal = GameManager.Instance.GetDineros();
+        dineroTotalText.text = dineroTotal.ToString();
+        Debug.Log(dineroTotal);
         GameManager.Instance.GiveUI(this);
+
+        //Comprueba si el GameManager ha sumado 2 al sistema de sospecha antes de cambiar de escena
+        //Si es así y el resultado es 8 o mayor
+        GameManager.Instance.increaseSospechosos(0);
+
         if (ServirButton != null) ServirButton.gameObject.SetActive(false);
         if (recompensa != null) recompensa.text = " ";
         if (nombreBebida != null) nombreBebida.text = " ";
@@ -136,6 +150,9 @@ public class UIManager : MonoBehaviour
             //Actualiza los textos
             matNums[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].ToString();
         }
+
+        CharacterPortrait.gameObject.SetActive(false);
+        DrinkImage.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -143,30 +160,36 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        dineroTotal = GameManager.Instance.GetDineros();
+        dineroTotalText.text = dineroTotal.ToString();
+
+
         if (dialogueSkipBText != null)
         {
             if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) dialogueSkipBText.text = "Continuar";
             else dialogueSkipBText.text = "Saltar";
         }
 
-
         if (ClientDisappear)
         {
             ClientC.r = Mathf.Clamp(ClientC.r - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.g = Mathf.Clamp(ClientC.g - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.b = Mathf.Clamp(ClientC.b - Time.deltaTime * DisappearSpeed, 0, 255);
+            ClientC.a = Mathf.Clamp(ClientC.a - Time.deltaTime * DisappearSpeed, 0, 255);
 
             if (Client != null)
             {
                 Client.color = ClientC / 255;
                 //Debug.Log($"R: {ClientC.r}     G:{ClientC.g}     B:{ClientC.b}");
                 //Debug.Log($"R: {Client.color.r}     G:{Client.color.g}     B:{Client.color.b}");
-                if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0)
+                if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0 && Client.color.a == 0)
                 {
                     Destroy(Client.gameObject);
 
-                    if (!IfHavefalse)
+                    if (!PickedBadChoice)
+                    {
                         GameManager.Instance.increaseSospechosos(-2);
+                    }   
                     ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }
@@ -268,6 +291,8 @@ public class UIManager : MonoBehaviour
     #region Bartender
 
     //UIManager recoge al cliente y su velocidad de aparición, que utilizará para desaparecer.
+    
+
     public void GetClientSprite(SpriteRenderer Client)
     {
         this.Client = Client;
@@ -281,6 +306,7 @@ public class UIManager : MonoBehaviour
         this.dialogue = dialogue;
         DialogueLine = 0; //Inicializa el dialogo en el primer texto
         way = 0; //empieza en GoodWay
+        CharacterPortrait.gameObject.SetActive(true);
         StartCoroutine(Write()); //Escribe el primer texto
     }
 
@@ -302,6 +328,7 @@ public class UIManager : MonoBehaviour
             }
             else //Si no queda texto no escribe nada y empieza a desaparecer
             {
+                CharacterPortrait.gameObject.SetActive(false);
                 dialogueSkipButton.gameObject.SetActive(false);
                 dialogueBox.text = " ";
                 ClientDisappear = true;
@@ -325,7 +352,6 @@ public class UIManager : MonoBehaviour
         //Si el texto del botón corresponde con la opción mala, el diálogo sigue el mal camino.
         if (option1BText.text == dialogue[DialogueLine].GoodText)
         {
-            IfHavefalse = false;
             way = 0;
         }
 
@@ -333,7 +359,7 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
-            IfHavefalse = true;
+            PickedBadChoice = true;
         }
 
 
@@ -353,14 +379,13 @@ public class UIManager : MonoBehaviour
         if (option2BText.text == dialogue[DialogueLine].GoodText)
         {
             way = 0;
-            IfHavefalse = false;
         }
 
         else
         {
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
-            IfHavefalse = true;
+            PickedBadChoice = true;
         }
 
         //Escribe la respuesta del jugador
@@ -415,6 +440,7 @@ public class UIManager : MonoBehaviour
             nombreBebida.text = Convert.ToString(Drink.name).Replace("_", " ");
 
             //Actualiza la imagen de la bebida pedida
+            DrinkImage.gameObject.SetActive(true);
             DrinkImage.sprite = Drink.GetComponent<SpriteRenderer>().sprite;
             DrinkImage.color = visible;
 
@@ -454,6 +480,10 @@ public class UIManager : MonoBehaviour
             }
 
         }
+
+        #endregion
+
+        #region Comportamiento del retrato
 
         #endregion
 
@@ -584,6 +614,7 @@ public class UIManager : MonoBehaviour
         RegresarMats();
 
         //Desactiva los botones y limpia el encargo y recompensas y activa los del dialogo
+        DrinkImage.gameObject.SetActive(false);
         ServirButton.gameObject.SetActive(false);
         dialogueSkipButton.gameObject.SetActive(true);
         recompensa.text = " ";
@@ -603,6 +634,7 @@ public class UIManager : MonoBehaviour
         //Activa la UI de GameOver si el jugador pierde
 
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     #endregion //termina región de bartender
@@ -620,6 +652,17 @@ public class UIManager : MonoBehaviour
         //Elige el recorrido de la conversación a escribir
         string dialogueOnly = GoodBadDialogue();
         dialogueSkipButton.gameObject.SetActive(true); // Activa el botón de continuar/saltar
+        //Cambia la imagen del emisor
+        if (dialogue[DialogueLine].Emisor == Emisor.Jugador)
+        {
+            CharacterPortrait.sprite = OrionSprite;
+        }
+        else if (dialogue[DialogueLine].Emisor == Emisor.Cliente)
+        {
+            CharacterPortrait.sprite = Client.sprite;
+        }
+        else CharacterPortrait.sprite = null;
+        
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {

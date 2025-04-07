@@ -63,10 +63,28 @@ public class ResetGame : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    public void ResetEnemyCounter()
+    public void ResetGM()
     {
+        //RESETEA
+        //Resetea el contador de Enemigos
         GameManager.Instance.ResetEnemyCounter();
-        Debug.Log("Contadores de enemigos reseteados");
+
+        //Resetea el contador de recursos
+        GameManager.Instance.ResetSources();
+
+        //Resetea el marcador de diálogos
+        GameManager.Instance.ResetSaid();
+
+        //Resetea el dinero
+        GameManager.Instance.ResetMoney();
+
+        //Resetea la sospecha
+        GameManager.Instance.ResetSospecha();
+
+        //Resetea las mejoras
+        GameManager.Instance.ResetUpgrades();
+
+        Time.timeScale = 1f;
     }
 
     #endregion

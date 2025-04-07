@@ -26,6 +26,7 @@ public class SpawnersManager : MonoBehaviour
 
     [SerializeField] private float cooldown;
     [SerializeField] private GameObject[] SpawnObjects;
+    [SerializeField] int MaxEnemiesInScene;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -79,98 +80,103 @@ public class SpawnersManager : MonoBehaviour
     {
         if (timer <= 0)
         {
-            //Atributo encargado de llevar una lista sobre los objetos que el random ya ha elegido para que este no se repita
-            tmp = new GameObject[SpawnObjects.Length];
-            //posición en el array de objetos elegidos
-            int j = 0;
+            int EnemiesInScene = FindObjectsOfType<CastEnemy>().Length;
 
-            // -- ELIGE EL OBJETO A INSTANCIAR --
-            do
+            if (EnemiesInScene < MaxEnemiesInScene)
             {
-                //Escoge un objeto
-                ChosenObject = SpawnObjects[UnityEngine.Random.Range(0, SpawnObjects.Length)];
+                //Atributo encargado de llevar una lista sobre los objetos que el random ya ha elegido para que este no se repita
+                tmp = new GameObject[SpawnObjects.Length];
+                //posición en el array de objetos elegidos
+                int j = 0;
 
-                //Busca el objeto elegido en los objetos ya elegidos para no repetir la elección
-                bool enc = false;
-                int i = 0;
-                while (i < tmp.Length && !enc)
+                // -- ELIGE EL OBJETO A INSTANCIAR --
+                do
                 {
-                    if (tmp[i] != null && ChosenObject == tmp[i]) enc = true;
-                    i++;
-                }
-                if (!enc)
-                {
-                    tmp[j] = ChosenObject;
-                    j++;
-                }
-            }
-            // Las condiciones para pedir otro objeto son:
-            // * Que no sea un enemigo o que sea un enemigo que no se pueda spawnear
-            // * Que no haya probado ya con todos los objetos spawneables
+                    //Escoge un objeto
+                    ChosenObject = SpawnObjects[UnityEngine.Random.Range(0, SpawnObjects.Length)];
 
-            while ((ChosenObject.GetComponent<CastEnemy>() == null ||
-            (ChosenObject.GetComponent<CastEnemy>() != null &&
-            EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()] <= 0)) &&
-            j < tmp.Length);
-
-            //Si ha llegado a pasar por todos los spawners y este no cumple las condiciones no elige ninguno
-            if ((ChosenObject.GetComponent<CastEnemy>() == null ||
-            (ChosenObject.GetComponent<CastEnemy>() != null &&
-            EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()] <= 0)))
-            {
-                ChosenObject = null;
-            }
-            
-            // -- ElIGE SPAWNER --
-            //Reutiliza el array para los objetos ya elegidos
-            tmp1 = new SpawnerBehaviour[Spawners.Length];
-            j = 0;
-
-            do
-            {
-                //Escoge un spawner
-                ChosenSpawner = Spawners[UnityEngine.Random.Range(0, Spawners.Length)];
-
-                //Busca el spawner elegido entre los ya elegidos para no repetir la elección
-                bool enc = false;
-                int i = 0;
-                while (i < tmp1.Length && !enc)
-                {
-                    if (tmp1[i] != null && ChosenSpawner == tmp1[i])
+                    //Busca el objeto elegido en los objetos ya elegidos para no repetir la elección
+                    bool enc = false;
+                    int i = 0;
+                    while (i < tmp.Length && !enc)
                     {
-                        enc = true;
+                        if (tmp[i] != null && ChosenObject == tmp[i]) enc = true;
+                        i++;
                     }
-
-                    i++;
+                    if (!enc)
+                    {
+                        tmp[j] = ChosenObject;
+                        j++;
+                    }
                 }
-                if (!enc)
+                // Las condiciones para pedir otro objeto son:
+                // * Que no sea un enemigo o que sea un enemigo que no se pueda spawnear
+                // * Que no haya probado ya con todos los objetos spawneables
+
+                while ((ChosenObject.GetComponent<CastEnemy>() == null ||
+                (ChosenObject.GetComponent<CastEnemy>() != null &&
+                EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()] <= 0)) &&
+                j < tmp.Length);
+
+                //Si ha llegado a pasar por todos los spawners y este no cumple las condiciones no elige ninguno
+                if ((ChosenObject.GetComponent<CastEnemy>() == null ||
+                (ChosenObject.GetComponent<CastEnemy>() != null &&
+                EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()] <= 0)))
                 {
-                    tmp1[j] = ChosenSpawner;
-                    j++;
+                    ChosenObject = null;
                 }
-            }
-            // Las condiciones para volver a pedir otro spawner son:
-            // * Que el spawner esté dentro de la cámara
-            // * Que no haya probado ya con todas los objetos spawneables
-            while (ChosenSpawner.IsVisible() &&
-                   j < tmp1.Length);
 
-            //Si ha llegado a pasar por todos los spawners y este no cumple las condiciones no elige ninguno
-            if (ChosenSpawner.IsVisible())
-            {
-                ChosenSpawner = null;
-            }
+                // -- ElIGE SPAWNER --
+                //Reutiliza el array para los objetos ya elegidos
+                tmp1 = new SpawnerBehaviour[Spawners.Length];
+                j = 0;
 
-            //Spawnea el objeto
-            if (ChosenSpawner != null && ChosenObject != null)
-            {
-                ChosenSpawner.GetComponent<SpawnerBehaviour>().Spawn(ChosenObject);
-                // Resta al array de enemigos que quedan por spawnear el enemigo spawneado
-                EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()]--;
-            }
+                do
+                {
+                    //Escoge un spawner
+                    ChosenSpawner = Spawners[UnityEngine.Random.Range(0, Spawners.Length)];
 
-            //Reinicia el contador
-            timer = cooldown;
+                    //Busca el spawner elegido entre los ya elegidos para no repetir la elección
+                    bool enc = false;
+                    int i = 0;
+                    while (i < tmp1.Length && !enc)
+                    {
+                        if (tmp1[i] != null && ChosenSpawner == tmp1[i])
+                        {
+                            enc = true;
+                        }
+
+                        i++;
+                    }
+                    if (!enc)
+                    {
+                        tmp1[j] = ChosenSpawner;
+                        j++;
+                    }
+                }
+                // Las condiciones para volver a pedir otro spawner son:
+                // * Que el spawner esté dentro de la cámara
+                // * Que no haya probado ya con todas los objetos spawneables
+                while (ChosenSpawner.IsVisible() &&
+                       j < tmp1.Length);
+
+                //Si ha llegado a pasar por todos los spawners y este no cumple las condiciones no elige ninguno
+                if (ChosenSpawner.IsVisible())
+                {
+                    ChosenSpawner = null;
+                }
+
+                //Spawnea el objeto
+                if (ChosenSpawner != null && ChosenObject != null)
+                {
+                    ChosenSpawner.GetComponent<SpawnerBehaviour>().Spawn(ChosenObject);
+                    // Resta al array de enemigos que quedan por spawnear el enemigo spawneado
+                    EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()]--;
+                }
+
+                //Reinicia el contador
+                timer = cooldown;
+            }
         }
         timer -= Time.deltaTime;
     }

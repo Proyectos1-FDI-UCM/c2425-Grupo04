@@ -117,19 +117,20 @@ public class Dialogue : MonoBehaviour
                 //además sustituye los "_" por espacios
                 //y el masculino en femenino en caso de ser una sidra
 
-                //Filtro 1 y 2
-                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
-                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
-
                 //Filtro 3
                 if (BebidaPedida.GetComponent<CastDrink>().GetDrinkName() == DrinkName.Sidra)
                 {
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" ese ", " esa ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" este ", "esta ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" aquel ", " aquella ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" un ", " una ");
-                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" el ", " la ");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" ese (", " esa (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" este (", "esta (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" aquel (", " aquella (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" un (", " una (");
+                    dialogue[i].GoodText = dialogue[i].GoodText.Replace(" el (", " la (");
                 }
+
+                //Filtro 1 y 2
+                //Debug.Log(BebidaPedida.name);
+                dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
+                dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
             }
             i++;
         }
@@ -143,10 +144,14 @@ public class Dialogue : MonoBehaviour
         if (uiManager == null) uiManager = GameManager.Instance.GetUI();
 
         //Aparece
-        color.r = Mathf.Clamp(color.r + Time.deltaTime * AppearSpeed, 0, 255);
-        color.g = Mathf.Clamp(color.g + Time.deltaTime * AppearSpeed, 0, 255);
-        color.b = Mathf.Clamp(color.b + Time.deltaTime * AppearSpeed, 0, 255);
-        spriteRenderer.color = color / 255;
+        if (!ClientAppear)
+        {
+            color.r = Mathf.Clamp(color.r + Time.deltaTime * AppearSpeed, 0, 255);
+            color.g = Mathf.Clamp(color.g + Time.deltaTime * AppearSpeed, 0, 255);
+            color.b = Mathf.Clamp(color.b + Time.deltaTime * AppearSpeed, 0, 255);
+            spriteRenderer.color = color / 255;
+        }
+        
         //Debug.Log(color.r);
         if (spriteRenderer.color.r == 1)
             ClientAppear = true;

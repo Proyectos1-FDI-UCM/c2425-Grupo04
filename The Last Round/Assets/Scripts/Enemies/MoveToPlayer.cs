@@ -27,7 +27,6 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
-    private CollisionDetector cD;
     private Collider2D ObjectCollider;
     //Los inicializo a -1 para saber cuando no están definidos
     private float minX, maxX, minY, maxY;
@@ -42,7 +41,6 @@ public class MoveToPlayer : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
@@ -83,15 +81,11 @@ public class MoveToPlayer : MonoBehaviour
                                       Player.transform.position.y - enemy.transform.position.y,
                                       0);
 
-        if ((cD.GetCollisions(Directions.North) && EnemyPlayer.y > 0) ||
-            (cD.GetCollisions(Directions.South) && EnemyPlayer.y < 0) ||
-            (EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1) ||
+        if ((EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1) ||
             (EnemyPlayer.y < 0 && posMinY.y <= minY) ||
             (EnemyPlayer.y > 0 && posMaxY.y >= maxY)) EnemyPlayer.y = 0;
 
-        if ((cD.GetCollisions(Directions.East) && EnemyPlayer.x > 0) ||
-            (cD.GetCollisions(Directions.West) && EnemyPlayer.x < 0) ||
-            (EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1) ||
+        if ((EnemyPlayer.x < 0.1 && EnemyPlayer.x > -0.1) ||
             (EnemyPlayer.x < 0 && posMinX.x <= minX) ||
             (EnemyPlayer.x > 0 && posMaxX.x >= maxX)) EnemyPlayer.x = 0;
 

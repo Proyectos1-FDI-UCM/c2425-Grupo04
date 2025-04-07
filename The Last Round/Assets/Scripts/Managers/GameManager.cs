@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
-    [SerializeField, Range(0, 1)] int Alcalde;
 
     [Header("Límites")]
     [SerializeField] private float MapWidth;
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
     private float[] recursos;
     private int[] numEnemigos;
     private float NivelSospechosos = 0;
-    private float Dineros = 0;
+    public  float Dineros = 0;
     private bool[,] DialoguesSaid;
     private float musicVolume = 100f, sfxVolume = 100f;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
@@ -143,16 +142,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
-        // Debug.Log(NivelSospechosos);
-        //Debug.Log(Dineros);
 
-        if (NivelSospechosos >= 8&&UIManager!=null)
-        {
-            GameManager.Instance.GetUI().GetComponent<UIManager>().GameOverUI();
-        }
     }
-    
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -174,6 +166,7 @@ public class GameManager : MonoBehaviour
     {
         UIManagerCombate.Timer(time);
     }
+   
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
@@ -212,6 +205,15 @@ public class GameManager : MonoBehaviour
     {
         return recursos;
     }
+
+    public void ResetSources()
+    {
+        for (int i = 0; i < recursos.Length; i++)
+        {
+            recursos[i] = 0;
+        }
+    }
+
     // --- FIN GESTIÓN DE RECURSOS ---
 
     // --- GESTIÓN ECONÓMICA ---
@@ -230,19 +232,31 @@ public class GameManager : MonoBehaviour
     {
         return Dineros;
     }
+
+    public void ResetMoney()
+    {
+        Dineros = 0;
+    }
     // --- FIN GESTIÓN ECONÓMICA ---
 
     // --- SISTEMA DE SOSPECHA ---
-    public float increaseSospechosos(int i)
+    public void increaseSospechosos(int i)
     {
-        if (NivelSospechosos < 8 && NivelSospechosos >= 0)
+        NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
+
+        //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
+        // Debug.Log(NivelSospechosos);
+        //Debug.Log(Dineros);
+
+        if (NivelSospechosos >= 8 && UIManager != null)
         {
-            if (NivelSospechosos == 1 && i == -2 || NivelSospechosos == 0 && i == -2)
-                NivelSospechosos = 0;
-            else
-                NivelSospechosos += i;
+            UIManager.GameOverUI();
         }
-        return NivelSospechosos;
+    }
+
+    public void ResetSospecha()
+    {
+        NivelSospechosos = 0;
     }
     // --- FIN SISTEMA DE SOSPECHA ---
 
@@ -278,6 +292,18 @@ public class GameManager : MonoBehaviour
     {
         upgradeBool[element] = true;
     }
+
+    public void ResetUpgrades()
+    {
+        for (int i = 0; i < upgradeLevel.Length; i++)
+        {
+            upgradeLevel[i] = 0;
+        }
+        for (int i = 0; i < upgradeBool.Length; i++)
+        {
+            upgradeBool[i] = false;
+        }
+    }
     // --- FIN SISTEMA DE MEJORAS ---
 
     // ---CONTADOR DE ENEMIGOS---
@@ -290,15 +316,6 @@ public class GameManager : MonoBehaviour
         {
             numEnemigos[(int)enemy]--;
         }
-
-        //Cada vez que un enemigo muere, se refrescan las colisiones
-        CollisionDetector[] objets = FindObjectsOfType<CollisionDetector>();
-
-        for (int i = 0; i < objets.Length; i++)
-        {
-            objets[i].Refresh();
-        }
-
 
         if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
@@ -346,6 +363,17 @@ public class GameManager : MonoBehaviour
     {
         bool tmp = DialoguesSaid[client, dialogue];
         return tmp;
+    }
+
+    public void ResetSaid()
+    {
+        for(int i = 0; i < DialoguesSaid.GetLength(1); i++)
+        {
+            for (int j = 0; j < DialoguesSaid.GetLength(0); j++)
+            {
+                DialoguesSaid[j, i] = false;
+            }
+        }
     }
     // --- FIN GESTIÓN DIÁLOGOS
     public static GameManager Instance

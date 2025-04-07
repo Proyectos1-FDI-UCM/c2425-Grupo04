@@ -71,7 +71,11 @@ public class BulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        //Solo se destruye al colisionar con objetos estáticos (muros) o enemigos
+        if (collision.gameObject.GetComponent<CastEnemy>() != null || (collision.gameObject.GetComponent<Rigidbody2D>() != null && collision.gameObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static))
+        {
+            Destroy(gameObject);
+        }  
     }
     private void OnBecameInvisible()
     {

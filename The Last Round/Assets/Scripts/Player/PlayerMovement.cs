@@ -30,9 +30,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 LastDirection;
     private Vector3 MoveDirection;
     private bool dashing;
-    private CollisionDetector cD;
     private Collider2D ObjectCollider;
     private float minX, maxX, minY, maxY;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -46,8 +47,9 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.GivePlayer(gameObject);
         rb = GetComponent<Rigidbody2D>();
-        cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
@@ -60,9 +62,7 @@ public class PlayerMovement : MonoBehaviour
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {
-        dashing = GetComponent<PlayerDash>().dash();
-
+    { 
         MoveDirection = InputManager.Instance.MovementVector;
 
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
@@ -73,15 +73,11 @@ public class PlayerMovement : MonoBehaviour
         posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
 
-        if ((cD.GetCollisions(Directions.North) && MoveDirection.y > 0) ||
-            cD.GetCollisions(Directions.South) && MoveDirection.y < 0 ||
-            (MoveDirection.y < 0 && posMinY.y <= minY) ||
+        if ((MoveDirection.y < 0 && posMinY.y <= minY) ||
             (MoveDirection.y > 0 && posMaxY.y >= maxY))
             MoveDirection.y = 0;
 
-        if ((cD.GetCollisions(Directions.East) && MoveDirection.x > 0) ||
-            cD.GetCollisions(Directions.West) && MoveDirection.x < 0 ||
-            (MoveDirection.x < 0 && posMinX.x <= minX) ||
+        if ((MoveDirection.x < 0 && posMinX.x <= minX) ||
             (MoveDirection.x > 0 && posMaxX.x >= maxX)) MoveDirection.x = 0;
 
 
@@ -90,9 +86,31 @@ public class PlayerMovement : MonoBehaviour
         {
             LastDirection = MoveDirection;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        dashing = GetComponent<PlayerDash>().dash();
 
         if (!dashing)
+        {
             rb.velocity = MoveDirection * MoveSpeed;
+        }
+
+        animator.SetFloat("Horizontal", Mathf.Abs(MoveDirection.x));
+        animator.SetFloat("Vertical", MoveDirection.y);
+        animator.SetFloat("Speed", MoveDirection.sqrMagnitude);
+        if(MoveDirection.x < 0)
+        {
+            //Si se mueve a la izquierda, flip al Sprite Renderer
+            spriteRenderer.flipX = true;
+        }
+        else if(MoveDirection.x > 0)
+        {
+            //Si se mueve a la derecha, no hay flip al Sprite Renderer
+            spriteRenderer.flipX = false;
+        }
+        //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
     }
 
 

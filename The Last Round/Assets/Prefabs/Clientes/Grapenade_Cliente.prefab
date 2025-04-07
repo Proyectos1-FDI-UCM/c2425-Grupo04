@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 61b735ec42956664bb98450c189112f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,7 +189,6 @@ MonoBehaviour:
       BadText: "S\xED, ser\xE1 eso. Adi\xF3s."
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Ponme algo fuerte. Ha sido un d\xEDa largo.\r\n"
@@ -267,7 +266,6 @@ MonoBehaviour:
         primera copa, por lo menos\u2026"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "\xBFCu\xE1nto tiempo llevas trabajando de bartender?\r\n"
@@ -346,7 +344,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s.\r\n"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 1
     Lines:
     - GoodText: "Hoy me va bien, bartender. Muy bien.\r"
@@ -429,7 +426,6 @@ MonoBehaviour:
       BadText: Hasta luego...
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "\xBFEres una fresa? Es la primera vez que veo a alguien como t\xFA
@@ -529,7 +525,6 @@ MonoBehaviour:
         otro d\xEDa. Hasta luego.\r\n"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: ...
@@ -656,7 +651,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s, espero que vuelvas a pasarte por aqu\xED.\r\n"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: ...
@@ -783,7 +777,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s, espero que vuelvas a pasarte por aqu\xED.\r\n"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "\xBFCu\xE1ntas bebidas tengo que pedirte para estar aqu\xED el m\xE1ximo
@@ -897,7 +890,6 @@ MonoBehaviour:
         dar algo de beber. Adi\xF3s.\r"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: 'Bartender, ponme algo fuerte. Esta noche, me siento como un fantasma.
@@ -1015,7 +1007,6 @@ MonoBehaviour:
       BadText: "Lo mismo digo... Eso significar\xE1 que sigo vivo.\r\n"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Dime, bartender\u2026 \xBFT\xFA crees en las leyendas?\r\n"
@@ -1119,7 +1110,6 @@ MonoBehaviour:
       BadText: "Puede ser\u2026 Pero ayuda.\r\n"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Oye bartender\u2026 \xBFT\xFA crees que estamos ganando esta guerra?\r\n"
@@ -1198,7 +1188,6 @@ MonoBehaviour:
       BadText: "Mejor me voy. Me preparar\xE9 para la batalla de esta noche."
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Estoy harto de este asesino\u2026 \xBFSabes lo peor de todo, bartender?\r\n"
@@ -1281,7 +1270,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s, bartender.\r\n"
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Hoy han encontrado otro cuerpo. Como todos los d\xEDas ya. Aunque
@@ -1368,7 +1356,6 @@ MonoBehaviour:
         momento, podr\xE1s recuperar la esperanza.\r\n"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Oye, bartender\u2026 \xBFHas o\xEDdo lo que dicen de Felidoria?\r\n"
@@ -1450,7 +1437,6 @@ MonoBehaviour:
       BadText: "Eso har\xE9."
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: Ponme algo fuerte. Esta ciudad es una maldita broma.
@@ -1516,7 +1502,6 @@ MonoBehaviour:
       BadText: "Tal vez, pero al menos har\xEDa este d\xEDa un poco menos asqueroso."
       Estatus: 0
       Emisor: 0
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Dime algo, bartender\u2026 \xBFt\xFA te llevas bien con los Uvoncios?"
@@ -1589,7 +1574,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s."
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Oye, bartender\u2026 \xBFt\xFA crees que el asesino est\xE1 entre
@@ -1671,7 +1655,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s\u2026"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Bienvenido. \xBFQu\xE9 vas a pedir?"
@@ -1776,7 +1759,6 @@ MonoBehaviour:
         como sigas as\xED\u2026"
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Ponme lo m\xE1s fuerte que tengas. Necesito olvidar."
@@ -1864,7 +1846,6 @@ MonoBehaviour:
       BadText: Hasta luego.
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   - Generic: 0
     Lines:
     - GoodText: "Los gatos nos tienen dominados. S\xF3lo con uno pueden con el pueblo
@@ -1954,7 +1935,6 @@ MonoBehaviour:
       BadText: "Adi\xF3s, estimado cliente."
       Estatus: 0
       Emisor: 1
-    WasSaid: 0
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}

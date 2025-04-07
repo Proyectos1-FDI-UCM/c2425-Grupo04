@@ -105,13 +105,6 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    //Carga la escena del menu
-    public void GoToMenu()
-    {
-        GameManager.Instance.ChangeScene(0);
-        Time.timeScale = 1f;
-    }
-
     //Le da el volumen al gameManager
     public void MusicVolume()
     {

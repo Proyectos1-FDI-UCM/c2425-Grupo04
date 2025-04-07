@@ -21,9 +21,6 @@ public class ManzarieteMovement : MonoBehaviour
     //Rango de sprint, tiempo de carga del sprint, velocidad del sprint, tiempo que se hace el sprint
     //, velocidad de frenado y tiempo de frenado
     [SerializeField] private float RangeAttack, ChargeTime, SprintSpeed, SprintTime, BreakSpeed, BreakTime;
-
-    //Cubo de ataque que se activa solo cuando hace el sprint
-    [SerializeField] private GameObject AttackCube;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,7 +44,6 @@ public class ManzarieteMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     //Detector que gestiona las colisiones
-    private CollisionDetector cD;
 
     //Se ajusta el collider para saber si hay un objeto entre el jugador y el enemigo
     private Collider2D ObjectCollider;
@@ -60,11 +56,9 @@ public class ManzarieteMovement : MonoBehaviour
     #region Métodos de MonoBehaviour
     private void Start()
     {
-        AttackCube.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         moveToplayer = GetComponent<MoveToPlayer>();
         MaxSpeed = SprintSpeed;
-        cD = GetComponent<CollisionDetector>();
         ObjectCollider = GetComponent<Collider2D>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
@@ -151,13 +145,6 @@ public class ManzarieteMovement : MonoBehaviour
     {
         if (Stimer > 0)
         {
-            //Excluir las colisiones de Enemigos y Jugador (atravesarlos)
-            rb.excludeLayers |= LayerMask.GetMask("Player", "Enemy");
-
-            //Reseteamos las colisiones con las capas excluidas anteriormente
-            GetComponent<CollisionDetector>().ResetLayer(6 /*Player*/);
-            GetComponent<CollisionDetector>().ResetLayer(10 /*Enemy*/);
-
             // -Sensación de rebote- durante movimiento
             //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
 
@@ -168,18 +155,14 @@ public class ManzarieteMovement : MonoBehaviour
             posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
             posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
-            if ((cD.GetCollisions(Directions.East) && LastPlayerPosition.x > 0) ||
-                (cD.GetCollisions(Directions.West) && LastPlayerPosition.x < 0) ||
-                (LastPlayerPosition.x < 0 && posMinX.x <= minX) ||
+            if ((LastPlayerPosition.x < 0 && posMinX.x <= minX) ||
                 (LastPlayerPosition.x > 0 && posMaxX.x >= maxX))
             {
                 LastPlayerPosition.x *= -1;
             }
 
             //Si colisiona en las zonas encima o debajo solo invierte el eje y
-            if ((cD.GetCollisions(Directions.North) && LastPlayerPosition.y > 0) ||
-                (cD.GetCollisions(Directions.South) && LastPlayerPosition.y < 0) ||
-                (LastPlayerPosition.y < 0 && posMinY.y <= minY) ||
+            if ((LastPlayerPosition.y < 0 && posMinY.y <= minY) ||
                 (LastPlayerPosition.y > 0 && posMaxY.y >= maxY))
             {
                 LastPlayerPosition.y *= -1;
@@ -196,10 +179,8 @@ public class ManzarieteMovement : MonoBehaviour
         }
         else
         {
-            rb.excludeLayers &= ~LayerMask.GetMask("Player", "Enemy");
             rb.velocity = Vector3.zero;
             IsSprinting = false;
-            AttackCube.SetActive(false);
             SprintSpeed = MaxSpeed;
         }
     }//Sprint
@@ -225,12 +206,37 @@ public class ManzarieteMovement : MonoBehaviour
             else if (tmp1.y != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.y * tmp1.y);
 
             IsCharging = false;
-            AttackCube.SetActive(true);
             IsSprinting = true;
             Stimer = SprintTime;
         }
     }//Charge
     #endregion
 
+    /// <summary>
+    /// Encargado de detectar colisiones con otros objetos
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Si detecta la colisión con algún objeto mientras hace el sprint da el efecto de rebote
+        //En realidad esto se aplica a todos los objetos a excepción de la capa "Player" (jugadores)
+        //Esto es porque el collider "no trigger" que se encarga de la reacción de frenado, excluye a esta capa
+        //Los objetos en la capa "Player" activan otro collider trigger por lo que con ellos esta función no se llama.
+        if (IsSprinting)
+        {
+            Vector2 tmp = collision.contacts[0].normal;
+
+            if (tmp.y > 0.5f && LastPlayerPosition.y < 0|| tmp.y < -0.5 && LastPlayerPosition.y > 0)
+            {
+                LastPlayerPosition.y *= -1;
+            }
+            
+            if (tmp.x > 0.5f && LastPlayerPosition.x < 0 || tmp.x < -0.5 && LastPlayerPosition.x > 0)
+            {
+                LastPlayerPosition.x *= -1;
+            }
+
+        }
+    }
 } // class ManzarieteMovement 
 // namespace
