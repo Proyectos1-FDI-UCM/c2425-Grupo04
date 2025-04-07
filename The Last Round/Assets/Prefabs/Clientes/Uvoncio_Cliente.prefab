@@ -180,7 +180,7 @@ MonoBehaviour:
       Estatus: 1
       Emisor: 0
     - GoodText: "Es bueno cuidar entre s\xED."
-      BadText: suena exagerado
+      BadText: Suena exagerado
       Estatus: 0
       Emisor: 1
     - GoodText: "\xA1Exacto! Aqu\xED nos protegemos unos a otros.\r\n"
