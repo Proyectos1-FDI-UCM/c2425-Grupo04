@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] float time = 120f;
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] private int NextScene;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -47,7 +48,7 @@ public class Timer : MonoBehaviour
         }
         if(time <= 0)
         {
-            GameManager.Instance.ChangeScene(2);
+            GameManager.Instance.ChangeScene(NextScene);
             GameManager.Instance.increaseSospechosos(2);
         }
         GameManager.Instance.GiveTimerToUIC(TimerText());

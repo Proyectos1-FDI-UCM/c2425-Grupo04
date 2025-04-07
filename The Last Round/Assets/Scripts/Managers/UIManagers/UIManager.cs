@@ -10,7 +10,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
 
 /// <summary>
@@ -22,6 +21,8 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI;
+
+    [SerializeField] private int NextScene;
 
     [SerializeField] Sprite OrionSprite;
 
@@ -190,7 +191,7 @@ public class UIManager : MonoBehaviour
                     {
                         GameManager.Instance.increaseSospechosos(-2);
                     }   
-                    GameManager.Instance.ChangeScene(3);
+                    GameManager.Instance.ChangeScene(NextScene);
                 }
             }
         }

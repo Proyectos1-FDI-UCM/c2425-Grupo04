@@ -1117,6 +1117,10 @@ PrefabInstance:
       value: 121
       objectReference: {fileID: 0}
     - target: {fileID: -1617894895646996473, guid: 78ac0cdccb6bfc64e9d1894b1f4af4a9, type: 3}
+      propertyPath: NextScene
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1617894895646996473, guid: 78ac0cdccb6bfc64e9d1894b1f4af4a9, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 110903830}
