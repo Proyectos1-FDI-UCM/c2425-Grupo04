@@ -64,6 +64,10 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
         // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
         if (other.GetComponent<PlayerMovement>() != null && InputManager.Instance.InteractWasPressedThisFrame())
         {
+            if (GetComponent<ResetGame>() != null)
+            {
+                GetComponent<ResetGame>().ResetGM();
+            }
             GameManager.Instance.ChangeScene(Scene);
         }
     }

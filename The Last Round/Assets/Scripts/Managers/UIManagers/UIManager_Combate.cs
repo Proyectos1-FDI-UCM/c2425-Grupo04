@@ -55,7 +55,10 @@ public class UIManager_Combate : MonoBehaviour
         {
             populationNum += GameManager.Instance.GetEnemyCounter()[i];
         }
-        population.text = $"Población: {populationNum}";
+        if (population != null)
+        {
+            population.text = $"Población: {populationNum}";
+        }
     }
 
     private void Update()

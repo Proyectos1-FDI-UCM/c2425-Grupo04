@@ -1,11 +1,10 @@
 //---------------------------------------------------------
-// Instancia a los clientes dependiendo de su probabilidad de aparecer
-// Aryan Guerrero Iruela
+// Breve descripción del contenido del archivo
+// Responsable de la creación de este archivo
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -14,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class ClientSpawner : MonoBehaviour
+public class TutorialConditions : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,15 +22,10 @@ public class ClientSpawner : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
-    /// <summary>
-    /// 0 es alcalde, 1 y 3 manzanas, 2 y 4 uvas
-    /// </summary>
-    [SerializeField]
-    private GameObject[] clients;
-
+    [SerializeField] private int Money;
+    [SerializeField] private int Sources;
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -40,7 +34,7 @@ public class ClientSpawner : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private GameObject[] TidyClients;
+
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -54,31 +48,6 @@ public class ClientSpawner : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Start()
-    {
-        TidyClients = new GameObject[clients.Length];
-        if (clients.Length < 5)
-        {
-            TidyClients = clients;
-        }
-        else
-        {
-            //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
-            for (int i = 0; i < TidyClients.Length; i++)
-            {
-                TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
-            }
-            Spawn();
-        }
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -88,29 +57,21 @@ public class ClientSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void Spawn()
+    public void PlaceConditions()
     {
-        int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
+        GameManager.Instance.increaseDinero(Money);
 
-        int[] contador = GameManager.Instance.GetEnemyCounter();
-
-        do
+        for (int i = 0; i < Sources; i++)
         {
-            //genera un numero al azar entre el 0 y el doble de clientes - 1
-            rnd = UnityEngine.Random.Range(0, (TidyClients.Length * 2)-1);
-            if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
-            {
-                rnd = Mathf.CeilToInt(rnd / 2f);
-            }
-            //Debug.Log(TidyClients[rnd].name);
+            GameManager.Instance.IncreaseResource(SourceName.Piel_de_manzana);
+            GameManager.Instance.IncreaseResource(SourceName.PielDeUva);
+            GameManager.Instance.IncreaseResource(SourceName.JugoDeManzana);
+            GameManager.Instance.IncreaseResource(SourceName.JugoDeUva);
+            GameManager.Instance.IncreaseResource(SourceName.SemillaDeManzana);
+            GameManager.Instance.IncreaseResource(SourceName.SemillaDeUva);
+            GameManager.Instance.IncreaseResource(SourceName.Hielo);
+            GameManager.Instance.IncreaseResource(SourceName.Levadura);
         }
-        //Vuelve a pedir un cliente si el contador en la posición del cliente pedido es menor o igual a 0
-        while (TidyClients[rnd] == null || contador[(int)TidyClients[rnd].GetComponent<CastEnemy>().GetEnemyType()] <= 0);
-
-
-        
-        Instantiate(TidyClients[rnd], transform.position, Quaternion.identity);
-        
     }
     #endregion
     
@@ -123,5 +84,5 @@ public class ClientSpawner : MonoBehaviour
 
     #endregion   
 
-} // class ClientSpawner 
+} // class TutorialConditions 
 // namespace
