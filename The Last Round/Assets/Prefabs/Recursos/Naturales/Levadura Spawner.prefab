@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectdistancia: 1.2
-  HoldingTime: 4
-  limitrecursos: 5
+  HoldingTime: 3
+  limitrecursos: 10
 --- !u!114 &4210823676919848411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: -1186166329
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -580175789, guid: a396589a21160c743a3b6aa90591dd9d, type: 3}
+  m_Sprite: {fileID: -1928230805, guid: 09b5339544a795140b0e12d524d00e7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

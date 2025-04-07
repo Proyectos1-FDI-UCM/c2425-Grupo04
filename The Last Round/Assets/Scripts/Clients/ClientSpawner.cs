@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -56,12 +57,19 @@ public class ClientSpawner : MonoBehaviour
     void Start()
     {
         TidyClients = new GameObject[clients.Length];
-        //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
-        for (int i = 0; i < TidyClients.Length; i++)
+        if (clients.Length < 5)
         {
-            TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
+            TidyClients = clients;
         }
-        Spawn();
+        else
+        {
+            //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
+            for (int i = 0; i < TidyClients.Length; i++)
+            {
+                TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
+            }
+            Spawn();
+        }
     }
 
     /// <summary>
