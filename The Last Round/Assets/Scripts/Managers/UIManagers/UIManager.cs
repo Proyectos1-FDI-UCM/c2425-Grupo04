@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI;
 
+    [SerializeField] Sprite OrionSprite;
+
     [SerializeField]
     private float TypeSpeed;
 
@@ -148,6 +150,9 @@ public class UIManager : MonoBehaviour
             //Actualiza los textos
             matNums[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[j].GetComponent<CastMaterial>().GetSourceName()].ToString();
         }
+
+        CharacterPortrait.gameObject.SetActive(false);
+        DrinkImage.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -301,6 +306,7 @@ public class UIManager : MonoBehaviour
         this.dialogue = dialogue;
         DialogueLine = 0; //Inicializa el dialogo en el primer texto
         way = 0; //empieza en GoodWay
+        CharacterPortrait.gameObject.SetActive(true);
         StartCoroutine(Write()); //Escribe el primer texto
     }
 
@@ -322,6 +328,7 @@ public class UIManager : MonoBehaviour
             }
             else //Si no queda texto no escribe nada y empieza a desaparecer
             {
+                CharacterPortrait.gameObject.SetActive(false);
                 dialogueSkipButton.gameObject.SetActive(false);
                 dialogueBox.text = " ";
                 ClientDisappear = true;
@@ -433,6 +440,7 @@ public class UIManager : MonoBehaviour
             nombreBebida.text = Convert.ToString(Drink.name).Replace("_", " ");
 
             //Actualiza la imagen de la bebida pedida
+            DrinkImage.gameObject.SetActive(true);
             DrinkImage.sprite = Drink.GetComponent<SpriteRenderer>().sprite;
             DrinkImage.color = visible;
 
@@ -606,6 +614,7 @@ public class UIManager : MonoBehaviour
         RegresarMats();
 
         //Desactiva los botones y limpia el encargo y recompensas y activa los del dialogo
+        DrinkImage.gameObject.SetActive(false);
         ServirButton.gameObject.SetActive(false);
         dialogueSkipButton.gameObject.SetActive(true);
         recompensa.text = " ";
@@ -643,6 +652,17 @@ public class UIManager : MonoBehaviour
         //Elige el recorrido de la conversación a escribir
         string dialogueOnly = GoodBadDialogue();
         dialogueSkipButton.gameObject.SetActive(true); // Activa el botón de continuar/saltar
+        //Cambia la imagen del emisor
+        if (dialogue[DialogueLine].Emisor == Emisor.Jugador)
+        {
+            CharacterPortrait.sprite = OrionSprite;
+        }
+        else if (dialogue[DialogueLine].Emisor == Emisor.Cliente)
+        {
+            CharacterPortrait.sprite = Client.sprite;
+        }
+        else CharacterPortrait.sprite = null;
+        
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {

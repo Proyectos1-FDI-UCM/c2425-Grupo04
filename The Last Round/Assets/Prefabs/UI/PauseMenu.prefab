@@ -1242,7 +1242,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 8884446693455681766}
         m_TargetAssemblyTypeName: ResetGame, Assembly-CSharp
-        m_MethodName: ResetEnemyCounter
+        m_MethodName: ResetGM
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
