@@ -85,7 +85,6 @@ public class UIManager : MonoBehaviour
     private SpriteRenderer Client;
     private Color ClientC, invisible, visible;
     private GameObject Drink;
-    private bool mat1Yes = true, mat2Yes = true, mat3Yes = true;
     private int buttonUsing = 0;
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
@@ -223,57 +222,6 @@ public class UIManager : MonoBehaviour
         //Si no hay ningún material en la cesta, no da esa opción
         if (matsTotales > 0) regresarMats.gameObject.SetActive(true);
         else regresarMats.gameObject.SetActive(false);
-
-
-        if (Drink != null && Drink.GetComponent<CastDrink>().GetDrinkMaterials() != null)
-        {
-            //Mira si cada uno de los materiales estan en la cesta
-            for (int i = 0; i < matsEnCesta.Length; i++)
-            {
-                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Material.GetComponent<SpriteRenderer>().sprite)
-                {
-                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Amount)
-                    {
-                        mat1Yes = true;
-                    }
-                    else
-                    {
-                        mat1Yes = false;
-                    }
-                }
-                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Material.GetComponent<SpriteRenderer>().sprite)
-                {
-                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Amount)
-                    {
-                        mat2Yes = true;
-                    }
-                    else
-                    {
-                        mat2Yes = false;
-                    }
-                }
-                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 3 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Material.GetComponent<SpriteRenderer>().sprite)
-                {
-                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Amount)
-                    {
-                        mat3Yes = true;
-                    }
-                    else
-                    {
-                        mat3Yes = false;
-                    }
-                }
-            }
-            //Si todos los materiales estan el la cesta
-            if (mat1Yes && mat2Yes && mat3Yes)
-            {
-                matsReqEnCesta = true;
-            }
-            else
-            {
-                matsReqEnCesta = false;
-            }
-        }
 
         //Cambio de texto del boton de servir si estan los materiales pedidos en la cesta
         if (matsReqEnCesta)
@@ -461,7 +409,6 @@ public class UIManager : MonoBehaviour
                 material3.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Amount}";
                 material3Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Material.GetComponent<SpriteRenderer>().sprite;
                 material3Image.color = visible;
-                mat3Yes = false;
             }
 
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2)
@@ -469,7 +416,6 @@ public class UIManager : MonoBehaviour
                 material2.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Amount}";
                 material2Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Material.GetComponent<SpriteRenderer>().sprite;
                 material2Image.color = visible;
-                mat2Yes = false;
             }
 
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1)
@@ -477,14 +423,71 @@ public class UIManager : MonoBehaviour
                 material1.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Amount}";
                 material1Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Material.GetComponent<SpriteRenderer>().sprite;
                 material1Image.color = visible;
-                mat1Yes = false;
             }
-
+            ComproveBasket();
         }
 
         #endregion
     }
 
+    /// <summary>
+    /// Determina si los materiales necesarios para la creación de la bebida están o no en la cesta
+    /// </summary>
+    public void ComproveBasket()
+    {
+        matsReqEnCesta = true;
+
+        if (Drink != null && Drink.GetComponent<CastDrink>() != null)
+        {
+            CastDrink drink = Drink.GetComponent<CastDrink>();
+
+            //Busca en los materiales necesarios para la bebida
+            //Siempre que tenga los materiales
+            int i = 0;
+            while (i < drink.GetDrinkMaterials().Length && matsReqEnCesta)
+            {
+                int j = 0;
+                bool enc = false;
+                //Busca el material en la cesta
+                while (j < matCestaImages.Length && !enc)
+                {
+                    if (matCestaImages[j].sprite ==
+                        drink.GetDrinkMaterials()[i].Material.GetComponent<SpriteRenderer>().sprite)
+                    {
+                        enc = true;
+                        //Comprueba su cantidad
+                        int amount;
+
+                        try
+                        {
+                            amount = int.Parse(matCestaImages[j].GetComponentInChildren<TextMeshProUGUI>().text);
+                        }
+                        catch
+                        {
+                            amount = 0;
+                        }
+
+                        Debug.Log(amount);
+
+                        if (amount < drink.GetDrinkMaterials()[i].Amount)
+                        {
+                            //En el momento en el que encuentra uno de los materiales que no cumple los requisitos sale del bucle
+                            matsReqEnCesta = false;
+                        }
+                    }
+                    j++;
+                }
+
+                //Si directamente no encuentra el material en cesta entonces no están los materiales necesarios
+                if (!enc)
+                {
+                    matsReqEnCesta = false;
+                }
+
+                i++;
+            }
+        }
+    }
 
     public void SumarMaterial(Button material)
     {
@@ -535,6 +538,7 @@ public class UIManager : MonoBehaviour
             //Actualiza los textos
             matNums[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()].ToString();
         }
+        ComproveBasket();
     }
 
 
@@ -569,6 +573,7 @@ public class UIManager : MonoBehaviour
             matCestaImages[i].GetComponentInChildren<TextMeshProUGUI>().text = matsEnCesta[i].ToString();
         }
         buttonUsing = 0;
+        ComproveBasket();
     }
 
 
