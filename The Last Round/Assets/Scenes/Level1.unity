@@ -210,6 +210,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1347074204716764532, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
+      propertyPath: MaxEnemiesInScene
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4149111813623156378, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.01305

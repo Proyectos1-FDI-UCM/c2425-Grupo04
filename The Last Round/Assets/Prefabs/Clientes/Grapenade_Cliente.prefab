@@ -918,7 +918,7 @@ MonoBehaviour:
         exactamente?\r\n"
       BadText: "\xBFOtra historia de guerra? Cada Grapenade que entra aqu\xED parece
         tener una.\r\n"
-      Estatus: 1
+      Estatus: 0
       Emisor: 1
     - GoodText: "Fue la \xFAltima gran lucha entre Fermentia y Felidoria. Los gatos
         hac\xEDan lo que quer\xEDan con nuestros vecinos, y no pod\xEDamos hacer
