@@ -21,6 +21,8 @@ public class RecursoSpawner : MonoBehaviour
     private float detectdistancia = 1.2f, HoldingTime = 0;
     [SerializeField]
     private float limitrecursos = 5;
+
+    [SerializeField] GameObject Contadorrecurso;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -80,6 +82,7 @@ public class RecursoSpawner : MonoBehaviour
                 timer = HoldingTime;
 
                 GameManager.Instance.IncreaseResource(source);
+                Instantiate(Contadorrecurso, gameObject.transform.position, Quaternion.identity);
                 recursosacado += 1;
 
                 if (recursosacado >= limitrecursos)
