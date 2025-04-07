@@ -97,12 +97,8 @@ public class UIManager_Combate : MonoBehaviour
 
     public void ChangePopulation()
     {
+        populationNum--;
         population.text = $"Población: {populationNum}";
-    }
-
-    public int GetPopulationNum()
-    {
-        return populationNum;
     }
     #endregion
 

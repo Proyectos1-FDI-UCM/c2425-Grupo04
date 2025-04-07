@@ -323,6 +323,8 @@ public class GameManager : MonoBehaviour
         {
             ScenesManager.CreditScenes();
         }
+
+        GetUIC().ChangePopulation();
     }
 
     public void ResetEnemyCounter()
