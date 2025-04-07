@@ -28,7 +28,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField]
     private Slider musicSlider, sfxSlider;
     [SerializeField]
-    private GameObject PauseMenu;
+    private GameObject PauseMenu,SubMenu;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -68,7 +68,11 @@ public class PauseManager : MonoBehaviour
         
         if (InputManager.Instance.PauseWasPressedThisFrame())
         {
-            if (PauseMenu.activeSelf)
+            if (SubMenu != null && SubMenu.activeSelf)
+            {
+                ClosePauseMenu(SubMenu); 
+            }
+            else if (PauseMenu.activeSelf)
             {
                 ClosePauseMenu(PauseMenu);
             }

@@ -24,6 +24,8 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+
+    [SerializeField] private int Scene;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,30 +41,6 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-        
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        if (InputManager.Instance.InteractWasPressedThisFrame() && PlayerWasDetected)
-        {
-            ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
 
     #endregion
 
@@ -82,18 +60,12 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        if (other.GetComponent<PlayerMovement>() != null && InputManager.Instance.InteractWasPressedThisFrame())
         {
-            PlayerWasDetected = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
-        {
-            PlayerWasDetected = false;
+            GameManager.Instance.ChangeScene(Scene);
         }
     }
     #endregion

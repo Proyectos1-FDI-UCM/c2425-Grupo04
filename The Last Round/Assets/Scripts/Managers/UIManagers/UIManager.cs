@@ -190,7 +190,7 @@ public class UIManager : MonoBehaviour
                     {
                         GameManager.Instance.increaseSospechosos(-2);
                     }   
-                    ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
+                    GameManager.Instance.ChangeScene(3);
                 }
             }
         }

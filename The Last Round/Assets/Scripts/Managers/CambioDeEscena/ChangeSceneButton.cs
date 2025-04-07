@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 // Añadir aquí el resto de directivas using
 
 
@@ -23,7 +22,7 @@ public class ChangeSceneButton : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
+    [SerializeField] private int Scene;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -66,7 +65,7 @@ public class ChangeSceneButton : MonoBehaviour
     #region Métodos públicos
     public void ChangeScene()
     {
-        ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.ChangeScene(Scene);
     }
     #endregion
     

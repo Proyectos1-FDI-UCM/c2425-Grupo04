@@ -20,16 +20,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Upgrades.unity
     guid: 25d408c94ec511948a49eba86d111446
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoHito1/GrapenadeScene.unity
     guid: 4cf6536ffe2cca148b72ae3e5da830d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoHito1/ManzarieteScene.unity
     guid: fdeff8e2634f6354692d58082701c18c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoHito1/UvoncioManzurriaScene.unity
     guid: 0ec248e93dd32d44683d51c8132c35ef
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: a2886e0be66a29c40bf47811ba341f68
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialBartender.unity
+    guid: ddf86aae381780141a5723180a3f0f34
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialCombate.unity
+    guid: 1de63d1936ec1d74da4832d41c287adb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialUpgrades.unity
+    guid: 2c9002b9b0aee7340af5a8546b7d693f
   m_configObjects: {}
