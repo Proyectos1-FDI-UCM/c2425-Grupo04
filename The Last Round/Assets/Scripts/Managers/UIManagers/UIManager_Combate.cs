@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -20,7 +21,9 @@ public class UIManager_Combate : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI, PlayerLife;
     [SerializeField] TextMeshProUGUI timer;
-
+    [SerializeField] Image currentWeapon;
+    [SerializeField] Sprite weaponDistanceImage;
+    [SerializeField] Sprite weaponMeleeImage;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -69,6 +72,19 @@ public class UIManager_Combate : MonoBehaviour
     public void Timer(string time)
     {
         timer.text = time;
+    }
+
+    public void SwitchWeaponDisplay(bool weaponPlayer)
+    {
+        if (weaponPlayer)
+        {
+            currentWeapon.sprite = weaponDistanceImage;
+        }
+
+        else
+        {
+            currentWeapon.sprite = weaponMeleeImage;
+        }
     }
     #endregion
 
