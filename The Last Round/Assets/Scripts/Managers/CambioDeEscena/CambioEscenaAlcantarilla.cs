@@ -24,7 +24,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
+    public GameObject promptUI;
     [SerializeField] private int Scene;
     #endregion
 
@@ -40,7 +40,11 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    private void Start()
+    {
+        if (promptUI != null)
+            promptUI.SetActive(false); 
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -64,8 +68,23 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
         // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
         if (other.GetComponent<PlayerMovement>() != null && InputManager.Instance.InteractWasPressedThisFrame())
         {
+            if (GetComponent<ResetGame>() != null)
+            {
+                GetComponent<ResetGame>().ResetGM();
+            }
             GameManager.Instance.ChangeScene(Scene);
+           
+               
         }
+        if (promptUI != null)
+            promptUI.SetActive(true);
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+       
+            if (promptUI != null)
+                promptUI.SetActive(false);
+       
     }
     #endregion
 

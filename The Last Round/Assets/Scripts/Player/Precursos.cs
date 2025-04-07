@@ -5,7 +5,9 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 // Añadir aquí el resto de directivas using
 
 
@@ -17,12 +19,13 @@ public class Precursos : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
+    [SerializeField] public GameObject jm;
+    [SerializeField] public GameObject pm;
+    [SerializeField] public GameObject sm;
+    [SerializeField] public GameObject ju;
 
+    [SerializeField] public GameObject pu;
+    [SerializeField] public GameObject su;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -80,6 +83,19 @@ public class Precursos : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.name == "Jugo de manzana 1(Clone)")
+            Instantiate(jm, gameObject.transform.position, Quaternion.identity);
+        if (collision.gameObject.name == "Piel de manzana roja(Clone)" || collision.gameObject.name == "Piel de manzana verde(Clone)")
+            Instantiate(pm, gameObject.transform.position, Quaternion.identity);
+        if (collision.gameObject.name == "Semilla de manzana 1(Clone)")
+            Instantiate(sm, gameObject.transform.position, Quaternion.identity);
+
+        if (collision.gameObject.name == "Jugo de uva 1(Clone)")
+            Instantiate(ju, gameObject.transform.position, Quaternion.identity);
+        if (collision.gameObject.name == "Piel de uva negra(Clone)" || collision.gameObject.name == "Piel de uva roja(Clone)")
+            Instantiate(pu, gameObject.transform.position, Quaternion.identity);
+        if (collision.gameObject.name == "Semilla de uva 1(Clone)")
+            Instantiate(su, gameObject.transform.position, Quaternion.identity);
     }
 
     #endregion

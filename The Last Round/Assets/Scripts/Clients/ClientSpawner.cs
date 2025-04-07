@@ -102,10 +102,10 @@ public class ClientSpawner : MonoBehaviour
             {
                 rnd = Mathf.CeilToInt(rnd / 2f);
             }
-            Debug.Log(TidyClients[rnd].name);
+            //Debug.Log(TidyClients[rnd].name);
         }
         //Vuelve a pedir un cliente si el contador en la posición del cliente pedido es menor o igual a 0
-        while (contador[(int)TidyClients[rnd].GetComponent<CastEnemy>().GetEnemyType()] <= 0);
+        while (TidyClients[rnd] == null || contador[(int)TidyClients[rnd].GetComponent<CastEnemy>().GetEnemyType()] <= 0);
 
 
         
