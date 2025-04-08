@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
     private GameObject Player;
     private float[] recursos;
     private int[] numEnemigos;
-    private float NivelSospechosos = 0;
+    private int NivelSospechosos = 0;
     public  float Dineros = 0;
     private bool[,] DialoguesSaid;
     private float musicVolume = 100f, sfxVolume = 100f;
@@ -245,20 +246,31 @@ public class GameManager : MonoBehaviour
     public void increaseSospechosos(int i)
     {
         NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
-
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
         // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
 
+        GetUI().GiveAnimator().Play($"ContSospecha{NivelSospechosos-1}-{NivelSospechosos}");
+
         if (NivelSospechosos >= 8 && UIManager != null)
         {
-            UIManager.GameOverUI();
+            StartCoroutine(WaitBeforeGameOver());
         }
+    }
+    private IEnumerator WaitBeforeGameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+        UIManager.GameOverUI();
     }
 
     public void ResetSospecha()
     {
         NivelSospechosos = 0;
+    }
+
+    public int GiveSospecha()
+    {
+        return NivelSospechosos;
     }
     // --- FIN SISTEMA DE SOSPECHA ---
 

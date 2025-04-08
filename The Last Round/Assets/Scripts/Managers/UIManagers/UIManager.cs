@@ -71,6 +71,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dineroTotalText;
     private float dineroTotal;
 
+    [SerializeField] Animator Animator;
+
 
 
     #endregion
@@ -153,6 +155,11 @@ public class UIManager : MonoBehaviour
 
         CharacterPortrait.gameObject.SetActive(false);
         DrinkImage.gameObject.SetActive(false);
+
+        if(Animator != null)
+        {
+            Animator.Play($"ContSospecha{GameManager.Instance.GiveSospecha()}");
+        }
     }
 
     /// <summary>
@@ -240,8 +247,6 @@ public class UIManager : MonoBehaviour
     #region Bartender
 
     //UIManager recoge al cliente y su velocidad de aparición, que utilizará para desaparecer.
-    
-
     public void GetClientSprite(SpriteRenderer Client)
     {
         this.Client = Client;
@@ -341,6 +346,11 @@ public class UIManager : MonoBehaviour
 
         DialogueLine++;
         StartCoroutine(Write());
+    }
+
+    public Animator GiveAnimator()
+    {
+        return Animator;
     }
 
     public void DetectarEstatus()
