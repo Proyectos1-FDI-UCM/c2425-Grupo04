@@ -711,7 +711,7 @@ MonoBehaviour:
     - GoodText: "Lo entiendo yo tambi\xE9n necesitar\xEDa alejarme un rato de mi
         trabajo, aunque me guste demasiado, hay mas cosas que hacer que ser solo
         un Manzariete."
-      BadText: "\xBFUna enorme siesta? Haber si es que te vas a parecer a un gato,
+      BadText: "\xBFUna enorme siesta? A ver si es que te vas a parecer a un gato,
         ellos se tiran casi todo el tiempo durmiendo sin hacer casi nada."
       Estatus: 0
       Emisor: 0

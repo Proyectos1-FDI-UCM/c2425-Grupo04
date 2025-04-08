@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator WaitBeforeGameOver()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         UIManager.GameOverUI();
     }
 
