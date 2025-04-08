@@ -102,6 +102,7 @@ public class UIManager_Combate : MonoBehaviour
     public void ChangePopulation()
     {
         populationNum--;
+        if (population != null)
         population.text = $"Población: {populationNum}";
     }
 
