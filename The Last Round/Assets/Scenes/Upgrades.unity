@@ -1154,9 +1154,9 @@ MonoBehaviour:
   - {fileID: 998219522}
   - {fileID: 1803408860}
   descripciones:
-  - "Aumenta el da\xF1o un 10 por ciento"
-  - "Aumenta el da\xF1o un 10 por ciento"
-  - Aumenta la vida un 10 por ciento
+  - "Aumenta el da\xF1o un 10%"
+  - "Aumenta el da\xF1o un 10%"
+  - Aumenta la vida un 10%
   - Disminuye la cantidad requerida de materiales
   costeUnicos: 15
   costeNormales: 6

@@ -75,7 +75,7 @@ public class UIManagerUpgrades : MonoBehaviour
         costBox[2].text = "x" + costeNormales;
         costBox[3].text = "x" + costeNormales;
         //Cambia la descripcion de las mejoras normales (Vida y Melee)
-        ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 2);
+        ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 1);
         ChangeDesc(descs[2], GameManager.Instance.GetUpgradeLevel(2), 2);
         ChangeDesc(descs[3], GameManager.Instance.GetUpgradeLevel(3), 3);
 
@@ -135,6 +135,7 @@ public class UIManagerUpgrades : MonoBehaviour
         {
             GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
             GameManager.Instance.IncreaseUpgradeLevel(element); //Sube el nivel de la mejora
+            Debug.Log(element);
             ChangeDesc(descs[element], GameManager.Instance.GetUpgradeLevel(element), element); //Cambia su descripcion
         }
     }
