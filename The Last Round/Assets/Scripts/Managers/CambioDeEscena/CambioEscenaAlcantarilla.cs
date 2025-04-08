@@ -6,8 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 // Añadir aquí el resto de directivas using
 
 
@@ -24,7 +22,6 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    public GameObject promptUI;
     [SerializeField] private int Scene;
     #endregion
 
@@ -36,14 +33,17 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private bool Alcantarilla = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    private void Start()
+    private void Update()
     {
-        if (promptUI != null)
-            promptUI.SetActive(false); 
+        if (InputManager.Instance.InteractWasPressedThisFrame() && Alcantarilla)
+        {
+            GameManager.Instance.ChangeScene(Scene);
+        }
     }
     #endregion
 
@@ -63,28 +63,20 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
-        if (other.GetComponent<PlayerMovement>() != null && InputManager.Instance.InteractWasPressedThisFrame())
+        if (other.GetComponent<PlayerMovement>() != null)
         {
-            if (GetComponent<ResetGame>() != null)
-            {
-                GetComponent<ResetGame>().ResetGM();
-            }
-            GameManager.Instance.ChangeScene(Scene);
-           
-               
+            Alcantarilla = true;
         }
-        if (promptUI != null)
-            promptUI.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-       
-            if (promptUI != null)
-                promptUI.SetActive(false);
-       
+        if (other.GetComponent<PlayerMovement>() != null)
+        {
+            Alcantarilla = false;
+        }
     }
     #endregion
 
