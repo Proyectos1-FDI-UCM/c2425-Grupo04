@@ -125,7 +125,7 @@ MonoBehaviour:
       BadText: Nada que te incumba
       Estatus: 0
       Emisor: 0
-    - GoodText: "Esta puede ser una buena respuesta, al final en la noche es com\xFAn
+    - GoodText: "Esta puede ser una buena respuesta, al final por la noche es com\xFAn
         echarse en la cama."
       BadText: "Quiz\xE1s ponerme a la defensiva aumentar\xEDa su sospecha."
       Estatus: 0
@@ -150,16 +150,16 @@ MonoBehaviour:
       BadText: Por cierto, las bebidas.
       Estatus: 0
       Emisor: 0
-    - GoodText: Si no recuerdo mal el jugo, la piel y las manzanas se las debo de
+    - GoodText: Si no recuerdo mal el jugo, la piel y las semillas se las debo de
         arrebatar a esos malditos pueblerinos.
-      BadText: Si no recuerdo mal el jugo, la piel y las manzanas se las debo de
+      BadText: Si no recuerdo mal el jugo, la piel y las semillas se las debo de
         arrebatar a esos malditos pueblerinos.
       Estatus: 0
       Emisor: 0
-    - GoodText: "En cuanto al hielo seguro que podr\xE9 conseguirlo de alg\xFAn bloque
-        de hielo por la noche. En este lugar realmente bajan las temperaturas al
-        anochecer."
-      BadText: "En cuanto al hielo seguro que podr\xE9 conseguirlo de alg\xFAn bloque
+    - GoodText: "En cuanto al hielo, seguro que podr\xE9 conseguirlo de alg\xFAn
+        bloque de hielo por la noche. En este lugar realmente bajan las temperaturas
+        al anochecer."
+      BadText: "En cuanto al hielo, seguro que podr\xE9 conseguirlo de alg\xFAn bloque
         de hielo por la noche. En este lugar realmente bajan las temperaturas al
         anochecer."
       Estatus: 0
