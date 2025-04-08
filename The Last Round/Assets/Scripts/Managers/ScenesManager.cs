@@ -77,10 +77,10 @@ public class ScenesManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Keyboard.current[Key.N].wasPressedThisFrame)
-        {
-            NextScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        //if (Keyboard.current[Key.N].wasPressedThisFrame)
+        //{
+        //    NextScene(SceneManager.GetActiveScene().buildIndex);
+        //}
     }
     #endregion
 
