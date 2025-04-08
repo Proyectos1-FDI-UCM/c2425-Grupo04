@@ -190,10 +190,12 @@ MonoBehaviour:
         cesta antes de servir. Si no, no me pagar\xE1n."
       Estatus: 0
       Emisor: 0
-    - GoodText: Ahora que he hecho memoria voy a ver como puedo mejorar mis habilidades
-        para acabar con esos pueblerinos.
-      BadText: Ahora que he hecho memoria voy a ver como puedo mejorar mis habilidades
-        para acabar con esos pueblerinos.
+    - GoodText: "Ahora que he hecho memoria voy a ver que habilidades puedo mejorar
+        y me meter\xE9 por la alcantarilla que da al pueblo para entrenar un poco.
+        Esos pueblerinos no se exterminan solos"
+      BadText: "Ahora que he hecho memoria voy a ver que habilidades puedo mejorar
+        y me meter\xE9 por la alcantarilla que da al pueblo para entrenar un poco.
+        Esos pueblerinos no se exterminan solos."
       Estatus: 0
       Emisor: 0
   BebidasPosibles:

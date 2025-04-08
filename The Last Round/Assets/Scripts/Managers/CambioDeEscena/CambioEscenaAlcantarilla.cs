@@ -42,6 +42,10 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     {
         if (InputManager.Instance.InteractWasPressedThisFrame() && Alcantarilla)
         {
+            if (GetComponent<ResetGame>() != null)
+            {
+                GetComponent<ResetGame>().ResetGM();
+            }
             GameManager.Instance.ChangeScene(Scene);
         }
     }
