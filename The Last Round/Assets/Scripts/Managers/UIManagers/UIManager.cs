@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-       
+        Cursor.visible = true;
         dineroTotal = GameManager.Instance.GetDineros();
         dineroTotalText.text = dineroTotal.ToString();
         Debug.Log(dineroTotal);

@@ -55,6 +55,10 @@ public class AttackGeneral : MonoBehaviour
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -87,6 +91,7 @@ public class AttackGeneral : MonoBehaviour
             timer = AttackCooldown;
         }
         timer -= Time.deltaTime;
+
     }
     #endregion
 
