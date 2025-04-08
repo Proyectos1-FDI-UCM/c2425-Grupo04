@@ -113,8 +113,8 @@ MonoBehaviour:
         y tendr\xE9 que levantar la menor sospecha posible en ellos."
       Estatus: 0
       Emisor: 0
-    - GoodText: Vale, voy a practicar
-      BadText: Vale, voy a practicar
+    - GoodText: Vale, voy a practicar.
+      BadText: Vale, voy a practicar.
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFSi me preguntan qu\xE9 estaba haciendo a la noche?"
@@ -135,9 +135,9 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 0
     - GoodText: "Tendr\xE9 que tener cuidado con resultar muy sospechoso o los pueblerinos
-        podr\xE1n atraparme"
+        podr\xE1n atraparme."
       BadText: "Tendr\xE9 que tener cuidado con resultar muy sospechoso o los pueblerinos
-        podr\xE1n atraparme"
+        podr\xE1n atraparme."
       Estatus: 0
       Emisor: 0
     - GoodText: "Aunque no tienen muchas luces, seguro que si no resulto nada sospechoso
@@ -158,25 +158,25 @@ MonoBehaviour:
       Emisor: 0
     - GoodText: "En cuanto al hielo seguro que podr\xE9 conseguirlo de alg\xFAn bloque
         de hielo por la noche. En este lugar realmente bajan las temperaturas al
-        anochecer"
+        anochecer."
       BadText: "En cuanto al hielo seguro que podr\xE9 conseguirlo de alg\xFAn bloque
         de hielo por la noche. En este lugar realmente bajan las temperaturas al
-        anochecer"
+        anochecer."
       Estatus: 0
       Emisor: 0
     - GoodText: "Y la levadura... Este pueblo tiene una tierra muy f\xE9rtil a pesar
         de estar en una zona tan des\xE9rtica, las plantas nos servir\xE1n para conseguir
-        la levadura"
+        la levadura."
       BadText: "Y la levadura... Este pueblo tiene una tierra muy f\xE9rtil a pesar
         de estar en una zona tan des\xE9rtica, las plantas nos servir\xE1n para conseguir
-        la levadura"
+        la levadura."
       Estatus: 0
       Emisor: 0
-    - GoodText: "A la derecha de la cesta de preparaci\xF3n tenemos los materiales
-        que tengo, estos son los que meter\xE9 en la cesta para hacer las bebidas.
+    - GoodText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales
+        que he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
         (Para seleccionar material hacer clic sobre el icono del material)."
-      BadText: "A la derecha de la cesta de preparaci\xF3n tenemos los materiales
-        que tengo, estos son los que meter\xE9 en la cesta para hacer las bebidas.
+      BadText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales que
+        he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
         (Para seleccionar material hacer clic sobre el icono del material)."
       Estatus: 0
       Emisor: 0
@@ -190,10 +190,10 @@ MonoBehaviour:
         cesta antes de servir. Si no, no me pagar\xE1n."
       Estatus: 0
       Emisor: 0
-    - GoodText: Ahora que he hecho memoria vamos a ver como puedo mejorar mis habilidades
-        para acabar con esos pueblerinos
-      BadText: Ahora que he hecho memoria vamos a ver como puedo mejorar mis habilidades
-        para acabar con esos pueblerinos
+    - GoodText: Ahora que he hecho memoria voy a ver como puedo mejorar mis habilidades
+        para acabar con esos pueblerinos.
+      BadText: Ahora que he hecho memoria voy a ver como puedo mejorar mis habilidades
+        para acabar con esos pueblerinos.
       Estatus: 0
       Emisor: 0
   BebidasPosibles:
