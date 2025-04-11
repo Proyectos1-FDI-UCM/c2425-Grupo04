@@ -34,6 +34,7 @@ public class MeleeAttack : MonoBehaviour
     #region Atributos Privados (private fields)
     private bool Attack = false;
     private float timer = 0;
+    private Animator animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -51,14 +52,16 @@ public class MeleeAttack : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         attackSprite = GetComponent<SpriteRenderer>();
-        attackSprite.enabled = false;
+        //attackSprite.enabled = false;
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
         if (Attack || timer > 0)
         {
             GetComponent<Collider2D>().enabled = true;
-            attackSprite.enabled = true;
+            //attackSprite.enabled = true;
+            Debug.Log("Ataque melee 2");
             Attack = false;
 
             if (timer <= 0) timer = duration;
@@ -66,7 +69,7 @@ public class MeleeAttack : MonoBehaviour
         else
         {
             GetComponent<Collider2D>().enabled = false;
-            attackSprite.enabled = false;
+            //attackSprite.enabled = false;
         }
         
         timer -= Time.deltaTime;
@@ -81,6 +84,8 @@ public class MeleeAttack : MonoBehaviour
     public void attack()
     {
         Attack = true;
+        animator.SetTrigger("Attack");
+        Debug.Log("Ataque melee 1");
     }
 
     #endregion
