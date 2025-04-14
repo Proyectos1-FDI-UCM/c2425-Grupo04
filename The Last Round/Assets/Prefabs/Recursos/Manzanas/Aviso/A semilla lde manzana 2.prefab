@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6762030441841099431}
   - component: {fileID: 8560753598865910969}
   - component: {fileID: 8632399699521704366}
-  - component: {fileID: 7505975373560693767}
+  - component: {fileID: 6892156830071275530}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7505975373560693767
+--- !u!114 &6892156830071275530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,12 +85,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016348745295295377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdc2abc6825efb4ca221a201ea07787, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ff87dca89e20104384dcafe45a3c2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatSpeed: 1
-  duration: 1.5
-  fadeDuration: 1
+  velocidad: 1
+  FadeVelocidad: 1
 --- !u!1 &3648870440291654147
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416357422167615684}
+  - component: {fileID: 2166428996488047852}
   m_Layer: 0
   m_Name: A semilla lde manzana 2
   m_TagString: Untagged
@@ -272,6 +272,19 @@ Transform:
   - {fileID: 5965797623891786075}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2166428996488047852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596568104739796052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa910ed9c61fa34195d59a23066bc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 5
 --- !u!1 &6788188793053945967
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,13 +18,7 @@ public class Precursos : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] public GameObject jm;
-    [SerializeField] public GameObject pm;
-    [SerializeField] public GameObject sm;
-    [SerializeField] public GameObject ju;
-
-    [SerializeField] public GameObject pu;
-    [SerializeField] public GameObject su;
+    [SerializeField] private GameObject[] avisos;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -77,24 +71,31 @@ public class Precursos : MonoBehaviour
         if (collision.gameObject.GetComponent<CastMaterial>() != null &&
             collision.gameObject.GetComponent<RecursoSpawner>() == null)
         {
+            //Identifica el recurso y lo guarda en el inventario
             SourceName source = collision.gameObject.GetComponent<CastMaterial>().GetSourceName();
             GameManager.Instance.IncreaseResource(source);
 
             Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.name == "Jugo de manzana 1(Clone)")
-            Instantiate(jm, gameObject.transform.position, Quaternion.identity);
-        if (collision.gameObject.name == "Piel de manzana roja(Clone)" || collision.gameObject.name == "Piel de manzana verde(Clone)")
-            Instantiate(pm, gameObject.transform.position, Quaternion.identity);
-        if (collision.gameObject.name == "Semilla de manzana 1(Clone)")
-            Instantiate(sm, gameObject.transform.position, Quaternion.identity);
 
-        if (collision.gameObject.name == "Jugo de uva 1(Clone)")
-            Instantiate(ju, gameObject.transform.position, Quaternion.identity);
-        if (collision.gameObject.name == "Piel de uva negra(Clone)" || collision.gameObject.name == "Piel de uva roja(Clone)")
-            Instantiate(pu, gameObject.transform.position, Quaternion.identity);
-        if (collision.gameObject.name == "Semilla de uva 1(Clone)")
-            Instantiate(su, gameObject.transform.position, Quaternion.identity);
+            //Se busca el aviso correspondiente con el recurso y se instancia
+            int i = 0;
+            bool enc = false;
+
+            while (i < avisos.Length && !enc)
+            {
+                SourceName Material = avisos[i].GetComponent<CastMaterial>().GetSourceName();
+                if (Material == source)
+                {
+                    enc = true;
+                }
+                else i++;
+            }
+
+            if (enc)
+            {
+                Instantiate(avisos[i], transform.position, Quaternion.identity);
+            }
+        }
     }
 
     #endregion
