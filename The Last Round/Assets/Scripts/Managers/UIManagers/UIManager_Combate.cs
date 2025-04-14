@@ -78,6 +78,9 @@ public class UIManager_Combate : MonoBehaviour
         gameOverUI.SetActive(true);
         timer.gameObject.SetActive(false);
         PlayerLife.SetActive(false);
+        currentWeapon.gameObject.SetActive(false);
+        population.text = "";
+
         Time.timeScale = 0f;
     }
 
