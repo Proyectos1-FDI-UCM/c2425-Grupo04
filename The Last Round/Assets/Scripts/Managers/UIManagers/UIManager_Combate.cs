@@ -26,6 +26,7 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private Image currentWeapon;
     [SerializeField] private Sprite weaponDistanceImage;
     [SerializeField] private Sprite weaponMeleeImage;
+    [SerializeField] private float TimerBeatIntensity;
     
     #endregion
 
@@ -34,7 +35,9 @@ public class UIManager_Combate : MonoBehaviour
     private Health playerHealth;
     private string time;
     private Timer timerScript;
-    int populationNum = 0;
+    private int populationNum = 0;
+    private bool fewTime = false;
+    private float TimerMaxSize;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -60,12 +63,23 @@ public class UIManager_Combate : MonoBehaviour
         {
             population.text = $"Población: {populationNum}";
         }
+
+        TimerMaxSize = timer.fontSize;
     }
 
     private void Update()
     {
         if (playerHealth == null)
             playerHealth = GameManager.Instance.GetPlayer().GetComponent<Health>();
+
+        if (fewTime)
+        {
+            timer.fontSize -= TimerBeatIntensity;
+            if (timer.fontSize < 0)
+            {
+                timer.fontSize = 0;
+            }
+        }
     }
     #endregion
 
@@ -86,6 +100,16 @@ public class UIManager_Combate : MonoBehaviour
 
     public void Timer(string time)
     {
+        if (time == "0:30")
+        {
+            timer.color = Color.red;
+            fewTime = true;
+        }
+
+        if (fewTime)
+        {
+            timer.fontSize = TimerMaxSize;
+        }
         timer.text = time;
     }
 

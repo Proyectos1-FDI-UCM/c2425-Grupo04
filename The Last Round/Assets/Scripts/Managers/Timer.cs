@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-
+    private float timer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -44,14 +44,20 @@ public class Timer : MonoBehaviour
     {
         if (!gameOverUI.activeSelf)
         {
-            time -= Time.deltaTime;
+            timer -= Time.deltaTime;
         }
-        if(time <= 0)
+        if (timer <= 0)
         {
-            GameManager.Instance.ChangeScene(NextScene);
-            GameManager.Instance.increaseSospechosos(2);
+            //Se inicializa a 1 sin serialize porque se asume que siempre el temporizador baja 1 unidad cada 1 segundo
+            timer = 1;
+            time -= timer;
+            if (time <= 0)
+            {
+                GameManager.Instance.ChangeScene(NextScene);
+                GameManager.Instance.increaseSospechosos(2);
+            }
+            GameManager.Instance.GiveTimerToUIC(TimerText());
         }
-        GameManager.Instance.GiveTimerToUIC(TimerText());
     }
     #endregion
 
