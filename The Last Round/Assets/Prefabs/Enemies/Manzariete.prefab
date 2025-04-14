@@ -582,6 +582,8 @@ MonoBehaviour:
   SprintTime: 2
   BreakSpeed: 20
   BreakTime: 0.75
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!50 &6434944096096345892
 Rigidbody2D:
   serializedVersion: 4

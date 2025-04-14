@@ -468,6 +468,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!114 &7059407794517612056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3
   marchaAtrasSpeed: 1
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!114 &1439747126237554738
 MonoBehaviour:
   m_ObjectHideFlags: 0

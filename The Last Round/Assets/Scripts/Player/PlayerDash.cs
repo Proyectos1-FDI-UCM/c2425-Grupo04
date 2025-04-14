@@ -17,6 +17,7 @@ public class PlayerDash : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
+    [SerializeField] private float ObjectSizeX, ObjectSizeY;
     [Header("DASH")]
     [SerializeField]
     private float DashSpeed = 10f,
@@ -31,7 +32,6 @@ public class PlayerDash : MonoBehaviour
     private float cooldownTimer = 0f, minX, maxX, minY, maxY;
     private Vector3 LastDirection;
     private Rigidbody2D rb;
-    private Collider2D ObjectCollider;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -48,7 +48,7 @@ public class PlayerDash : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        ObjectCollider = GetComponent<Collider2D>();
+
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
 
@@ -77,10 +77,10 @@ public class PlayerDash : MonoBehaviour
             {
                 Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-                posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-                posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-                posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
-                posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+                posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
+                posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
+                posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
+                posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
 
                 if ((rb.velocity.y < 0 && posMinY.y <= minY) ||
                     (rb.velocity.y > 0 && posMaxY.y >= maxY))

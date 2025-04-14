@@ -305,6 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!50 &-5428370765554447873
 Rigidbody2D:
   serializedVersion: 4

@@ -19,7 +19,7 @@ public class MoveToPlayer : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    float Speed;
+    float Speed, ObjectSizeX, ObjectSizeY;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -27,7 +27,6 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
-    private Collider2D ObjectCollider;
     //Los inicializo a -1 para saber cuando no están definidos
     private float minX, maxX, minY, maxY;
     #endregion
@@ -41,7 +40,6 @@ public class MoveToPlayer : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        ObjectCollider = GetComponent<Collider2D>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
@@ -70,10 +68,10 @@ public class MoveToPlayer : MonoBehaviour
     {
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-        posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-        posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-        posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
-        posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+        posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
+        posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
+        posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
+        posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
 
         if (Player != null && enemy != null)
             //Localiza el vector que une el jugador con el objeto
