@@ -6482,10 +6482,10 @@ RectTransform:
   - {fileID: 212292427}
   - {fileID: 126258603}
   - {fileID: 994234452}
-  - {fileID: 854827022}
   - {fileID: 1900416436}
   - {fileID: 2076028548}
   - {fileID: 2087864764}
+  - {fileID: 854827022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

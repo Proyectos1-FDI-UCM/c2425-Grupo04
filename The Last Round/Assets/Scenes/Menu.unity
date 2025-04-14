@@ -1122,6 +1122,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8228643248693433747, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
+      propertyPath: SubMenu
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8783144507190726580, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

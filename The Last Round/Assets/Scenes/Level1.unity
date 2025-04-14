@@ -487,12 +487,12 @@ RectTransform:
   m_Children:
   - {fileID: 1436174669}
   - {fileID: 110903831}
-  - {fileID: 142501304}
   - {fileID: 1454504164}
   - {fileID: 1584462164}
   - {fileID: 48413338}
   - {fileID: 1677994071}
   - {fileID: 655207188}
+  - {fileID: 142501304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
