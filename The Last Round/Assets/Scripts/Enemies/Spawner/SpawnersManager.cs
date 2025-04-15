@@ -5,8 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System;
-using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -26,7 +25,7 @@ public class SpawnersManager : MonoBehaviour
 
     [SerializeField] private float cooldown;
     [SerializeField] private GameObject[] SpawnObjects;
-    [SerializeField] int MaxEnemiesInScene;
+    [SerializeField] int MaxEnemiesInScene, HowEnemiesToManzariete, HowEnemiesToGrapenade;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -81,6 +80,12 @@ public class SpawnersManager : MonoBehaviour
         if (timer <= 0)
         {
             int EnemiesInScene = FindObjectsOfType<CastEnemy>().Length;
+            int EnemyCount = 0;
+
+            for (int i = 0; i < GameManager.Instance.GetEnemyCounter().Length; i++)
+            {
+                EnemyCount += GameManager.Instance.GetEnemyCounter()[i];
+            }
 
             if (EnemiesInScene < MaxEnemiesInScene)
             {
@@ -113,10 +118,19 @@ public class SpawnersManager : MonoBehaviour
                 // * Que no sea un enemigo o que sea un enemigo que no se pueda spawnear
                 // * Que no haya probado ya con todos los objetos spawneables
 
-                while ((ChosenObject.GetComponent<CastEnemy>() == null ||
-                (ChosenObject.GetComponent<CastEnemy>() != null &&
-                EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()] <= 0)) &&
-                j < tmp.Length);
+                while ( j<tmp.Length &&
+                       (
+                        ChosenObject.GetComponent<CastEnemy>() == null ||
+                        (
+                         ChosenObject.GetComponent<CastEnemy>() != null &&
+                          (
+                           EnemiesAmount[(int)ChosenObject.GetComponent<CastEnemy>().GetEnemyType()] <= 0 ||
+                           (ChosenObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Manzariete && EnemyCount > HowEnemiesToManzariete) ||
+                           (ChosenObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Grapenade && EnemyCount > HowEnemiesToGrapenade)
+                          )
+                        )
+                       )
+                      );
 
                 //Si ha llegado a pasar por todos los spawners y este no cumple las condiciones no elige ninguno
                 if ((ChosenObject.GetComponent<CastEnemy>() == null ||
