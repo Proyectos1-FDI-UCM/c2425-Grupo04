@@ -43,7 +43,10 @@ public class UIManagerUpgrades : MonoBehaviour
     [SerializeField]
     private float HealthUpgradePercent,
                   MeleeDamageUpgradePercent,
-                  RangeDamageUpgradePercent;
+                  RangeDamageUpgradePercent,
+                  BaseHealth = 0,
+                  BaseMeleeDamage = 0,
+                  BaseRangeDamage = 0;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -55,6 +58,9 @@ public class UIManagerUpgrades : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private float dineroTotal;
+    private int NextMeleeDamage = 0;
+    private int NextRangeDamage = 0;
+    private int NextHealth = 0;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -78,7 +84,18 @@ public class UIManagerUpgrades : MonoBehaviour
         costBox[1].text = "x" + costeNormales;
         costBox[2].text = "x" + costeNormales;
         costBox[3].text = "x" + costeNormales;
-        //Cambia la descripcion de las mejoras normales (Vida y Melee)
+
+        //Darle al GameManager los porcentajes de mejora
+        GameManager.Instance.SetHealthPercent(HealthUpgradePercent / 100);
+        GameManager.Instance.SetMeleeDamagePercent(MeleeDamageUpgradePercent / 100);
+        GameManager.Instance.SetRangeDamagePercent(RangeDamageUpgradePercent / 100);
+
+        //Coger los niveles de las primeras mejoras
+        NextRangeDamage = (int)BaseRangeDamage;
+        NextMeleeDamage = (int)BaseMeleeDamage;
+        NextHealth = (int)BaseHealth;
+
+        //Cambia la descripcion de las mejoras normales (Vida y Melee y Sale)
         ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 1);
         ChangeDesc(descs[2], GameManager.Instance.GetUpgradeLevel(2), 2);
         ChangeDesc(descs[3], GameManager.Instance.GetUpgradeLevel(3), 3);
@@ -117,11 +134,6 @@ public class UIManagerUpgrades : MonoBehaviour
             descs[5].text = "Desbloquea la habilidad Dash";
             coinImg[1].enabled = true;
         }
-
-        //Darle al GameManager los porcentajes de mejora
-        GameManager.Instance.SetHealthPercent(HealthUpgradePercent/100);
-        GameManager.Instance.SetMeleeDamagePercent(MeleeDamageUpgradePercent / 100);
-        GameManager.Instance.SetRangeDamagePercent(RangeDamageUpgradePercent / 100);
     }
 
     /// <summary>
@@ -188,7 +200,46 @@ public class UIManagerUpgrades : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void ChangeDesc(TextMeshProUGUI textBox, int level, int element)
     {
-        textBox.text = "Nivel actual:       " + level + "\nSiguiente nivel:    " + (level + 1) + "\n" + descripciones[element];
+        string upgrade = "";
+        float amount = 0;
+        float NextAmount = 0;
+
+        if (element == 0 || element == 1)
+        {
+            upgrade = "Daño";
+
+            if (element == 0)
+            {
+                //Recoge el daño base
+                amount = NextRangeDamage;
+                NextRangeDamage += (int) (BaseRangeDamage * (RangeDamageUpgradePercent / 100));
+                NextAmount = NextRangeDamage;
+            }
+            else
+            {
+                //Recoge el daño base
+                amount = NextMeleeDamage;
+                NextMeleeDamage += (int) (BaseMeleeDamage * (MeleeDamageUpgradePercent / 100));
+                NextAmount = NextMeleeDamage;
+            }
+        }
+        else if (element == 2)
+        {
+            upgrade = "Vida";
+            //Recoge la vida base
+            amount = NextHealth;
+            NextHealth += (int) (BaseHealth * (HealthUpgradePercent / 100));
+            NextAmount = NextHealth;
+        }
+
+
+        textBox.text = $"{descripciones[element]}" +
+                       $"ACTUAL:\n" +
+                       $"   Nivel: {level}\n" +
+                       $"   {upgrade}: {amount} puntos\n" +
+                       $"SIGUIENTE:\n" +
+                       $"   Nivel: {level + 1}\n" +
+                       $"   {upgrade}: {NextAmount} puntos\n";
     }
     #endregion
 

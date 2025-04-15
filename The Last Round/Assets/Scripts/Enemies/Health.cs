@@ -48,15 +48,10 @@ public class Health : MonoBehaviour
         }
         else if (GetComponent<CastEnemy>() == null)
         {
-            Life = Life + GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2); //Sube la vida un 10% por cada nivel de la mejora
+            Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
     }
     
-
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
