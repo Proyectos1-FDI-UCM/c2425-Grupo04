@@ -233,7 +233,7 @@ public class UIManagerUpgrades : MonoBehaviour
         }
 
 
-        textBox.text = $"{descripciones[element]}" +
+        textBox.text = $"{descripciones[element]}\n" +
                        $"ACTUAL:\n" +
                        $"   Nivel: {level}\n" +
                        $"   {upgrade}: {amount} puntos\n" +
