@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5793794841154945488}
   - component: {fileID: -1585645059310999107}
   - component: {fileID: 2131818074551578245}
+  - component: {fileID: -4974483768650709435}
+  - component: {fileID: 5802298642983408017}
   m_Layer: 7
   m_Name: MarcaGrapenade
   m_TagString: Untagged
@@ -158,3 +160,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proyectil: {fileID: 4242593371902539852, guid: d7ddd0a48d3440c41a075df35d84f824, type: 3}
   cooldown: 3
+--- !u!50 &-4974483768650709435
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352360049607005943}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &5802298642983408017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352360049607005943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c42fb7d890e2147863a7e3b9e7e745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5.5
+  ObjectSizeX: 1
+  ObjectSizeY: 1

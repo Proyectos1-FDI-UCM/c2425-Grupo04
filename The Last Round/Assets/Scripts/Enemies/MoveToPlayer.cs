@@ -74,10 +74,31 @@ public class MoveToPlayer : MonoBehaviour
         posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
 
         if (Player != null && enemy != null)
+        {
+            
+            Vector2 PlayerPos, EnemyPos;
+            PlayerPos = Player.transform.position;
+            EnemyPos = enemy.transform.position;
+            //Si el jugador tiene collider
+            //la posición del jugador será la del centro del collider
+            if (Player.GetComponent<Collider2D>() != null)
+            {
+                Collider2D tmp = Player.GetComponent<Collider2D>();
+                PlayerPos += tmp.offset;
+            }
+            if (Player.GetComponent<Collider2D>() != null)
+            {
+                Collider2D tmp = enemy.GetComponent<Collider2D>();
+                EnemyPos += tmp.offset;
+            }
+
             //Localiza el vector que une el jugador con el objeto
-            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
-                                      Player.transform.position.y - enemy.transform.position.y,
+            EnemyPlayer = new Vector3(PlayerPos.x - EnemyPos.x,
+                                      PlayerPos.y - EnemyPos.y,
                                       0);
+        }
+            
+            
 
         if ((EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1) ||
             (EnemyPlayer.y < 0 && posMinY.y <= minY) ||
