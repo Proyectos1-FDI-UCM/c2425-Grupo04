@@ -1154,17 +1154,20 @@ MonoBehaviour:
   - {fileID: 998219522}
   - {fileID: 1803408860}
   descripciones:
-  - "Aumenta el da\xF1o un 10%"
-  - "Aumenta el da\xF1o un 10%"
-  - Aumenta la vida un 10%
+  - "Aumenta el da\xF1o un 30%"
+  - "Aumenta el da\xF1o un 30%"
+  - Aumenta la vida un 30%
   - Disminuye la cantidad requerida de materiales
-  costeUnicos: 15
-  costeNormales: 6
+  costeUnicos: 4
+  costeNormales: 2
   coinImg:
   - {fileID: 616486683}
   - {fileID: 240208000}
   - {fileID: 1197445978}
   dineroTotalText: {fileID: 863265708}
+  HealthUpgradePercent: 30
+  MeleeDamageUpgradePercent: 30
+  RangeDamageUpgradePercent: 30
 --- !u!4 &496633240
 Transform:
   m_ObjectHideFlags: 0

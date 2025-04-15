@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
     private float musicVolume = 100f, sfxVolume = 100f;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
     private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
+    private float HealthUpgradePercent = 0,
+                  MeleeDamageUpgradePercent = 0,
+                  RangeDamageUpgradePercent = 0;
 
     private bool currentWeapon;
     #endregion
@@ -287,6 +290,33 @@ public class GameManager : MonoBehaviour
     // --- FIN LÍMITES MAPA ---
 
     // --- SISTEMA DE MEJORAS ---
+
+    //Getters y Setters de porcentajes de mejora
+    public void SetHealthPercent(float percent)
+    {
+        HealthUpgradePercent = percent;
+    }
+    public void SetMeleeDamagePercent(float percent)
+    {
+        MeleeDamageUpgradePercent = percent;
+    }
+    public void SetRangeDamagePercent(float percent)
+    {
+        RangeDamageUpgradePercent = percent;
+    }
+    public float GetHealthPercent()
+    {
+        return HealthUpgradePercent;
+    }
+    public float GetMeleeDamagePercent()
+    {
+        return MeleeDamageUpgradePercent;
+    }
+    public float GetRangeDamagePercent()
+    {
+        return RangeDamageUpgradePercent;
+    }
+
     public int GetUpgradeLevel(int element) //Devuelve el nivel de la mejora correspondiente
     {
         return upgradeLevel[element];

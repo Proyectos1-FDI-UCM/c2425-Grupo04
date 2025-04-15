@@ -3732,17 +3732,20 @@ MonoBehaviour:
   - {fileID: 133661309}
   - {fileID: 1706739215}
   descripciones:
-  - "Aumenta el da\xF1o del arma a distancia un 10%"
-  - "Aumenta el da\xF1o del arma a cuerpo a cuerpo un 10%"
-  - Aumenta la vida total un 10%
+  - "Aumenta el da\xF1o un 30%"
+  - "Aumenta el da\xF1o un 30%"
+  - Aumenta la vida un 30%
   - Disminuye la cantidad requerida de materiales
-  costeUnicos: 15
-  costeNormales: 6
+  costeUnicos: 4
+  costeNormales: 2
   coinImg:
   - {fileID: 1510906645}
   - {fileID: 423502594}
   - {fileID: 730234999}
   dineroTotalText: {fileID: 1155636429}
+  HealthUpgradePercent: 30
+  MeleeDamageUpgradePercent: 30
+  RangeDamageUpgradePercent: 30
 --- !u!4 &1260748898
 Transform:
   m_ObjectHideFlags: 0

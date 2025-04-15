@@ -40,6 +40,10 @@ public class UIManagerUpgrades : MonoBehaviour
     private Image[] coinImg = new Image[3]; //0 es arma distancia, 1 es dash, 2 es daño distancia
     [SerializeField]
     private TextMeshProUGUI dineroTotalText;
+    [SerializeField]
+    private float HealthUpgradePercent,
+                  MeleeDamageUpgradePercent,
+                  RangeDamageUpgradePercent;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -113,7 +117,11 @@ public class UIManagerUpgrades : MonoBehaviour
             descs[5].text = "Desbloquea la habilidad Dash";
             coinImg[1].enabled = true;
         }
-        
+
+        //Darle al GameManager los porcentajes de mejora
+        GameManager.Instance.SetHealthPercent(HealthUpgradePercent/100);
+        GameManager.Instance.SetMeleeDamagePercent(MeleeDamageUpgradePercent / 100);
+        GameManager.Instance.SetRangeDamagePercent(RangeDamageUpgradePercent / 100);
     }
 
     /// <summary>
