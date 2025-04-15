@@ -149,11 +149,6 @@ public class GameManager : MonoBehaviour
         recursos = new float[SourceTypes];
     }
 
-    private void Update()
-    {
-
-    }
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -364,7 +359,7 @@ public class GameManager : MonoBehaviour
             numEnemigos[(int)enemy]--;
         }
 
-        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 1)
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
             ScenesManager.CreditScenes();
         }
