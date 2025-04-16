@@ -340,11 +340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347074204716764532, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
       propertyPath: HowEnemiesToGrapenade
-      value: 67
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1347074204716764532, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
       propertyPath: HowEnemiesToManzariete
-      value: 134
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 4149111813623156378, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
       propertyPath: m_LocalPosition.x
