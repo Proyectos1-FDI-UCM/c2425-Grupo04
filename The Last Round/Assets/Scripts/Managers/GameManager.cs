@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     private float[] recursos;
     private int[] numEnemigos;
     private int NivelSospechosos = 0;
-    public  float Dineros = 0;
+    public float Dineros = 0;
     private bool[,] DialoguesSaid;
     private float musicVolume = 100f, sfxVolume = 100f;
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     private float HealthUpgradePercent = 0,
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
-                  
+
 
     private bool currentWeapon;
     #endregion
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
     {
         UIManagerCombate.Timer(time);
     }
-   
+
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
@@ -247,13 +247,8 @@ public class GameManager : MonoBehaviour
     public void increaseSospechosos(int i)
     {
         NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
-        //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
-        // Debug.Log(NivelSospechosos);
-        //Debug.Log(Dineros);
-        if (i >= 1)
-        {
-            GetUI().GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
-        }
+
+        UIManager.GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
 
         if (NivelSospechosos >= 8 && UIManager != null)
         {
@@ -413,7 +408,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetSaid()
     {
-        for(int i = 0; i < DialoguesSaid.GetLength(1); i++)
+        for (int i = 0; i < DialoguesSaid.GetLength(1); i++)
         {
             for (int j = 0; j < DialoguesSaid.GetLength(0); j++)
             {
