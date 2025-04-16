@@ -250,8 +250,10 @@ public class GameManager : MonoBehaviour
         //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
         // Debug.Log(NivelSospechosos);
         //Debug.Log(Dineros);
-
-        GetUI().GiveAnimator().Play($"ContSospecha{NivelSospechosos-1}-{NivelSospechosos}");
+        if (i >= 1)
+        {
+            GetUI().GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
+        }
 
         if (NivelSospechosos >= 8 && UIManager != null)
         {
