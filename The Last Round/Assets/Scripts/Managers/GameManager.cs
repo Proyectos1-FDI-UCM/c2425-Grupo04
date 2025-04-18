@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     private UIManager UIManager;
     private UIManager_Combate UIManagerCombate;
     private UIManagerUpgrades UIManagerUpgrades;
+    private TutorialDialoguesUIManager TutorialDialoguesUIManager;
     private static GameManager _instance;
     private GameObject Player;
     private float[] recursos;
@@ -165,12 +166,6 @@ public class GameManager : MonoBehaviour
     {
         return UIManager;
     }
-
-    public void GiveTimerToUIC(string time)
-    {
-        UIManagerCombate.Timer(time);
-    }
-
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
@@ -179,7 +174,10 @@ public class GameManager : MonoBehaviour
     {
         return UIManagerUpgrades;
     }
-
+    public TutorialDialoguesUIManager GetTDUI()
+    {
+        return TutorialDialoguesUIManager;
+    }
     public void GiveUI(UIManager UIManager)
     {
         this.UIManager = UIManager;
@@ -192,7 +190,10 @@ public class GameManager : MonoBehaviour
     {
         this.UIManagerUpgrades = UIManagerUpgrades;
     }
-
+    public void SetTDUI(TutorialDialoguesUIManager TutorialDialoguesUIManager)
+    {
+        this.TutorialDialoguesUIManager = TutorialDialoguesUIManager;
+    }
     public void GiveScenesManager(ScenesManager scenesManager)
     {
         this.ScenesManager = scenesManager;
@@ -437,8 +438,10 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
-
-
+    public void GiveTimerToUIC(string time)
+    {
+        UIManagerCombate.Timer(time);
+    }
     public void WeaponSwitch(bool playerWep)
     {
         currentWeapon = playerWep;

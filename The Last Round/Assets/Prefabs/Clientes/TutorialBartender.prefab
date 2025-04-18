@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7006834372356157504}
   - component: {fileID: 6838881013541849228}
   m_Layer: 0
-  m_Name: Orion
+  m_Name: TutorialBartender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

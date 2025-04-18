@@ -32,6 +32,7 @@ public class Dialogue : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private UIManager uiManager;
+    private TutorialDialoguesUIManager TDUIManager;
     private Texto[] dialogue;
     private bool ClientAppear = false, DialogueGiven = false;
     private SpriteRenderer spriteRenderer;
@@ -158,11 +159,18 @@ public class Dialogue : MonoBehaviour
 
         if (ClientAppear && !DialogueGiven)
         {
+            TDUIManager = GameManager.Instance.GetTDUI();
+
             if (uiManager != null)
             {
                 uiManager.GetClientSprite(spriteRenderer);
                 uiManager.GetDrink(BebidaPedida);
                 uiManager.GetDialogue(dialogue);
+            }
+            else if (TDUIManager != null)
+            {
+                TDUIManager.GetClientSprite(spriteRenderer);
+                TDUIManager.GetDialogue(dialogue);
             }
 
             DialogueGiven = true;

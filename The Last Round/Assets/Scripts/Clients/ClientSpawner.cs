@@ -41,14 +41,14 @@ public class ClientSpawner : MonoBehaviour
     // Ejemplo: _maxHealthPoints
     private GameObject[] TidyClients;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -56,19 +56,13 @@ public class ClientSpawner : MonoBehaviour
     void Start()
     {
         TidyClients = new GameObject[clients.Length];
-        if (clients.Length < 5)
+
+        //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
+        for (int i = 0; i < TidyClients.Length; i++)
         {
-            TidyClients = clients;
+            TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
         }
-        else
-        {
-            //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
-            for (int i = 0; i < TidyClients.Length; i++)
-            {
-                TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
-            }
-            Spawn();
-        }
+        Spawn();
     }
 
     /// <summary>
@@ -76,7 +70,7 @@ public class ClientSpawner : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+
     }
     #endregion
 
@@ -89,14 +83,14 @@ public class ClientSpawner : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void Spawn()
     {
-        int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
+        int rnd; //0 es alcalde
 
         int[] contador = GameManager.Instance.GetEnemyCounter();
 
         do
         {
             //genera un numero al azar entre el 0 y el doble de clientes - 1
-            rnd = UnityEngine.Random.Range(0, (TidyClients.Length * 2)-1);
+            rnd = UnityEngine.Random.Range(0, (TidyClients.Length * 2) - 1);
             if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
             {
                 rnd = Mathf.CeilToInt(rnd / 2f);
@@ -107,12 +101,12 @@ public class ClientSpawner : MonoBehaviour
         while (TidyClients[rnd] == null || contador[(int)TidyClients[rnd].GetComponent<CastEnemy>().GetEnemyType()] <= 0);
 
 
-        
+
         Instantiate(TidyClients[rnd], transform.position, Quaternion.identity);
-        
+
     }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -120,7 +114,7 @@ public class ClientSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class ClientSpawner 
 // namespace
