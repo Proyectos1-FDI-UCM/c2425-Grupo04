@@ -64,7 +64,10 @@ public class UIManager_Combate : MonoBehaviour
             population.text = $"Población: {populationNum}";
         }
 
-        TimerMaxSize = timer.fontSize;
+        if (timer != null)
+        {
+            TimerMaxSize = timer.fontSize;
+        } 
     }
 
     private void Update()
@@ -88,9 +91,15 @@ public class UIManager_Combate : MonoBehaviour
     public void GameOverUI()
     {
         //Activa la UI de GameOver si el jugador pierde
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
 
-        gameOverUI.SetActive(true);
-        timer.gameObject.SetActive(false);
+        if (timer != null)
+        {
+            timer.gameObject.SetActive(false);
+        } 
         PlayerLife.SetActive(false);
         currentWeapon.gameObject.SetActive(false);
         population.text = "";
