@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AppearSpeed: 100
+  AppearSpeed: 500
   dialogues:
   - Generic: 1
     Lines:

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AppearSpeed: 100
+  AppearSpeed: 500
   dialogues:
   - Generic: 1
     Lines:
@@ -158,10 +158,8 @@ MonoBehaviour:
         frio que hace normal."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Al acercarte a un objeto interactuable este indicar\xE1 la tecla
-        a pulsar o mantener para interactuar. Esta tecla es la [E]"
-      BadText: "Al acercarte a un objeto interactuable este indicar\xE1 la tecla
-        a pulsar o mantener para interactuar. Esta tecla es la [E]"
+    - GoodText: Para interactuar con los objetos interactuables usa la tecla [E].
+      BadText: Para interactuar con los objetos interactuables usa la tecla [E].
       Estatus: 0
       Emisor: 1
     - GoodText: "Para salir de aqu\xED solo tengo que buscar una alcantarilla, meterme
