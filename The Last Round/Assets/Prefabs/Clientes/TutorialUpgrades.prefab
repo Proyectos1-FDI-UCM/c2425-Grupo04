@@ -158,10 +158,10 @@ MonoBehaviour:
         y acabar con los pueblerinos."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Voy a inspeccionar el terreno y de paso a entrenar un poco antes
-        de mi primera noche de acci\xF3n."
-      BadText: "Voy a inspeccionar el terreno y de paso a entrenar un poco antes
-        de mi primera noche de acci\xF3n."
+    - GoodText: "Voy a inspeccionar el terreno y de paso me llevo alg\xFAn maniqu\xED
+        para entrenar un poco antes de mi primera noche de acci\xF3n."
+      BadText: "Voy a inspeccionar el terreno y de paso me llevo alg\xFAn maniqu\xED
+        para entrenar un poco antes de mi primera noche de acci\xF3n."
       Estatus: 0
       Emisor: 0
     - GoodText: Y Bueno, si tomo prestada alguna de estas mejoras para probarlas
