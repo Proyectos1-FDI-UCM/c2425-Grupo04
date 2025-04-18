@@ -102,100 +102,72 @@ MonoBehaviour:
   dialogues:
   - Generic: 1
     Lines:
-    - GoodText: "Vale, antes del primer d\xEDa de trabajo voy a hacer memoria de
-        todo."
-      BadText: "Vale, antes del primer d\xEDa de trabajo voy a hacer memoria de todo."
+    - GoodText: "De acuerdo, aqu\xED en el almac\xE9n no pueden acceder los clientes."
+      BadText: "De acuerdo, aqu\xED en el almac\xE9n no pueden acceder los clientes."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Los clientes se sentar\xE1n justo donde estoy yo, hablar\xE1n conmigo
-        y tendr\xE9 que levantar la menor sospecha posible en ellos."
-      BadText: "Los clientes se sentar\xE1n justo donde estoy yo, hablar\xE1n conmigo
-        y tendr\xE9 que levantar la menor sospecha posible en ellos."
+    - GoodText: "Y menos mal, porque si entraran aqu\xED sospechar\xEDan mucho de
+        mi, este almac\xE9n parece el de un verdadero asesino."
+      BadText: "Y menos mal, porque si entraran aqu\xED sospechar\xEDan mucho de
+        mi, este almac\xE9n parece el de un verdadero asesino."
       Estatus: 0
       Emisor: 0
-    - GoodText: Vale, voy a practicar.
-      BadText: Vale, voy a practicar.
+    - GoodText: "Seg\xFAn lo que me comunicaron hay por aqu\xED una serie de papeles
+        que me pueden ayudar a mejorar."
+      BadText: "Seg\xFAn lo que me comunicaron hay por aqu\xED una serie de papeles
+        que me pueden ayudar a mejorar."
       Estatus: 0
       Emisor: 0
-    - GoodText: "\xBFSi me preguntan qu\xE9 estaba haciendo a la noche?"
-      BadText: "\xBFSi me preguntan qu\xE9 estaba haciendo a la noche?"
-      Estatus: 1
-      Emisor: 0
-    - GoodText: Dormir
-      BadText: Nada que te incumba
+    - GoodText: "Incluso un arma a distancia y lo que parece ser un escrito para
+        aprender una t\xE9cnica que me permitir\xE1 hacer un dash."
+      BadText: "Incluso un arma a distancia y lo que parece ser un escrito para aprender
+        una t\xE9cnica que me permitir\xE1 hacer un dash."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Esta puede ser una buena respuesta, al final por la noche es com\xFAn
-        echarse en la cama."
-      BadText: "Quiz\xE1s ponerme a la defensiva aumentar\xEDa su sospecha."
+    - GoodText: Una pena que nada de esto sea gratis.
+      BadText: Una pena que nada de esto sea gratis.
       Estatus: 0
       Emisor: 0
-    - GoodText: "Bah, da igual, seguro que lo har\xE9 bien."
-      BadText: "Bah, da igual, seguro que lo har\xE9 bien."
+    - GoodText: "El mism\xEDsimo alcalde de Felidoria me dijo que estas mejoras se
+        hab\xEDan pagado con el dinero del estado."
+      BadText: "El mism\xEDsimo alcalde de Felidoria me dijo que estas mejoras se
+        hab\xEDan pagado con el dinero del estado."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Tendr\xE9 que tener cuidado con resultar muy sospechoso o los pueblerinos
-        podr\xE1n atraparme."
-      BadText: "Tendr\xE9 que tener cuidado con resultar muy sospechoso o los pueblerinos
-        podr\xE1n atraparme."
+    - GoodText: "Si las quiero tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
+        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado"
+      BadText: "Si las quiero tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
+        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Aunque no tienen muchas luces, seguro que si no resulto nada sospechoso
-        en todo el dia bajar\xE1n la guardia..."
-      BadText: "Aunque no tienen muchas luces, seguro que si no resulto nada sospechoso
-        en todo el dia bajar\xE1n la guardia..."
+    - GoodText: "Como se enteren de que he tomado algo de esto gratis... No quiero
+        ni imaginarme lo que suceder\xEDa."
+      BadText: "Como se enteren de que he tomado algo de esto gratis... No quiero
+        ni imaginarme lo que suceder\xEDa."
       Estatus: 0
       Emisor: 0
-    - GoodText: Por cierto, las bebidas.
-      BadText: Por cierto, las bebidas.
+    - GoodText: "Ay, es cierto, aqu\xED est\xE1 la alcantarilla por la que acceder\xE9
+        al pueblo."
+      BadText: "Ay, es cierto, aqu\xED est\xE1 la alcantarilla por la que acceder\xE9
+        al pueblo."
       Estatus: 0
       Emisor: 0
-    - GoodText: Si no recuerdo mal el jugo, la piel y las semillas se las debo de
-        arrebatar a esos malditos pueblerinos.
-      BadText: Si no recuerdo mal el jugo, la piel y las semillas se las debo de
-        arrebatar a esos malditos pueblerinos.
+    - GoodText: "Seg\xFAn el plan deber\xE9 de meterme por ella para ir al pueblo
+        y acabar con los pueblerinos."
+      BadText: "Seg\xFAn el plan deber\xE9 de meterme por ella para ir al pueblo
+        y acabar con los pueblerinos."
       Estatus: 0
       Emisor: 0
-    - GoodText: "En cuanto al hielo, seguro que podr\xE9 conseguirlo de alg\xFAn
-        bloque de hielo por la noche. En este lugar realmente bajan las temperaturas
-        al anochecer."
-      BadText: "En cuanto al hielo, seguro que podr\xE9 conseguirlo de alg\xFAn bloque
-        de hielo por la noche. En este lugar realmente bajan las temperaturas al
-        anochecer."
+    - GoodText: "Voy a inspeccionar el terreno y de paso a entrenar un poco antes
+        de mi primera noche de acci\xF3n."
+      BadText: "Voy a inspeccionar el terreno y de paso a entrenar un poco antes
+        de mi primera noche de acci\xF3n."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Y la levadura... Este pueblo tiene una tierra muy f\xE9rtil a pesar
-        de estar en una zona tan des\xE9rtica, las plantas nos servir\xE1n para conseguir
-        la levadura."
-      BadText: "Y la levadura... Este pueblo tiene una tierra muy f\xE9rtil a pesar
-        de estar en una zona tan des\xE9rtica, las plantas nos servir\xE1n para conseguir
-        la levadura."
-      Estatus: 0
-      Emisor: 0
-    - GoodText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales
-        que he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
-        (Para seleccionar material hacer clic sobre el icono del material)."
-      BadText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales que
-        he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
-        (Para seleccionar material hacer clic sobre el icono del material)."
-      Estatus: 0
-      Emisor: 0
-    - GoodText: Voy a hacer un (bebida).
-      BadText: Voy a hacer un (bebida).
-      Estatus: 2
-      Emisor: 0
-    - GoodText: "Perfecto, veo que recuerdo como hacer bebidas. Y por servirlas conseguir\xE9
-        dinero. Me har\xE9 millonario con esto."
-      BadText: "Para la pr\xF3xima vez meter\xE9 los ingredientes necesarios en la
-        cesta antes de servir. Si no, no me pagar\xE1n."
-      Estatus: 0
-      Emisor: 0
-    - GoodText: "Ahora que he hecho memoria voy a ver que habilidades puedo mejorar
-        y me meter\xE9 por la alcantarilla que da al pueblo para entrenar un poco.
-        Esos pueblerinos no se exterminan solos"
-      BadText: "Ahora que he hecho memoria voy a ver que habilidades puedo mejorar
-        y me meter\xE9 por la alcantarilla que da al pueblo para entrenar un poco.
-        Esos pueblerinos no se exterminan solos."
+    - GoodText: Y Bueno, si tomo prestada alguna de estas mejoras para probarlas
+        dudo que pase nada, siempre que luego las deje en su lugar.
+      BadText: Y Bueno, si tomo prestada alguna de estas mejoras para probarlas dudo
+        que pase nada, siempre que luego las deje en su lugar.
       Estatus: 0
       Emisor: 0
   BebidasPosibles:
