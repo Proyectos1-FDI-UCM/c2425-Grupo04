@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     private UIManagerUpgrades UIManagerUpgrades;
     private TutorialDialoguesUIManager TutorialDialoguesUIManager;
     private static GameManager _instance;
-    private GameObject Player;
+    private GameObject Player, PauseMenu;
     private float[] recursos;
     private int[] numEnemigos;
     private int NivelSospechosos = 0;
@@ -437,6 +437,14 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return Player;
+    }
+    public void SetPauseMenu(GameObject PauseMenu)
+    {
+        this.PauseMenu = PauseMenu;
+    }
+    public bool IsPauseActive()
+    {
+        return PauseMenu.activeSelf;
     }
     public void GiveTimerToUIC(string time)
     {

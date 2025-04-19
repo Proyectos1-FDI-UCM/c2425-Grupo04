@@ -6,6 +6,8 @@
 //---------------------------------------------------------
 
 
+using JetBrains.Annotations;
+using UnityEditor.Search;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
@@ -60,25 +62,26 @@ public class AttackGeneral : MonoBehaviour
     void Update()
     {
         //customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
-        mousePos = cameraMain.ScreenToWorldPoint(new Vector3 (Mouse.current.position.x.value,Mouse.current.position.y.value,0));
+        mousePos = cameraMain.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, 0));
 
         //Debug.Log(mousePos);
-        customCursor.position = new Vector3 (mousePos.x , mousePos.y , 0);
+        customCursor.position = new Vector3(mousePos.x, mousePos.y, 0);
         Vector3 rotationOrigin = mousePos - transform.position;
 
         float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
-        pivot.transform.rotation = Quaternion.Euler(0,0,rotZ - 90);
+        pivot.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
 
 
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame())
         {
             if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
-            else if  (!weaponType) weaponType = true;
+            else if (!weaponType) weaponType = true;
         }
 
         GameManager.Instance.WeaponSwitch(weaponType);
 
-        if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0)
+        if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0 &&
+            !GameManager.Instance.IsPauseActive())
         {
             if (weaponType) Shoot();
             else Melee();
@@ -98,7 +101,7 @@ public class AttackGeneral : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -107,7 +110,7 @@ public class AttackGeneral : MonoBehaviour
     // mayúscula, incluida la primera letra)
 
 
-    private void Shoot ()
+    private void Shoot()
     {
         Instantiate(bulletPrefab, origin.transform.position, pivot.transform.rotation);
     }

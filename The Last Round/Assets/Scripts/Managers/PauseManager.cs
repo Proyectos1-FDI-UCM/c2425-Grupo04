@@ -55,6 +55,7 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        GameManager.Instance.SetPauseMenu(PauseMenu);
         //Pone el valor de los sliders al volumen que está en el gameManager
         musicSlider.value = GameManager.Instance.GetMusicVolume();
         sfxSlider.value = GameManager.Instance.GetSfxVolume();

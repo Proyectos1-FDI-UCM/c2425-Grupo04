@@ -72,7 +72,9 @@ public class RecursoSpawner : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
-            if (InputManager.Instance.InteractWasReleasedThisFrame()) //En el momento en el que se suelta el timer del hold se resetea
+            //En el momento en el que se suelta el timer del hold se resetea si no está en pausa
+            if (InputManager.Instance.InteractWasReleasedThisFrame() &&
+                !GameManager.Instance.IsPauseActive())
             {
                 timer = HoldingTime;
             }
