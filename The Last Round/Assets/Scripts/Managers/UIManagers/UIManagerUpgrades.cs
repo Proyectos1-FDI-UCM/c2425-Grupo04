@@ -58,9 +58,6 @@ public class UIManagerUpgrades : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private float dineroTotal;
-    private int NextMeleeDamage = 0;
-    private int NextRangeDamage = 0;
-    private int NextHealth = 0;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -89,11 +86,6 @@ public class UIManagerUpgrades : MonoBehaviour
         GameManager.Instance.SetHealthPercent(HealthUpgradePercent / 100);
         GameManager.Instance.SetMeleeDamagePercent(MeleeDamageUpgradePercent / 100);
         GameManager.Instance.SetRangeDamagePercent(RangeDamageUpgradePercent / 100);
-
-        //Coger los niveles de las primeras mejoras
-        NextRangeDamage = (int)BaseRangeDamage;
-        NextMeleeDamage = (int)BaseMeleeDamage;
-        NextHealth = (int)BaseHealth;
 
         //Cambia la descripcion de las mejoras normales (Vida y Melee y Sale)
         ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 1);
@@ -210,26 +202,24 @@ public class UIManagerUpgrades : MonoBehaviour
 
             if (element == 0)
             {
-                //Recoge el daño base
-                amount = NextRangeDamage;
-                NextRangeDamage += (int) (BaseRangeDamage * (RangeDamageUpgradePercent / 100));
-                NextAmount = NextRangeDamage;
+                amount = BaseRangeDamage + (int)((RangeDamageUpgradePercent / 100) * BaseRangeDamage * GameManager.Instance.GetUpgradeLevel(0));
+
+                NextAmount = BaseRangeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseRangeDamage * (GameManager.Instance.GetUpgradeLevel(0) + 1));
             }
             else
             {
-                //Recoge el daño base
-                amount = NextMeleeDamage;
-                NextMeleeDamage += (int) (BaseMeleeDamage * (MeleeDamageUpgradePercent / 100));
-                NextAmount = NextMeleeDamage;
+                amount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * GameManager.Instance.GetUpgradeLevel(1));
+
+                NextAmount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * (GameManager.Instance.GetUpgradeLevel(1)+1));
             }
         }
         else if (element == 2)
         {
             upgrade = "Vida";
-            //Recoge la vida base
-            amount = NextHealth;
-            NextHealth += (int) (BaseHealth * (HealthUpgradePercent / 100));
-            NextAmount = NextHealth;
+
+            amount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * GameManager.Instance.GetUpgradeLevel(2));
+
+            NextAmount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * (GameManager.Instance.GetUpgradeLevel(2) + 1));
         }
 
 

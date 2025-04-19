@@ -83,7 +83,7 @@ public class Damage : MonoBehaviour
             }
             else if (GetComponent<BulletMovement>() != null) //si es la bala
             {
-                mejoraDmg = (int)GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0);
+                mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0));
             }
 
             health.GetDamage(Basedamage + mejoraDmg);

@@ -2228,8 +2228,8 @@ MonoBehaviour:
   - "Aumenta el da\xF1o un 30%"
   - Aumenta la vida un 30%
   - Disminuye la cantidad requerida de materiales
-  costeUnicos: 4
-  costeNormales: 2
+  costeUnicos: 0
+  costeNormales: 0
   coinImg:
   - {fileID: 1040146661}
   - {fileID: 18549792}
