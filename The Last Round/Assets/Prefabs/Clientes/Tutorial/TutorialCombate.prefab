@@ -102,60 +102,66 @@ MonoBehaviour:
   dialogues:
   - Generic: 1
     Lines:
-    - GoodText: "Con que este es el pueblo... No est\xE1 mal pero me gustan mas los
-        paisajes de Felidoria"
-      BadText: "Con que este es el pueblo... No est\xE1 mal pero me gustan mas los
-        paisajes de Felidoria"
+    - GoodText: "Conque este es el pueblo... No est\xE1 mal, pero me gustan m\xE1s
+        los paisajes de Felidoria."
+      BadText: "Conque este es el pueblo... No est\xE1 mal, pero me gustan m\xE1s
+        los paisajes de Felidoria."
       Estatus: 0
       Emisor: 0
-    - GoodText: Lo primero es lo primero, estirar las piernas
-      BadText: Lo primero es lo primero, estirar las piernas
+    - GoodText: Lo primero es lo primero. Voy a estirar las piernas
+      BadText: Lo primero es lo primero. Voy a estirar las piernas
       Estatus: 0
       Emisor: 0
-    - GoodText: Para moverte pulsa las teclas [W][A][S][D] o en su lugar las flechitas.
-      BadText: Para moverte pulsa las teclas [W][A][S][D] o en su lugar las flechitas.
+    - GoodText: Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
+      BadText: Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
       Estatus: 0
       Emisor: 1
-    - GoodText: "Veamos, voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
+    - GoodText: Ahora voy a calentar las patas, que estoy un poco oxidado de tanto
+        tiempo sin pelear.
+      BadText: Ahora voy a calentar las patas, que estoy un poco oxidado de tanto
+        tiempo sin pelear.
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Veamos. Voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
       BadText: "Veamos, voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Para atacar apunta con el rat\xF3n y pulsa espacio o en su lugar
-        clic izquierdo"
-      BadText: "Para atacar apunta con el rat\xF3n y pulsa espacio o en su lugar
-        clic izquierdo"
+    - GoodText: "Para atacar, apunta con el rat\xF3n a tu objetivo y pulsa espacio
+        o en su lugar clic izquierdo."
+      BadText: "Para atacar, apunta con el rat\xF3n a tu objetivo y pulsa espacio
+        o en su lugar clic izquierdo."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Aqu\xED tengo un bolsillo, quiz\xE1s pueda guardar el arma a distancia
-        aqu\xED cuando la tenga"
-      BadText: "Aqu\xED tengo un bolsillo, quiz\xE1s pueda guardar el arma a distancia
-        aqu\xED cuando la tenga"
+    - GoodText: "Tengo espacio en los bolsillos. Quiz\xE1s puedo guardar mis armas
+        aqu\xED cuando lo necesite."
+      BadText: "Tengo espacio en los bolsillos. Quiz\xE1s puedo guardar mis armas
+        aqu\xED cuando lo necesite."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Para cambiar de arma (Cuando tengas el arma a distancia) podr\xE1s
-        alternar entre el arma a distancia y cuerpo a cuerpo pulsando la tecla [Q]"
-      BadText: "Para cambiar de arma (Cuando tengas el arma a distancia) podr\xE1s
-        alternar entre el arma a distancia y cuerpo a cuerpo pulsando la tecla [Q]"
+    - GoodText: "Una vez tengas m\xE1s armas, podr\xE1s alternar entre ellas pulsando
+        la tecla [Q]."
+      BadText: "Una vez tengas m\xE1s armas, podr\xE1s alternar entre ellas pulsando
+        la tecla [Q]."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Adem\xE1s en el combate es muy importante ser \xE1gil, ese papelito
-        con esa t\xE9cnica de dash era muy interesante..."
-      BadText: "Adem\xE1s en el combate es muy importante ser \xE1gil, ese papelito
-        con esa t\xE9cnica de dash era muy interesante..."
+    - GoodText: "Adem\xE1s, en el combate es muy importante ser \xE1gil. Ese papelito
+        con esa t\xE9cnica de movimiento acelerado era muy interesante..."
+      BadText: "Adem\xE1s, en el combate es muy importante ser \xE1gil. Ese papelito
+        con esa t\xE9cnica de movimiento acelerado era muy interesante..."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Cuando la mejora de dash est\xE9 activa podr\xE1s realizar un dash
-        hacia donde te mueves haciendo clic derecho con el rat\xF3n."
-      BadText: "Cuando la mejora de dash est\xE9 activa podr\xE1s realizar un dash
-        hacia donde te mueves haciendo clic derecho con el rat\xF3n."
+    - GoodText: "Cuando la mejora de dash est\xE9 activa, podr\xE1s realizar un dash
+        hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n."
+      BadText: "Cuando la mejora de dash est\xE9 activa, podr\xE1s realizar un dash
+        hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Si no recuerdo mal por aqu\xED hab\xEDa buenas flores para conseguir
-        levadura del moho que desprenden y unos bloques de hielo enormes, con el
-        frio que hace normal."
-      BadText: "Si no recuerdo mal por aqu\xED hab\xEDa buenas flores para conseguir
-        levadura del moho que desprenden y unos bloques de hielo enormes, con el
-        frio que hace normal."
+    - GoodText: "Si no recuerdo mal, por aqu\xED hab\xEDa buenas flores para conseguir
+        levadura. Adem\xE1s, tambi\xE9n hay bloques de hielo del fr\xEDo que hace.
+        Podr\xEDa serme \xFAtil para el bar."
+      BadText: "Si no recuerdo mal, por aqu\xED hab\xEDa buenas flores para conseguir
+        levadura. Adem\xE1s, tambi\xE9n hay bloques de hielo del fr\xEDo que hace.
+        Podr\xEDa serme \xFAtil para el bar."
       Estatus: 0
       Emisor: 0
     - GoodText: Para interactuar con los objetos interactuables usa la tecla [E].
@@ -168,24 +174,32 @@ MonoBehaviour:
         en ella y volver al almac\xE9n."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Pero para que los pueblerinos no sospechen tendr\xE9 que estar en
-        el bar antes del amanecer, a la hora a la que abrir\xE9 el bar."
-      BadText: "Pero para que los pueblerinos no sospechen tendr\xE9 que estar en
-        el bar antes del amanecer, a la hora a la que abrir\xE9 el bar."
+    - GoodText: "Pero para que los pueblerinos no sospechen de m\xED tendr\xE9 que
+        estar en el bar antes del amanecer, cuando abro el bar. Un barman que se
+        precie siempre abre puntual."
+      BadText: "Pero para que los pueblerinos no sospechen de m\xED tendr\xE9 que
+        estar en el bar antes del amanecer, cuando abro el bar. Un barman que se
+        precie siempre abre puntual."
       Estatus: 0
       Emisor: 0
     - GoodText: "Durante la partida, en la zona superior derecha aparecer\xE1 un
-        contador, cuando llegue a 0 amanecer\xE1 y volver\xE1s al bar corriendo,
-        pero los clientes sospechar\xE1n de ti."
-      BadText: "Durante la partida, en la zona superior derecha aparecer\xE1 un contador,
-        cuando llegue a 0 amanecer\xE1 y volver\xE1s al bar corriendo, pero los clientes
-        sospechar\xE1n de ti."
+        contador que marca el tiempo restante esa noche. "
+      BadText: "Durante la partida, en la zona superior derecha aparecer\xE1 un contador
+        que marca el tiempo restante esa noche. "
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Cuando llegue a 0 amanecer\xE1 y volver\xE1s al bar corriendo, pero
+        abrir\xE1s el bar tarde, por lo que los clientes podr\xEDan sospechar de
+        ti."
+      BadText: "Cuando llegue a 0 amanecer\xE1 y volver\xE1s al bar corriendo, pero
+        abrir\xE1s el bar tarde, por lo que los clientes podr\xEDan sospechar de
+        ti."
       Estatus: 0
       Emisor: 1
     - GoodText: "Antes de que te vayas, puedes abrir el men\xFA pulsando la tecla
-        [Escape] o [Enter] en su lugar."
+        [Escape] o la tecla [Enter]."
       BadText: "Antes de que te vayas, puedes abrir el men\xFA pulsando la tecla
-        [Escape] o [Enter] en su lugar."
+        [Escape] o la tecla [Enter]."
       Estatus: 0
       Emisor: 1
   BebidasPosibles:

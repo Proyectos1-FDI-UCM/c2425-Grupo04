@@ -102,30 +102,32 @@ MonoBehaviour:
   dialogues:
   - Generic: 1
     Lines:
-    - GoodText: "De acuerdo, aqu\xED en el almac\xE9n no pueden acceder los clientes."
-      BadText: "De acuerdo, aqu\xED en el almac\xE9n no pueden acceder los clientes."
+    - GoodText: "Aqu\xED en el almac\xE9n no pueden acceder los clientes."
+      BadText: "Aqu\xED en el almac\xE9n no pueden acceder los clientes."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Y menos mal, porque si entraran aqu\xED sospechar\xEDan mucho de
-        mi, este almac\xE9n parece el de un verdadero asesino."
-      BadText: "Y menos mal, porque si entraran aqu\xED sospechar\xEDan mucho de
-        mi, este almac\xE9n parece el de un verdadero asesino."
+    - GoodText: "Y menos mal, porque si entraran aqu\xED descubrir\xEDan que soy
+        el culpable. Este almac\xE9n parece el de un verdadero asesino."
+      BadText: "Y menos mal, porque si entraran aqu\xED descubrir\xEDan que soy el
+        culpable. Este almac\xE9n parece el de un verdadero asesino."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Seg\xFAn lo que me comunicaron hay por aqu\xED una serie de papeles
-        que me pueden ayudar a mejorar."
-      BadText: "Seg\xFAn lo que me comunicaron hay por aqu\xED una serie de papeles
-        que me pueden ayudar a mejorar."
+    - GoodText: "Seg\xFAn lo que me comunicaron en la central, por aqu\xED hay una
+        serie de papeles que me pueden ayudar a mejorar mis habilidades."
+      BadText: "Seg\xFAn lo que me comunicaron en la central, por aqu\xED hay una
+        serie de papeles que me pueden ayudar a mejorar mis habilidades."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Incluso un arma a distancia y lo que parece ser un escrito para
-        aprender una t\xE9cnica que me permitir\xE1 hacer un dash."
-      BadText: "Incluso un arma a distancia y lo que parece ser un escrito para aprender
-        una t\xE9cnica que me permitir\xE1 hacer un dash."
+    - GoodText: "Hay un arma a distancia, herramientas para afilar cuchillos y lo
+        que parece ser un escrito para aprender una t\xE9cnica avanzada que me permitir\xE1
+        moverme muy r\xE1pido durante un instante."
+      BadText: "Hay un arma a distancia, herramientas para afilar cuchillos y lo
+        que parece ser un escrito para aprender una t\xE9cnica avanzada que me permitir\xE1
+        moverme muy r\xE1pido durante un instante."
       Estatus: 0
       Emisor: 0
-    - GoodText: Una pena que nada de esto sea gratis.
-      BadText: Una pena que nada de esto sea gratis.
+    - GoodText: Una pena que nada de esto sea gratis...
+      BadText: Una pena que nada de esto sea gratis...
       Estatus: 0
       Emisor: 0
     - GoodText: "El mism\xEDsimo alcalde de Felidoria me dijo que estas mejoras se
@@ -134,28 +136,26 @@ MonoBehaviour:
         hab\xEDan pagado con el dinero del estado."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Si las quiero tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
-        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado"
-      BadText: "Si las quiero tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
-        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado"
+    - GoodText: "Si las quiero, tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
+        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado."
+      BadText: "Si las quiero, tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
+        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado."
       Estatus: 0
       Emisor: 0
     - GoodText: "Como se enteren de que he tomado algo de esto gratis... No quiero
-        ni imaginarme lo que suceder\xEDa."
+        ni imaginarme lo que suceder\xEDa. Mejor no arriesgarme."
       BadText: "Como se enteren de que he tomado algo de esto gratis... No quiero
-        ni imaginarme lo que suceder\xEDa."
+        ni imaginarme lo que suceder\xEDa. Mejor no arriesgarme."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Ay, es cierto, aqu\xED est\xE1 la alcantarilla por la que acceder\xE9
-        al pueblo."
-      BadText: "Ay, es cierto, aqu\xED est\xE1 la alcantarilla por la que acceder\xE9
-        al pueblo."
+    - GoodText: "Tambi\xE9n tengo un acceso secreto al pueblo con esta alcantarilla."
+      BadText: "Tambi\xE9n tengo un acceso secreto al pueblo con esta alcantarilla."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Seg\xFAn el plan deber\xE9 de meterme por ella para ir al pueblo
-        y acabar con los pueblerinos."
-      BadText: "Seg\xFAn el plan deber\xE9 de meterme por ella para ir al pueblo
-        y acabar con los pueblerinos."
+    - GoodText: "Tendr\xE9 que ir por ah\xED para acceder al pueblo sin que me vean
+        para acabar con los pueblerinos de Fermentia sin que me descubran."
+      BadText: "Tendr\xE9 que ir por ah\xED para acceder al pueblo sin que me vean
+        para acabar con los pueblerinos de Fermentia sin que me descubran."
       Estatus: 0
       Emisor: 0
     - GoodText: "Voy a inspeccionar el terreno y de paso me llevo alg\xFAn maniqu\xED
@@ -164,10 +164,16 @@ MonoBehaviour:
         para entrenar un poco antes de mi primera noche de acci\xF3n."
       Estatus: 0
       Emisor: 0
-    - GoodText: Y Bueno, si tomo prestada alguna de estas mejoras para probarlas
+    - GoodText: Y bueno, si tomo prestada alguna de estas mejoras para probarlas
         dudo que pase nada, siempre que luego las deje en su lugar.
-      BadText: Y Bueno, si tomo prestada alguna de estas mejoras para probarlas dudo
+      BadText: Y bueno, si tomo prestada alguna de estas mejoras para probarlas dudo
         que pase nada, siempre que luego las deje en su lugar.
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Voy a inspeccionar estas mejoras, y luego me meto por la alcantarilla
+        para ir al pueblo.
+      BadText: Voy a inspeccionar estas mejoras, y luego me meto por la alcantarilla
+        para ir al pueblo.
       Estatus: 0
       Emisor: 0
   BebidasPosibles:
