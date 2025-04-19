@@ -11,6 +11,7 @@ using UnityEditor.Search;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -27,7 +28,8 @@ public class AttackGeneral : MonoBehaviour
     [SerializeField]
     private Transform customCursor;
 
-
+    [SerializeField]
+    private Button detector;
 
     [SerializeField]
     private Transform pivot; //centro de rotación
@@ -81,8 +83,16 @@ public class AttackGeneral : MonoBehaviour
 
         GameManager.Instance.WeaponSwitch(weaponType);
 
-        if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0 &&
-            !GameManager.Instance.IsPauseActive())
+        bool CanFire = InputManager.Instance.FireWasPressedThisFrame() &&
+                       timer <= 0 &&
+                       !GameManager.Instance.IsPauseActive();
+
+        if (detector != null && detector.gameObject.activeSelf && detector.GetComponent<CursorDetector>() != null)
+        {
+            CanFire = CanFire && !detector.GetComponent<CursorDetector>().IsMouseOnButton();
+        }
+
+        if (CanFire)
         {
             if (weaponType) Shoot();
             else Melee();

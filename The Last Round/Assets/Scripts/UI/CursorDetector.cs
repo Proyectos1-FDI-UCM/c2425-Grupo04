@@ -29,7 +29,7 @@ public class CursorDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     #region Atributos Privados (private fields)
 
     private UIManagerUpgrades uimanager;
-
+    private bool detected = false;
     #endregion
 
     // ---- MÉTODOS DE IPOINTERENTERHANDLER E IPOINTERENTERHANDLER ----
@@ -43,7 +43,12 @@ public class CursorDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         uimanager = GameManager.Instance.GetUIU();
 
-        uimanager.ActiveImage(Description);
+        if (uimanager != null && Description != null)
+        {
+            uimanager.ActiveImage(Description);
+        }
+
+        detected = true;
     }
 
     /// <summary>
@@ -55,7 +60,11 @@ public class CursorDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         //No recojo aquí el UIManager porque para que el cursor salga, ha tenido que entrar anteriormente
         //Por lo que teóricamente el uimanager ya ha debido de ser cacheado.
 
-        uimanager.DesactiveImage(Description);
+        if (uimanager != null && Description != null)
+        {
+            uimanager.DesactiveImage(Description);
+        }
+        detected = false;
     }
     #endregion
 
@@ -66,7 +75,10 @@ public class CursorDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public bool IsMouseOnButton()
+    {
+        return detected;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
