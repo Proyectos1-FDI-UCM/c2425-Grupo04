@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 // Añadir aquí el resto de directivas using
 
 
@@ -29,6 +30,8 @@ public class MoveToPlayer : MonoBehaviour
     private Rigidbody2D rb;
     //Los inicializo a -1 para saber cuando no están definidos
     private float minX, maxX, minY, maxY;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -41,6 +44,9 @@ public class MoveToPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
 
@@ -51,6 +57,27 @@ public class MoveToPlayer : MonoBehaviour
     {
         if (Player == null)
             Player = GameManager.Instance.GetPlayer();
+    }
+
+    private void FixedUpdate()
+    {
+        if(animator != null && spriteRenderer != null)
+        {
+            animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
+            animator.SetFloat("Vertical", rb.velocity.y);
+            animator.SetFloat("Speed", rb.velocity.magnitude);
+            if (rb.velocity.x < 0)
+            {
+                //Si se mueve a la izquierda, flip al Sprite Renderer
+                spriteRenderer.flipX = true;
+            }
+            else if (rb.velocity.x > 0)
+            {
+                //Si se mueve a la derecha, no hay flip al Sprite Renderer
+                spriteRenderer.flipX = false;
+            }
+            //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
+        }
     }
     #endregion
 

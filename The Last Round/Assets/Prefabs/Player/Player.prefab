@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840336448526246015}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0.012278129, y: 0, z: 0.7050144, w: 0.70908684}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 459278631553554902}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.67}
 --- !u!212 &8471865749979836502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -138,13 +138,13 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.5, y: 0.75}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.5, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.72, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7468872195999375998
 MonoBehaviour:
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackCooldown: 0.5
   customCursor: {fileID: 0}
+  detector: {fileID: 0}
   pivot: {fileID: 459278631553554902}
   origin: {fileID: 4588179508698769184}
   cameraMain: {fileID: 0}
@@ -250,7 +251,7 @@ GameObject:
   - component: {fileID: 4678036147906807294}
   - component: {fileID: 4833271650817062454}
   - component: {fileID: 2304853324603788476}
-  - component: {fileID: 8914069915340165092}
+  - component: {fileID: 4852415632243994459}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -360,7 +361,7 @@ MonoBehaviour:
   ObjectSizeX: 1
   ObjectSizeY: 1
   DashSpeed: 20
-  DashDuration: 0
+  DashDuration: 0.2
   DashCooldown: 1
 --- !u!114 &804797766998022290
 MonoBehaviour:
@@ -437,7 +438,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -506,10 +507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 50
+  Life: 200
   "ContadorDa\xF1o": {fileID: 7532583761371892575, guid: c99eb6bcd397c6c45a343254e201ac12, type: 3}
   barraVida: {fileID: 0}
---- !u!95 &8914069915340165092
+--- !u!95 &4852415632243994459
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

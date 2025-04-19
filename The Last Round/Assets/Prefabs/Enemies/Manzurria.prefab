@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: -3908666299912020331}
   - component: {fileID: 5114985475094809603}
   - component: {fileID: 2940290787922086070}
+  - component: {fileID: 7356780287956526186}
   m_Layer: 10
   m_Name: Manzurria
   m_TagString: Untagged
@@ -641,6 +642,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.4}
   m_EdgeRadius: 0
+--- !u!95 &7356780287956526186
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64854a0e1a8e9e2459d9bf50463647ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8029938077154002920
 GameObject:
   m_ObjectHideFlags: 0
