@@ -235,10 +235,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129882316}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 103.04417, y: -67.80193, z: -4052.087}
-  m_LocalScale: {x: 56.24704, y: 56.24704, z: 56.24704}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.289991, y: -1.506789, z: -0.051119357}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 967114795}
   - {fileID: 1183344782}
@@ -246,7 +246,7 @@ Transform:
   - {fileID: 8304441}
   - {fileID: 1539605192}
   - {fileID: 1851036247}
-  m_Father: {fileID: 523489468}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210011507
 GameObject:
@@ -612,8 +612,8 @@ Canvas:
   m_GameObject: {fileID: 523489464}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 1430918880}
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -623,7 +623,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -25559355
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &523489468
@@ -641,7 +641,6 @@ RectTransform:
   - {fileID: 373392159}
   - {fileID: 1312392711}
   - {fileID: 1855767483}
-  - {fileID: 129882317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1811,7 +1810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 47.59494}
+  m_AnchoredPosition: {x: 0, y: 47.594948}
   m_SizeDelta: {x: -118, y: -502.80988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312392712
@@ -1907,7 +1906,6 @@ GameObject:
   - component: {fileID: 1430918881}
   - component: {fileID: 1430918880}
   - component: {fileID: 1430918879}
-  - component: {fileID: 1430918882}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1989,26 +1987,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1430918882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430918878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
-  m_UpscaleRT: 0
-  m_PixelSnapping: 1
-  m_CropFrameX: 1
-  m_CropFrameY: 1
-  m_StretchFill: 1
 --- !u!1 &1539605190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,3 +2534,4 @@ SceneRoots:
   - {fileID: 289810503}
   - {fileID: 7887988406079469445}
   - {fileID: 1373221435}
+  - {fileID: 129882317}
