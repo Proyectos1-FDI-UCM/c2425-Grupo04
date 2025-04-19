@@ -72,7 +72,8 @@ public class AttackGeneral : MonoBehaviour
         pivot.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
 
 
-        if (InputManager.Instance.ChangeWeaponWasPressedThisFrame())
+        if (InputManager.Instance.ChangeWeaponWasPressedThisFrame() &&
+            !GameManager.Instance.IsPauseActive())
         {
             if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
             else if (!weaponType) weaponType = true;
