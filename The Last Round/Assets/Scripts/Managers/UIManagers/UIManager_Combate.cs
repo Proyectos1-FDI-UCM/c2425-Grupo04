@@ -128,7 +128,6 @@ public class UIManager_Combate : MonoBehaviour
         {
             currentWeapon.sprite = weaponDistanceImage;
         }
-
         else
         {
             currentWeapon.sprite = weaponMeleeImage;
