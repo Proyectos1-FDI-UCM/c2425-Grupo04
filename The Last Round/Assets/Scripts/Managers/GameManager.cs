@@ -61,22 +61,28 @@ public class GameManager : MonoBehaviour
     private TutorialDialoguesUIManager TutorialDialoguesUIManager;
     private static GameManager _instance;
     private GameObject Player, PauseMenu;
+
+    //Array de inventario
     private float[] recursos;
+
+    //Contador de enemigos
     private int[] numEnemigos;
+
     private int NivelSospechosos = 0;
+
     public float Dineros = 0;
+
+    //Array que gestiona que diálogos se han dicho y cuales no de un cliente (imprescintible para script clients)
     private bool[,] DialoguesSaid;
+
     private float musicVolume = 100f, sfxVolume = 100f;
-    private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
-    private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
 
     //Variables necesarias para gestionar mejoras
+    private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
+    private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
     private float HealthUpgradePercent = 0,
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
-
-
-    private bool currentWeapon;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -155,7 +161,7 @@ public class GameManager : MonoBehaviour
     // ---- MÉTODOS PÚBLICOS ----
 
     #region Métodos públicos
-
+    #region Recogida de UIManagers
     // --- RECOGIDA DE UIMANAGERS ---
 
     public ScenesManager GetScenesManager()
@@ -199,7 +205,9 @@ public class GameManager : MonoBehaviour
         this.ScenesManager = scenesManager;
     }
     // --- FIN RECOGIDA DE UIMANAGERS ---
+    #endregion
 
+    #region Gestión de recursos
     // --- GESTIÓN DE RECURSOS ---
     public void IncreaseResource(SourceName source)
     {
@@ -220,7 +228,9 @@ public class GameManager : MonoBehaviour
     }
 
     // --- FIN GESTIÓN DE RECURSOS ---
+    #endregion
 
+    #region Gestión económica
     // --- GESTIÓN ECONÓMICA ---
     public void increaseDinero(int reward)
     {
@@ -243,7 +253,9 @@ public class GameManager : MonoBehaviour
         Dineros = 0;
     }
     // --- FIN GESTIÓN ECONÓMICA ---
+    #endregion
 
+    #region Sistema de sospecha
     // --- SISTEMA DE SOSPECHA ---
     public void increaseSospechosos(int i)
     {
@@ -275,7 +287,9 @@ public class GameManager : MonoBehaviour
         return NivelSospechosos;
     }
     // --- FIN SISTEMA DE SOSPECHA ---
+    #endregion
 
+    #region Límites del mapa
     // --- LÍMITES MAPA ---
     public float GetMapHeight()
     {
@@ -287,7 +301,9 @@ public class GameManager : MonoBehaviour
         return MapWidth;
     }
     // --- FIN LÍMITES MAPA ---
+    #endregion
 
+    #region Sistema de mejoras
     // --- SISTEMA DE MEJORAS ---
 
     //Getters y Setters de porcentajes de mejora
@@ -348,7 +364,9 @@ public class GameManager : MonoBehaviour
         }
     }
     // --- FIN SISTEMA DE MEJORAS ---
+    #endregion
 
+    #region Contador de enemigos
     // ---CONTADOR DE ENEMIGOS---
     /// <summary>
     /// Reduce el número de enemigos en el contador y refresca las colisiones
@@ -386,7 +404,9 @@ public class GameManager : MonoBehaviour
         return numEnemigos;
     }
     // --- FIN CONTADOR DE ENEMIGOS ---
+    #endregion
 
+    #region Gestión de diálogos
     // --- GESTIÓN DE DIÁLOGOS
     /// <summary>
     /// Toma como argumento el cliente y el número de dialogo y pone su DialogueSaid en true
@@ -421,14 +441,9 @@ public class GameManager : MonoBehaviour
         }
     }
     // --- FIN GESTIÓN DIÁLOGOS
-    public static GameManager Instance
-    {
-        get
-        {
-            Debug.Assert(_instance != null);
-            return _instance;
-        }
-    }
+    #endregion
+
+    #region Recogida de player
     public void GivePlayer(GameObject player)
     {
         Player = player;
@@ -438,6 +453,9 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
+    #endregion
+
+    #region Gestión de menú de pausa
     public void SetPauseMenu(GameObject PauseMenu)
     {
         this.PauseMenu = PauseMenu;
@@ -446,15 +464,46 @@ public class GameManager : MonoBehaviour
     {
         return PauseMenu.activeSelf;
     }
+    #endregion
+
+    #region timer de combate
     public void GiveTimerToUIC(string time)
     {
         UIManagerCombate.Timer(time);
     }
-    public void WeaponSwitch(bool playerWep)
+    #endregion
+
+    #region Sonido y SFX
+    public void SetMusicVolume(float value)
     {
-        currentWeapon = playerWep;
-        UIManagerCombate.SwitchWeaponDisplay(currentWeapon);
+        musicVolume = value;
     }
+
+    public void SetSfxVolume(float value)
+    {
+        sfxVolume = value;
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+
+    public float GetSfxVolume()
+    {
+        return sfxVolume;
+    }
+    #endregion 
+
+    public static GameManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    }
+
 
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
@@ -492,26 +541,6 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
     } // ChangeScene
-
-    public void SetMusicVolume(float value)
-    {
-        musicVolume = value;
-    }
-
-    public void SetSfxVolume(float value)
-    {
-        sfxVolume = value;
-    }
-
-    public float GetMusicVolume()
-    {
-        return musicVolume;
-    }
-
-    public float GetSfxVolume()
-    {
-        return sfxVolume;
-    }
 
     #endregion
 

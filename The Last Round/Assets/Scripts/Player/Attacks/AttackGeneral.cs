@@ -81,7 +81,10 @@ public class AttackGeneral : MonoBehaviour
             else if (!weaponType) weaponType = true;
         }
 
-        GameManager.Instance.WeaponSwitch(weaponType);
+        if (GameManager.Instance.GetUIC() != null)
+        {
+            GameManager.Instance.GetUIC().SwitchWeaponDisplay(weaponType);
+        }
 
         bool CanFire = InputManager.Instance.FireWasPressedThisFrame() &&
                        timer <= 0 &&
