@@ -443,14 +443,7 @@ public class GameManager : MonoBehaviour
     // --- FIN GESTIÓN DIÁLOGOS
     #endregion
 
-    public static GameManager Instance
-    {
-        get
-        {
-            Debug.Assert(_instance != null);
-            return _instance;
-        }
-    }
+    #region Recogida de player
     public void GivePlayer(GameObject player)
     {
         Player = player;
@@ -460,6 +453,9 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
+    #endregion
+
+    #region Gestión de menú de pausa
     public void SetPauseMenu(GameObject PauseMenu)
     {
         this.PauseMenu = PauseMenu;
@@ -468,10 +464,47 @@ public class GameManager : MonoBehaviour
     {
         return PauseMenu.activeSelf;
     }
+    #endregion
+
+    #region timer de combate
     public void GiveTimerToUIC(string time)
     {
         UIManagerCombate.Timer(time);
     }
+    #endregion
+
+    #region Sonido y SFX
+    public void SetMusicVolume(float value)
+    {
+        musicVolume = value;
+    }
+
+    public void SetSfxVolume(float value)
+    {
+        sfxVolume = value;
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+
+    public float GetSfxVolume()
+    {
+        return sfxVolume;
+    }
+    #endregion 
+
+    public static GameManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    }
+
+
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
@@ -508,26 +541,6 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
     } // ChangeScene
-
-    public void SetMusicVolume(float value)
-    {
-        musicVolume = value;
-    }
-
-    public void SetSfxVolume(float value)
-    {
-        sfxVolume = value;
-    }
-
-    public float GetMusicVolume()
-    {
-        return musicVolume;
-    }
-
-    public float GetSfxVolume()
-    {
-        return sfxVolume;
-    }
 
     #endregion
 
