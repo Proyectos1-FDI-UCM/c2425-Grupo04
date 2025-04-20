@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7006834372356157504}
   - component: {fileID: 6838881013541849228}
   m_Layer: 0
-  m_Name: TutorialUpgrades
+  m_Name: Inicio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,78 +102,92 @@ MonoBehaviour:
   dialogues:
   - Generic: 1
     Lines:
-    - GoodText: "Aqu\xED en el almac\xE9n no pueden acceder los clientes."
-      BadText: "Aqu\xED en el almac\xE9n no pueden acceder los clientes."
+    - GoodText: "\xA1Ori\xF3n!"
+      BadText: "\xA1Ori\xF3n!"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFS\xED jefe?"
+      BadText: "\xBFS\xED jefe?"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Y menos mal, porque si entraran aqu\xED descubrir\xEDan que soy
-        el culpable. Este almac\xE9n parece el de un verdadero asesino."
-      BadText: "Y menos mal, porque si entraran aqu\xED descubrir\xEDan que soy el
-        culpable. Este almac\xE9n parece el de un verdadero asesino."
+    - GoodText: "Estas apunto de partir hacia Fermentia, recuerda la misi\xF3n."
+      BadText: "Estas apunto de partir hacia Fermentia, recuerda la misi\xF3n."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Ve ah\xED y acaba con todas esas desgraciadas frutas, cuando vuelvas
+        no quiero enterarme de que queda ni una."
+      BadText: "Ve ah\xED y acaba con todas esas desgraciadas frutas, cuando vuelvas
+        no quiero enterarme de que queda ni una."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Recuerda que no hay prisa asi que t\xF3mate tu tiempo hasta que
+        termines la misi\xF3n."
+      BadText: "Recuerda que no hay prisa asi que t\xF3mate tu tiempo hasta que termines
+        la misi\xF3n."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Claro jefe, no tengo la intenci\xF3n de quedarme a vivir all\xED
+        pero me lo tomar\xE9 con calma para no ser pillado."
+      BadText: "Claro jefe, no tengo la intenci\xF3n de quedarme a vivir all\xED
+        pero me lo tomar\xE9 con calma para no ser pillado."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Seg\xFAn lo que me comunicaron en la central, por aqu\xED hay una
-        serie de papeles que me pueden ayudar a mejorar mis habilidades."
-      BadText: "Seg\xFAn lo que me comunicaron en la central, por aqu\xED hay una
-        serie de papeles que me pueden ayudar a mejorar mis habilidades."
+    - GoodText: "Muy bien. Te recordar\xE9 el plan."
+      BadText: "Muy bien. Te recordar\xE9 el plan."
       Estatus: 0
-      Emisor: 0
-    - GoodText: "Hay un arma a distancia, herramientas para afilar cuchillos y lo
-        que parece ser un escrito para aprender una t\xE9cnica avanzada que me permitir\xE1
-        moverme muy r\xE1pido durante un instante."
-      BadText: "Hay un arma a distancia, herramientas para afilar cuchillos y lo
-        que parece ser un escrito para aprender una t\xE9cnica avanzada que me permitir\xE1
-        moverme muy r\xE1pido durante un instante."
+      Emisor: 1
+    - GoodText: "Primero ve all\xED, asi\xE9ntate en local, descarga las mejoras
+        en el almac\xE9n y practica un poco tus t\xE9cnicas de combate."
+      BadText: "Primero ve all\xED, asi\xE9ntate en local, descarga las mejoras en
+        el almac\xE9n y practica un poco tus t\xE9cnicas de combate."
       Estatus: 0
-      Emisor: 0
-    - GoodText: Una pena que nada de esto sea gratis...
-      BadText: Una pena que nada de esto sea gratis...
+      Emisor: 1
+    - GoodText: Tras eso la rutina es clara
+      BadText: Tras eso la rutina es clara
       Estatus: 0
-      Emisor: 0
-    - GoodText: "El mism\xEDsimo alcalde de Felidoria me dijo que estas mejoras se
-        hab\xEDan pagado con el dinero del estado."
-      BadText: "El mism\xEDsimo alcalde de Felidoria me dijo que estas mejoras se
-        hab\xEDan pagado con el dinero del estado."
+      Emisor: 1
+    - GoodText: Sal por las noches y acaba con esas frutas de pacotilla.
+      BadText: Sal por las noches y acaba con esas frutas de pacotilla.
       Estatus: 0
-      Emisor: 0
-    - GoodText: "Si las quiero, tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
-        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado."
-      BadText: "Si las quiero, tendr\xE9 que pagar por ellas. Cuando acabe la misi\xF3n
-        ellos mismos har\xE1n un recuento de lo que he pagado y lo que he mejorado."
+      Emisor: 1
+    - GoodText: "Pero no te pases, recuerda que tendr\xE1s que estar en el local
+        antes del amanecer para servir a tus clientes"
+      BadText: "Pero no te pases, recuerda que tendr\xE1s que estar en el local antes
+        del amanecer para servir a tus clientes"
       Estatus: 0
-      Emisor: 0
-    - GoodText: "Como se enteren de que he tomado algo de esto gratis... No quiero
-        ni imaginarme lo que suceder\xEDa. Mejor no arriesgarme."
-      BadText: "Como se enteren de que he tomado algo de esto gratis... No quiero
-        ni imaginarme lo que suceder\xEDa. Mejor no arriesgarme."
+      Emisor: 1
+    - GoodText: "Si, a tus clientes, el local est\xE1 para algo, tu tapadera ser\xE1
+        vender bebidas a los ciudadanos, pero recuerda ponerte la mascarita de fresa."
+      BadText: "Si, a tus clientes, el local est\xE1 para algo, tu tapadera ser\xE1
+        vender bebidas a los ciudadanos, pero recuerda ponerte la mascarita de fresa."
       Estatus: 0
-      Emisor: 0
-    - GoodText: "Tambi\xE9n tengo un acceso secreto al pueblo con esta alcantarilla."
-      BadText: "Tambi\xE9n tengo un acceso secreto al pueblo con esta alcantarilla."
+      Emisor: 1
+    - GoodText: "Y recuerda, no sois amigos pero tampoco puedes provocar que sospechen
+        de ti. Tr\xE1talos como compa\xF1eros."
+      BadText: "Y recuerda, no sois amigos pero tampoco puedes provocar que sospechen
+        de ti. Tr\xE1talos como compa\xF1eros."
       Estatus: 0
-      Emisor: 0
-    - GoodText: "Tendr\xE9 que ir por ah\xED para acceder al pueblo sin que me vean
-        para acabar con los pueblerinos de Fermentia sin que me descubran."
-      BadText: "Tendr\xE9 que ir por ah\xED para acceder al pueblo sin que me vean
-        para acabar con los pueblerinos de Fermentia sin que me descubran."
+      Emisor: 1
+    - GoodText: Si terminan sospechando mucho de ti es posible que te pillen y se
+        nos acabe la juerga
+      BadText: Si terminan sospechando mucho de ti es posible que te pillen y se
+        nos acabe la juerga
       Estatus: 0
-      Emisor: 0
-    - GoodText: "Voy a inspeccionar el terreno y de paso me llevo alg\xFAn maniqu\xED
-        para entrenar un poco antes de mi primera noche de acci\xF3n."
-      BadText: "Voy a inspeccionar el terreno y de paso me llevo alg\xFAn maniqu\xED
-        para entrenar un poco antes de mi primera noche de acci\xF3n."
+      Emisor: 1
+    - GoodText: "Ganate unas moneditas y utilizalas para comprar las mejoras que
+        te ha dado el alcalde, te ayudar\xE1n en el combate."
+      BadText: "Ganate unas moneditas y utilizalas para comprar las mejoras que te
+        ha dado el alcalde, te ayudar\xE1n en el combate."
       Estatus: 0
-      Emisor: 0
-    - GoodText: Y bueno, si tomo prestada alguna de estas mejoras para probarlas
-        dudo que pase nada, siempre que luego las deje en su lugar.
-      BadText: Y bueno, si tomo prestada alguna de estas mejoras para probarlas dudo
-        que pase nada, siempre que luego las deje en su lugar.
+      Emisor: 1
+    - GoodText: Dicho esto, confio en ti, mucha suerte.
+      BadText: Dicho esto, confio en ti, mucha suerte.
       Estatus: 0
-      Emisor: 0
-    - GoodText: Voy a inspeccionar estas mejoras, y luego me meto por la alcantarilla
-        para ir al pueblo.
-      BadText: Voy a inspeccionar estas mejoras, y luego me meto por la alcantarilla
-        para ir al pueblo.
+      Emisor: 1
+    - GoodText: "S\xED capit\xE1n, volver\xE9 con una victoria m\xE1s para nuestro
+        pueblo."
+      BadText: "S\xED capit\xE1n, volver\xE9 con una victoria m\xE1s para nuestro
+        pueblo."
       Estatus: 0
       Emisor: 0
   BebidasPosibles:

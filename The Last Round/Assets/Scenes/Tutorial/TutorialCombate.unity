@@ -22446,7 +22446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4809966780050603299, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
       propertyPath: Scene
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6566138211873817537, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
       propertyPath: m_IsTrigger

@@ -33,6 +33,10 @@ public class TutorialDialoguesUIManager : MonoBehaviour
     private Button dialogueSkipButton;
     [SerializeField]
     private Button option1Button, option2Button;
+    [SerializeField]
+    private bool ChangeSceneAtEnd;
+    [SerializeField]
+    private int NextScene;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -90,6 +94,10 @@ public class TutorialDialoguesUIManager : MonoBehaviour
         if (ClientDisappear)
         {
             Box.gameObject.SetActive(false);
+            if (ChangeSceneAtEnd)
+            {
+                GameManager.Instance.ChangeScene(NextScene);
+            }
         }
     }
     #endregion

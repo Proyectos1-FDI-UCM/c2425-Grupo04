@@ -18577,7 +18577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1617894895646996473, guid: 78ac0cdccb6bfc64e9d1894b1f4af4a9, type: 3}
       propertyPath: NextScene
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -1617894895646996473, guid: 78ac0cdccb6bfc64e9d1894b1f4af4a9, type: 3}
       propertyPath: gameOverUI
@@ -25427,6 +25427,10 @@ PrefabInstance:
     - target: {fileID: 2598402752531079360, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
       propertyPath: m_SortingLayerID
       value: -1279822429
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809966780050603299, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
+      propertyPath: Scene
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4809966780050603299, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
       propertyPath: promptUI
