@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour
     {
         NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
 
-        if(UIManager != null)
+        if(UIManager != null && i > 0)
         {
             UIManager.GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
         }

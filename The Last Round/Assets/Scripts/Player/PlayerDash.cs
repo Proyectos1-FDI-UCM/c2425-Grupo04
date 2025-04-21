@@ -32,6 +32,7 @@ public class PlayerDash : MonoBehaviour
     private float cooldownTimer = 0f, minX, maxX, minY, maxY;
     private Vector3 LastDirection;
     private Rigidbody2D rb;
+    private Animator animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -54,6 +55,8 @@ public class PlayerDash : MonoBehaviour
 
         maxY = GameManager.Instance.GetMapHeight() / 2;
         minY = -maxY;
+
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -146,6 +149,7 @@ public class PlayerDash : MonoBehaviour
         isDashing = true;
         cooldownTimer = DashCooldown;
         rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed);
+        animator.SetTrigger("Dashed");
     }
 
     private void EndDash()

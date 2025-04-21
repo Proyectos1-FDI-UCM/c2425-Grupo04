@@ -52,6 +52,7 @@ public class MoveToPlayer : MonoBehaviour
 
         maxY = GameManager.Instance.GetMapHeight() / 2;
         minY = -maxY;
+
     }
     void Update()
     {
