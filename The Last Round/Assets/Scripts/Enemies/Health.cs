@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
             enemy = GetComponent<CastEnemy>().GetEnemyType();
             barraVida.gameObject.SetActive(false);
         }
-        else if (GetComponent<CastEnemy>() == null)
+        else
         {
             Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
