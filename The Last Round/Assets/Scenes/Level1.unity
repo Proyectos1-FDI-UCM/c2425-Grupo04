@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347074204716764532, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
       propertyPath: HowEnemiesToGrapenade
-      value: 350
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 1347074204716764532, guid: 82b10270ea57a8b43813a68e0f0937bf, type: 3}
       propertyPath: HowEnemiesToManzariete
@@ -28633,6 +28633,10 @@ PrefabInstance:
     - target: {fileID: 3654599489953762933, guid: f08d3972192a5854aaf323453309ff68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884872693148809195, guid: f08d3972192a5854aaf323453309ff68, type: 3}
+      propertyPath: nextScene
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4335024733775713417, guid: f08d3972192a5854aaf323453309ff68, type: 3}
       propertyPath: m_fontAsset
