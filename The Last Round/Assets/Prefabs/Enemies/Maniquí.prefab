@@ -196,13 +196,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8138933576077900459}
   - component: {fileID: 1085765543050600987}
-  - component: {fileID: 7944180626366005618}
-  - component: {fileID: 524050083081553167}
   - component: {fileID: -5428370765554447873}
   - component: {fileID: -8693182855056807467}
-  - component: {fileID: 2471628544198058330}
   - component: {fileID: 6600120042038612327}
-  - component: {fileID: 3998202571656968249}
   - component: {fileID: -1302714598762450460}
   - component: {fileID: 8971501028595896084}
   m_Layer: 10
@@ -280,33 +276,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7944180626366005618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536b31d0979321b41b2427bd5d15e3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &524050083081553167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c42fb7d890e2147863a7e3b9e7e745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 1
-  ObjectSizeX: 1
-  ObjectSizeY: 1
 --- !u!50 &-5428370765554447873
 Rigidbody2D:
   serializedVersion: 4
@@ -379,20 +348,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &2471628544198058330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Basedamage: 10
-  cooldown: 2
 --- !u!114 &6600120042038612327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,26 +361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
---- !u!114 &3998202571656968249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7992104292323869361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007a4e39026104a49a8e5e015e2d8ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PielUvaNegra: {fileID: 1588765575249928956, guid: 65cc181693cacb14e85b3e8e28f2f82f, type: 3}
-  PielUvaRoja: {fileID: 1588765575249928956, guid: b39780a62f53df749b0864a6cbde14ec, type: 3}
-  JugoUva: {fileID: 914084072581436179, guid: 5b0bc3a04c27a76458c594b5aef05a3e, type: 3}
-  SemillaUva: {fileID: 3426234617602587107, guid: dda5526d0b55efd4d951c73d3fddb6dd, type: 3}
-  PielManzanaRoja: {fileID: 4423979788562637781, guid: c6573b28f7d3e0446acc468cfb26e940, type: 3}
-  PielManzanaVerde: {fileID: 4423979788562637781, guid: 3b412591cec210b439ed4bed2d57831a, type: 3}
-  JugoManzana: {fileID: 196200741204893722, guid: 2a593031c7d712d498098fd249fcfc75, type: 3}
-  SemillaManzana: {fileID: 7608541299565768669, guid: 44b956567b658814bba99c8cf030aa1e, type: 3}
 --- !u!114 &-1302714598762450460
 MonoBehaviour:
   m_ObjectHideFlags: 0
