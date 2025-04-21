@@ -10,7 +10,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
-using System;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,

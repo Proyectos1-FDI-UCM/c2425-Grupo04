@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2510957792824250114}
   - component: {fileID: 8755036878347728107}
   - component: {fileID: -7006834372356157504}
-  - component: {fileID: 6838881013541849228}
   m_Layer: 0
   m_Name: TutorialUpgrades
   m_TagString: Untagged
@@ -191,16 +190,3 @@ MonoBehaviour:
   - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
   - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
   - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
---- !u!114 &6838881013541849228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562574269909345304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda85cba5d827f7418efdcbf9e8a4b25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 4

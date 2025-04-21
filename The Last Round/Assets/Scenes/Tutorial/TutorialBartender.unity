@@ -6192,10 +6192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clients:
   - {fileID: 1562574269909345304, guid: dc3d86447cec4e048b284375098f4a05, type: 3}
-  - {fileID: 1562574269909345304, guid: dc3d86447cec4e048b284375098f4a05, type: 3}
-  - {fileID: 1562574269909345304, guid: dc3d86447cec4e048b284375098f4a05, type: 3}
-  - {fileID: 1562574269909345304, guid: dc3d86447cec4e048b284375098f4a05, type: 3}
-  - {fileID: 1562574269909345304, guid: dc3d86447cec4e048b284375098f4a05, type: 3}
 --- !u!4 &1658501729
 Transform:
   m_ObjectHideFlags: 0

@@ -4866,7 +4866,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2614159919002500879, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: clients.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2614159919002500879, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: clients.Array.data[0]

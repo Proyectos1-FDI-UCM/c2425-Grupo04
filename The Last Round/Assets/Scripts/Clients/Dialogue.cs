@@ -56,50 +56,67 @@ public class Dialogue : MonoBehaviour
         color.a = 255;
         spriteRenderer.color = color;
 
-        //Elige el diálogo que contar
+        //ELECCIÓN DE DIÁLOGO
         int tmp;
-        int Client = (int)GetComponent<CastEnemy>().GetEnemyType();
-        //Vuelve a pedir el dialogo si este no es generico y se ha dicho anteriormente
-        do
+
+        //Los clientes siempre son enemigos a menos que sea un tutorial en cuyo caso da igual si el diálogo es genérico o no
+        //ya que el tutorial siempre es el mismo
+        if (GetComponent<CastEnemy>() != null)
+        {
+            int Client = (int)GetComponent<CastEnemy>().GetEnemyType();
+
+            //Elige el diálogo que contar
+            do
+            {
+                tmp = UnityEngine.Random.Range(0, dialogues.Length);
+            }
+            //Vuelve a pedir el dialogo si este no es generico y se ha dicho anteriormente
+            while (!dialogues[tmp].Generic && GameManager.Instance.HasSaid(Client, tmp));
+            //Marco el dialogo como dicho
+            GameManager.Instance.SetSaid(Client, tmp);
+        }
+        else
         {
             tmp = UnityEngine.Random.Range(0, dialogues.Length);
-            Debug.Log($"tmp:{tmp}, dialogues:{dialogues.Length}, Client:{Client}");
-        } while (!dialogues[tmp].Generic && GameManager.Instance.HasSaid(Client, tmp));
+        }
 
         dialogue = dialogues[tmp].Lines;
 
-        //Marco el dialogo como dicho
-        GameManager.Instance.SetSaid(Client, tmp);
-
-
-
+        //ELECCIÓN DE BEBIDA
         int tmp1;
-        int[] contador = GameManager.Instance.GetEnemyCounter();
-        float[] recursos = GameManager.Instance.GetRecursos();
-        bool tmp2 = true;
 
-        //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
-        //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
+        //El cliente siempre es un enemigo excepto en el tutorial en cuyo caso cualquier bebida sirve sin filtros
+        if (GetComponent<CastEnemy>() != null)
+        {
+            int[] contador = GameManager.Instance.GetEnemyCounter();
+            float[] recursos = GameManager.Instance.GetRecursos();
+            bool tmp2 = true;
+            //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
+            //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
+            do
+            {
+                tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
 
-        do
+                //TENGO MATERIALES PARA HACER ESA BEBIDA?
+                int j = 0;
+                NeededMaterial[] sources = BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkMaterials();
+                while (j < sources.Length && tmp2)
+                {
+                    if (sources[j].Amount > recursos[(int)sources[j].Material.GetComponent<CastMaterial>().GetSourceName()])
+                    {
+                        tmp2 = false;
+                    }
+                    j++;
+                }
+                Debug.Log(BebidasPosibles[tmp1].name);
+            }
+            while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
+                   BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
+        }
+        else
         {
             tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
-
-            //TENGO MATERIALES PARA HACER ESA BEBIDA?
-            int j = 0;
-            NeededMaterial[] sources = BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkMaterials();
-            while (j < sources.Length && tmp2)
-            {
-                if (sources[j].Amount > recursos[(int)sources[j].Material.GetComponent<CastMaterial>().GetSourceName()])
-                {
-                    tmp2 = false;
-                }
-                j++;
-            }
-            Debug.Log(BebidasPosibles[tmp1].name);
         }
-        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
-               BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
 
 
         BebidaPedida = BebidasPosibles[tmp1];

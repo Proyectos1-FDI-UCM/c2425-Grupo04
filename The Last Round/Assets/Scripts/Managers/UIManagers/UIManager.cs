@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     private Button option1Button, option2Button;
 
 
-    [Header ("SISTEMA DE CREACIÓN DE BEBIDAS")]
+    [Header("SISTEMA DE CREACIÓN DE BEBIDAS")]
     [SerializeField]
     private Button regresarMats;
 
@@ -155,7 +155,7 @@ public class UIManager : MonoBehaviour
         CharacterPortrait.gameObject.SetActive(false);
         DrinkImage.gameObject.SetActive(false);
 
-        if(Animator != null)
+        if (Animator != null)
         {
             Animator.Play($"ContSospecha{GameManager.Instance.GiveSospecha()}");
         }
@@ -195,7 +195,7 @@ public class UIManager : MonoBehaviour
                     if (!PickedBadChoice)
                     {
                         GameManager.Instance.increaseSospechosos(-2);
-                    }   
+                    }
                     GameManager.Instance.ChangeScene(NextScene);
                 }
             }
@@ -403,7 +403,8 @@ public class UIManager : MonoBehaviour
             DrinkImage.color = visible;
 
             //Actualiza la recompensa
-            if (Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
+            if (Client.gameObject.GetComponent<CastEnemy>() != null &&
+                Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
             {
                 recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward() * 2} monedas";
             }
@@ -501,7 +502,7 @@ public class UIManager : MonoBehaviour
     public void SumarMaterial(Button material)
     {
         //Antes de hacer nada busco el botón y le pregunto si tiene mas de 1 de material para proceder con el resto
-        if(material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
+        if (material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
         {
             bool enc = false;
             int i = 0;
@@ -605,7 +606,8 @@ public class UIManager : MonoBehaviour
             }
             //Como ha hecho el encargo pedido, el dialogo ira por good
             way = 0;
-            if (Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
+            if (Client.gameObject.GetComponent<CastEnemy>() != null && 
+                Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
             {
                 GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward() * 2);
             }
@@ -637,7 +639,7 @@ public class UIManager : MonoBehaviour
         material3Image.color = invisible;
         //Escribe siguiente dialogo
         SkipButton();
-        
+
     }
     public void GameOverUI()
     {
@@ -672,7 +674,7 @@ public class UIManager : MonoBehaviour
             CharacterPortrait.sprite = Client.sprite;
         }
         else CharacterPortrait.sprite = null;
-        
+
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {
