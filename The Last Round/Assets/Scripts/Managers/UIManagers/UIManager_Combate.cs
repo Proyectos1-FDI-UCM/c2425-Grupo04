@@ -23,11 +23,11 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private TextMeshProUGUI population;
     [SerializeField] private TextMeshProUGUI InteractMessage;
-    [SerializeField] private Image currentWeapon;
+    [SerializeField] private Image currentWeapon, DashCharge;
     [SerializeField] private Sprite weaponDistanceImage;
     [SerializeField] private Sprite weaponMeleeImage;
     [SerializeField] private float TimerBeatIntensity;
-    
+    [SerializeField] private Image DashFillBar;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -38,6 +38,8 @@ public class UIManager_Combate : MonoBehaviour
     private int populationNum = 0;
     private bool fewTime = false;
     private float TimerMaxSize;
+    private float DashCooldown, DashCooldownTimer;
+    private PlayerDash Playerdash;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -55,6 +57,11 @@ public class UIManager_Combate : MonoBehaviour
     {
         GameManager.Instance.GiveUIC(this);
 
+        if (!GameManager.Instance.GetBoolUpgrade(1))
+        {
+            DashCharge.gameObject.SetActive(false);
+        }
+
         for (int i = 0; i < GameManager.Instance.GetEnemyCounter().Length; i++)
         {
             populationNum += GameManager.Instance.GetEnemyCounter()[i];
@@ -67,7 +74,7 @@ public class UIManager_Combate : MonoBehaviour
         if (timer != null)
         {
             TimerMaxSize = timer.fontSize;
-        } 
+        }
     }
 
     private void Update()
@@ -82,6 +89,30 @@ public class UIManager_Combate : MonoBehaviour
             {
                 timer.fontSize = 0;
             }
+        }
+
+        if (GameManager.Instance.GetPlayer() != null &&
+            GameManager.Instance.GetPlayer().GetComponent<PlayerDash>() != null &&
+            Playerdash == null)
+        {
+            Playerdash = GameManager.Instance.GetPlayer().GetComponent<PlayerDash>();
+            DashCooldown = Playerdash.GetDashCooldown();
+        }
+
+        //Debug.Log(GameManager.Instance.GetBoolUpgrade(1) + " A");
+        //Debug.Log((DashFillBar != null) + " B");
+        //Debug.Log((Playerdash != null) + " C");
+        //Debug.Log((DashCooldown >= 0) + " D");
+
+        if (GameManager.Instance.GetBoolUpgrade(1) && (DashFillBar != null) &&
+            (Playerdash != null) && (DashCooldown >= 0) && !GameManager.Instance.IsPauseActive())
+        {
+            DashCooldownTimer = Playerdash.GetcooldownTimer();
+            //Debug.Log(DashFillBar.fillAmount + " PRE");
+            //Debug.Log(DashCooldownTimer / DashCooldown);
+            DashFillBar.fillAmount = (DashCooldownTimer / DashCooldown);
+            //Debug.Log(DashFillBar.fillAmount + " POST");
+            //DashFillBar.fillAmount -= (0.1f / DashCooldown) * Time.deltaTime;
         }
     }
     #endregion
@@ -99,7 +130,7 @@ public class UIManager_Combate : MonoBehaviour
         if (timer != null)
         {
             timer.gameObject.SetActive(false);
-        } 
+        }
         PlayerLife.SetActive(false);
         currentWeapon.gameObject.SetActive(false);
         population.text = "";
@@ -138,7 +169,7 @@ public class UIManager_Combate : MonoBehaviour
     {
         populationNum--;
         if (population != null)
-        population.text = $"Población: {populationNum}";
+            population.text = $"Población: {populationNum}";
     }
 
     public void PressE()
@@ -147,7 +178,7 @@ public class UIManager_Combate : MonoBehaviour
     }
     public void HoldE(float timer, float holdingTime)
     {
-        InteractMessage.text = $"MANTÉN [E]  {Mathf.Round((holdingTime-timer)*100)/100} / {holdingTime}";
+        InteractMessage.text = $"MANTÉN [E]  {Mathf.Round((holdingTime - timer) * 100) / 100} / {holdingTime}";
     }
     public void ClearMessage()
     {

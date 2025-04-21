@@ -67,7 +67,15 @@ public class PlayerDash : MonoBehaviour
         {
           StartDash();
         }
-        if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
+
+        if (cooldownTimer > 0 && !GameManager.Instance.IsPauseActive())
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer < 0)
+            {
+                cooldownTimer = 0;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -109,11 +117,20 @@ public class PlayerDash : MonoBehaviour
         return isDashing;
     }
 
+    public float GetDashCooldown()
+    {
+        return DashCooldown;
+    }
+
+    public float GetcooldownTimer()
+    {
+        return cooldownTimer;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    bool CanDash()
+    private bool CanDash()
     {
         if (!GameManager.Instance.GetBoolUpgrade(1)) //si no tiene la mejora no puede hacer dash
         {
@@ -124,18 +141,14 @@ public class PlayerDash : MonoBehaviour
             return cooldownTimer <= 0 && !isDashing && LastDirection != Vector3.zero;
         }
     }
-    void StartDash()
+    private void StartDash()
     {
         isDashing = true;
         cooldownTimer = DashCooldown;
         rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed);
     }
 
-
-
-
-
-    void EndDash()
+    private void EndDash()
     {
         isDashing = false;
         DashDuration = 0.2f; 
@@ -143,7 +156,7 @@ public class PlayerDash : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDashing )
         {

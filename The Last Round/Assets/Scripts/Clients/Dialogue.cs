@@ -150,7 +150,7 @@ public class Dialogue : MonoBehaviour
                 dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
                 dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
             }
-            i++;
+           i++;
         }
     }
 

@@ -101,8 +101,11 @@ public class AttackGeneral : MonoBehaviour
             else Melee();
             timer = AttackCooldown;
         }
-        timer -= Time.deltaTime;
 
+        if (!GameManager.Instance.IsPauseActive())
+        {
+            timer -= Time.deltaTime;
+        }
     }
     #endregion
 

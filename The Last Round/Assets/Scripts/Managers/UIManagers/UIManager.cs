@@ -108,7 +108,7 @@ public class UIManager : MonoBehaviour
     {
         dineroTotal = GameManager.Instance.GetDineros();
         dineroTotalText.text = dineroTotal.ToString();
-        Debug.Log(dineroTotal);
+        //Debug.Log(dineroTotal);
         GameManager.Instance.GiveUI(this);
 
         //Comprueba si el GameManager ha sumado 2 al sistema de sospecha antes de cambiar de escena
@@ -477,7 +477,6 @@ public class UIManager : MonoBehaviour
                             amount = 0;
                         }
 
-                        Debug.Log(amount);
 
                         if (amount < drink.GetDrinkMaterials()[i].Amount)
                         {
