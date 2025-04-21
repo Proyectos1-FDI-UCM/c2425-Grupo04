@@ -63,9 +63,9 @@ public class MoveToPlayer : MonoBehaviour
     {
         if(animator != null && spriteRenderer != null)
         {
-            animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
-            animator.SetFloat("Vertical", rb.velocity.y);
-            animator.SetFloat("Speed", rb.velocity.magnitude);
+            //animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
+            //animator.SetFloat("Vertical", rb.velocity.y);
+            //animator.SetFloat("Speed", rb.velocity.magnitude);
             if (rb.velocity.x < 0)
             {
                 //Si se mueve a la izquierda, flip al Sprite Renderer
