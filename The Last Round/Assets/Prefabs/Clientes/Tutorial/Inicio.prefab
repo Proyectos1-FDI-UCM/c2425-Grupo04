@@ -109,84 +109,124 @@ MonoBehaviour:
       BadText: "\xBFS\xED jefe?"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Estas apunto de partir hacia Fermentia, recuerda la misi\xF3n."
-      BadText: "Estas apunto de partir hacia Fermentia, recuerda la misi\xF3n."
+    - GoodText: "Estas apunto de partir hacia Fermentia. Te voy a recordar la misi\xF3n
+        por \xFAltima vez."
+      BadText: "Estas apunto de partir hacia Fermentia. Te voy a recordar la misi\xF3n
+        por \xFAltima vez."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Ve ah\xED y acaba con todas esas desgraciadas frutas, cuando vuelvas
-        no quiero enterarme de que queda ni una."
-      BadText: "Ve ah\xED y acaba con todas esas desgraciadas frutas, cuando vuelvas
-        no quiero enterarme de que queda ni una."
+    - GoodText: "Ve ah\xED y acaba con todas esas desgraciadas frutas. Cuando vuelvas
+        no quiero enterarme de que queda ni una viva."
+      BadText: "Ve ah\xED y acaba con todas esas desgraciadas frutas. Cuando vuelvas
+        no quiero enterarme de que queda ni una viva."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Recuerda que no hay prisa asi que t\xF3mate tu tiempo hasta que
-        termines la misi\xF3n."
-      BadText: "Recuerda que no hay prisa asi que t\xF3mate tu tiempo hasta que termines
-        la misi\xF3n."
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "Claro jefe, no tengo la intenci\xF3n de quedarme a vivir all\xED
-        pero me lo tomar\xE9 con calma para no ser pillado."
-      BadText: "Claro jefe, no tengo la intenci\xF3n de quedarme a vivir all\xED
-        pero me lo tomar\xE9 con calma para no ser pillado."
+    - GoodText: Pero son demasidos... No puedo acabar con el pueblo entero en una
+        noche.
+      BadText: Pero son demasidos... No puedo acabar con el pueblo entero en una
+        noche.
       Estatus: 0
       Emisor: 0
-    - GoodText: "Muy bien. Te recordar\xE9 el plan."
-      BadText: "Muy bien. Te recordar\xE9 el plan."
+    - GoodText: "Recu\xE9rdalo. Ir\xE1s de inc\xF3gnito, as\xED que no tienes prisa.
+        T\xF3mate tu tiempo para acabar la misi\xF3n. "
+      BadText: "Recu\xE9rdalo. Ir\xE1s de inc\xF3gnito, as\xED que no tienes prisa.
+        T\xF3mate tu tiempo para acabar la misi\xF3n. "
       Estatus: 0
       Emisor: 1
-    - GoodText: "Primero ve all\xED, asi\xE9ntate en local, descarga las mejoras
+    - GoodText: "Claro jefe, pero, \xBFC\xF3mo puedo quedarme en el pueblo sin que
+        me descubran mientras mato a todos?"
+      BadText: "Claro jefe, pero, \xBFC\xF3mo puedo quedarme en el pueblo sin que
+        me descubran mientras mato a todos?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Para eso est\xE1 el plan. Te recordar\xE9 lo que tienes que hacer
+        una vez llegues a Fermentia."
+      BadText: "Para eso est\xE1 el plan. Te recordar\xE9 lo que tienes que hacer
+        una vez llegues a Fermentia."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Primero ve all\xED, asi\xE9ntate en el local, descarga las mejoras
         en el almac\xE9n y practica un poco tus t\xE9cnicas de combate."
-      BadText: "Primero ve all\xED, asi\xE9ntate en local, descarga las mejoras en
-        el almac\xE9n y practica un poco tus t\xE9cnicas de combate."
+      BadText: "Primero ve all\xED, asi\xE9ntate en el local, descarga las mejoras
+        en el almac\xE9n y practica un poco tus t\xE9cnicas de combate."
       Estatus: 0
       Emisor: 1
-    - GoodText: Tras eso la rutina es clara
-      BadText: Tras eso la rutina es clara
+    - GoodText: "Ir\xE1s como Bartender, para infiltrarte en el pueblo como uno m\xE1s.
+        Les servir\xE1s bebidas durante el d\xEDa para ganarte el pan."
+      BadText: "Ir\xE1s como Bartender, para infiltrarte en el pueblo como uno m\xE1s.
+        Les servir\xE1s bebidas durante el d\xEDa para ganarte el pan."
       Estatus: 0
       Emisor: 1
-    - GoodText: Sal por las noches y acaba con esas frutas de pacotilla.
-      BadText: Sal por las noches y acaba con esas frutas de pacotilla.
+    - GoodText: "Para ayudarte con esto, el gobierno te porporcionar\xE1 algunos
+        materiales frescos recogidos en las fronteras de Fermentia."
+      BadText: "Para ayudarte con esto, el gobierno te porporcionar\xE1 algunos materiales
+        frescos recogidos en las fronteras de Fermentia."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Pero no te pases, recuerda que tendr\xE1s que estar en el local
-        antes del amanecer para servir a tus clientes"
-      BadText: "Pero no te pases, recuerda que tendr\xE1s que estar en el local antes
-        del amanecer para servir a tus clientes"
+    - GoodText: "Por las noches, en cambio, ser\xE1 cuando ocurra la matanza. Aprov\xE9chala
+        para acabar con esas frutas de pacotilla."
+      BadText: "Por las noches, en cambio, ser\xE1 cuando ocurra la matanza. Aprov\xE9chala
+        para acabar con esas frutas de pacotilla."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Si, a tus clientes, el local est\xE1 para algo, tu tapadera ser\xE1
-        vender bebidas a los ciudadanos, pero recuerda ponerte la mascarita de fresa."
-      BadText: "Si, a tus clientes, el local est\xE1 para algo, tu tapadera ser\xE1
-        vender bebidas a los ciudadanos, pero recuerda ponerte la mascarita de fresa."
+    - GoodText: Pero no te pases, recuerda que tienes que estar en el local antes
+        del amanecer para servir a tus clientes.
+      BadText: Pero no te pases, recuerda que tienes que estar en el local antes
+        del amanecer para servir a tus clientes.
       Estatus: 0
       Emisor: 1
-    - GoodText: "Y recuerda, no sois amigos pero tampoco puedes provocar que sospechen
-        de ti. Tr\xE1talos como compa\xF1eros."
-      BadText: "Y recuerda, no sois amigos pero tampoco puedes provocar que sospechen
-        de ti. Tr\xE1talos como compa\xF1eros."
+    - GoodText: "Para los habitantes de Fermentia, tu local no es nada especial.
+        Les servir\xE1s bebidas con tu disfraz de fresa para evitar llamar la atenci\xF3n."
+      BadText: "Para los habitantes de Fermentia, tu local no es nada especial. Les
+        servir\xE1s bebidas con tu disfraz de fresa para evitar llamar la atenci\xF3n."
       Estatus: 0
       Emisor: 1
-    - GoodText: Si terminan sospechando mucho de ti es posible que te pillen y se
-        nos acabe la juerga
-      BadText: Si terminan sospechando mucho de ti es posible que te pillen y se
-        nos acabe la juerga
+    - GoodText: "Y recuerda, no sois amigos pero tampoco puedes hacer que sospechen
+        de ti. Tr\xE1talos como compa\xF1eros durante tu trabajo en el bar."
+      BadText: "Y recuerda, no sois amigos pero tampoco puedes hacer que sospechen
+        de ti. Tr\xE1talos como compa\xF1eros durante tu trabajo en el bar."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Ganate unas moneditas y utilizalas para comprar las mejoras que
-        te ha dado el alcalde, te ayudar\xE1n en el combate."
-      BadText: "Ganate unas moneditas y utilizalas para comprar las mejoras que te
-        ha dado el alcalde, te ayudar\xE1n en el combate."
+    - GoodText: "Si sospechan demasiado de ti, es posible que te ataquen durante
+        el d\xEDa, cuando estar\xE1s vulnerable. Aseg\xFArate de que no pase eso."
+      BadText: "Si sospechan demasiado de ti, es posible que te ataquen durante el
+        d\xEDa, cuando estar\xE1s vulnerable. Aseg\xFArate de que no pase eso."
       Estatus: 0
       Emisor: 1
-    - GoodText: Dicho esto, confio en ti, mucha suerte.
-      BadText: Dicho esto, confio en ti, mucha suerte.
+    - GoodText: "El trabajo durante el d\xEDa tambi\xE9n tiene recompensa. Ganar\xE1s
+        monedas que podr\xE1s utilizar para comprar las mejoras que te ha dado el
+        alcalde."
+      BadText: "El trabajo durante el d\xEDa tambi\xE9n tiene recompensa. Ganar\xE1s
+        monedas que podr\xE1s utilizar para comprar las mejoras que te ha dado el
+        alcalde."
       Estatus: 0
       Emisor: 1
-    - GoodText: "S\xED capit\xE1n, volver\xE9 con una victoria m\xE1s para nuestro
-        pueblo."
-      BadText: "S\xED capit\xE1n, volver\xE9 con una victoria m\xE1s para nuestro
-        pueblo."
+    - GoodText: "Te ayudar\xE1n durante el combate. Dales buen uso."
+      BadText: "Te ayudar\xE1n durante el combate. Dales buen uso."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xBFY no pod\xE9is d\xE1rmelas desde el principio? \xBFPara qu\xE9
+        necesito comprarlo?"
+      BadText: "\xBFY no pod\xE9is d\xE1rmelas desde el principio? \xBFPara qu\xE9
+        necesito comprarlo?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "El presupuesto de la misi\xF3n no da para tanto. Te las tendr\xE1s
+        que apa\xF1ar con lo que ganes en el bar."
+      BadText: "El presupuesto de la misi\xF3n no da para tanto. Te las tendr\xE1s
+        que apa\xF1ar con lo que ganes en el bar."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Dicho esto, confio en ti, mucha suerte. Estoy orgulloso de ti. Hazlo
+        por Felidoria, por la paz sin frutas.
+      BadText: Dicho esto, confio en ti, mucha suerte. Estoy orgulloso de ti. Hazlo
+        por Felidoria, por la paz sin frutas.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1S\xED capit\xE1n! Volver\xE9 victorioso. Felidoria estar\xE1
+        en paz de una vez por todas."
+      BadText: "\xA1S\xED capit\xE1n! Volver\xE9 victorioso. Felidoria estar\xE1
+        en paz de una vez por todas."
       Estatus: 0
       Emisor: 0
   BebidasPosibles:
