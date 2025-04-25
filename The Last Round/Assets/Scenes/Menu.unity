@@ -5976,8 +5976,8 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1687650066}
-  m_FillRect: {fileID: 227918867}
-  m_HandleRect: {fileID: 1687650065}
+  m_FillRect: {fileID: 1482774902}
+  m_HandleRect: {fileID: 1523965689}
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
@@ -8377,7 +8377,7 @@ RectTransform:
   m_Father: {fileID: 651104215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8796,8 +8796,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1657890446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
