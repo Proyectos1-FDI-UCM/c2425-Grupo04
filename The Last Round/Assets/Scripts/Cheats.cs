@@ -77,11 +77,7 @@ public class Cheats : MonoBehaviour
         applyCheats = !applyCheats;
         if (applyCheats)
         {
-
-        }
-        else
-        {
-
+            //Funcionalidad de los cheats aquí
         }
         cheatMenu.SetActive(applyCheats);
     }
