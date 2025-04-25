@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
+    [SerializeField] private int CreditSceneIndex = 5;
 
     [Header("Límites")]
     [SerializeField] private float MapWidth;
@@ -54,7 +55,6 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Instancia única de la clase (singleton).
     /// </summary>
-    private ScenesManager ScenesManager;
     private UIManager UIManager;
     private UIManager_Combate UIManagerCombate;
     private UIManagerUpgrades UIManagerUpgrades;
@@ -164,10 +164,7 @@ public class GameManager : MonoBehaviour
     #region Recogida de UIManagers
     // --- RECOGIDA DE UIMANAGERS ---
 
-    public ScenesManager GetScenesManager()
-    {
-        return ScenesManager;
-    }
+
     public UIManager GetUI()
     {
         return UIManager;
@@ -199,10 +196,6 @@ public class GameManager : MonoBehaviour
     public void SetTDUI(TutorialDialoguesUIManager TutorialDialoguesUIManager)
     {
         this.TutorialDialoguesUIManager = TutorialDialoguesUIManager;
-    }
-    public void GiveScenesManager(ScenesManager scenesManager)
-    {
-        this.ScenesManager = scenesManager;
     }
     // --- FIN RECOGIDA DE UIMANAGERS ---
     #endregion
@@ -380,7 +373,7 @@ public class GameManager : MonoBehaviour
 
         if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
-            ScenesManager.CreditScenes();
+            ChangeScene(CreditSceneIndex);
         }
 
         GetUIC().ChangePopulation();
@@ -466,7 +459,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region timer de combate
+    #region Timer de combate
     public void GiveTimerToUIC(string time)
     {
         UIManagerCombate.Timer(time);
