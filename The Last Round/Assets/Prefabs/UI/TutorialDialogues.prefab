@@ -428,6 +428,8 @@ MonoBehaviour:
   dialogueSkipButton: {fileID: 4653001277217499121}
   option1Button: {fileID: 5236805846429058121}
   option2Button: {fileID: 5774455638429261883}
+  ChangeSceneAtEnd: 0
+  NextScene: 0
 --- !u!1001 &9134122504616891999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,7 +696,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.86415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.86415094
       objectReference: {fileID: 0}
     - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

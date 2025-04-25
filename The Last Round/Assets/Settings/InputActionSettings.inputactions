@@ -261,17 +261,6 @@
                 },
                 {
                     "name": "",
-                    "id": "36d28cb0-50f2-495d-b896-b082c907b40b",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "39734709-3a66-4601-b2f4-a354be492ff8",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
