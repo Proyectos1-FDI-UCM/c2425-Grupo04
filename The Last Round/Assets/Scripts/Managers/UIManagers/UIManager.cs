@@ -194,7 +194,7 @@ public class UIManager : MonoBehaviour
 
                     if (!PickedBadChoice)
                     {
-                        GameManager.Instance.increaseSospechosos(-2);
+                        GameManager.Instance.increaseSospechosos(-1);
                     }
                     GameManager.Instance.ChangeScene(NextScene);
                 }
