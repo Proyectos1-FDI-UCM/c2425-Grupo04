@@ -641,7 +641,7 @@ MonoBehaviour:
 
 '
       BadText: "Est\xE1n paranoicos, a lo mejor que est\xE1n cansando.\r\n"
-      Estatus: 2
+      Estatus: 0
       Emisor: 0
     - GoodText: "\xA1Eso mismo! No permitiremos amenazas en nuestro pueblo.\r\n"
       BadText: "\xBFParanoicos?\r\n"
