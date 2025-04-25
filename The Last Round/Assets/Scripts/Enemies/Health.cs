@@ -28,6 +28,7 @@ public class Health : MonoBehaviour
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
     private EnemyType enemy;
+    private bool invunerabilidad = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -43,11 +44,13 @@ public class Health : MonoBehaviour
         barraVida.value = Life;
         if (GetComponent<CastEnemy>() != null) 
         {
+            
             enemy = GetComponent<CastEnemy>().GetEnemyType();
             barraVida.gameObject.SetActive(false);
         }
         else
         {
+            invunerabilidad = GameManager.Instance.GetInvunerabilidad();
             Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
     }
@@ -62,6 +65,12 @@ public class Health : MonoBehaviour
     public void GetDamage(float damage)
     {
         barraVida.gameObject.SetActive(true);
+
+        //CHEAT Si es jugador y tiene invunerabilidad no recibe daño
+        if(!GetComponent<CastEnemy>() && invunerabilidad)
+        {
+            damage = 0;
+        }
         Life -= damage;
         text.text = damage.ToString();
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);

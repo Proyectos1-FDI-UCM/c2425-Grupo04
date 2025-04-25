@@ -83,6 +83,11 @@ public class GameManager : MonoBehaviour
     private float HealthUpgradePercent = 0,
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
+
+    private bool invunerabilidad = false;
+    private int habManzariete, habGrapenade, maxEnemiesInScene;
+    private float timerStart;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -245,6 +250,8 @@ public class GameManager : MonoBehaviour
     {
         Dineros = 0;
     }
+
+
     // --- FIN GESTIÓN ECONÓMICA ---
     #endregion
 
@@ -489,6 +496,69 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Cheats
+
+    public void SetInvunerabilidad(bool inv)
+    {
+        invunerabilidad = inv;
+    }
+
+    public bool GetInvunerabilidad()
+    {
+        return invunerabilidad;
+    }
+
+    public void SetNumEnemies(int enem, int cant)
+    {
+        Enemies[enem].amount = cant;
+    }
+
+    public void SetMinHabManzariete(int cant)
+    {
+        habManzariete = cant;
+    }
+
+    public int GetMinHabManzariete()
+    {
+        return habManzariete;
+    }
+
+    public void SetMinHabGrapenade(int cant)
+    {
+        habGrapenade = cant;
+    }
+
+    public int GetMinHabGrapenade()
+    {
+        return habGrapenade;
+    }
+
+    public void SetTimerStart(float time)
+    {
+        timerStart = time;
+    }
+
+    public float GetTimerStart()
+    {
+        return timerStart;
+    }
+
+    public void SetMaxEnemsScene(int cant)
+    {
+        maxEnemiesInScene = cant;
+    }
+
+    public int GetMaxEnemsScene()
+    {
+        return maxEnemiesInScene;
+    }
+
+    public void SetResources(float cant)
+    {
+        for (int i = 0; i < recursos.Length; i++)
+        {
+            recursos[i] = cant;
+        }
+    }
 
     #endregion
 

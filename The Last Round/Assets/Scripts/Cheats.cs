@@ -7,7 +7,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
 using TMPro;
 // Añadir aquí el resto de directivas using
 
@@ -26,7 +26,10 @@ public class Cheats : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField] private GameObject cheatMenu;
-
+    [SerializeField] private Toggle invunerabilidad;
+    [SerializeField] Slider numManzurrias, numUvoncios, numManzarietes, numGrapenades, 
+                            habMinManzariete, habMinGrapenade, tiempo, recursosIniciales, 
+                            dineroInicial, enemigosVez;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -78,18 +81,53 @@ public class Cheats : MonoBehaviour
         if (applyCheats)
         {
             //Funcionalidad de los cheats aquí
+
+            //Invunerabilidad v
+            //Si esta activa no baja de vida
+            GameManager.Instance.SetInvunerabilidad(invunerabilidad.isOn);
+
+            //numEnemigo v
+            //Manejan los enemigos con los que empieza la partida
+            GameManager.Instance.SetNumEnemies(0, Mathf.RoundToInt(numManzurrias.value));
+            GameManager.Instance.SetNumEnemies(1, Mathf.RoundToInt(numManzarietes.value));
+            GameManager.Instance.SetNumEnemies(2, Mathf.RoundToInt(numGrapenades.value));
+            GameManager.Instance.SetNumEnemies(3, Mathf.RoundToInt(numUvoncios.value));
+
+            //numHab para Grap y Manzariete v
+            //Controlan el numero necesario de habitantes para que spawneen
+            GameManager.Instance.SetMinHabManzariete(Mathf.RoundToInt(habMinManzariete.value));
+            GameManager.Instance.SetMinHabGrapenade(Mathf.RoundToInt(habMinGrapenade.value));
+
+            //Tiempo v
+            //Tiempo inicial de temporizador
+            GameManager.Instance.SetTimerStart(tiempo.value);
+
+            //recursos iniciales
+            //recursos con los que se empieza
+            GameManager.Instance.SetResources(recursosIniciales.value);
+
+            //Dinero inicial v
+            //Direno con que empieza
+            GameManager.Instance.increaseDinero(Mathf.RoundToInt(dineroInicial.value));
+
+            //enem a la vez v
+            //numero de enemigos en combate que puede ver a la vez
+            GameManager.Instance.SetMaxEnemsScene(Mathf.RoundToInt(enemigosVez.value));
+
         }
         cheatMenu.SetActive(applyCheats);
     }
 
-    public void OpenMenu(GameObject MenuToClose)
+    public void OpenCloseMenu(GameObject MenuToClose)
     {
-        MenuToClose.SetActive(true);
-    }
-
-    public void CloseMenu(GameObject MenuToClose)
-    {
-        MenuToClose.SetActive(false);
+        if (!MenuToClose.activeSelf)
+        {
+            MenuToClose.SetActive(true);
+        }
+        else
+        {
+            MenuToClose.SetActive(false);
+        }
     }
 
     #endregion

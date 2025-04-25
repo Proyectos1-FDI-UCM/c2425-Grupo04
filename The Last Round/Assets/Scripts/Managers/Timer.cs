@@ -35,7 +35,10 @@ public class Timer : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    private void Start()
+    {
+        time = GameManager.Instance.GetTimerStart();
+    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
