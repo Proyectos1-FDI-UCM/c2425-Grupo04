@@ -88,10 +88,10 @@ public class Cheats : MonoBehaviour
 
             //numEnemigo v
             //Manejan los enemigos con los que empieza la partida
-            GameManager.Instance.SetNumEnemies(0, Mathf.RoundToInt(numManzurrias.value));
-            GameManager.Instance.SetNumEnemies(1, Mathf.RoundToInt(numManzarietes.value));
-            GameManager.Instance.SetNumEnemies(2, Mathf.RoundToInt(numGrapenades.value));
-            GameManager.Instance.SetNumEnemies(3, Mathf.RoundToInt(numUvoncios.value));
+            GameManager.Instance.SetNumEnemies(1, Mathf.RoundToInt(numManzurrias.value));
+            GameManager.Instance.SetNumEnemies(3, Mathf.RoundToInt(numManzarietes.value));
+            GameManager.Instance.SetNumEnemies(4, Mathf.RoundToInt(numGrapenades.value));
+            GameManager.Instance.SetNumEnemies(2, Mathf.RoundToInt(numUvoncios.value));
 
             //numHab para Grap y Manzariete v
             //Controlan el numero necesario de habitantes para que spawneen
