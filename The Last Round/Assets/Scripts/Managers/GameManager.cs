@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
 
     // ---- MÉTODOS PÚBLICOS ----
 
-    #region Métodos públicos
+    #region Métodos Públicos
     #region Recogida de UIManagers
     // --- RECOGIDA DE UIMANAGERS ---
 
@@ -486,7 +486,11 @@ public class GameManager : MonoBehaviour
     {
         return sfxVolume;
     }
-    #endregion 
+    #endregion
+
+    #region Cheats
+
+    #endregion
 
     public static GameManager Instance
     {
