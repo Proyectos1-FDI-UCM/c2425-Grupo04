@@ -6,9 +6,10 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using TMPro;
+
 // Añadir aquí el resto de directivas using
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -40,8 +41,7 @@ public class Health : MonoBehaviour
        // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
-        barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
-        barraVida.value = Life;
+        
         if (GetComponent<CastEnemy>() != null) 
         {
             
@@ -53,6 +53,9 @@ public class Health : MonoBehaviour
             invunerabilidad = GameManager.Instance.GetInvunerabilidad();
             Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
+
+        barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
+        barraVida.value = Life;
     }
     
     #endregion

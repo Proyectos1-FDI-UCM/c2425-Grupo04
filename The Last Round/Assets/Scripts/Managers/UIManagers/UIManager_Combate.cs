@@ -6,10 +6,9 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+// Añadir aquí el resto de directivas using
 using TMPro;
 using UnityEngine.UI;
-// Añadir aquí el resto de directivas using
-
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
