@@ -9,6 +9,7 @@ using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -29,8 +30,10 @@ public class PauseManager : MonoBehaviour
     private Slider musicSlider, sfxSlider;
     [SerializeField]
     private GameObject PauseMenu,SubMenu;
+    [SerializeField]
+    private Button MenuButton;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -39,7 +42,7 @@ public class PauseManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    private Button SelectButton;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -79,6 +82,7 @@ public class PauseManager : MonoBehaviour
             }
             else
             {
+                SetSelectButton(MenuButton);
                 OpenPauseMenu(PauseMenu);
                 Time.timeScale = 0f;
             }
@@ -93,11 +97,18 @@ public class PauseManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public void SetSelectButton(Button SelectButton)
+    {
+        this.SelectButton = SelectButton;
+    }
     //Se abre el menu que se asigna desde el boton que llama al metodo
     public void OpenPauseMenu(GameObject menuToOpen)
     {
         menuToOpen.SetActive(true);
+        if (SelectButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(SelectButton.gameObject);
+        }
     }
 
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha

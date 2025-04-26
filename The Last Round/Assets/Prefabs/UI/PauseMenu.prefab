@@ -166,6 +166,7 @@ MonoBehaviour:
   sfxSlider: {fileID: 6411321139428727569}
   PauseMenu: {fileID: 8993013590085327985}
   SubMenu: {fileID: 859867770311928287}
+  MenuButton: {fileID: 1255664688118225615}
 --- !u!1 &859867770311928287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1096,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8228643248693433747}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: SetSelectButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1677908881633363525}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8228643248693433747}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: OpenPauseMenu
