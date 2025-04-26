@@ -6,8 +6,6 @@
 //---------------------------------------------------------
 
 
-using JetBrains.Annotations;
-using UnityEditor.Search;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
@@ -24,9 +22,6 @@ public class AttackGeneral : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
     private float AttackCooldown;
-
-    [SerializeField]
-    private Transform customCursor;
 
     [SerializeField]
     private Button detector;
@@ -54,6 +49,8 @@ public class AttackGeneral : MonoBehaviour
     private Vector2 originRotation;
     private float timer = 0;
     private bool weaponType; //TEMPORAL TRUE = DISPARO      FALSE = MELEE
+    private bool UsingJoystick = false;
+    private Vector2 LastMousePosition;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -65,10 +62,27 @@ public class AttackGeneral : MonoBehaviour
     {
         //customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
         mousePos = cameraMain.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, 0));
+        Vector2 mousePosScreen = new Vector2(Mouse.current.position.x.value, Mouse.current.position.y.value);
 
-        //Debug.Log(mousePos);
-        customCursor.position = new Vector3(mousePos.x, mousePos.y, 0);
-        Vector3 rotationOrigin = mousePos - transform.position;
+        if (!UsingJoystick && InputManager.Instance.AimVector != Vector2.zero)
+        {
+            UsingJoystick = true;
+        }
+        else if (UsingJoystick && mousePosScreen != LastMousePosition)
+        {
+            UsingJoystick = false;
+        }
+
+        Vector3 rotationOrigin;
+        if (!UsingJoystick)
+        {
+            rotationOrigin = mousePos - transform.position;
+        }
+        else
+        {
+            rotationOrigin = InputManager.Instance.AimVector;
+        }
+        
 
         float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
         pivot.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
@@ -106,6 +120,8 @@ public class AttackGeneral : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+
+        LastMousePosition = mousePosScreen;
     }
     #endregion
 

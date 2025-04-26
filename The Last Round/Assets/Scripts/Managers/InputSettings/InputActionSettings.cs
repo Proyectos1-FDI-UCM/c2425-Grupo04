@@ -82,6 +82,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""3d5e18a8-9dbe-494d-b3d4-a0d9f057d19a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -324,6 +333,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2508318b-6ae7-478e-adc6-237eb7036e62"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -917,6 +937,7 @@ namespace UnityEngine.InputSystem
             m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
             m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -996,6 +1017,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Dash;
         private readonly InputAction m_Player_ChangeWeapon;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_Aim;
         public struct PlayerActions
         {
             private @InputActionSettings m_Wrapper;
@@ -1006,6 +1028,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Dash => m_Wrapper.m_Player_Dash;
             public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            public InputAction @Aim => m_Wrapper.m_Player_Aim;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1033,6 +1056,9 @@ namespace UnityEngine.InputSystem
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1055,6 +1081,9 @@ namespace UnityEngine.InputSystem
                 @Pause.started -= instance.OnPause;
                 @Pause.performed -= instance.OnPause;
                 @Pause.canceled -= instance.OnPause;
+                @Aim.started -= instance.OnAim;
+                @Aim.performed -= instance.OnAim;
+                @Aim.canceled -= instance.OnAim;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1243,6 +1272,7 @@ namespace UnityEngine.InputSystem
             void OnDash(InputAction.CallbackContext context);
             void OnChangeWeapon(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
