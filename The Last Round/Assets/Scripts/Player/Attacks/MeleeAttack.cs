@@ -74,7 +74,10 @@ public class MeleeAttack : MonoBehaviour
         Attack = true;
         animator.SetTrigger("Attack");
     }
-
+    public float GetDuration()
+    {
+        return duration;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

@@ -51,6 +51,7 @@ public class AttackGeneral : MonoBehaviour
     private bool weaponType; //TEMPORAL TRUE = DISPARO      FALSE = MELEE
     private bool UsingJoystick = false;
     private Vector2 LastMousePosition;
+    private float timerCanRotate = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -72,6 +73,7 @@ public class AttackGeneral : MonoBehaviour
         {
             UsingJoystick = false;
         }
+        LastMousePosition = mousePosScreen;
 
         Vector3 rotationOrigin;
         if (!UsingJoystick)
@@ -82,11 +84,12 @@ public class AttackGeneral : MonoBehaviour
         {
             rotationOrigin = InputManager.Instance.AimVector;
         }
-        
 
-        float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
-        pivot.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
-
+        if (timerCanRotate <= 0)
+        {
+            float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
+            pivot.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
+        }
 
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame() &&
             !GameManager.Instance.IsPauseActive())
@@ -121,7 +124,12 @@ public class AttackGeneral : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        LastMousePosition = mousePosScreen;
+        if (timerCanRotate >= 0)
+        {
+            timerCanRotate -= Time.deltaTime;
+        }
+
+
     }
     #endregion
 
@@ -132,7 +140,6 @@ public class AttackGeneral : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -142,7 +149,6 @@ public class AttackGeneral : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-
     private void Shoot()
     {
         Instantiate(bulletPrefab, origin.transform.position, pivot.transform.rotation);
@@ -150,6 +156,8 @@ public class AttackGeneral : MonoBehaviour
 
     private void Melee()
     {
+        timerCanRotate = meleeObject.GetComponent<MeleeAttack>().GetDuration();
+        Debug.Log(timerCanRotate);
         meleeObject.GetComponent<MeleeAttack>().attack();
     }
     #endregion   

@@ -81,7 +81,7 @@ public class UIManager_Combate : MonoBehaviour
         if (playerHealth == null)
             playerHealth = GameManager.Instance.GetPlayer().GetComponent<Health>();
 
-        if (fewTime)
+        if (fewTime && !GameManager.Instance.IsPauseActive())
         {
             timer.fontSize -= TimerBeatIntensity;
             if (timer.fontSize < 0)
