@@ -5,11 +5,9 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 // Añadir aquí el resto de directivas using
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -27,7 +25,7 @@ public class ButtonSelector : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -36,7 +34,7 @@ public class ButtonSelector : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    GameObject LastSelected;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -45,7 +43,7 @@ public class ButtonSelector : MonoBehaviour
     {
         Vector2 tmp = InputManager.Instance.MovementVector;
 
-        if (tmp != Vector2.zero)
+        if (tmp != Vector2.zero || (LastSelected != null && EventSystem.current.currentSelectedGameObject != null))
         {
             SelectButton();
         }
@@ -71,10 +69,11 @@ public class ButtonSelector : MonoBehaviour
     public void SelectButton()
     {
         Button[] botones = FindObjectsOfType<Button>();
+        Slider[] sliders = FindObjectsOfType<Slider>();
 
         if (botones.Length > 0 && EventSystem.current != null)
         {
-            //Comprueba si hay alguno seleccionado
+            //Comprueba si hay ningún botón seleccionado
             int i = 0;
             bool enc = false;
             while (i < botones.Length && !enc)
@@ -85,11 +84,22 @@ public class ButtonSelector : MonoBehaviour
                 }
                 i++;
             }
+            //Comprueba qye no hay ningún slider seleccionado
+            i = 0;
+            while (i < sliders.Length && !enc)
+            {
+                if (EventSystem.current.currentSelectedGameObject == sliders[i].gameObject)
+                {
+                    enc = true;
+                }
+                i++;
+            }
 
             //Si no hay ninguno seleccionado selecciona el primero del array
             if (!enc)
             {
                 EventSystem.current.SetSelectedGameObject(botones[0].gameObject);
+                LastSelected = EventSystem.current.currentSelectedGameObject;
             }
         }
     }
