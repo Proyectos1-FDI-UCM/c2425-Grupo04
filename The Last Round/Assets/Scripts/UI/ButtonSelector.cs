@@ -70,6 +70,7 @@ public class ButtonSelector : MonoBehaviour
     {
         Button[] botones = FindObjectsOfType<Button>();
         Slider[] sliders = FindObjectsOfType<Slider>();
+        Toggle[] toggles = FindObjectsOfType<Toggle>();
 
         if (botones.Length > 0 && EventSystem.current != null)
         {
@@ -84,7 +85,7 @@ public class ButtonSelector : MonoBehaviour
                 }
                 i++;
             }
-            //Comprueba qye no hay ningún slider seleccionado
+            //Comprueba que no hay ningún slider seleccionado
             i = 0;
             while (i < sliders.Length && !enc)
             {
@@ -94,7 +95,16 @@ public class ButtonSelector : MonoBehaviour
                 }
                 i++;
             }
-
+            //Comprueba que no hay ningún toggle seleccionado
+            i = 0;
+            while (i < toggles.Length && !enc)
+            {
+                if (EventSystem.current.currentSelectedGameObject == toggles[i].gameObject)
+                {
+                    enc = true;
+                }
+                i++;
+            }
             //Si no hay ninguno seleccionado selecciona el primero del array
             if (!enc)
             {
