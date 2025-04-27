@@ -6,9 +6,8 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.UI;
 //using UnityEngine.UIElements;
-using TMPro;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -27,8 +26,9 @@ public class Cheats : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [SerializeField] private GameObject cheatMenu;
     [SerializeField] private Toggle invunerabilidad;
-    [SerializeField] Slider numManzurrias, numUvoncios, numManzarietes, numGrapenades, 
-                            habMinManzariete, habMinGrapenade, tiempo, recursosIniciales, 
+    [SerializeField]
+    Slider numManzurrias, numUvoncios, numManzarietes, numGrapenades,
+                            habMinManzariete, habMinGrapenade, tiempo, recursosIniciales,
                             dineroInicial, enemigosVez;
     #endregion
 
@@ -58,14 +58,6 @@ public class Cheats : MonoBehaviour
     void Start()
     {
         cheatMenu.SetActive(false);
-        
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
 
     }
     #endregion
@@ -77,7 +69,8 @@ public class Cheats : MonoBehaviour
     /// </summary>
     public void Aplicar()
     {
-        applyCheats = !applyCheats;
+        applyCheats = cheatMenu.activeSelf;
+
         if (applyCheats)
         {
             //Funcionalidad de los cheats aquí
@@ -113,9 +106,8 @@ public class Cheats : MonoBehaviour
             //enem a la vez v
             //numero de enemigos en combate que puede ver a la vez
             GameManager.Instance.SetMaxEnemsScene(Mathf.RoundToInt(enemigosVez.value));
-
         }
-        cheatMenu.SetActive(applyCheats);
+        GameManager.Instance.SetCheats(applyCheats);
     }
 
     public void OpenCloseMenu(GameObject MenuToClose)

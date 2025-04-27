@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
 
+    private bool Cheats = false;
     private bool invunerabilidad = false;
     private int habManzariete, habGrapenade, maxEnemiesInScene;
     private float timerStart;
@@ -496,7 +497,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Cheats
-
+    public void SetCheats(bool Cheats)
+    {
+        this.Cheats = Cheats;
+    }
+    public bool GetCheats()
+    {
+        return Cheats;
+    }
     public void SetInvunerabilidad(bool inv)
     {
         invunerabilidad = inv;

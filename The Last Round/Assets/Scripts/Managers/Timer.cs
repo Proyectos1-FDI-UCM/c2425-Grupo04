@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 
-using TMPro;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -37,7 +36,10 @@ public class Timer : MonoBehaviour
     // - Hay que borrar los que no se usen 
     private void Start()
     {
-        time = GameManager.Instance.GetTimerStart();
+        if (GameManager.Instance.GetCheats())
+        {
+            time = GameManager.Instance.GetTimerStart();
+        }
     }
 
     /// <summary>
@@ -49,11 +51,21 @@ public class Timer : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+        
         if (timer <= 0)
         {
             //Se inicializa a 1 sin serialize porque se asume que siempre el temporizador baja 1 unidad cada 1 segundo
             timer = 1;
-            time -= timer;
+            
+            if (time - timer < 0)
+            {
+                time = 0;
+            }
+            else
+            {
+                time -= timer;
+            }
+
             if (time <= 0)
             {
                 GameManager.Instance.ChangeScene(NextScene);

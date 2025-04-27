@@ -61,9 +61,12 @@ public class SpawnersManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        HowEnemiesToManzariete = GameManager.Instance.GetMinHabManzariete();
-        HowEnemiesToGrapenade = GameManager.Instance.GetMinHabGrapenade();
-        MaxEnemiesInScene = GameManager.Instance.GetMaxEnemsScene();
+        if (GameManager.Instance.GetCheats())
+        {
+            HowEnemiesToManzariete = GameManager.Instance.GetMinHabManzariete();
+            HowEnemiesToGrapenade = GameManager.Instance.GetMinHabGrapenade();
+            MaxEnemiesInScene = GameManager.Instance.GetMaxEnemsScene();
+        }
 
         EnemiesAmount = new int[GameManager.Instance.GetEnemyCounter().Length];
         for (int k = 0; k < EnemiesAmount.Length; k++)
