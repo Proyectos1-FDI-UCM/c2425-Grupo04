@@ -50,15 +50,18 @@ public class CursorDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             ++i;
         }
 
-        //Si es el botón seleccionado se activa la desc y si no lo es se desactiva la desc
-        //Si no encuentra botón seleccionado y el propio botón no tiene el cursor encima desactiva su desc
-        if ((enc && EventSystem.current.currentSelectedGameObject != gameObject) || (!enc && !detected))
+        if (Description != null)
         {
-            Description.SetActive(false);
-        }
-        else if (enc && EventSystem.current.currentSelectedGameObject == gameObject)
-        {
-            Description.SetActive(true);
+            //Si es el botón seleccionado se activa la desc y si no lo es se desactiva la desc
+            //Si no encuentra botón seleccionado y el propio botón no tiene el cursor encima desactiva su desc
+            if ((enc && EventSystem.current.currentSelectedGameObject != gameObject) || (!enc && !detected))
+            {
+                Description.SetActive(false);
+            }
+            else if (enc && EventSystem.current.currentSelectedGameObject == gameObject)
+            {
+                Description.SetActive(true);
+            }
         }
     }
     /// <summary>
