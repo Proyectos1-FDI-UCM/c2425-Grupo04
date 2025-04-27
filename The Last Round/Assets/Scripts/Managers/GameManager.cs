@@ -507,9 +507,27 @@ public class GameManager : MonoBehaviour
         return invunerabilidad;
     }
 
-    public void SetNumEnemies(int enem, int cant)
+    public void SetNumEnemies(EnemyType enem, int cant)
     {
-        Enemies[enem].amount = cant;
+        int i = 0;
+        bool enc = false;
+
+        while (i < Enemies.Length && !enc)
+        {
+            if (Enemies[i].Enemy == enem)
+            {
+                enc = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+
+        if (enc)
+        {
+            Enemies[i].amount = cant;
+        }
     }
 
     public void SetMinHabManzariete(int cant)

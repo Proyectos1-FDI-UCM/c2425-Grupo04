@@ -8405,7 +8405,7 @@ MonoBehaviour:
   cheatMenu: {fileID: 14642225}
   invunerabilidad: {fileID: 906280366}
   numManzurrias: {fileID: 1089334126}
-  numUvoncios: {fileID: 0}
+  numUvoncios: {fileID: 1290032736}
   numManzarietes: {fileID: 340107058}
   numGrapenades: {fileID: 360563839}
   habMinManzariete: {fileID: 371637991}
