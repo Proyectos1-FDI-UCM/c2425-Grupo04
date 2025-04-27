@@ -108,7 +108,7 @@ public class Dialogue : MonoBehaviour
                     }
                     j++;
                 }
-                Debug.Log(BebidasPosibles[tmp1].name);
+                //Debug.Log(BebidasPosibles[tmp1].name);
             }
             while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
                    BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
