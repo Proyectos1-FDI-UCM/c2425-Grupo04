@@ -25,7 +25,7 @@ public class TutorialConditions : MonoBehaviour
     [SerializeField] private int Money;
     [SerializeField] private int Sources;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -36,14 +36,14 @@ public class TutorialConditions : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -61,20 +61,17 @@ public class TutorialConditions : MonoBehaviour
     {
         GameManager.Instance.increaseDinero(Money);
 
-        for (int i = 0; i < Sources; i++)
-        {
-            GameManager.Instance.IncreaseResource(SourceName.Piel_de_manzana);
-            GameManager.Instance.IncreaseResource(SourceName.Piel_de_uva);
-            GameManager.Instance.IncreaseResource(SourceName.Jugo_de_manzana);
-            GameManager.Instance.IncreaseResource(SourceName.Jugo_de_uva);
-            GameManager.Instance.IncreaseResource(SourceName.Semilla_de_manzana);
-            GameManager.Instance.IncreaseResource(SourceName.Semilla_de_uva);
-            GameManager.Instance.IncreaseResource(SourceName.Hielo);
-            GameManager.Instance.IncreaseResource(SourceName.Levadura);
-        }
+        GameManager.Instance.IncreaseResource(SourceName.Piel_de_manzana, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Piel_de_uva, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Jugo_de_manzana, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Jugo_de_uva, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Semilla_de_manzana, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Semilla_de_uva, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Hielo, Sources);
+        GameManager.Instance.IncreaseResource(SourceName.Levadura, Sources);
     }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -82,7 +79,7 @@ public class TutorialConditions : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class TutorialConditions 
 // namespace

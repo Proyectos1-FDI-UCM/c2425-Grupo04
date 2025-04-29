@@ -85,7 +85,7 @@ public class RecursoSpawner : MonoBehaviour
             {
                 timer = HoldingTime;
 
-                GameManager.Instance.IncreaseResource(source);
+                GameManager.Instance.IncreaseResource(source, 1);
                 Instantiate(Contadorrecurso, gameObject.transform.position, Quaternion.identity);
                 recursosacado += 1;
 
