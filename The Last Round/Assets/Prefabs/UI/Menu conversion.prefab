@@ -1902,7 +1902,7 @@ GameObject:
   - component: {fileID: 6969981593088176892}
   - component: {fileID: 6298462905270146815}
   m_Layer: 5
-  m_Name: "Men\xFA conversi\xF3n"
+  m_Name: Menu conversion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,6 +1950,14 @@ MonoBehaviour:
   - {fileID: 1588765575249928956, guid: a7955b6ae3db3af48963905b70890d84, type: 3}
   - {fileID: 914084072581436179, guid: 7ecca21f71f83084c8d434ecaaa4aa8c, type: 3}
   - {fileID: 3426234617602587107, guid: 96addc9e201a87745aee3c99c2a9799a, type: 3}
+  AmountToConvert: 1
+  AmountToBeConverted: 2
+  valorToConvert: {fileID: 6073549573949906601}
+  ValorToBeConverted: {fileID: 4855313961799807921}
+  itemValorToConvert: {fileID: 8303099849211074544}
+  itemValorToBeConverted: {fileID: 3125259001149608832}
+  MessageCanConvert: Convertir
+  MessageCantConvert: No tienes materiales suficientes
 --- !u!1 &4523136363822301894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,9 +2639,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151.1, y: -91.9}
-  m_SizeDelta: {x: 300, y: 60}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -178.725, y: -89.99102}
+  m_SizeDelta: {x: 335.316, y: 58.091}
+  m_Pivot: {x: -0.025453527, y: 0}
 --- !u!222 &6458402182951812001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2715,7 +2723,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 815163890181571915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6298462905270146815}
+        m_TargetAssemblyTypeName: ConvertSource, Assembly-CSharp
+        m_MethodName: Convert
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5573987367700186823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,8 +2770,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.8179932, y: 0}
+  m_SizeDelta: {x: 7.636, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6301926503668410899
 CanvasRenderer:
@@ -2781,7 +2801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Convertir
+  m_text: No tienes materiales suficientes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
   m_sharedMaterial: {fileID: -2932597816192430570, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}

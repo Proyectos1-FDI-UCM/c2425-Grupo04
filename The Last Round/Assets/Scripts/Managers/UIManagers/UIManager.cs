@@ -205,9 +205,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < recursos.Length; i++)
         {
             //Actualiza la cantidad de materiales al inventario que tienes
-            //matNums[i].text = recursos[i].ToString();
-
-            //¿EN EL UPDATE? NO SE YO, LO VOY A BAJAR UN POCO A LOS METODOS QUE ALTERAN LA CESTA
+            matNums[i].text = recursos[i].ToString();
 
             //Actualiza la cantidad de materiales que hay en la cesta
             //matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
