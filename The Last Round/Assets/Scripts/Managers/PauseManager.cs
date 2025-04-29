@@ -29,7 +29,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField]
     private Slider musicSlider, sfxSlider;
     [SerializeField]
-    private GameObject PauseMenu,SubMenu;
+    private GameObject PauseMenu, SubMenu;
     [SerializeField]
     private Button MenuButton;
     #endregion
@@ -44,14 +44,14 @@ public class PauseManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
     private Button SelectButton;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -60,8 +60,14 @@ public class PauseManager : MonoBehaviour
     {
         GameManager.Instance.SetPauseMenu(PauseMenu);
         //Pone el valor de los sliders al volumen que está en el gameManager
-        musicSlider.value = GameManager.Instance.GetMusicVolume();
-        sfxSlider.value = GameManager.Instance.GetSfxVolume();
+        if (musicSlider != null)
+        {
+            musicSlider.value = GameManager.Instance.GetMusicVolume();
+        }
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = GameManager.Instance.GetSfxVolume();
+        }
     }
 
     /// <summary>
@@ -69,18 +75,18 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+
         if (InputManager.Instance.PauseWasPressedThisFrame())
         {
             if (SubMenu != null && SubMenu.activeSelf)
             {
-                ClosePauseMenu(SubMenu); 
+                ClosePauseMenu(SubMenu);
             }
-            else if (PauseMenu.activeSelf)
+            else if (PauseMenu != null && PauseMenu.activeSelf)
             {
                 ClosePauseMenu(PauseMenu);
             }
-            else
+            else if (PauseMenu != null)
             {
                 SetSelectButton(MenuButton);
                 OpenPauseMenu(PauseMenu);
@@ -104,7 +110,10 @@ public class PauseManager : MonoBehaviour
     //Se abre el menu que se asigna desde el boton que llama al metodo
     public void OpenPauseMenu(GameObject menuToOpen)
     {
-        menuToOpen.SetActive(true);
+        if (menuToOpen != null)
+        {
+            menuToOpen.SetActive(true);
+        }
         if (SelectButton != null)
         {
             EventSystem.current.SetSelectedGameObject(SelectButton.gameObject);
@@ -114,7 +123,10 @@ public class PauseManager : MonoBehaviour
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
     public void ClosePauseMenu(GameObject menuToClose)
     {
-        menuToClose.SetActive(false);
+        if (menuToClose != null)
+        {
+            menuToClose.SetActive(false);
+        }
         if (menuToClose == PauseMenu)
         {
             Time.timeScale = 1f;
@@ -125,7 +137,6 @@ public class PauseManager : MonoBehaviour
     public void MusicVolume()
     {
         GameManager.Instance.SetMusicVolume(musicSlider.value);
-        
     }
 
     public void SfxVolume()
@@ -134,7 +145,7 @@ public class PauseManager : MonoBehaviour
     }
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -142,7 +153,7 @@ public class PauseManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
 } // class PauseManager 
 // namespace
