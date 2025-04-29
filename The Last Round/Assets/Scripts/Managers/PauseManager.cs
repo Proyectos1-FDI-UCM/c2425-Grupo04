@@ -94,6 +94,8 @@ public class PauseManager : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+        MusicVolume();
+        SfxVolume();
     }
     #endregion
 

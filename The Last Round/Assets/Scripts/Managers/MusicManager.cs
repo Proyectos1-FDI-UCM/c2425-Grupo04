@@ -5,8 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System;
-using UnityEditor.Search;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -39,7 +37,6 @@ public class MusicManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    PauseManager pauseManager;
     #endregion
 
     private static MusicManager instance;
@@ -73,7 +70,6 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveMusicManager(this);
-        pauseManager = GameManager.Instance.GivePauseMenu().GetComponent<PauseManager>();
         //musicSource.clip = GameMusic[0];
         //musicSource.Play();
 
@@ -84,7 +80,7 @@ public class MusicManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        pauseManager.MusicVolume();
+        musicSource.volume = GameManager.Instance.GetMusicVolume()/100;
     }
     #endregion
 

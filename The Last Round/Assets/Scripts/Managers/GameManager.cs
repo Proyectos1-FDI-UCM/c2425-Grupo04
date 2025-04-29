@@ -646,7 +646,7 @@ public class GameManager : MonoBehaviour
         System.GC.Collect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
-        _musicManager.ChangeCurrentMusic(SceneManager.GetActiveScene().buildIndex);
+        _musicManager.ChangeCurrentMusic(index);
         
     } // ChangeScene
 
