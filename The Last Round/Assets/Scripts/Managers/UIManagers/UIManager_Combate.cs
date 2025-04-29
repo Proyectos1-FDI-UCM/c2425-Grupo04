@@ -69,6 +69,8 @@ public class UIManager_Combate : MonoBehaviour
         {
             population.text = $"Población: {populationNum}";
         }
+        //Cuando inicia la escena de Combate comprueba si hay enemigos (puede que no)
+        GameManager.Instance.ComproveEnemies();
 
         if (timer != null)
         {

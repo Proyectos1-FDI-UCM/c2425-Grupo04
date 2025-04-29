@@ -378,15 +378,16 @@ public class GameManager : MonoBehaviour
         {
             numEnemigos[(int)enemy]--;
         }
-
+        GetUIC().ChangePopulation();
+        ComproveEnemies();
+    }
+    public void ComproveEnemies()
+    {
         if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
             ChangeScene(CreditSceneIndex);
         }
-
-        GetUIC().ChangePopulation();
     }
-
     public void ResetEnemyCounter()
     {
         //Rellena el array numEnemigos en el orden del enum EnemyType con el número de ese enemigo en partida
