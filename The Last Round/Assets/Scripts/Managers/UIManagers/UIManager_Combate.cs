@@ -49,6 +49,11 @@ public class UIManager_Combate : MonoBehaviour
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
 
+    private void Awake()
+    {
+        //Cuando inicia la escena de Combate comprueba si hay enemigos (puede que no)
+        GameManager.Instance.ComproveEnemies();
+    }
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -70,8 +75,6 @@ public class UIManager_Combate : MonoBehaviour
         {
             population.text = $"Población: {populationNum}";
         }
-        //Cuando inicia la escena de Combate comprueba si hay enemigos (puede que no)
-        //GameManager.Instance.ComproveEnemies();
 
         if (timer != null)
         {

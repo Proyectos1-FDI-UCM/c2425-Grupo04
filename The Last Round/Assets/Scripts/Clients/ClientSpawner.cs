@@ -133,18 +133,8 @@ public class ClientSpawner : MonoBehaviour
         int[] contador = GameManager.Instance.GetEnemyCounter();
         bool repeat = false;
         int rnd = -1;
-        int GeneralCounter = 0;
-
-        //Primero se comprueba que haya enemigos que spawnear (sin contar al alcalde)
-        for (int i = 0; i < contador.Length; i++)
-        {
-            if (i != (int)EnemyType.Alcalde)
-            {
-                GeneralCounter += contador[i];
-            }
-        }
-        if (GeneralCounter > 0)
-        {
+        //Si no hay enemigos puede incurrir en bucle infinito pero esto no debería pasar puesto que si no hay enemigos
+        //El juego acaba
             do
             {
                 rnd = Random.Range(0, clients.Length);
@@ -163,8 +153,6 @@ public class ClientSpawner : MonoBehaviour
                 }
             }
             while (repeat);
-        }
-
 
         return rnd;
     }
