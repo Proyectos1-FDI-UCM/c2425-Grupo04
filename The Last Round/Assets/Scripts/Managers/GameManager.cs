@@ -484,6 +484,11 @@ public class GameManager : MonoBehaviour
     {
         this.PauseMenu = PauseMenu;
     }
+
+    public GameObject GivePauseMenu()
+    {
+        return PauseMenu;
+    }
     public bool IsPauseActive()
     {
         return PauseMenu.activeSelf;

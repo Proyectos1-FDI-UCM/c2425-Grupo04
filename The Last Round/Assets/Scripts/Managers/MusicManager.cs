@@ -39,7 +39,7 @@ public class MusicManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    PauseManager pauseManager;
     #endregion
 
     private static MusicManager instance;
@@ -59,7 +59,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance !=  null)
+        if (instance != null)
         {
             DestroyImmediate(this.gameObject);
         }
@@ -73,7 +73,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveMusicManager(this);
-        
+        pauseManager = GameManager.Instance.GivePauseMenu().GetComponent<PauseManager>();
         //musicSource.clip = GameMusic[0];
         //musicSource.Play();
 
@@ -84,7 +84,7 @@ public class MusicManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        pauseManager.MusicVolume();
     }
     #endregion
 
@@ -103,10 +103,10 @@ public class MusicManager : MonoBehaviour
         Debug.Log(MusicArrayIndex);
         if (GameMusic[MusicArrayIndex] != null)
         {
-            /*
+            
             musicSource.clip = GameMusic[MusicArrayIndex];
             musicSource.Play();
-            */
+            
         }
     }
     // ---- MÉTODOS PRIVADOS ----
