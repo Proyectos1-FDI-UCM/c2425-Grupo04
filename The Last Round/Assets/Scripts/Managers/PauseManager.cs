@@ -43,6 +43,7 @@ public class PauseManager : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private Button SelectButton;
+    private GameObject LastButtonInUse;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -116,6 +117,12 @@ public class PauseManager : MonoBehaviour
         }
         if (SelectButton != null)
         {
+            if (menuToOpen == PauseMenu)
+            {
+                //Guarda el último botón seleccionado antes de activar la pausa (solo la pausa)
+                LastButtonInUse = EventSystem.current.currentSelectedGameObject;
+                //Debug.Log(LastButtonInUse.name);
+            }
             EventSystem.current.SetSelectedGameObject(SelectButton.gameObject);
         }
     }
@@ -123,14 +130,19 @@ public class PauseManager : MonoBehaviour
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
     public void ClosePauseMenu(GameObject menuToClose)
     {
-        if (menuToClose != null)
-        {
-            menuToClose.SetActive(false);
-        }
         if (menuToClose == PauseMenu)
         {
             Time.timeScale = 1f;
+            //Si había un botón seleccionado antes de activar la pausa y se va a cerrar el menú, se selecciona de vuelta dicho botón
+            if (LastButtonInUse != null)
+            {
+                EventSystem.current.SetSelectedGameObject(LastButtonInUse.gameObject);
+            }
         }
+        if (menuToClose != null)
+        {
+            menuToClose.SetActive(false);
+        } 
     }
 
     //Le da el volumen al gameManager

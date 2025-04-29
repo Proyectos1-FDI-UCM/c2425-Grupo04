@@ -5401,6 +5401,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1282831137}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: SetSelectButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1206009850}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1282831137}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: OpenPauseMenu
         m_Mode: 2
         m_Arguments:
