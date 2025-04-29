@@ -73,7 +73,7 @@ public class Precursos : MonoBehaviour
         {
             //Identifica el recurso y lo guarda en el inventario
             SourceName source = collision.gameObject.GetComponent<CastMaterial>().GetSourceName();
-            GameManager.Instance.IncreaseResource(source);
+            GameManager.Instance.IncreaseResource(source, 1);
 
             Destroy(collision.gameObject);
 
