@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contiene la cantidad total de un enemigo en una partida
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Clientes")]
     [SerializeField] private GameObject[] Clientes;
+
+    
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
     private TutorialDialoguesUIManager TutorialDialoguesUIManager;
     private static GameManager _instance;
     private GameObject Player, PauseMenu;
+    private MusicManager _musicManager;
 
     //Array de inventario
     private float[] recursos;
@@ -160,6 +164,7 @@ public class GameManager : MonoBehaviour
 
         DialoguesSaid = new bool[Clientes.Length, MaxDialogues];
         recursos = new float[SourceTypes];
+        
     }
 
     #endregion
@@ -187,6 +192,11 @@ public class GameManager : MonoBehaviour
     {
         return TutorialDialoguesUIManager;
     }
+
+    public MusicManager GetMusicManager()
+    {
+        return _musicManager;
+    }
     public void GiveUI(UIManager UIManager)
     {
         this.UIManager = UIManager;
@@ -203,6 +213,13 @@ public class GameManager : MonoBehaviour
     {
         this.TutorialDialoguesUIManager = TutorialDialoguesUIManager;
     }
+
+    public void GiveMusicManager(MusicManager musicManager)
+    {
+        this._musicManager = musicManager;
+    }
+
+    
     // --- FIN RECOGIDA DE UIMANAGERS ---
     #endregion
 
@@ -624,6 +641,8 @@ public class GameManager : MonoBehaviour
         System.GC.Collect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
+        _musicManager.ChangeCurrentMusic(SceneManager.GetActiveScene().buildIndex);
+        
     } // ChangeScene
 
     #endregion
@@ -653,6 +672,7 @@ public class GameManager : MonoBehaviour
         // De momento no hay que transferir ningún estado
         // entre escenas
     }
+
 
     #endregion
 } // class GameManager 

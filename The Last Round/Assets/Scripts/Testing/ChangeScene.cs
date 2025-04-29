@@ -57,6 +57,7 @@ public class ChangeScene : MonoBehaviour
     public void ChangeToNextScene()
     {
         GameManager.Instance.ChangeScene(nextScene);
+        
     }
 
     #endregion
