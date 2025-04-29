@@ -5,9 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEngine;
-// Añadir aquí el resto de directivas using
-
 /// <summary>
 /// Se utiliza para identificar cada uno de los recursos en el juego.
 /// </summary>
@@ -26,5 +23,11 @@ public enum SourceName
     //Recursos naturales
     Hielo,
     Levadura
+}
+public enum SourceType
+{
+    Manzana, 
+    Uva,
+    Naturales
 }
 // namespace

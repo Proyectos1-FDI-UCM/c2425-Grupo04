@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 0
+  type: 1

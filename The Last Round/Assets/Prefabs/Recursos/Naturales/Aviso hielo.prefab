@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 6
+  type: 0
 --- !u!1 &3648870440291654147
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 6
+  type: 2
 --- !u!1 &7205705961376849729
 GameObject:
   m_ObjectHideFlags: 0

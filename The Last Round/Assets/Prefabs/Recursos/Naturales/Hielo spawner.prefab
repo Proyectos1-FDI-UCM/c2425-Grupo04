@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 6
+  type: 2
 --- !u!212 &5176329187988242115
 SpriteRenderer:
   m_ObjectHideFlags: 0

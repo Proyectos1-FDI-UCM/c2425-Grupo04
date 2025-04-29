@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 7
+  type: 2
 --- !u!61 &8485452074526760800
 BoxCollider2D:
   m_ObjectHideFlags: 0
