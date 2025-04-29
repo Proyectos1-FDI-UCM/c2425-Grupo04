@@ -118,9 +118,10 @@ public class ClientSpawner : MonoBehaviour
             rnd = SpawnClient();
         }
 
-
-        Instantiate(clients[rnd], transform.position, Quaternion.identity);
-
+        if (rnd >= 0)
+        {
+            Instantiate(clients[rnd], transform.position, Quaternion.identity);
+        }
     }
 
     /// <summary>
@@ -131,26 +132,39 @@ public class ClientSpawner : MonoBehaviour
     {
         int[] contador = GameManager.Instance.GetEnemyCounter();
         bool repeat = false;
-        int rnd = 0;
+        int rnd = -1;
+        int GeneralCounter = 0;
 
-        do
+        //Primero se comprueba que haya enemigos que spawnear (sin contar al alcalde)
+        for (int i = 0; i < contador.Length; i++)
         {
-            rnd = Random.Range(0, clients.Length);
-
-            //Vuelve a pedir si no hay nada que spawnear
-            repeat = clients[rnd] == null;
-
-            if (clients[rnd].GetComponent<CastEnemy>() != null)
+            if (i != (int)EnemyType.Alcalde)
             {
-                EnemyType client = clients[rnd].GetComponent<CastEnemy>().GetEnemyType();
-
-                //Vuelve a pedir si es el alcalde
-                repeat = repeat || client == EnemyType.Alcalde;
-                //Vuelve a pedir si no quedan especímenes del habitante elegido vivos
-                repeat = repeat || contador[(int)client] <= 0;
+                GeneralCounter += contador[i];
             }
         }
-        while (repeat);
+        if (GeneralCounter > 0)
+        {
+            do
+            {
+                rnd = Random.Range(0, clients.Length);
+
+                //Vuelve a pedir si no hay nada que spawnear
+                repeat = clients[rnd] == null;
+
+                if (clients[rnd].GetComponent<CastEnemy>() != null)
+                {
+                    EnemyType client = clients[rnd].GetComponent<CastEnemy>().GetEnemyType();
+
+                    //Vuelve a pedir si es el alcalde
+                    repeat = repeat || client == EnemyType.Alcalde;
+                    //Vuelve a pedir si no quedan especímenes del habitante elegido vivos
+                    repeat = repeat || contador[(int)client] <= 0;
+                }
+            }
+            while (repeat);
+        }
+
 
         return rnd;
     }
