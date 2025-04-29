@@ -262,14 +262,16 @@ public class GameManager : MonoBehaviour
     {
         NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
 
-        if(UIManager != null && i > 0)
+        if (UIManager != null)
         {
-            UIManager.GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
-        }
-
-        if (NivelSospechosos >= 8 && UIManager != null)
-        {
-            StartCoroutine(WaitBeforeGameOver());
+            if (i > 0)
+            {
+                UIManager.GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
+            }
+            if (NivelSospechosos >= 8)
+            {
+                StartCoroutine(WaitBeforeGameOver());
+            }
         }
     }
     private IEnumerator WaitBeforeGameOver()
@@ -378,7 +380,10 @@ public class GameManager : MonoBehaviour
         {
             numEnemigos[(int)enemy]--;
         }
-        GetUIC().ChangePopulation();
+        if (GetUIC() != null)
+        {
+            GetUIC().ChangePopulation();
+        }
         ComproveEnemies();
     }
     public void ComproveEnemies()
@@ -469,9 +474,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Timer de combate
-    public void GiveTimerToUIC(string time)
+    public void GiveTimerToUIC(string time, float timeNum)
     {
-        UIManagerCombate.Timer(time);
+        if (UIManagerCombate != null)
+        {
+            UIManagerCombate.Timer(time, timeNum);
+        }
     }
     #endregion
 

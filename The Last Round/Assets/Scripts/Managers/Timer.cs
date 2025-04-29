@@ -71,7 +71,7 @@ public class Timer : MonoBehaviour
                 GameManager.Instance.ChangeScene(NextScene);
                 GameManager.Instance.increaseSospechosos(2);
             }
-            GameManager.Instance.GiveTimerToUIC(TimerText());
+            GameManager.Instance.GiveTimerToUIC(TimerText(), time);
         }
     }
     #endregion
@@ -81,7 +81,6 @@ public class Timer : MonoBehaviour
     public string TimerText()
     {
         return ChangeFormat();
-
     }
 
     #endregion

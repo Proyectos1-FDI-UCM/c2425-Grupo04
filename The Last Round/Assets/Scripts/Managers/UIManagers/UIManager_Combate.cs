@@ -27,6 +27,7 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private Sprite weaponMeleeImage;
     [SerializeField] private float TimerBeatIntensity;
     [SerializeField] private Image DashFillBar;
+    [SerializeField] private float SecondsToStartBeating = 30;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -70,7 +71,7 @@ public class UIManager_Combate : MonoBehaviour
             population.text = $"Población: {populationNum}";
         }
         //Cuando inicia la escena de Combate comprueba si hay enemigos (puede que no)
-        GameManager.Instance.ComproveEnemies();
+        //GameManager.Instance.ComproveEnemies();
 
         if (timer != null)
         {
@@ -139,9 +140,9 @@ public class UIManager_Combate : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void Timer(string time)
+    public void Timer(string time, float timeNum)
     {
-        if (time == "0:30")
+        if (timeNum <= SecondsToStartBeating)
         {
             timer.color = Color.red;
             fewTime = true;
