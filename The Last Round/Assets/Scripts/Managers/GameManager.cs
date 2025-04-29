@@ -517,25 +517,7 @@ public class GameManager : MonoBehaviour
 
     public void SetNumEnemies(EnemyType enem, int cant)
     {
-        int i = 0;
-        bool enc = false;
-
-        while (i < Enemies.Length && !enc)
-        {
-            if (Enemies[i].Enemy == enem)
-            {
-                enc = true;
-            }
-            else
-            {
-                i++;
-            }
-        }
-
-        if (enc)
-        {
-            Enemies[i].amount = cant;
-        }
+        numEnemigos[(int)enem] = cant;
     }
 
     public void SetMinHabManzariete(int cant)
