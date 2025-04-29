@@ -208,9 +208,9 @@ public class GameManager : MonoBehaviour
 
     #region Gestión de recursos
     // --- GESTIÓN DE RECURSOS ---
-    public void IncreaseResource(SourceName source)
+    public void IncreaseResource(SourceName source, int amount)
     {
-        recursos[(int)source] += 1;
+        recursos[(int)source] += amount;
     }
 
     public float[] GetRecursos()
