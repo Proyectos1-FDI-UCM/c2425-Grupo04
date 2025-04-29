@@ -39,14 +39,50 @@ public class ConvertSource : MonoBehaviour
 
     private GameObject SourceToConvert;
     private GameObject SourceToBeConverted;
+    private int LastIndex;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+    private void Start()
+    {
+        LastIndex = ToBeConvertedDropdown.value;
+    }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
+    {
+        //Solo se modifica la interfaz si se ha cambiado la opción elegida
+        //Esto para no tener tantos bucles en un update
+        if (LastIndex != ToBeConvertedDropdown.value)
+        {
+            ModifyUI();
+        }
+        LastIndex = ToBeConvertedDropdown.value;
+        //Tras tener las posibles opciones hay que configurar qué hacer cuando le de al botón de convertir con la opción seleccionada.
+        //Se hará en un método público llamado "Convert"
+    }
+    #endregion
+
+    // ---- MÉTODOS PÚBLICOS ----
+    #region Métodos públicos
+    /// <summary>
+    /// Él botón convert accede a él para modificar el array de recursos en función de las elecciones tomadas en la tabla de conversión
+    /// </summary>
+    public void Convert()
+    {
+
+    }
+
+    #endregion
+
+    // ---- MÉTODOS PRIVADOS ----
+    #region Métodos Privados
+    /// <summary>
+    /// Se encarga de cambiar la interfaz, las posibles opciones en función del primer material elegido y el dropdown resultado de la opción escogida
+    /// </summary>
+    private void ModifyUI()
     {
         //primero se identifica el material que se va a convertir
         //Se identifica por el sprite
@@ -120,29 +156,7 @@ public class ConvertSource : MonoBehaviour
             j++;
         }
         ToConvertDropdown.RefreshShownValue();
-        //Tras tener las posibles opciones hay que configurar qué hacer cuando le de al botón de convertir con la opción seleccionada.
-        //Se hará en un método público llamado "Convert"
     }
-    #endregion
-
-    // ---- MÉTODOS PÚBLICOS ----
-    #region Métodos públicos
-    /// <summary>
-    /// Él botón convert accede a él para modificar el array de recursos en función de las elecciones tomadas en la tabla de conversión
-    /// </summary>
-    public void Convert()
-    {
-
-    }
-    #endregion
-
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
     #endregion
 
 } // class ConvertSource 
