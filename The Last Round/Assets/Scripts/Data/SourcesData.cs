@@ -11,14 +11,14 @@
 public enum SourceName
 {
     //Materiales Uva
-    PielDeUva,
-    JugoDeUva,
-    SemillaDeUva,
+    Piel_de_uva,
+    Jugo_de_uva,
+    Semilla_de_uva,
 
     //Materiales Manzana
     Piel_de_manzana,
-    JugoDeManzana,
-    SemillaDeManzana,
+    Jugo_de_manzana,
+    Semilla_de_manzana,
 
     //Recursos naturales
     Hielo,

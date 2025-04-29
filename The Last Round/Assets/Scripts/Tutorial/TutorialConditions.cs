@@ -64,11 +64,11 @@ public class TutorialConditions : MonoBehaviour
         for (int i = 0; i < Sources; i++)
         {
             GameManager.Instance.IncreaseResource(SourceName.Piel_de_manzana);
-            GameManager.Instance.IncreaseResource(SourceName.PielDeUva);
-            GameManager.Instance.IncreaseResource(SourceName.JugoDeManzana);
-            GameManager.Instance.IncreaseResource(SourceName.JugoDeUva);
-            GameManager.Instance.IncreaseResource(SourceName.SemillaDeManzana);
-            GameManager.Instance.IncreaseResource(SourceName.SemillaDeUva);
+            GameManager.Instance.IncreaseResource(SourceName.Piel_de_uva);
+            GameManager.Instance.IncreaseResource(SourceName.Jugo_de_manzana);
+            GameManager.Instance.IncreaseResource(SourceName.Jugo_de_uva);
+            GameManager.Instance.IncreaseResource(SourceName.Semilla_de_manzana);
+            GameManager.Instance.IncreaseResource(SourceName.Semilla_de_uva);
             GameManager.Instance.IncreaseResource(SourceName.Hielo);
             GameManager.Instance.IncreaseResource(SourceName.Levadura);
         }
