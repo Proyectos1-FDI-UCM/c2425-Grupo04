@@ -11,7 +11,7 @@ using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.UI;
 using TMPro;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System;
 
 /// <summary>
 /// La clase ConvertSource se encarga de identificar el recurso a convertir y el recurso al que se quiere convertir
@@ -119,7 +119,7 @@ public class ConvertSource : MonoBehaviour
 
             j++;
         }
-
+        ToConvertDropdown.RefreshShownValue();
         //Tras tener las posibles opciones hay que configurar qué hacer cuando le de al botón de convertir con la opción seleccionada.
         //Se hará en un método público llamado "Convert"
     }
