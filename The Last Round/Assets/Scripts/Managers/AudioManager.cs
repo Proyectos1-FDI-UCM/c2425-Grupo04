@@ -137,6 +137,8 @@ public class AudioManager : MonoBehaviour
         }
         if (enc)
         {
+            Debug.Log("Ha entrado");
+            Debug.Log(MusicTrack[i].SceneMusic.name);
             musicSource.clip = MusicTrack[i].SceneMusic;
             musicSource.Play();
         }

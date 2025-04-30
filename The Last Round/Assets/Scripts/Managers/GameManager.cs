@@ -638,22 +638,6 @@ public class GameManager : MonoBehaviour
     /// que se cargará.</param>
     public void ChangeScene(int index)
     {
-        // Antes y después de la carga fuerza la recolección de basura, por eficiencia,
-        // dado que se espera que la carga tarde un tiempo, y dado que tenemos al
-        // usuario esperando podemos aprovechar para hacer limpieza y ahorrarnos algún
-        // tirón en otro momento.
-        // De Unity Configuration Tips: Memory, Audio, and Textures
-        // https://software.intel.com/en-us/blogs/2015/02/05/fix-memory-audio-texture-issues-in-unity
-        //
-        // "Since Unity's Auto Garbage Collection is usually only called when the heap is full
-        // or there is not a large enough freeblock, consider calling (System.GC..Collect) before
-        // and after loading a level (or put it on a timer) or otherwise cleanup at transition times."
-        //
-        // En realidad... todo esto es algo antiguo por lo que lo mismo ya está resuelto)
-        System.GC.Collect();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(index);
-        System.GC.Collect();
-
         int i = 0;
         bool enc = false;
 
@@ -672,6 +656,21 @@ public class GameManager : MonoBehaviour
         {
             _musicManager.PlaySceneMusic(ScenesIndex[i].scene);
         }
+        // Antes y después de la carga fuerza la recolección de basura, por eficiencia,
+        // dado que se espera que la carga tarde un tiempo, y dado que tenemos al
+        // usuario esperando podemos aprovechar para hacer limpieza y ahorrarnos algún
+        // tirón en otro momento.
+        // De Unity Configuration Tips: Memory, Audio, and Textures
+        // https://software.intel.com/en-us/blogs/2015/02/05/fix-memory-audio-texture-issues-in-unity
+        //
+        // "Since Unity's Auto Garbage Collection is usually only called when the heap is full
+        // or there is not a large enough freeblock, consider calling (System.GC..Collect) before
+        // and after loading a level (or put it on a timer) or otherwise cleanup at transition times."
+        //
+        // En realidad... todo esto es algo antiguo por lo que lo mismo ya está resuelto)
+        System.GC.Collect();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(index);
+        System.GC.Collect(); 
     } // ChangeScene
 
     #endregion
