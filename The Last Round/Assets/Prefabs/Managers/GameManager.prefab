@@ -45,15 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55695a01267fa4264b28ed5ffab61a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SourceTypes: 0
-  Enemies: []
-  CreditSceneIndex: 5
-  MapWidth: 0
-  MapHeight: 0
-  Clientes: []
-  GameMusic:
-  - {fileID: 0}
-  Dineros: 0
 --- !u!114 &2598751330512981393
 MonoBehaviour:
   m_ObjectHideFlags: 0

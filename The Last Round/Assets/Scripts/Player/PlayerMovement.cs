@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField]
-    float MoveSpeed, ObjectSizeX, ObjectSizeY;
+    float MoveSpeed;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 LastDirection;
     private Vector3 MoveDirection;
     private bool dashing;
+    private Collider2D ObjectCollider;
     private float minX, maxX, minY, maxY;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.GivePlayer(gameObject);
         rb = GetComponent<Rigidbody2D>();
-
+        ObjectCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -66,10 +67,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-        posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
-        posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
-        posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
-        posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
+        posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+        posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
 
         if ((MoveDirection.y < 0 && posMinY.y <= minY) ||
@@ -126,32 +127,6 @@ public class PlayerMovement : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.GetComponent<CambioEscenaAlcantarilla>() != null)
-        {
-            GameManager.Instance.GetUIC().PressE();
-        }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.GetComponent<RecursoSpawner>() != null)
-        {
-            float timer, holdingTime;
-            timer = collision.GetComponent<RecursoSpawner>().GetTimer();
-            holdingTime = collision.GetComponent<RecursoSpawner>().GetHoldingTime();
-
-            GameManager.Instance.GetUIC().HoldE(timer, holdingTime);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.GetComponent<CambioEscenaAlcantarilla>() != null || collision.GetComponent<RecursoSpawner>() != null)
-        {
-            GameManager.Instance.GetUIC().ClearMessage();
-        }
-    }
     #endregion
 
 } // class PlayerMovement 

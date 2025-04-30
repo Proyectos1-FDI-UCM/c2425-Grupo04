@@ -8,7 +8,7 @@
 using UnityEngine;
 using TMPro;
 // Añadir aquí el resto de directivas using
-using UnityEngine.UI;
+
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -24,7 +24,8 @@ public class DamageCounterUI : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private Color color, contadorTextColor;
+    private TextMeshProUGUI contadorText;
+    private Color color;
 
     #endregion
 
@@ -41,15 +42,8 @@ public class DamageCounterUI : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if (GetComponent<TextMeshProUGUI>() != null)
-        {
-            contadorTextColor = GetComponent<TextMeshProUGUI>().color;
-        }
-        else if (GetComponent<Image>() != null)
-        {
-            contadorTextColor = GetComponent<Image>().color;
-        }
-        color = contadorTextColor;
+        contadorText = GetComponent<TextMeshProUGUI>();
+        color = contadorText.color;
     }
 
     /// <summary>
@@ -58,15 +52,7 @@ public class DamageCounterUI : MonoBehaviour
     void Update()
     {
         color.a -= Time.deltaTime * FadeVelocidad;
-
-        if (GetComponent<TextMeshProUGUI>() != null)
-        {
-            GetComponent<TextMeshProUGUI>().color = color;
-        }
-        else if (GetComponent<Image>() != null)
-        {
-            GetComponent<Image>().color = color;
-        }
+        contadorText.color = color;
 
         transform.position += new Vector3(0, Time.deltaTime*velocidad, 0);
         //Elimina objeto de texto al hacerse completamente invisible

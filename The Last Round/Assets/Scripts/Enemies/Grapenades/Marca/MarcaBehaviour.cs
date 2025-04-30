@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -23,6 +22,7 @@ public class MarcaBehaviour : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -36,21 +36,21 @@ public class MarcaBehaviour : MonoBehaviour
     private bool follow = true;
     private PlaceMark emisor;
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-
+        
     }
 
     /// <summary>
@@ -59,9 +59,7 @@ public class MarcaBehaviour : MonoBehaviour
     void Update()
     {
         if (follow)
-        {
-            GetComponent<MoveToPlayer>().Move(gameObject);
-        }
+        transform.position = GameManager.Instance.GetPlayer().transform.position;
     }
     #endregion
 
@@ -74,7 +72,6 @@ public class MarcaBehaviour : MonoBehaviour
     // Ejemplo: GetPlayerController
     public void UnfollowPlayer()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         follow = false;
     }
     public void GrapenadeWasDestroy()
@@ -85,6 +82,7 @@ public class MarcaBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
     public void MarcaEliminada()
     {
         emisor.EliminarMarca();
@@ -93,8 +91,6 @@ public class MarcaBehaviour : MonoBehaviour
     {
         this.emisor = emisor;
     }
-    #endregion
-
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí

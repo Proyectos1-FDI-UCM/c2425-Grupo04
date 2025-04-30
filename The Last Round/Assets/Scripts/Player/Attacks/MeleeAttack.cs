@@ -17,9 +17,16 @@ public class MeleeAttack : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
+    
+
+    [SerializeField]
+    public SpriteRenderer attackSprite;
 
     [SerializeField]
     public float duration;
+
+    [SerializeField]
+    public float PMdamage;
 
     #endregion
 
@@ -27,7 +34,6 @@ public class MeleeAttack : MonoBehaviour
     #region Atributos Privados (private fields)
     private bool Attack = false;
     private float timer = 0;
-    private Animator animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -44,13 +50,15 @@ public class MeleeAttack : MonoBehaviour
     void Start()
     {
         GetComponent<Collider2D>().enabled = false;
-        animator = GetComponent<Animator>();
+        attackSprite = GetComponent<SpriteRenderer>();
+        attackSprite.enabled = false;
     }
     private void Update()
     {
         if (Attack || timer > 0)
         {
             GetComponent<Collider2D>().enabled = true;
+            attackSprite.enabled = true;
             Attack = false;
 
             if (timer <= 0) timer = duration;
@@ -58,6 +66,7 @@ public class MeleeAttack : MonoBehaviour
         else
         {
             GetComponent<Collider2D>().enabled = false;
+            attackSprite.enabled = false;
         }
         
         timer -= Time.deltaTime;
@@ -72,12 +81,8 @@ public class MeleeAttack : MonoBehaviour
     public void attack()
     {
         Attack = true;
-        animator.SetTrigger("Attack");
     }
-    public float GetDuration()
-    {
-        return duration;
-    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

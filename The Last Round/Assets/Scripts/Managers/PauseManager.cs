@@ -9,7 +9,6 @@ using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -29,11 +28,9 @@ public class PauseManager : MonoBehaviour
     [SerializeField]
     private Slider musicSlider, sfxSlider;
     [SerializeField]
-    private GameObject PauseMenu, SubMenu;
-    [SerializeField]
-    private Button MenuButton;
+    private GameObject PauseMenu;
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -42,33 +39,25 @@ public class PauseManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private Button SelectButton;
-    private GameObject LastButtonInUse;
-    #endregion
 
+    #endregion
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        GameManager.Instance.SetPauseMenu(PauseMenu);
         //Pone el valor de los sliders al volumen que está en el gameManager
-        if (musicSlider != null)
-        {
-            musicSlider.value = GameManager.Instance.GetMusicVolume();
-        }
-        if (sfxSlider != null)
-        {
-            sfxSlider.value = GameManager.Instance.GetSfxVolume();
-        }
+        musicSlider.value = GameManager.Instance.GetMusicVolume();
+        sfxSlider.value = GameManager.Instance.GetSfxVolume();
     }
 
     /// <summary>
@@ -76,26 +65,19 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-
+        
         if (InputManager.Instance.PauseWasPressedThisFrame())
         {
-            if (SubMenu != null && SubMenu.activeSelf)
-            {
-                ClosePauseMenu(SubMenu);
-            }
-            else if (PauseMenu != null && PauseMenu.activeSelf)
+            if (PauseMenu.activeSelf)
             {
                 ClosePauseMenu(PauseMenu);
             }
-            else if (PauseMenu != null)
+            else
             {
-                SetSelectButton(MenuButton);
                 OpenPauseMenu(PauseMenu);
                 Time.timeScale = 0f;
             }
         }
-        MusicVolume();
-        SfxVolume();
     }
     #endregion
 
@@ -106,66 +88,37 @@ public class PauseManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-    public void SetSelectButton(Button SelectButton)
-    {
-        this.SelectButton = SelectButton;
-    }
+
     //Se abre el menu que se asigna desde el boton que llama al metodo
     public void OpenPauseMenu(GameObject menuToOpen)
     {
-        if (menuToOpen != null)
-        {
-            menuToOpen.SetActive(true);
-        }
-        if (SelectButton != null)
-        {
-            if (menuToOpen == PauseMenu)
-            {
-                //Guarda el último botón seleccionado antes de activar la pausa (solo la pausa)
-                LastButtonInUse = EventSystem.current.currentSelectedGameObject;
-                //Debug.Log(LastButtonInUse.name);
-            }
-            EventSystem.current.SetSelectedGameObject(SelectButton.gameObject);
-        }
+        menuToOpen.SetActive(true);
     }
 
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
     public void ClosePauseMenu(GameObject menuToClose)
     {
+        menuToClose.SetActive(false);
         if (menuToClose == PauseMenu)
         {
             Time.timeScale = 1f;
-            //Si había un botón seleccionado antes de activar la pausa y se va a cerrar el menú, se selecciona de vuelta dicho botón
-            if (LastButtonInUse != null)
-            {
-                EventSystem.current.SetSelectedGameObject(LastButtonInUse.gameObject);
-            }
         }
-        if (menuToClose != null)
-        {
-            menuToClose.SetActive(false);
-        } 
     }
 
     //Le da el volumen al gameManager
     public void MusicVolume()
     {
-        if (musicSlider != null)
-        {
-            GameManager.Instance.SetMusicVolume(musicSlider.value);
-        }
+        GameManager.Instance.SetMusicVolume(musicSlider.value);
+        
     }
 
     public void SfxVolume()
     {
-        if (sfxSlider != null)
-        {
-            GameManager.Instance.SetSfxVolume(sfxSlider.value);
-        }
+        GameManager.Instance.SetSfxVolume(sfxSlider.value);
     }
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -173,7 +126,7 @@ public class PauseManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
 } // class PauseManager 
 // namespace
