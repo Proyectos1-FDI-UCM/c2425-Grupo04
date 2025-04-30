@@ -9,6 +9,7 @@ using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -71,6 +72,7 @@ public class ButtonSelector : MonoBehaviour
         Button[] botones = FindObjectsOfType<Button>();
         Slider[] sliders = FindObjectsOfType<Slider>();
         Toggle[] toggles = FindObjectsOfType<Toggle>();
+        TMP_Dropdown[] dropdowns = FindObjectsOfType<TMP_Dropdown>();
 
         if (botones.Length > 0 && EventSystem.current != null)
         {
@@ -100,6 +102,16 @@ public class ButtonSelector : MonoBehaviour
             while (i < toggles.Length && !enc)
             {
                 if (EventSystem.current.currentSelectedGameObject == toggles[i].gameObject)
+                {
+                    enc = true;
+                }
+                i++;
+            }
+            //Comprueba que no hay ningún dropdown seleccionado
+            i = 0;
+            while (i < dropdowns.Length && !enc)
+            {
+                if (EventSystem.current.currentSelectedGameObject == dropdowns[i].gameObject)
                 {
                     enc = true;
                 }

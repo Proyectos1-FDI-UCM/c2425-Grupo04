@@ -88,7 +88,7 @@ public class ConvertSource : MonoBehaviour
             ConvertButton.GetComponentInChildren<TextMeshProUGUI>().text = MessageCantConvert;
             CanConvert = false;
         }
-        Debug.Log(CanConvert);
+        //Debug.Log(CanConvert);
 
         LastIndex = ToBeConvertedDropdown.value;
     }

@@ -150,12 +150,18 @@ public class PauseManager : MonoBehaviour
     //Le da el volumen al gameManager
     public void MusicVolume()
     {
-        GameManager.Instance.SetMusicVolume(musicSlider.value);
+        if (musicSlider != null)
+        {
+            GameManager.Instance.SetMusicVolume(musicSlider.value);
+        }
     }
 
     public void SfxVolume()
     {
-        GameManager.Instance.SetSfxVolume(sfxSlider.value);
+        if (sfxSlider != null)
+        {
+            GameManager.Instance.SetSfxVolume(sfxSlider.value);
+        }
     }
 
     #endregion
