@@ -93,9 +93,15 @@ public class Shoot : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void InstantiateBullet()
     {
-        GameObject bullet = Instantiate(proyectil, new Vector3(transform.position.x, transform.position.y + 5.5f), Quaternion.identity);
-        GetComponent<MarcaBehaviour>().UnfollowPlayer();
-        bullet.GetComponent<ProjectileMovement>().GiveMark(gameObject);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        GameObject bullet;
+
+        if (rb != null)
+        {
+            GetComponent<MarcaBehaviour>().UnfollowPlayer();
+            bullet = Instantiate(proyectil, new Vector3(rb.position.x, rb.position.y + 5.5f), Quaternion.identity);
+            bullet.GetComponent<ProjectileMovement>().GiveMark(gameObject);
+        }
     }
     #endregion   
 

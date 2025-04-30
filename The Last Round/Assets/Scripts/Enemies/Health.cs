@@ -6,9 +6,10 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using TMPro;
+
 // Añadir aquí el resto de directivas using
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -28,6 +29,7 @@ public class Health : MonoBehaviour
     #region Atributos Privados (private fields)
     private TextMeshProUGUI text;
     private EnemyType enemy;
+    private bool invunerabilidad = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -39,24 +41,23 @@ public class Health : MonoBehaviour
        // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
-        barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
-        barraVida.value = Life;
+        
         if (GetComponent<CastEnemy>() != null) 
         {
+            
             enemy = GetComponent<CastEnemy>().GetEnemyType();
             barraVida.gameObject.SetActive(false);
         }
-        else if (GetComponent<CastEnemy>() == null)
+        else
         {
-            Life = Life + 0.1f * Life * GameManager.Instance.GetUpgradeLevel(2); //Sube la vida un 10% por cada nivel de la mejora
+            invunerabilidad = GameManager.Instance.GetInvunerabilidad();
+            Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
+
+        barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
+        barraVida.value = Life;
     }
     
-
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -67,6 +68,12 @@ public class Health : MonoBehaviour
     public void GetDamage(float damage)
     {
         barraVida.gameObject.SetActive(true);
+
+        //CHEAT Si es jugador y tiene invunerabilidad no recibe daño
+        if(!GetComponent<CastEnemy>() && invunerabilidad)
+        {
+            damage = 0;
+        }
         Life -= damage;
         text.text = damage.ToString();
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);

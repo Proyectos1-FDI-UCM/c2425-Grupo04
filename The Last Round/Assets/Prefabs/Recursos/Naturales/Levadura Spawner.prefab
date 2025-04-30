@@ -49,8 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectdistancia: 1.2
-  HoldingTime: 4
-  limitrecursos: 5
+  HoldingTime: 2
+  limitrecursos: 3
+  Contadorrecurso: {fileID: 4596568104739796052, guid: 028993e77647b0347866f1dab2cecb17, type: 3}
 --- !u!114 &4210823676919848411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 7
+  type: 2
 --- !u!61 &8485452074526760800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,8 +152,8 @@ SpriteRenderer:
   m_SortingLayerID: -1186166329
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -580175789, guid: a396589a21160c743a3b6aa90591dd9d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -1928230805, guid: 09b5339544a795140b0e12d524d00e7b, type: 3}
+  m_Color: {r: 0.54509807, g: 0.54509807, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

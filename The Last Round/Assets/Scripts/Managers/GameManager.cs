@@ -6,7 +6,9 @@
 //---------------------------------------------------------
 
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contiene la cantidad total de un enemigo en una partida
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
+    [SerializeField] private int CreditSceneIndex = 5;
 
     [Header("Límites")]
     [SerializeField] private float MapWidth;
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Clientes")]
     [SerializeField] private GameObject[] Clientes;
+
+    
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -53,20 +58,41 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Instancia única de la clase (singleton).
     /// </summary>
-    private ScenesManager ScenesManager;
     private UIManager UIManager;
     private UIManager_Combate UIManagerCombate;
     private UIManagerUpgrades UIManagerUpgrades;
+    private TutorialDialoguesUIManager TutorialDialoguesUIManager;
     private static GameManager _instance;
-    private GameObject Player;
+    private GameObject Player, PauseMenu;
+    private AudioManager _musicManager;
+
+    //Array de inventario
     private float[] recursos;
+
+    //Contador de enemigos
     private int[] numEnemigos;
-    private float NivelSospechosos = 0;
-    public  float Dineros = 0;
+
+    private int NivelSospechosos = 0;
+
+    public float Dineros = 0;
+
+    //Array que gestiona que diálogos se han dicho y cuales no de un cliente (imprescintible para script clients)
     private bool[,] DialoguesSaid;
+
     private float musicVolume = 100f, sfxVolume = 100f;
+
+    //Variables necesarias para gestionar mejoras
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
     private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
+    private float HealthUpgradePercent = 0,
+                  MeleeDamageUpgradePercent = 0,
+                  RangeDamageUpgradePercent = 0;
+
+    private bool Cheats = false;
+    private bool invunerabilidad = false;
+    private int habManzariete, habGrapenade, maxEnemiesInScene;
+    private float timerStart;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -138,35 +164,22 @@ public class GameManager : MonoBehaviour
 
         DialoguesSaid = new bool[Clientes.Length, MaxDialogues];
         recursos = new float[SourceTypes];
-    }
-
-    private void Update()
-    {
-
+        
     }
 
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
 
-    #region Métodos públicos
-
+    #region Métodos Públicos
+    #region Recogida de UIManagers
     // --- RECOGIDA DE UIMANAGERS ---
 
-    public ScenesManager GetScenesManager()
-    {
-        return ScenesManager;
-    }
+
     public UIManager GetUI()
     {
         return UIManager;
     }
-
-    public void GiveTimerToUIC(string time)
-    {
-        UIManagerCombate.Timer(time);
-    }
-   
     public UIManager_Combate GetUIC()
     {
         return UIManagerCombate;
@@ -175,7 +188,15 @@ public class GameManager : MonoBehaviour
     {
         return UIManagerUpgrades;
     }
+    public TutorialDialoguesUIManager GetTDUI()
+    {
+        return TutorialDialoguesUIManager;
+    }
 
+    public AudioManager GetMusicManager()
+    {
+        return _musicManager;
+    }
     public void GiveUI(UIManager UIManager)
     {
         this.UIManager = UIManager;
@@ -188,17 +209,25 @@ public class GameManager : MonoBehaviour
     {
         this.UIManagerUpgrades = UIManagerUpgrades;
     }
-
-    public void GiveScenesManager(ScenesManager scenesManager)
+    public void SetTDUI(TutorialDialoguesUIManager TutorialDialoguesUIManager)
     {
-        this.ScenesManager = scenesManager;
+        this.TutorialDialoguesUIManager = TutorialDialoguesUIManager;
     }
-    // --- FIN RECOGIDA DE UIMANAGERS ---
 
-    // --- GESTIÓN DE RECURSOS ---
-    public void IncreaseResource(SourceName source)
+    public void GiveMusicManager(AudioManager musicManager)
     {
-        recursos[(int)source] += 1;
+        this._musicManager = musicManager;
+    }
+
+    
+    // --- FIN RECOGIDA DE UIMANAGERS ---
+    #endregion
+
+    #region Gestión de recursos
+    // --- GESTIÓN DE RECURSOS ---
+    public void IncreaseResource(SourceName source, int amount)
+    {
+        recursos[(int)source] += amount;
     }
 
     public float[] GetRecursos()
@@ -215,7 +244,9 @@ public class GameManager : MonoBehaviour
     }
 
     // --- FIN GESTIÓN DE RECURSOS ---
+    #endregion
 
+    #region Gestión económica
     // --- GESTIÓN ECONÓMICA ---
     public void increaseDinero(int reward)
     {
@@ -237,29 +268,48 @@ public class GameManager : MonoBehaviour
     {
         Dineros = 0;
     }
-    // --- FIN GESTIÓN ECONÓMICA ---
 
+
+    // --- FIN GESTIÓN ECONÓMICA ---
+    #endregion
+
+    #region Sistema de sospecha
     // --- SISTEMA DE SOSPECHA ---
     public void increaseSospechosos(int i)
     {
         NivelSospechosos = Math.Clamp(NivelSospechosos + i, 0, 8);
 
-        //podeis quitarlo tras comprobar que estos funciona - okey gracias cariño
-        // Debug.Log(NivelSospechosos);
-        //Debug.Log(Dineros);
-
-        if (NivelSospechosos >= 8 && UIManager != null)
+        if (UIManager != null)
         {
-            UIManager.GameOverUI();
+            if (i > 0)
+            {
+                UIManager.GiveAnimator().Play($"ContSospecha{NivelSospechosos - i}-{NivelSospechosos}");
+            }
+            if (NivelSospechosos >= 8)
+            {
+                StartCoroutine(WaitBeforeGameOver());
+            }
         }
+    }
+    private IEnumerator WaitBeforeGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        UIManager.GameOverUI();
     }
 
     public void ResetSospecha()
     {
         NivelSospechosos = 0;
     }
-    // --- FIN SISTEMA DE SOSPECHA ---
 
+    public int GiveSospecha()
+    {
+        return NivelSospechosos;
+    }
+    // --- FIN SISTEMA DE SOSPECHA ---
+    #endregion
+
+    #region Límites del mapa
     // --- LÍMITES MAPA ---
     public float GetMapHeight()
     {
@@ -271,8 +321,37 @@ public class GameManager : MonoBehaviour
         return MapWidth;
     }
     // --- FIN LÍMITES MAPA ---
+    #endregion
 
+    #region Sistema de mejoras
     // --- SISTEMA DE MEJORAS ---
+
+    //Getters y Setters de porcentajes de mejora
+    public void SetHealthPercent(float percent)
+    {
+        HealthUpgradePercent = percent;
+    }
+    public void SetMeleeDamagePercent(float percent)
+    {
+        MeleeDamageUpgradePercent = percent;
+    }
+    public void SetRangeDamagePercent(float percent)
+    {
+        RangeDamageUpgradePercent = percent;
+    }
+    public float GetHealthPercent()
+    {
+        return HealthUpgradePercent;
+    }
+    public float GetMeleeDamagePercent()
+    {
+        return MeleeDamageUpgradePercent;
+    }
+    public float GetRangeDamagePercent()
+    {
+        return RangeDamageUpgradePercent;
+    }
+
     public int GetUpgradeLevel(int element) //Devuelve el nivel de la mejora correspondiente
     {
         return upgradeLevel[element];
@@ -305,7 +384,9 @@ public class GameManager : MonoBehaviour
         }
     }
     // --- FIN SISTEMA DE MEJORAS ---
+    #endregion
 
+    #region Contador de enemigos
     // ---CONTADOR DE ENEMIGOS---
     /// <summary>
     /// Reduce el número de enemigos en el contador y refresca las colisiones
@@ -316,13 +397,19 @@ public class GameManager : MonoBehaviour
         {
             numEnemigos[(int)enemy]--;
         }
-
+        if (GetUIC() != null)
+        {
+            GetUIC().ChangePopulation();
+        }
+        ComproveEnemies();
+    }
+    public void ComproveEnemies()
+    {
         if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
-            ScenesManager.CreditScenes();
+            ChangeScene(CreditSceneIndex);
         }
     }
-
     public void ResetEnemyCounter()
     {
         //Rellena el array numEnemigos en el orden del enum EnemyType con el número de ese enemigo en partida
@@ -341,7 +428,9 @@ public class GameManager : MonoBehaviour
         return numEnemigos;
     }
     // --- FIN CONTADOR DE ENEMIGOS ---
+    #endregion
 
+    #region Gestión de diálogos
     // --- GESTIÓN DE DIÁLOGOS
     /// <summary>
     /// Toma como argumento el cliente y el número de dialogo y pone su DialogueSaid en true
@@ -367,7 +456,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetSaid()
     {
-        for(int i = 0; i < DialoguesSaid.GetLength(1); i++)
+        for (int i = 0; i < DialoguesSaid.GetLength(1); i++)
         {
             for (int j = 0; j < DialoguesSaid.GetLength(0); j++)
             {
@@ -376,14 +465,9 @@ public class GameManager : MonoBehaviour
         }
     }
     // --- FIN GESTIÓN DIÁLOGOS
-    public static GameManager Instance
-    {
-        get
-        {
-            Debug.Assert(_instance != null);
-            return _instance;
-        }
-    }
+    #endregion
+
+    #region Recogida de player
     public void GivePlayer(GameObject player)
     {
         Player = player;
@@ -393,6 +477,139 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
+    #endregion
+
+    #region Gestión de menú de pausa
+    public void SetPauseMenu(GameObject PauseMenu)
+    {
+        this.PauseMenu = PauseMenu;
+    }
+
+    public GameObject GivePauseMenu()
+    {
+        return PauseMenu;
+    }
+    public bool IsPauseActive()
+    {
+        return PauseMenu.activeSelf;
+    }
+    #endregion
+
+    #region Timer de combate
+    public void GiveTimerToUIC(string time, float timeNum)
+    {
+        if (UIManagerCombate != null)
+        {
+            UIManagerCombate.Timer(time, timeNum);
+        }
+    }
+    #endregion
+
+    #region Sonido y SFX
+    public void SetMusicVolume(float value)
+    {
+        musicVolume = value;
+    }
+
+    public void SetSfxVolume(float value)
+    {
+        sfxVolume = value;
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+
+    public float GetSfxVolume()
+    {
+        return sfxVolume;
+    }
+    #endregion
+
+    #region Cheats
+    public void SetCheats(bool Cheats)
+    {
+        this.Cheats = Cheats;
+    }
+    public bool GetCheats()
+    {
+        return Cheats;
+    }
+    public void SetInvunerabilidad(bool inv)
+    {
+        invunerabilidad = inv;
+    }
+
+    public bool GetInvunerabilidad()
+    {
+        return invunerabilidad;
+    }
+
+    public void SetNumEnemies(EnemyType enem, int cant)
+    {
+        numEnemigos[(int)enem] = cant;
+    }
+
+    public void SetMinHabManzariete(int cant)
+    {
+        habManzariete = cant;
+    }
+
+    public int GetMinHabManzariete()
+    {
+        return habManzariete;
+    }
+
+    public void SetMinHabGrapenade(int cant)
+    {
+        habGrapenade = cant;
+    }
+
+    public int GetMinHabGrapenade()
+    {
+        return habGrapenade;
+    }
+
+    public void SetTimerStart(float time)
+    {
+        timerStart = time;
+    }
+
+    public float GetTimerStart()
+    {
+        return timerStart;
+    }
+
+    public void SetMaxEnemsScene(int cant)
+    {
+        maxEnemiesInScene = cant;
+    }
+
+    public int GetMaxEnemsScene()
+    {
+        return maxEnemiesInScene;
+    }
+
+    public void SetResources(float cant)
+    {
+        for (int i = 0; i < recursos.Length; i++)
+        {
+            recursos[i] = cant;
+        }
+    }
+
+    #endregion
+
+    public static GameManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    }
+
 
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
@@ -429,27 +646,9 @@ public class GameManager : MonoBehaviour
         System.GC.Collect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
+        _musicManager.PlaySceneMusic(index);
+        
     } // ChangeScene
-
-    public void SetMusicVolume(float value)
-    {
-        musicVolume = value;
-    }
-
-    public void SetSfxVolume(float value)
-    {
-        sfxVolume = value;
-    }
-
-    public float GetMusicVolume()
-    {
-        return musicVolume;
-    }
-
-    public float GetSfxVolume()
-    {
-        return sfxVolume;
-    }
 
     #endregion
 
@@ -478,6 +677,7 @@ public class GameManager : MonoBehaviour
         // De momento no hay que transferir ningún estado
         // entre escenas
     }
+
 
     #endregion
 } // class GameManager 

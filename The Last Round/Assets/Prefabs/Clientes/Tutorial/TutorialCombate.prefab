@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1562574269909345304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2510957792824250114}
+  - component: {fileID: 8755036878347728107}
+  - component: {fileID: -7006834372356157504}
+  m_Layer: 0
+  m_Name: TutorialCombate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2510957792824250114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562574269909345304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.08, y: 0.32, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8755036878347728107
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562574269909345304}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 294713551557d6944bc2f22834d7e896, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &-7006834372356157504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562574269909345304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea143422c479f64685abe402f28ddca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppearSpeed: 500
+  dialogues:
+  - Generic: 1
+    Lines:
+    - GoodText: "Conque este es el pueblo... No est\xE1 mal, pero me gustan m\xE1s
+        los paisajes de Felidoria."
+      BadText: "Conque este es el pueblo... No est\xE1 mal, pero me gustan m\xE1s
+        los paisajes de Felidoria."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Lo primero es lo primero. Voy a estirar las piernas
+      BadText: Lo primero es lo primero. Voy a estirar las piernas
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
+      BadText: Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Ahora voy a calentar las patas, que estoy un poco oxidado de tanto
+        tiempo sin pelear.
+      BadText: Ahora voy a calentar las patas, que estoy un poco oxidado de tanto
+        tiempo sin pelear.
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Veamos. Voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
+      BadText: "Veamos, voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Para atacar, apunta con el rat\xF3n a tu objetivo y pulsa espacio
+        o en su lugar clic izquierdo."
+      BadText: "Para atacar, apunta con el rat\xF3n a tu objetivo y pulsa espacio
+        o en su lugar clic izquierdo."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Tengo espacio en los bolsillos. Quiz\xE1s puedo guardar mis armas
+        aqu\xED cuando lo necesite."
+      BadText: "Tengo espacio en los bolsillos. Quiz\xE1s puedo guardar mis armas
+        aqu\xED cuando lo necesite."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Una vez tengas m\xE1s armas, podr\xE1s alternar entre ellas pulsando
+        la tecla [Q]."
+      BadText: "Una vez tengas m\xE1s armas, podr\xE1s alternar entre ellas pulsando
+        la tecla [Q]."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Adem\xE1s, en el combate es muy importante ser \xE1gil. Ese papelito
+        con esa t\xE9cnica de movimiento acelerado era muy interesante..."
+      BadText: "Adem\xE1s, en el combate es muy importante ser \xE1gil. Ese papelito
+        con esa t\xE9cnica de movimiento acelerado era muy interesante..."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Cuando la mejora de dash est\xE9 activa, podr\xE1s realizar un dash
+        hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n."
+      BadText: "Cuando la mejora de dash est\xE9 activa, podr\xE1s realizar un dash
+        hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Si no recuerdo mal, por aqu\xED hab\xEDa buenas flores para conseguir
+        levadura. Adem\xE1s, tambi\xE9n hay bloques de hielo del fr\xEDo que hace.
+        Podr\xEDa serme \xFAtil para el bar."
+      BadText: "Si no recuerdo mal, por aqu\xED hab\xEDa buenas flores para conseguir
+        levadura. Adem\xE1s, tambi\xE9n hay bloques de hielo del fr\xEDo que hace.
+        Podr\xEDa serme \xFAtil para el bar."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Para interactuar con los objetos interactuables usa la tecla [E].
+      BadText: Para interactuar con los objetos interactuables usa la tecla [E].
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Para salir de aqu\xED solo tengo que buscar una alcantarilla, meterme
+        en ella y volver al almac\xE9n."
+      BadText: "Para salir de aqu\xED solo tengo que buscar una alcantarilla, meterme
+        en ella y volver al almac\xE9n."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Pero para que los pueblerinos no sospechen de m\xED tendr\xE9 que
+        estar en el bar antes del amanecer, cuando abro el bar. Un barman que se
+        precie siempre abre puntual."
+      BadText: "Pero para que los pueblerinos no sospechen de m\xED tendr\xE9 que
+        estar en el bar antes del amanecer, cuando abro el bar. Un barman que se
+        precie siempre abre puntual."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Durante la partida, en la zona superior derecha aparecer\xE1 un
+        contador que marca el tiempo restante esa noche. "
+      BadText: "Durante la partida, en la zona superior derecha aparecer\xE1 un contador
+        que marca el tiempo restante esa noche. "
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Cuando llegue a 0 amanecer\xE1 y volver\xE1s al bar corriendo, pero
+        abrir\xE1s el bar tarde, por lo que los clientes podr\xEDan sospechar de
+        ti."
+      BadText: "Cuando llegue a 0 amanecer\xE1 y volver\xE1s al bar corriendo, pero
+        abrir\xE1s el bar tarde, por lo que los clientes podr\xEDan sospechar de
+        ti."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Antes de que te vayas, puedes abrir el men\xFA pulsando la tecla
+        [Escape] o la tecla [Enter]."
+      BadText: "Antes de que te vayas, puedes abrir el men\xFA pulsando la tecla
+        [Escape] o la tecla [Enter]."
+      Estatus: 0
+      Emisor: 1
+  BebidasPosibles:
+  - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
+  - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
+  - {fileID: 50095138309564695, guid: 53a633e144d84824da0ab7158c9ecd95, type: 3}
+  - {fileID: 2569410387497727134, guid: f27731f859f3edd47b73c5c1594fc208, type: 3}
+  - {fileID: 3966013472983896360, guid: 7cdb398cae0d54247ac09dcc30309438, type: 3}
+  - {fileID: 6424972971031596228, guid: 349733cbd8815b143b33634a42661e2d, type: 3}
+  - {fileID: 3578497006778180916, guid: 5aaa928b1c977c44cb21225b71532b2c, type: 3}
+  - {fileID: 8459704648988062013, guid: 58afd8ac4f825bc47b8d4dccb2f2f4e7, type: 3}
+  - {fileID: 2010269815963506285, guid: 22aa43d414f1d0f4ea89f38fb53b8f33, type: 3}
+  - {fileID: 1347559461043959922, guid: 170b2cb5efceeca459396d311900ca0d, type: 3}
+  - {fileID: 3753307967784241883, guid: f90419596515d854a94991dcef7b2b47, type: 3}
+  - {fileID: 5468166360879465270, guid: 67ea7d50aeb2f534aa68d33154248b1a, type: 3}
+  - {fileID: 6840735394617433481, guid: 5fb2c22f6f8ed3046aa4d1adc550c550, type: 3}
+  - {fileID: 948698964196706433, guid: 89f59fd32757ddf45aad5ac3909d7355, type: 3}
