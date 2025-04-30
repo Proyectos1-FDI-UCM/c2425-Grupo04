@@ -61,9 +61,9 @@ public class AudioManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private static AudioManager _instance;
     #endregion
 
-    private static AudioManager instance;
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
@@ -80,14 +80,14 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (_instance != null)
         {
             DestroyImmediate(this.gameObject);
         }
 
         else
         {
-            instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -116,7 +116,14 @@ public class AudioManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public static AudioManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    }
     #endregion
 
     public void PlaySceneMusic(Scenes scene)

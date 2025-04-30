@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contiene la cantidad total de un enemigo en una partida
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
     [Header("Clientes")]
     [SerializeField] private GameObject[] Clientes;
 
-    
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -171,7 +172,9 @@ public class GameManager : MonoBehaviour
 
         DialoguesSaid = new bool[Clientes.Length, MaxDialogues];
         recursos = new float[SourceTypes];
-        
+
+        AudioManager.Instance.PlaySceneMusic(Scenes.Inicio);
+
     }
 
     #endregion
@@ -226,7 +229,7 @@ public class GameManager : MonoBehaviour
         this._musicManager = musicManager;
     }
 
-    
+
     // --- FIN RECOGIDA DE UIMANAGERS ---
     #endregion
 
@@ -670,7 +673,7 @@ public class GameManager : MonoBehaviour
         // En realidad... todo esto es algo antiguo por lo que lo mismo ya está resuelto)
         System.GC.Collect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
-        System.GC.Collect(); 
+        System.GC.Collect();
     } // ChangeScene
 
     #endregion

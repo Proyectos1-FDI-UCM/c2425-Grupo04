@@ -1278,6 +1278,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[0].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: e341413dfecbd4a45a2eafd39c4a0e6d, type: 3}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: MusicTrack.Array.data[1].SceneMusic
       value: 
       objectReference: {fileID: 8300000, guid: 50f20b63ccea84f4897223084d710374, type: 3}
