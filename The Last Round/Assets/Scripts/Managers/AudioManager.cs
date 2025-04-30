@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class MusicManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -24,6 +24,8 @@ public class MusicManager : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [SerializeField]
     private AudioSource musicSource;
+    [SerializeField]
+    private AudioSource SFXSource;
     [SerializeField]
     private AudioClip[] GameMusic; // 0 = Inicio , 1 = Menu , 2 = Combate , 3 = Bartender , 4 = Mejoras , 5 = Escena final , 6 = Creditos / Derrota
 
@@ -39,7 +41,7 @@ public class MusicManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
     #endregion
 
-    private static MusicManager instance;
+    private static AudioManager instance;
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
@@ -81,6 +83,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         musicSource.volume = GameManager.Instance.GetMusicVolume()/100;
+        SFXSource.volume = GameManager.Instance.GetSfxVolume() / 100;
     }
     #endregion
 
@@ -94,15 +97,23 @@ public class MusicManager : MonoBehaviour
 
     #endregion
 
-    public void ChangeCurrentMusic(int MusicArrayIndex)
+    public void PlaySceneMusic(int MusicArrayIndex)
     {
-        Debug.Log(MusicArrayIndex);
-        if (GameMusic[MusicArrayIndex] != null)
+        //Debug.Log(MusicArrayIndex);
+        if (GameMusic[MusicArrayIndex] != null && musicSource != null)
         {
             
             musicSource.clip = GameMusic[MusicArrayIndex];
             musicSource.Play();
             
+        }
+    }
+    public void PlaySFX(AudioClip sfx)
+    {
+        if (SFXSource != null)
+        {
+            SFXSource.clip = sfx;
+            SFXSource.Play();
         }
     }
     // ---- MÉTODOS PRIVADOS ----

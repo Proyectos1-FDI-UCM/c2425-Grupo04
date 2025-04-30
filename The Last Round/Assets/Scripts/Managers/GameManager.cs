@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     private TutorialDialoguesUIManager TutorialDialoguesUIManager;
     private static GameManager _instance;
     private GameObject Player, PauseMenu;
-    private MusicManager _musicManager;
+    private AudioManager _musicManager;
 
     //Array de inventario
     private float[] recursos;
@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
         return TutorialDialoguesUIManager;
     }
 
-    public MusicManager GetMusicManager()
+    public AudioManager GetMusicManager()
     {
         return _musicManager;
     }
@@ -214,7 +214,7 @@ public class GameManager : MonoBehaviour
         this.TutorialDialoguesUIManager = TutorialDialoguesUIManager;
     }
 
-    public void GiveMusicManager(MusicManager musicManager)
+    public void GiveMusicManager(AudioManager musicManager)
     {
         this._musicManager = musicManager;
     }
@@ -646,7 +646,7 @@ public class GameManager : MonoBehaviour
         System.GC.Collect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
-        _musicManager.ChangeCurrentMusic(index);
+        _musicManager.PlaySceneMusic(index);
         
     } // ChangeScene
 
