@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.UIElements;
 // Añadir aquí el resto de directivas using
 
 
@@ -18,7 +17,12 @@ public class Precursos : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private GameObject[] avisos;
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // públicos y de inspector se nombren en formato PascalCase
+    // (palabras con primera letra mayúscula, incluida la primera letra)
+    // Ejemplo: MaxHealthPoints
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -71,30 +75,10 @@ public class Precursos : MonoBehaviour
         if (collision.gameObject.GetComponent<CastMaterial>() != null &&
             collision.gameObject.GetComponent<RecursoSpawner>() == null)
         {
-            //Identifica el recurso y lo guarda en el inventario
             SourceName source = collision.gameObject.GetComponent<CastMaterial>().GetSourceName();
-            GameManager.Instance.IncreaseResource(source, 1);
+            GameManager.Instance.IncreaseResource(source);
 
             Destroy(collision.gameObject);
-
-            //Se busca el aviso correspondiente con el recurso y se instancia
-            int i = 0;
-            bool enc = false;
-
-            while (i < avisos.Length && !enc)
-            {
-                SourceName Material = avisos[i].GetComponent<CastMaterial>().GetSourceName();
-                if (Material == source)
-                {
-                    enc = true;
-                }
-                else i++;
-            }
-
-            if (enc)
-            {
-                Instantiate(avisos[i], transform.position, Quaternion.identity);
-            }
         }
     }
 

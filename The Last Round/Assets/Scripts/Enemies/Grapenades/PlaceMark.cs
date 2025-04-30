@@ -60,12 +60,7 @@ public class PlaceMark : MonoBehaviour
     {
         if (Player != null)
         {
-            Vector2 PlayerPos = Player.transform.position;
-            if (Player.GetComponent<Collider2D>() != null)
-            {
-                PlayerPos += Player.GetComponent<Collider2D>().offset;
-            }
-            marcaInstanciada = Instantiate(MarcaPrefab, PlayerPos, Quaternion.identity);
+            marcaInstanciada = Instantiate(MarcaPrefab, Player.transform.position, Quaternion.identity);
             marcaInstanciada.GetComponent<MarcaBehaviour>().SetEmisor(this);
         }
 
