@@ -73,7 +73,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] Animator Animator;
 
-
+    [SerializeField]
+    private AudioClip woodSfx, paperSfx;
 
     #endregion
 
@@ -270,6 +271,8 @@ public class UIManager : MonoBehaviour
     //Al pulsar continuar, empieza a escribir la siguiente frase
     public void SkipButton()
     {
+        AudioManager.Instance.PlaySFX(paperSfx);
+        
         if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) //Si el texto ha acabado queremos que pase al siguiente
         {
             if (DialogueLine < dialogue.GetLength(0) - 1) //Si queda texto pasa al siguiente
@@ -294,6 +297,7 @@ public class UIManager : MonoBehaviour
 
     public void OptionL() //Cuando es pulsado el boton izquierdo
     {
+        AudioManager.Instance.PlaySFX(paperSfx);
         //desactiva las opciones y activa el boton de saltar dialogo
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
@@ -320,6 +324,7 @@ public class UIManager : MonoBehaviour
 
     public void OptionR() //Cuando es pulsado el boton derecho
     {
+        AudioManager.Instance.PlaySFX(paperSfx);
         //desactiva las opciones y activa el boton de saltar dialogo
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
@@ -498,6 +503,7 @@ public class UIManager : MonoBehaviour
 
     public void SumarMaterial(Button material)
     {
+        
         //Antes de hacer nada busco el botón y le pregunto si tiene mas de 1 de material para proceder con el resto
         if (material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
         {
@@ -551,6 +557,7 @@ public class UIManager : MonoBehaviour
 
     public void RegresarMats()
     {
+        
         //Hacen un recorrido por todos los botones que se están usando en la cesta (que tienen al menos un material)
         for (int i = 0; i < buttonUsing; i++)
         {
@@ -586,6 +593,7 @@ public class UIManager : MonoBehaviour
 
     public void Servir()
     {
+        
         if (matsReqEnCesta)//Si están los materiales requeridos en el pedido, quita la cantidad del pedido de la cesta
         {
             for (int i = 0; i < matsEnCesta.Length; i++)

@@ -30,6 +30,8 @@ public class Cheats : MonoBehaviour
     Slider numManzurrias, numUvoncios, numManzarietes, numGrapenades,
                             habMinManzariete, habMinGrapenade, tiempo, recursosIniciales,
                             dineroInicial, enemigosVez;
+    [SerializeField]
+    private AudioClip woodSfx;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -112,6 +114,8 @@ public class Cheats : MonoBehaviour
 
     public void OpenCloseMenu(GameObject MenuToClose)
     {
+        AudioManager.Instance.PlaySFX(woodSfx);
+        
         if (!MenuToClose.activeSelf)
         {
             MenuToClose.SetActive(true);
@@ -120,6 +124,11 @@ public class Cheats : MonoBehaviour
         {
             MenuToClose.SetActive(false);
         }
+    }
+
+    public void PlaySoundEffect()
+    {
+        AudioManager.Instance.PlaySFX(woodSfx);
     }
 
     #endregion

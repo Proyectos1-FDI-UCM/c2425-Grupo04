@@ -32,6 +32,9 @@ public class PauseManager : MonoBehaviour
     private GameObject PauseMenu, SubMenu;
     [SerializeField]
     private Button MenuButton;
+    [SerializeField]
+    private AudioClip woodSfx, paperSfx;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -113,6 +116,7 @@ public class PauseManager : MonoBehaviour
     //Se abre el menu que se asigna desde el boton que llama al metodo
     public void OpenPauseMenu(GameObject menuToOpen)
     {
+        PlaySoundEffect(woodSfx);
         if (menuToOpen != null)
         {
             menuToOpen.SetActive(true);
@@ -132,6 +136,7 @@ public class PauseManager : MonoBehaviour
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
     public void ClosePauseMenu(GameObject menuToClose)
     {
+        PlaySoundEffect(paperSfx);
         if (menuToClose == PauseMenu)
         {
             Time.timeScale = 1f;
@@ -150,6 +155,7 @@ public class PauseManager : MonoBehaviour
     //Le da el volumen al gameManager
     public void MusicVolume()
     {
+        //AudioManager.Instance.PlaySFX(woodSfx);
         if (musicSlider != null)
         {
             GameManager.Instance.SetMusicVolume(musicSlider.value);
@@ -158,10 +164,16 @@ public class PauseManager : MonoBehaviour
 
     public void SfxVolume()
     {
+        //AudioManager.Instance.PlaySFX(woodSfx);
         if (sfxSlider != null)
         {
             GameManager.Instance.SetSfxVolume(sfxSlider.value);
         }
+    }
+
+    public void PlaySoundEffect(AudioClip sfx)
+    {
+        AudioManager.Instance.PlaySFX(sfx);
     }
 
     #endregion

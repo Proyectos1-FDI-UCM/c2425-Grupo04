@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
+    [SerializeField] AudioClip woodSFX;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -71,11 +73,14 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame(int Scene)
     {
+        AudioManager.Instance.PlaySFX(woodSFX);
         GameManager.Instance.ChangeScene(Scene);
     }
 
     public void Exit()
     {
+        AudioManager.Instance.PlaySFX(woodSFX);
+
 #if UNITY_STANDALONE
         Application.Quit();
 #endif

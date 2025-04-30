@@ -5092,6 +5092,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: paperSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: e82251b5460733845a12ffddccf291c5, type: 3}
     - target: {fileID: 7290100917903101236, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_Layer
       value: 5

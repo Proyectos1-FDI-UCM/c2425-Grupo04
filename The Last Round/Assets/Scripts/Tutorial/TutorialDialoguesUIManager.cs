@@ -36,6 +36,8 @@ public class TutorialDialoguesUIManager : MonoBehaviour
     private bool ChangeSceneAtEnd;
     [SerializeField]
     private int NextScene;
+    [SerializeField]
+    private AudioClip paperSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -125,6 +127,8 @@ public class TutorialDialoguesUIManager : MonoBehaviour
     //Al pulsar continuar, empieza a escribir la siguiente frase
     public void SkipButton()
     {
+        AudioManager.Instance.PlaySFX(paperSFX);
+
         if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) //Si el texto ha acabado queremos que pase al siguiente
         {
             if (DialogueLine < dialogue.GetLength(0) - 1) //Si queda texto pasa al siguiente
@@ -149,6 +153,8 @@ public class TutorialDialoguesUIManager : MonoBehaviour
 
     public void OptionL() //Cuando es pulsado el boton izquierdo
     {
+        AudioManager.Instance.PlaySFX(paperSFX);
+
         //desactiva las opciones y activa el boton de saltar dialogo
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
@@ -174,6 +180,8 @@ public class TutorialDialoguesUIManager : MonoBehaviour
 
     public void OptionR() //Cuando es pulsado el boton derecho
     {
+        AudioManager.Instance.PlaySFX(paperSFX);
+
         //desactiva las opciones y activa el boton de saltar dialogo
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
