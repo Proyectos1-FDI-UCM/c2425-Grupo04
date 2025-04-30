@@ -40,6 +40,13 @@ public class UIManagerUpgrades : MonoBehaviour
     private Image[] coinImg = new Image[3]; //0 es arma distancia, 1 es dash, 2 es daño distancia
     [SerializeField]
     private TextMeshProUGUI dineroTotalText;
+    [SerializeField]
+    private float HealthUpgradePercent,
+                  MeleeDamageUpgradePercent,
+                  RangeDamageUpgradePercent,
+                  BaseHealth = 0,
+                  BaseMeleeDamage = 0,
+                  BaseRangeDamage = 0;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -74,8 +81,14 @@ public class UIManagerUpgrades : MonoBehaviour
         costBox[1].text = "x" + costeNormales;
         costBox[2].text = "x" + costeNormales;
         costBox[3].text = "x" + costeNormales;
-        //Cambia la descripcion de las mejoras normales (Vida y Melee)
-        ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 2);
+
+        //Darle al GameManager los porcentajes de mejora
+        GameManager.Instance.SetHealthPercent(HealthUpgradePercent / 100);
+        GameManager.Instance.SetMeleeDamagePercent(MeleeDamageUpgradePercent / 100);
+        GameManager.Instance.SetRangeDamagePercent(RangeDamageUpgradePercent / 100);
+
+        //Cambia la descripcion de las mejoras normales (Vida y Melee y Sale)
+        ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 1);
         ChangeDesc(descs[2], GameManager.Instance.GetUpgradeLevel(2), 2);
         ChangeDesc(descs[3], GameManager.Instance.GetUpgradeLevel(3), 3);
 
@@ -113,7 +126,6 @@ public class UIManagerUpgrades : MonoBehaviour
             descs[5].text = "Desbloquea la habilidad Dash";
             coinImg[1].enabled = true;
         }
-        
     }
 
     /// <summary>
@@ -135,6 +147,7 @@ public class UIManagerUpgrades : MonoBehaviour
         {
             GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
             GameManager.Instance.IncreaseUpgradeLevel(element); //Sube el nivel de la mejora
+            Debug.Log(element);
             ChangeDesc(descs[element], GameManager.Instance.GetUpgradeLevel(element), element); //Cambia su descripcion
         }
     }
@@ -179,7 +192,44 @@ public class UIManagerUpgrades : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void ChangeDesc(TextMeshProUGUI textBox, int level, int element)
     {
-        textBox.text = "Nivel actual:       " + level + "\nSiguiente nivel:    " + (level + 1) + "\n" + descripciones[element];
+        string upgrade = "";
+        float amount = 0;
+        float NextAmount = 0;
+
+        if (element == 0 || element == 1)
+        {
+            upgrade = "Daño";
+
+            if (element == 0)
+            {
+                amount = BaseRangeDamage + (int)((RangeDamageUpgradePercent / 100) * BaseRangeDamage * GameManager.Instance.GetUpgradeLevel(0));
+
+                NextAmount = BaseRangeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseRangeDamage * (GameManager.Instance.GetUpgradeLevel(0) + 1));
+            }
+            else
+            {
+                amount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * GameManager.Instance.GetUpgradeLevel(1));
+
+                NextAmount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * (GameManager.Instance.GetUpgradeLevel(1)+1));
+            }
+        }
+        else if (element == 2)
+        {
+            upgrade = "Vida";
+
+            amount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * GameManager.Instance.GetUpgradeLevel(2));
+
+            NextAmount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * (GameManager.Instance.GetUpgradeLevel(2) + 1));
+        }
+
+
+        textBox.text = $"{descripciones[element]}\n" +
+                       $"ACTUAL:\n" +
+                       $"   Nivel: {level}\n" +
+                       $"   {upgrade}: {amount} puntos\n" +
+                       $"SIGUIENTE:\n" +
+                       $"   Nivel: {level + 1}\n" +
+                       $"   {upgrade}: {NextAmount} puntos\n";
     }
     #endregion
 

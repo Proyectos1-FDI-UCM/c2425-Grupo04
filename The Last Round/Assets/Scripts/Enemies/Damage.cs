@@ -34,7 +34,6 @@ public class Damage : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -80,11 +79,11 @@ public class Damage : MonoBehaviour
             float mejoraDmg = 0;
             if (GetComponent<MeleeAttack>() != null) //si es el cuerpo a cuerpo
             {
-                mejoraDmg = 0.1f * Basedamage * GameManager.Instance.GetUpgradeLevel(1); //mejora un 10% el daño por cada nivel de mejora
+                mejoraDmg = (int)(GameManager.Instance.GetMeleeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(1)); //mejora un 10% el daño por cada nivel de mejora
             }
             else if (GetComponent<BulletMovement>() != null) //si es la bala
             {
-                mejoraDmg = 0.1f * Basedamage * GameManager.Instance.GetUpgradeLevel(0);
+                mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0));
             }
 
             health.GetDamage(Basedamage + mejoraDmg);
