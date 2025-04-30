@@ -1235,7 +1235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: MusicTrack.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: GameMusic.Array.data[1]
@@ -1255,8 +1255,44 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: c97215f5736c1e84b911f585882e634f, type: 3}
     - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: MusicTrack.Array.data[0].Escena
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[1].Escena
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[3].Escena
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[4].Escena
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[5].Escena
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[6].Escena
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[1].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 50f20b63ccea84f4897223084d710374, type: 3}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[2].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: cb2117d0a86949f4aa6d77674fb7c0f6, type: 3}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[3].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 062b1e52b79c550479fc8169d7831ee6, type: 3}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[4].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: c97215f5736c1e84b911f585882e634f, type: 3}
     - target: {fileID: 8862978432594252673, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: m_Name
       value: AudioManager
