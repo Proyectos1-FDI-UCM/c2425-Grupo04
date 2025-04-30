@@ -9,6 +9,7 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -23,9 +24,7 @@ public class AttackGeneral : MonoBehaviour
     private float AttackCooldown;
 
     [SerializeField]
-    private Transform customCursor;
-
-
+    private Button detector;
 
     [SerializeField]
     private Transform pivot; //centro de rotación
@@ -50,41 +49,87 @@ public class AttackGeneral : MonoBehaviour
     private Vector2 originRotation;
     private float timer = 0;
     private bool weaponType; //TEMPORAL TRUE = DISPARO      FALSE = MELEE
+    private bool UsingJoystick = false;
+    private Vector2 LastMousePosition;
+    private float timerCanRotate = 0;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
-
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
         //customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
-        mousePos = cameraMain.ScreenToWorldPoint(new Vector3 (Mouse.current.position.x.value,Mouse.current.position.y.value,0));
+        mousePos = cameraMain.ScreenToWorldPoint(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, 0));
+        Vector2 mousePosScreen = new Vector2(Mouse.current.position.x.value, Mouse.current.position.y.value);
 
-        //Debug.Log(mousePos);
-        customCursor.position = new Vector3 (mousePos.x , mousePos.y , 0);
-        Vector3 rotationOrigin = mousePos - transform.position;
-
-        float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
-        pivot.transform.rotation = Quaternion.Euler(0,0,rotZ - 90);
-
-
-        if (InputManager.Instance.ChangeWeaponWasPressedThisFrame())
+        if (!UsingJoystick && InputManager.Instance.AimVector != Vector2.zero)
         {
-            if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
-            else if  (!weaponType) weaponType = true;
+            UsingJoystick = true;
+        }
+        else if (UsingJoystick && mousePosScreen != LastMousePosition)
+        {
+            UsingJoystick = false;
+        }
+        LastMousePosition = mousePosScreen;
+
+        Vector3 rotationOrigin;
+        if (!UsingJoystick)
+        {
+            rotationOrigin = mousePos - transform.position;
+        }
+        else
+        {
+            rotationOrigin = InputManager.Instance.AimVector;
         }
 
-        if (InputManager.Instance.FireWasPressedThisFrame() && timer <= 0)
+        if (timerCanRotate <= 0)
+        {
+            float rotZ = Mathf.Atan2(rotationOrigin.y, rotationOrigin.x) * Mathf.Rad2Deg;
+            pivot.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90);
+        }
+
+        if (InputManager.Instance.ChangeWeaponWasPressedThisFrame() &&
+            !GameManager.Instance.IsPauseActive())
+        {
+            if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
+            else if (!weaponType) weaponType = true;
+        }
+
+        if (GameManager.Instance.GetUIC() != null)
+        {
+            GameManager.Instance.GetUIC().SwitchWeaponDisplay(weaponType);
+        }
+
+        bool CanFire = InputManager.Instance.FireWasPressedThisFrame() &&
+                       timer <= 0 &&
+                       !GameManager.Instance.IsPauseActive();
+
+        if (detector != null && detector.gameObject.activeSelf && detector.GetComponent<CursorDetector>() != null)
+        {
+            CanFire = CanFire && !detector.GetComponent<CursorDetector>().IsMouseOnButton();
+        }
+
+        if (CanFire)
         {
             if (weaponType) Shoot();
             else Melee();
             timer = AttackCooldown;
         }
-        timer -= Time.deltaTime;
+
+        if (!GameManager.Instance.IsPauseActive())
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timerCanRotate >= 0)
+        {
+            timerCanRotate -= Time.deltaTime;
+        }
+
+
     }
     #endregion
 
@@ -95,9 +140,8 @@ public class AttackGeneral : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -105,14 +149,15 @@ public class AttackGeneral : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-
-    private void Shoot ()
+    private void Shoot()
     {
         Instantiate(bulletPrefab, origin.transform.position, pivot.transform.rotation);
     }
 
     private void Melee()
     {
+        timerCanRotate = meleeObject.GetComponent<MeleeAttack>().GetDuration();
+        Debug.Log(timerCanRotate);
         meleeObject.GetComponent<MeleeAttack>().attack();
     }
     #endregion   

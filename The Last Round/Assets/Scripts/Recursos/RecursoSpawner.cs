@@ -5,7 +5,9 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using TMPro;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86.Avx;
 // Añadir aquí el resto de directivas using
 
 /// <summary>
@@ -21,6 +23,7 @@ public class RecursoSpawner : MonoBehaviour
     private float detectdistancia = 1.2f, HoldingTime = 0;
     [SerializeField]
     private float limitrecursos = 5;
+    [SerializeField] GameObject Contadorrecurso;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -45,6 +48,7 @@ public class RecursoSpawner : MonoBehaviour
     /// </summary>
     void Start()
     {
+       
         timer = HoldingTime;
         source = GetComponent<CastMaterial>().GetSourceName();
     }
@@ -68,7 +72,9 @@ public class RecursoSpawner : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
-            if (InputManager.Instance.InteractWasReleasedThisFrame()) //En el momento en el que se suelta el timer del hold se resetea
+            //En el momento en el que se suelta el timer del hold se resetea si no está en pausa
+            if (InputManager.Instance.InteractWasReleasedThisFrame() &&
+                !GameManager.Instance.IsPauseActive())
             {
                 timer = HoldingTime;
             }
@@ -79,7 +85,8 @@ public class RecursoSpawner : MonoBehaviour
             {
                 timer = HoldingTime;
 
-                GameManager.Instance.IncreaseResource(source);
+                GameManager.Instance.IncreaseResource(source, 1);
+                Instantiate(Contadorrecurso, gameObject.transform.position, Quaternion.identity);
                 recursosacado += 1;
 
                 if (recursosacado >= limitrecursos)
@@ -102,7 +109,14 @@ public class RecursoSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
+    public float GetHoldingTime()
+    {
+        return HoldingTime;
+    }
+    public float GetTimer()
+    {
+        return timer;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

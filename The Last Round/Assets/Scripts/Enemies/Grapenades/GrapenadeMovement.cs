@@ -22,6 +22,8 @@ public class GrapenadeMovement : MonoBehaviour
     private float range;
     [SerializeField]
     private float marchaAtrasSpeed;
+    [SerializeField]
+    private float ObjectSizeX, ObjectSizeY;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -30,7 +32,6 @@ public class GrapenadeMovement : MonoBehaviour
     private MoveToPlayer moveToPlayer;
     private Vector3 EnemyPlayer;
     private GameObject recurso;
-    private Collider2D ObjectCollider;
     private float minX, maxX, minY, maxY;
     #endregion
 
@@ -49,7 +50,6 @@ public class GrapenadeMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
-        ObjectCollider = GetComponent<Collider2D>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
@@ -75,10 +75,10 @@ public class GrapenadeMovement : MonoBehaviour
         {
             Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-            posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-            posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
-            posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
-            posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
+            posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
+            posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
+            posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
+            posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
 
             if ((-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
                 (-EnemyPlayer.y > 0 && posMaxY.y >= maxY))

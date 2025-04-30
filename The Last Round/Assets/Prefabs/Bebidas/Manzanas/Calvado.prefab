@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5895df2746850a446ba07c2b9d3ff516, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b2451deec9473541bae6131c6ccfc13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
     Name: 2
     Materials:
     - Material: {fileID: 4423979788562637781, guid: 97d86ae7791e3d34c804925006e91441, type: 3}
-      Amount: 10
+      Amount: 6
     - Material: {fileID: 196200741204893722, guid: 44e047ea7bec364488f904e9c9e1cb84, type: 3}
-      Amount: 10
-    Reward: 2
+      Amount: 6
+    Reward: 4
     Type: 0

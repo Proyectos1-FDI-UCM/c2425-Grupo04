@@ -6,8 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 // Añadir aquí el resto de directivas using
 
 
@@ -24,6 +22,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+    [SerializeField] private int Scene;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -34,36 +33,22 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private bool PlayerWasDetected = false;
+    private bool Alcantarilla = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        if (InputManager.Instance.InteractWasPressedThisFrame() && PlayerWasDetected)
+        if (InputManager.Instance.InteractWasPressedThisFrame() && Alcantarilla)
         {
-            ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
+            if (GetComponent<ResetGame>() != null)
+            {
+                GetComponent<ResetGame>().ResetGM();
+            }
+            GameManager.Instance.ChangeScene(Scene);
         }
     }
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -84,16 +69,17 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // mayúscula, incluida la primera letra)
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        if (other.GetComponent<PlayerMovement>() != null)
         {
-            PlayerWasDetected = true;
+            Alcantarilla = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerMovement>() != null) // Verificar si el player toca la alcantarilla, tiene el script playerMovement y se pulsa el input
+        if (other.GetComponent<PlayerMovement>() != null)
         {
-            PlayerWasDetected = false;
+            Alcantarilla = false;
         }
     }
     #endregion

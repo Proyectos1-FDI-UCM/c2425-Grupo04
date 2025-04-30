@@ -554,7 +554,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1105821563, guid: d59d23ddb3d76184aa24806a3a7cafd1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.54509807, g: 0.54509807, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -582,6 +582,8 @@ MonoBehaviour:
   SprintTime: 2
   BreakSpeed: 20
   BreakTime: 0.75
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!114 &524050083081553167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  ObjectSizeX: 1
+  ObjectSizeY: 1
 --- !u!50 &6434944096096345892
 Rigidbody2D:
   serializedVersion: 4

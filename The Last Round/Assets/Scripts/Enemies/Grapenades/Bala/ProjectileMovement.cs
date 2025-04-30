@@ -60,6 +60,18 @@ public class ProjectileMovement : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.down * Speed * Time.deltaTime;
+
+        if (marca != null)
+        {
+            if (transform.position.y < marca.transform.position.y)
+            {
+                Vector3 tmp = marca.transform.position;
+                marca.GetComponent<MarcaBehaviour>().MarcaEliminada();
+                Destroy(marca);
+                GetComponent<Explosion>().Explode(tmp);
+                Destroy(gameObject);
+            }
+        }
     }
     #endregion
 

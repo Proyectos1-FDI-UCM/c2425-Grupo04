@@ -156,7 +156,12 @@ public class InputManager : MonoBehaviour
     /// es un vector normalizado 
     /// </summary>
     public Vector2 MovementVector { get; private set; }
-
+    /// <summary>
+    /// Propiedad para acceder al vector de apuntado.
+    /// Según está configurado el InputActionController,
+    /// es un vector normalizado 
+    /// </summary>
+    public Vector2 AimVector { get; private set; }
     /// <summary>
     /// Método para saber si el botón de disparo (Fire) está pulsado
     /// Devolverá true en todos los frames en los que se mantenga pulsado
@@ -231,11 +236,13 @@ public class InputManager : MonoBehaviour
 
         // Cacheamos la acción de movimiento
         InputAction movement = _theController.Player.Move;
+        InputAction aim = _theController.Player.Aim;
         // Para el movimiento, actualizamos el vector de movimiento usando
         // el método OnMove
         movement.performed += OnMove;
         movement.canceled += OnMove;
-
+        aim.performed += OnAim;
+        aim.canceled += OnAim;
         // Para el disparo solo cacheamos la acción de disparo.
         // El estado lo consultaremos a través de los métodos públicos que 
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
@@ -255,8 +262,20 @@ public class InputManager : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         MovementVector = context.ReadValue<Vector2>();
+        //Debug.Log(MovementVector.x + " , " + MovementVector.y);
+    }
+
+    /// <summary>
+    /// Método que es llamado por el controlador de input cuando se producen
+    /// eventos de apuntado (relacionados con la acción Aim)
+    /// </summary>
+    /// <param name="context">Información sobre el evento de movimiento</param>
+    private void OnAim(InputAction.CallbackContext context)
+    {
+        AimVector = context.ReadValue<Vector2>();
+        //Debug.Log(AimVector.x + " , " + AimVector.y);
     }
 
     #endregion
 } // class InputManager 
-// namespace
+  // namespace
