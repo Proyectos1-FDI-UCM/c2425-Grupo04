@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 4999294213336279011}
+  SFXSource: {fileID: 9057845100726768726}
   GameMusic:
   - {fileID: 0}
   - {fileID: 0}
