@@ -8,7 +8,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Contiene la cantidad total de un enemigo en una partida
@@ -18,6 +17,12 @@ struct NumEnemy
 {
     public EnemyType Enemy;
     public int amount;
+}
+[System.Serializable]
+struct SceneIndex
+{
+    public Scenes scene;
+    public int index;
 }
 /// <summary>
 /// Componente responsable de la gestión global del juego. Es un singleton
@@ -36,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private int SourceTypes;
+    [SerializeField]
+    private SceneIndex[] ScenesIndex;
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
@@ -646,8 +653,25 @@ public class GameManager : MonoBehaviour
         System.GC.Collect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
         System.GC.Collect();
-        _musicManager.PlaySceneMusic(index);
-        
+
+        int i = 0;
+        bool enc = false;
+
+        while (i < ScenesIndex.Length && !enc)
+        {
+            if (ScenesIndex[i].index == index)
+            {
+                enc = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        if (enc)
+        {
+            _musicManager.PlaySceneMusic(ScenesIndex[i].scene);
+        }
     } // ChangeScene
 
     #endregion

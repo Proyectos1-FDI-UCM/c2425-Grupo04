@@ -8,6 +8,27 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
+/// <summary>
+/// Enum que contiene todos los momentos con distinta música en el juego
+/// </summary>
+public enum Scenes
+{
+    Inicio,
+    MenuInicio,
+    Combate,
+    Bartender,
+    Mejora,
+    Creditos,
+    GameOver
+}
+
+//Contiene un momento con música y la música
+[System.Serializable]
+public struct Music
+{
+    public Scenes Escena;
+    public AudioClip SceneMusic;
+}
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -26,8 +47,9 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicSource;
     [SerializeField]
     private AudioSource SFXSource;
+
     [SerializeField]
-    private AudioClip[] GameMusic; // 0 = Inicio , 1 = Menu , 2 = Combate , 3 = Bartender , 4 = Mejoras , 5 = Escena final , 6 = Creditos / Derrota
+    private Music[] MusicTrack;
 
     #endregion
 
@@ -82,7 +104,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        musicSource.volume = GameManager.Instance.GetMusicVolume()/100;
+        musicSource.volume = GameManager.Instance.GetMusicVolume() / 100;
         SFXSource.volume = GameManager.Instance.GetSfxVolume() / 100;
     }
     #endregion
@@ -97,15 +119,26 @@ public class AudioManager : MonoBehaviour
 
     #endregion
 
-    public void PlaySceneMusic(int MusicArrayIndex)
+    public void PlaySceneMusic(Scenes scene)
     {
-        //Debug.Log(MusicArrayIndex);
-        if (GameMusic[MusicArrayIndex] != null && musicSource != null)
+        int i = 0;
+        bool enc = false;
+
+        while (i < MusicTrack.Length && !enc)
         {
-            
-            musicSource.clip = GameMusic[MusicArrayIndex];
+            if (MusicTrack[i].Escena == scene)
+            {
+                enc = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        if (enc)
+        {
+            musicSource.clip = MusicTrack[i].SceneMusic;
             musicSource.Play();
-            
         }
     }
     public void PlaySFX(AudioClip sfx)
