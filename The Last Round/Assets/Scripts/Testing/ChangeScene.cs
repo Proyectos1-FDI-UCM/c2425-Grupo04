@@ -7,6 +7,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -57,7 +58,6 @@ public class ChangeScene : MonoBehaviour
     public void ChangeToNextScene()
     {
         GameManager.Instance.ChangeScene(nextScene);
-        
     }
 
     #endregion

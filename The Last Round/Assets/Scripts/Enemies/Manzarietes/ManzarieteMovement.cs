@@ -20,10 +20,7 @@ public class ManzarieteMovement : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     //Rango de sprint, tiempo de carga del sprint, velocidad del sprint, tiempo que se hace el sprint
     //, velocidad de frenado y tiempo de frenado
-    [SerializeField] private float RangeAttack, ChargeTime,
-                                   SprintSpeed, SprintTime,
-                                   BreakSpeed, BreakTime,
-                                   ObjectSizeX, ObjectSizeY;
+    [SerializeField] private float RangeAttack, ChargeTime, SprintSpeed, SprintTime, BreakSpeed, BreakTime;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -153,10 +150,10 @@ public class ManzarieteMovement : MonoBehaviour
 
             Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-            posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
-            posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
-            posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
-            posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
+            posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+            posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+            posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+            posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
             if ((LastPlayerPosition.x < 0 && posMinX.x <= minX) ||
                 (LastPlayerPosition.x > 0 && posMaxX.x >= maxX))

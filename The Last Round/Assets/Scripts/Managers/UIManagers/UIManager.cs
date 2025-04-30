@@ -10,6 +10,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 /// <summary>
@@ -21,8 +22,6 @@ public class UIManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject gameOverUI;
-
-    [SerializeField] private int NextScene;
 
     [SerializeField] Sprite OrionSprite;
 
@@ -45,7 +44,7 @@ public class UIManager : MonoBehaviour
     private Button option1Button, option2Button;
 
 
-    [Header("SISTEMA DE CREACIÓN DE BEBIDAS")]
+    [Header ("SISTEMA DE CREACIÓN DE BEBIDAS")]
     [SerializeField]
     private Button regresarMats;
 
@@ -71,8 +70,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dineroTotalText;
     private float dineroTotal;
 
-    [SerializeField] Animator Animator;
-
 
 
     #endregion
@@ -87,6 +84,7 @@ public class UIManager : MonoBehaviour
     private SpriteRenderer Client;
     private Color ClientC, invisible, visible;
     private GameObject Drink;
+    private bool mat1Yes = true, mat2Yes = true, mat3Yes = true;
     private int buttonUsing = 0;
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
@@ -106,9 +104,10 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+       
         dineroTotal = GameManager.Instance.GetDineros();
         dineroTotalText.text = dineroTotal.ToString();
-        //Debug.Log(dineroTotal);
+        Debug.Log(dineroTotal);
         GameManager.Instance.GiveUI(this);
 
         //Comprueba si el GameManager ha sumado 2 al sistema de sospecha antes de cambiar de escena
@@ -154,11 +153,6 @@ public class UIManager : MonoBehaviour
 
         CharacterPortrait.gameObject.SetActive(false);
         DrinkImage.gameObject.SetActive(false);
-
-        if (Animator != null)
-        {
-            Animator.Play($"ContSospecha{GameManager.Instance.GiveSospecha()}");
-        }
     }
 
     /// <summary>
@@ -194,9 +188,9 @@ public class UIManager : MonoBehaviour
 
                     if (!PickedBadChoice)
                     {
-                        GameManager.Instance.increaseSospechosos(-1);
-                    }
-                    GameManager.Instance.ChangeScene(NextScene);
+                        GameManager.Instance.increaseSospechosos(-2);
+                    }   
+                    ScenesManager.Instance.NextScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }
         }
@@ -205,7 +199,9 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < recursos.Length; i++)
         {
             //Actualiza la cantidad de materiales al inventario que tienes
-            matNums[i].text = recursos[i].ToString();
+            //matNums[i].text = recursos[i].ToString();
+
+            //¿EN EL UPDATE? NO SE YO, LO VOY A BAJAR UN POCO A LOS METODOS QUE ALTERAN LA CESTA
 
             //Actualiza la cantidad de materiales que hay en la cesta
             //matsNumsEnCesta[i].text = matsEnCesta[i].ToString();
@@ -227,6 +223,57 @@ public class UIManager : MonoBehaviour
         if (matsTotales > 0) regresarMats.gameObject.SetActive(true);
         else regresarMats.gameObject.SetActive(false);
 
+
+        if (Drink != null && Drink.GetComponent<CastDrink>().GetDrinkMaterials() != null)
+        {
+            //Mira si cada uno de los materiales estan en la cesta
+            for (int i = 0; i < matsEnCesta.Length; i++)
+            {
+                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Material.GetComponent<SpriteRenderer>().sprite)
+                {
+                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Amount)
+                    {
+                        mat1Yes = true;
+                    }
+                    else
+                    {
+                        mat1Yes = false;
+                    }
+                }
+                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Material.GetComponent<SpriteRenderer>().sprite)
+                {
+                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Amount)
+                    {
+                        mat2Yes = true;
+                    }
+                    else
+                    {
+                        mat2Yes = false;
+                    }
+                }
+                if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 3 && matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Material.GetComponent<SpriteRenderer>().sprite)
+                {
+                    if (matsEnCesta[i] >= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Amount)
+                    {
+                        mat3Yes = true;
+                    }
+                    else
+                    {
+                        mat3Yes = false;
+                    }
+                }
+            }
+            //Si todos los materiales estan el la cesta
+            if (mat1Yes && mat2Yes && mat3Yes)
+            {
+                matsReqEnCesta = true;
+            }
+            else
+            {
+                matsReqEnCesta = false;
+            }
+        }
+
         //Cambio de texto del boton de servir si estan los materiales pedidos en la cesta
         if (matsReqEnCesta)
         {
@@ -244,6 +291,8 @@ public class UIManager : MonoBehaviour
     #region Bartender
 
     //UIManager recoge al cliente y su velocidad de aparición, que utilizará para desaparecer.
+    
+
     public void GetClientSprite(SpriteRenderer Client)
     {
         this.Client = Client;
@@ -345,11 +394,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(Write());
     }
 
-    public Animator GiveAnimator()
-    {
-        return Animator;
-    }
-
     public void DetectarEstatus()
     {
         #region Comportamiento del monólogo
@@ -401,8 +445,7 @@ public class UIManager : MonoBehaviour
             DrinkImage.color = visible;
 
             //Actualiza la recompensa
-            if (Client.gameObject.GetComponent<CastEnemy>() != null &&
-                Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
+            if (Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
             {
                 recompensa.text = $"{Drink.GetComponent<CastDrink>().GetDrinkReward() * 2} monedas";
             }
@@ -417,6 +460,7 @@ public class UIManager : MonoBehaviour
                 material3.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Amount}";
                 material3Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[2].Material.GetComponent<SpriteRenderer>().sprite;
                 material3Image.color = visible;
+                mat3Yes = false;
             }
 
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 2)
@@ -424,6 +468,7 @@ public class UIManager : MonoBehaviour
                 material2.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Amount}";
                 material2Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[1].Material.GetComponent<SpriteRenderer>().sprite;
                 material2Image.color = visible;
+                mat2Yes = false;
             }
 
             if (Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length >= 1)
@@ -431,75 +476,24 @@ public class UIManager : MonoBehaviour
                 material1.text = $"x{Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Amount}";
                 material1Image.sprite = Drink.GetComponent<CastDrink>().GetDrinkMaterials()[0].Material.GetComponent<SpriteRenderer>().sprite;
                 material1Image.color = visible;
+                mat1Yes = false;
             }
-            ComproveBasket();
+
         }
 
         #endregion
+
+        #region Comportamiento del retrato
+
+        #endregion
+
     }
 
-    /// <summary>
-    /// Determina si los materiales necesarios para la creación de la bebida están o no en la cesta
-    /// </summary>
-    public void ComproveBasket()
-    {
-        matsReqEnCesta = true;
-
-        if (Drink != null && Drink.GetComponent<CastDrink>() != null)
-        {
-            CastDrink drink = Drink.GetComponent<CastDrink>();
-
-            //Busca en los materiales necesarios para la bebida
-            //Siempre que tenga los materiales
-            int i = 0;
-            while (i < drink.GetDrinkMaterials().Length && matsReqEnCesta)
-            {
-                int j = 0;
-                bool enc = false;
-                //Busca el material en la cesta
-                while (j < matCestaImages.Length && !enc)
-                {
-                    if (matCestaImages[j].sprite ==
-                        drink.GetDrinkMaterials()[i].Material.GetComponent<SpriteRenderer>().sprite)
-                    {
-                        enc = true;
-                        //Comprueba su cantidad
-                        int amount;
-
-                        try
-                        {
-                            amount = int.Parse(matCestaImages[j].GetComponentInChildren<TextMeshProUGUI>().text);
-                        }
-                        catch
-                        {
-                            amount = 0;
-                        }
-
-
-                        if (amount < drink.GetDrinkMaterials()[i].Amount)
-                        {
-                            //En el momento en el que encuentra uno de los materiales que no cumple los requisitos sale del bucle
-                            matsReqEnCesta = false;
-                        }
-                    }
-                    j++;
-                }
-
-                //Si directamente no encuentra el material en cesta entonces no están los materiales necesarios
-                if (!enc)
-                {
-                    matsReqEnCesta = false;
-                }
-
-                i++;
-            }
-        }
-    }
 
     public void SumarMaterial(Button material)
     {
         //Antes de hacer nada busco el botón y le pregunto si tiene mas de 1 de material para proceder con el resto
-        if (material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
+        if(material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
         {
             bool enc = false;
             int i = 0;
@@ -545,7 +539,6 @@ public class UIManager : MonoBehaviour
             //Actualiza los textos
             matNums[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()].text = recursos[(int)Sources[i].GetComponent<CastMaterial>().GetSourceName()].ToString();
         }
-        ComproveBasket();
     }
 
 
@@ -580,7 +573,6 @@ public class UIManager : MonoBehaviour
             matCestaImages[i].GetComponentInChildren<TextMeshProUGUI>().text = matsEnCesta[i].ToString();
         }
         buttonUsing = 0;
-        ComproveBasket();
     }
 
 
@@ -603,8 +595,7 @@ public class UIManager : MonoBehaviour
             }
             //Como ha hecho el encargo pedido, el dialogo ira por good
             way = 0;
-            if (Client.gameObject.GetComponent<CastEnemy>() != null && 
-                Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
+            if (Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
             {
                 GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward() * 2);
             }
@@ -636,7 +627,7 @@ public class UIManager : MonoBehaviour
         material3Image.color = invisible;
         //Escribe siguiente dialogo
         SkipButton();
-
+        
     }
     public void GameOverUI()
     {
@@ -671,7 +662,7 @@ public class UIManager : MonoBehaviour
             CharacterPortrait.sprite = Client.sprite;
         }
         else CharacterPortrait.sprite = null;
-
+        
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {

@@ -6,9 +6,9 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-// Añadir aquí el resto de directivas using
 using TMPro;
-using UnityEngine.UI;
+// Añadir aquí el resto de directivas using
+
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -18,16 +18,9 @@ public class UIManager_Combate : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private GameObject gameOverUI, PlayerLife;
-    [SerializeField] private TextMeshProUGUI timer;
-    [SerializeField] private TextMeshProUGUI population;
-    [SerializeField] private TextMeshProUGUI InteractMessage;
-    [SerializeField] private Image currentWeapon, DashCharge;
-    [SerializeField] private Sprite weaponDistanceImage;
-    [SerializeField] private Sprite weaponMeleeImage;
-    [SerializeField] private float TimerBeatIntensity;
-    [SerializeField] private Image DashFillBar;
-    [SerializeField] private float SecondsToStartBeating = 30;
+    [SerializeField] GameObject gameOverUI, PlayerLife;
+    [SerializeField] TextMeshProUGUI timer;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -35,11 +28,6 @@ public class UIManager_Combate : MonoBehaviour
     private Health playerHealth;
     private string time;
     private Timer timerScript;
-    private int populationNum = 0;
-    private bool fewTime = false;
-    private float TimerMaxSize;
-    private float DashCooldown, DashCooldownTimer;
-    private PlayerDash Playerdash;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -49,11 +37,6 @@ public class UIManager_Combate : MonoBehaviour
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
 
-    private void Awake()
-    {
-        //Cuando inicia la escena de Combate comprueba si hay enemigos (puede que no)
-        GameManager.Instance.ComproveEnemies();
-    }
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -61,64 +44,13 @@ public class UIManager_Combate : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GiveUIC(this);
-
-        if (!GameManager.Instance.GetBoolUpgrade(1))
-        {
-            DashCharge.gameObject.SetActive(false);
-        }
-
-        for (int i = 0; i < GameManager.Instance.GetEnemyCounter().Length; i++)
-        {
-            populationNum += GameManager.Instance.GetEnemyCounter()[i];
-        }
-        if (population != null)
-        {
-            population.text = $"Población: {populationNum}";
-        }
-
-        if (timer != null)
-        {
-            TimerMaxSize = timer.fontSize;
-        }
     }
 
     private void Update()
     {
+
         if (playerHealth == null)
             playerHealth = GameManager.Instance.GetPlayer().GetComponent<Health>();
-
-        if (fewTime && !GameManager.Instance.IsPauseActive())
-        {
-            timer.fontSize -= TimerBeatIntensity;
-            if (timer.fontSize < 0)
-            {
-                timer.fontSize = 0;
-            }
-        }
-
-        if (GameManager.Instance.GetPlayer() != null &&
-            GameManager.Instance.GetPlayer().GetComponent<PlayerDash>() != null &&
-            Playerdash == null)
-        {
-            Playerdash = GameManager.Instance.GetPlayer().GetComponent<PlayerDash>();
-            DashCooldown = Playerdash.GetDashCooldown();
-        }
-
-        //Debug.Log(GameManager.Instance.GetBoolUpgrade(1) + " A");
-        //Debug.Log((DashFillBar != null) + " B");
-        //Debug.Log((Playerdash != null) + " C");
-        //Debug.Log((DashCooldown >= 0) + " D");
-
-        if (GameManager.Instance.GetBoolUpgrade(1) && (DashFillBar != null) &&
-            (Playerdash != null) && (DashCooldown >= 0) && !GameManager.Instance.IsPauseActive())
-        {
-            DashCooldownTimer = Playerdash.GetcooldownTimer();
-            //Debug.Log(DashFillBar.fillAmount + " PRE");
-            //Debug.Log(DashCooldownTimer / DashCooldown);
-            DashFillBar.fillAmount = (DashCooldownTimer / DashCooldown);
-            //Debug.Log(DashFillBar.fillAmount + " POST");
-            //DashFillBar.fillAmount -= (0.1f / DashCooldown) * Time.deltaTime;
-        }
     }
     #endregion
 
@@ -127,67 +59,16 @@ public class UIManager_Combate : MonoBehaviour
     public void GameOverUI()
     {
         //Activa la UI de GameOver si el jugador pierde
-        if (gameOverUI != null)
-        {
-            gameOverUI.SetActive(true);
-        }
 
-        if (timer != null)
-        {
-            timer.gameObject.SetActive(false);
-        }
+        gameOverUI.SetActive(true);
+        timer.gameObject.SetActive(false);
         PlayerLife.SetActive(false);
-        currentWeapon.gameObject.SetActive(false);
-        population.text = "";
-
         Time.timeScale = 0f;
     }
 
-    public void Timer(string time, float timeNum)
+    public void Timer(string time)
     {
-        if (timeNum <= SecondsToStartBeating)
-        {
-            timer.color = Color.red;
-            fewTime = true;
-        }
-
-        if (fewTime)
-        {
-            timer.fontSize = TimerMaxSize;
-        }
         timer.text = time;
-    }
-
-    public void SwitchWeaponDisplay(bool weaponPlayer)
-    {
-        if (weaponPlayer)
-        {
-            currentWeapon.sprite = weaponDistanceImage;
-        }
-        else
-        {
-            currentWeapon.sprite = weaponMeleeImage;
-        }
-    }
-
-    public void ChangePopulation()
-    {
-        populationNum--;
-        if (population != null)
-            population.text = $"Población: {populationNum}";
-    }
-
-    public void PressE()
-    {
-        InteractMessage.text = "PRESIONE [E]";
-    }
-    public void HoldE(float timer, float holdingTime)
-    {
-        InteractMessage.text = $"MANTÉN [E]  {Mathf.Round((holdingTime - timer) * 100) / 100} / {holdingTime}";
-    }
-    public void ClearMessage()
-    {
-        InteractMessage.text = "";
     }
     #endregion
 

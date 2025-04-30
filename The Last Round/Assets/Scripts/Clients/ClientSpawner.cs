@@ -24,7 +24,7 @@ public class ClientSpawner : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     /// <summary>
-    /// Clientes que pueden aparecer
+    /// 0 es alcalde, 1 y 3 manzanas, 2 y 4 uvas
     /// </summary>
     [SerializeField]
     private GameObject[] clients;
@@ -33,22 +33,43 @@ public class ClientSpawner : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+    // Documentar cada atributo que aparece aquí.
+    // El convenio de nombres de Unity recomienda que los atributos
+    // privados se nombren en formato _camelCase (comienza con _, 
+    // primera palabra en minúsculas y el resto con la 
+    // primera letra en mayúsculas)
+    // Ejemplo: _maxHealthPoints
+    private GameObject[] TidyClients;
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
+        TidyClients = new GameObject[clients.Length];
+        //Rellena el array TidyClients en el orden del enum EnemyType con los clientes
+        for (int i = 0; i < TidyClients.Length; i++)
+        {
+            TidyClients[(int)clients[i].GetComponent<CastEnemy>().GetEnemyType()] = clients[i];
+        }
         Spawn();
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        
     }
     #endregion
 
@@ -59,104 +80,40 @@ public class ClientSpawner : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+    public void Spawn()
+    {
+        int rnd; //0 es alcalde, 1 y 3 es manzana y 2 y 4 uvas
 
+        int[] contador = GameManager.Instance.GetEnemyCounter();
+
+        do
+        {
+            //genera un numero al azar entre el 0 y el doble de clientes - 1
+            rnd = UnityEngine.Random.Range(0, (TidyClients.Length * 2)-1);
+            if (rnd != 0) //Si es 0 es el alcalde, y si no es 0 entonces divide el numero entre 2 y lo redondea hacia arriba
+            {
+                rnd = Mathf.CeilToInt(rnd / 2f);
+            }
+            Debug.Log(TidyClients[rnd].name);
+        }
+        //Vuelve a pedir un cliente si el contador en la posición del cliente pedido es menor o igual a 0
+        while (contador[(int)TidyClients[rnd].GetComponent<CastEnemy>().GetEnemyType()] <= 0);
+
+
+        
+        Instantiate(TidyClients[rnd], transform.position, Quaternion.identity);
+        
+    }
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void Spawn()
-    {
-        int rnd;
-        //Primero se comprueba si entre los clientes está el alcalde
-        int i = 0;
-        bool ThereIsAlcalde = false;
 
-        //Busca al alcalde entre los clientes
-        while (i < clients.Length && !ThereIsAlcalde)
-        {
-            GameObject client = clients[i];
-            if (client != null &&
-                client.GetComponent<CastEnemy>() != null &&
-                client.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
-            {
-                ThereIsAlcalde = true;
-            }
-            else i++;
-        }
-
-        //Si no está se spawnea un cliente habitual
-        //Si está se elegirá si spawneará él o un cliente habitual
-        if (ThereIsAlcalde)
-        {
-            //Si el alcalde es el único objeto a spawnear entonces lo spawnea sin rodeos
-            if (clients.Length > 1)
-            {
-                rnd = Random.Range(0, 4);
-                if (rnd == 3)
-                {
-                    rnd = i;
-                }
-                else
-                {
-                    rnd = SpawnClient();
-                }
-            }
-            else
-            {
-                rnd = i;
-            }
-            //Hay un 50% de probabilidad menos de que el elegido sea un alcalde que un cliente habitual
-            //Primero se elige si el elegido es el alcalde o no lo es
-
-        }
-        else
-        {
-            rnd = SpawnClient();
-        }
-
-        if (rnd >= 0)
-        {
-            Instantiate(clients[rnd], transform.position, Quaternion.identity);
-        }
-    }
-
-    /// <summary>
-    /// Método encargado de buscar el cliente habitual a spawnear
-    /// </summary>
-    /// <returns></returns>
-    private int SpawnClient()
-    {
-        int[] contador = GameManager.Instance.GetEnemyCounter();
-        bool repeat = false;
-        int rnd = -1;
-        //Si no hay enemigos puede incurrir en bucle infinito pero esto no debería pasar puesto que si no hay enemigos
-        //El juego acaba
-            do
-            {
-                rnd = Random.Range(0, clients.Length);
-
-                //Vuelve a pedir si no hay nada que spawnear
-                repeat = clients[rnd] == null;
-
-                if (clients[rnd].GetComponent<CastEnemy>() != null)
-                {
-                    EnemyType client = clients[rnd].GetComponent<CastEnemy>().GetEnemyType();
-
-                    //Vuelve a pedir si es el alcalde
-                    repeat = repeat || client == EnemyType.Alcalde;
-                    //Vuelve a pedir si no quedan especímenes del habitante elegido vivos
-                    repeat = repeat || contador[(int)client] <= 0;
-                }
-            }
-            while (repeat);
-
-        return rnd;
-    }
-    #endregion
+    #endregion   
 
 } // class ClientSpawner 
 // namespace

@@ -18,6 +18,7 @@ public class BulletMovement : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     public float speed = 2f;
+    public float PBdamage = 30f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----

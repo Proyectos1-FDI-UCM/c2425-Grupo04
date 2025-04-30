@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 
+using TMPro;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -20,12 +21,11 @@ public class Timer : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] float time = 120f;
     [SerializeField] GameObject gameOverUI;
-    [SerializeField] private int NextScene;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private float timer;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -34,13 +34,7 @@ public class Timer : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    private void Start()
-    {
-        if (GameManager.Instance.GetCheats())
-        {
-            time = GameManager.Instance.GetTimerStart();
-        }
-    }
+
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -49,30 +43,14 @@ public class Timer : MonoBehaviour
     {
         if (!gameOverUI.activeSelf)
         {
-            timer -= Time.deltaTime;
+            time -= Time.deltaTime;
         }
-        
-        if (timer <= 0)
+        if(time <= 0)
         {
-            //Se inicializa a 1 sin serialize porque se asume que siempre el temporizador baja 1 unidad cada 1 segundo
-            timer = 1;
-            
-            if (time - timer < 0)
-            {
-                time = 0;
-            }
-            else
-            {
-                time -= timer;
-            }
-
-            if (time <= 0)
-            {
-                GameManager.Instance.ChangeScene(NextScene);
-                GameManager.Instance.increaseSospechosos(2);
-            }
-            GameManager.Instance.GiveTimerToUIC(TimerText(), time);
+            GameManager.Instance.ChangeScene(2);
+            GameManager.Instance.increaseSospechosos(2);
         }
+        GameManager.Instance.GiveTimerToUIC(TimerText());
     }
     #endregion
 
@@ -81,6 +59,7 @@ public class Timer : MonoBehaviour
     public string TimerText()
     {
         return ChangeFormat();
+
     }
 
     #endregion

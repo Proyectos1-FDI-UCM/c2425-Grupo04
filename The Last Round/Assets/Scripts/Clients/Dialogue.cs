@@ -32,7 +32,6 @@ public class Dialogue : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private UIManager uiManager;
-    private TutorialDialoguesUIManager TDUIManager;
     private Texto[] dialogue;
     private bool ClientAppear = false, DialogueGiven = false;
     private SpriteRenderer spriteRenderer;
@@ -56,67 +55,50 @@ public class Dialogue : MonoBehaviour
         color.a = 255;
         spriteRenderer.color = color;
 
-        //ELECCIÓN DE DIÁLOGO
+        //Elige el diálogo que contar
         int tmp;
-
-        //Los clientes siempre son enemigos a menos que sea un tutorial en cuyo caso da igual si el diálogo es genérico o no
-        //ya que el tutorial siempre es el mismo
-        if (GetComponent<CastEnemy>() != null)
-        {
-            int Client = (int)GetComponent<CastEnemy>().GetEnemyType();
-
-            //Elige el diálogo que contar
-            do
-            {
-                tmp = UnityEngine.Random.Range(0, dialogues.Length);
-            }
-            //Vuelve a pedir el dialogo si este no es generico y se ha dicho anteriormente
-            while (!dialogues[tmp].Generic && GameManager.Instance.HasSaid(Client, tmp));
-            //Marco el dialogo como dicho
-            GameManager.Instance.SetSaid(Client, tmp);
-        }
-        else
+        int Client = (int)GetComponent<CastEnemy>().GetEnemyType();
+        //Vuelve a pedir el dialogo si este no es generico y se ha dicho anteriormente
+        do
         {
             tmp = UnityEngine.Random.Range(0, dialogues.Length);
-        }
+            Debug.Log($"tmp:{tmp}, dialogues:{dialogues.Length}, Client:{Client}");
+        } while (!dialogues[tmp].Generic && GameManager.Instance.HasSaid(Client, tmp));
 
         dialogue = dialogues[tmp].Lines;
 
-        //ELECCIÓN DE BEBIDA
+        //Marco el dialogo como dicho
+        GameManager.Instance.SetSaid(Client, tmp);
+
+
+
         int tmp1;
+        int[] contador = GameManager.Instance.GetEnemyCounter();
+        float[] recursos = GameManager.Instance.GetRecursos();
+        bool tmp2 = true;
 
-        //El cliente siempre es un enemigo excepto en el tutorial en cuyo caso cualquier bebida sirve sin filtros
-        if (GetComponent<CastEnemy>() != null)
-        {
-            int[] contador = GameManager.Instance.GetEnemyCounter();
-            float[] recursos = GameManager.Instance.GetRecursos();
-            bool tmp2 = true;
-            //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
-            //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
-            do
-            {
-                tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
+        //FILTRO, QUEDAN ESE TIPO DE CIUDADANOS AÚN?
+        //SI NO QUEDAN TIENES MATERIALES PARA HACER LA BEBIDA?
 
-                //TENGO MATERIALES PARA HACER ESA BEBIDA?
-                int j = 0;
-                NeededMaterial[] sources = BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkMaterials();
-                while (j < sources.Length && tmp2)
-                {
-                    if (sources[j].Amount > recursos[(int)sources[j].Material.GetComponent<CastMaterial>().GetSourceName()])
-                    {
-                        tmp2 = false;
-                    }
-                    j++;
-                }
-                //Debug.Log(BebidasPosibles[tmp1].name);
-            }
-            while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
-                   BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
-        }
-        else
+        do
         {
             tmp1 = UnityEngine.Random.Range(0, BebidasPosibles.Length);
+
+            //TENGO MATERIALES PARA HACER ESA BEBIDA?
+            int j = 0;
+            NeededMaterial[] sources = BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkMaterials();
+            while (j < sources.Length && tmp2)
+            {
+                if (sources[j].Amount > recursos[(int)sources[j].Material.GetComponent<CastMaterial>().GetSourceName()])
+                {
+                    tmp2 = false;
+                }
+                j++;
+            }
+            Debug.Log(BebidasPosibles[tmp1].name);
         }
+        while (BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Manzana && contador[1] + contador[3] <= 0 && !tmp2 ||
+               BebidasPosibles[tmp1].GetComponent<CastDrink>().GetDrinkType() == DrinkType.Uva && contador[0] + contador[2] <= 0 && !tmp2);
 
 
         BebidaPedida = BebidasPosibles[tmp1];
@@ -150,7 +132,7 @@ public class Dialogue : MonoBehaviour
                 dialogue[i].GoodText = dialogue[i].GoodText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
                 dialogue[i].BadText = dialogue[i].BadText.Replace("(bebida)", $"{Convert.ToString(BebidaPedida.name).Replace("_", " ")}");
             }
-           i++;
+            i++;
         }
     }
 
@@ -176,18 +158,11 @@ public class Dialogue : MonoBehaviour
 
         if (ClientAppear && !DialogueGiven)
         {
-            TDUIManager = GameManager.Instance.GetTDUI();
-
             if (uiManager != null)
             {
                 uiManager.GetClientSprite(spriteRenderer);
                 uiManager.GetDrink(BebidaPedida);
                 uiManager.GetDialogue(dialogue);
-            }
-            else if (TDUIManager != null)
-            {
-                TDUIManager.GetClientSprite(spriteRenderer);
-                TDUIManager.GetDialogue(dialogue);
             }
 
             DialogueGiven = true;

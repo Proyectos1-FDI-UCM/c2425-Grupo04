@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.EventSystems;
 // Añadir aquí el resto de directivas using
 
 
@@ -20,7 +19,7 @@ public class MoveToPlayer : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    float Speed, ObjectSizeX, ObjectSizeY;
+    float Speed;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -28,10 +27,9 @@ public class MoveToPlayer : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject Player;
     private Rigidbody2D rb;
+    private Collider2D ObjectCollider;
     //Los inicializo a -1 para saber cuando no están definidos
     private float minX, maxX, minY, maxY;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -43,42 +41,18 @@ public class MoveToPlayer : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        ObjectCollider = GetComponent<Collider2D>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
 
         maxY = GameManager.Instance.GetMapHeight() / 2;
         minY = -maxY;
-
     }
     void Update()
     {
         if (Player == null)
             Player = GameManager.Instance.GetPlayer();
-    }
-
-    private void FixedUpdate()
-    {
-        if(animator != null && spriteRenderer != null)
-        {
-            //animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
-            //animator.SetFloat("Vertical", rb.velocity.y);
-            //animator.SetFloat("Speed", rb.velocity.magnitude);
-            if (rb.velocity.x < 0)
-            {
-                //Si se mueve a la izquierda, flip al Sprite Renderer
-                spriteRenderer.flipX = true;
-            }
-            else if (rb.velocity.x > 0)
-            {
-                //Si se mueve a la derecha, no hay flip al Sprite Renderer
-                spriteRenderer.flipX = false;
-            }
-            //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
-        }
     }
     #endregion
 
@@ -96,37 +70,16 @@ public class MoveToPlayer : MonoBehaviour
     {
         Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-        posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
-        posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
-        posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
-        posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
+        posMinX = rb.position - new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMaxX = rb.position + new Vector2(ObjectCollider.bounds.size.x / 2, 0);
+        posMinY = rb.position - new Vector2(0, ObjectCollider.bounds.size.y / 2);
+        posMaxY = rb.position + new Vector2(0, ObjectCollider.bounds.size.y / 2);
 
         if (Player != null && enemy != null)
-        {
-            
-            Vector2 PlayerPos, EnemyPos;
-            PlayerPos = Player.transform.position;
-            EnemyPos = enemy.transform.position;
-            //Si el jugador tiene collider
-            //la posición del jugador será la del centro del collider
-            if (Player.GetComponent<Collider2D>() != null)
-            {
-                Collider2D tmp = Player.GetComponent<Collider2D>();
-                PlayerPos += tmp.offset;
-            }
-            if (Player.GetComponent<Collider2D>() != null)
-            {
-                Collider2D tmp = enemy.GetComponent<Collider2D>();
-                EnemyPos += tmp.offset;
-            }
-
             //Localiza el vector que une el jugador con el objeto
-            EnemyPlayer = new Vector3(PlayerPos.x - EnemyPos.x,
-                                      PlayerPos.y - EnemyPos.y,
+            EnemyPlayer = new Vector3(Player.transform.position.x - enemy.transform.position.x,
+                                      Player.transform.position.y - enemy.transform.position.y,
                                       0);
-        }
-            
-            
 
         if ((EnemyPlayer.y < 0.1 && EnemyPlayer.y > -0.1) ||
             (EnemyPlayer.y < 0 && posMinY.y <= minY) ||
