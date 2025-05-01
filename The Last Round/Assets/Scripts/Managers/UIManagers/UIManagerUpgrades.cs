@@ -47,6 +47,8 @@ public class UIManagerUpgrades : MonoBehaviour
                   BaseHealth = 0,
                   BaseMeleeDamage = 0,
                   BaseRangeDamage = 0;
+    [SerializeField]
+    private AudioClip upgradeSfx;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -143,6 +145,7 @@ public class UIManagerUpgrades : MonoBehaviour
     
     public void UpgradeNormal(int element)
     {
+        AudioManager.Instance.PlaySFX(upgradeSfx);
         if (dineroTotal >= costeNormales)
         {
             GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
@@ -154,6 +157,7 @@ public class UIManagerUpgrades : MonoBehaviour
 
     public void UpgradeUnico(int element) //Solo para dash y arma a distancia
     {
+        AudioManager.Instance.PlaySFX(upgradeSfx);
         if (dineroTotal >= costeUnicos)
         {
             GameManager.Instance.BoolUpgrade(element - 4); //Pone a true el bool la mejora, en gamemanager dash es 0 y arma a distancia es 1
