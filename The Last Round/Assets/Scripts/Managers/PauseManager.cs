@@ -136,7 +136,7 @@ public class PauseManager : MonoBehaviour
     //Se cierra el menu que se asigna desde el boton que llama al metodo y si es el de pausa pone el tiempo en marcha
     public void ClosePauseMenu(GameObject menuToClose)
     {
-        PlaySoundEffect(paperSfx);
+        //PlaySoundEffect(paperSfx);
         if (menuToClose == PauseMenu)
         {
             Time.timeScale = 1f;
