@@ -6508,6 +6508,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: e82251b5460733845a12ffddccf291c5, type: 3}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: regresar
+      value: 
+      objectReference: {fileID: 8300000, guid: fa62b08ab94631542acec84e2d2b3823, type: 3}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: ButtonBox
       value: 
       objectReference: {fileID: 200497529}
@@ -6515,6 +6519,10 @@ PrefabInstance:
       propertyPath: NextScene
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: ServirSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 583a19aadd61c914398b1ac03769499c, type: 3}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: TypeSpeed
       value: 0.025
@@ -6548,6 +6556,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2086514854}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: CLienteSFX2
+      value: 
+      objectReference: {fileID: 8300000, guid: c18c2d5187a717c4aa5b8594cffac778, type: 3}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: ClienteSfx1
+      value: 
+      objectReference: {fileID: 8300000, guid: 98c0883f7d0ec2547830e4196835922e, type: 3}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: NoServirSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: effb39e5567115c4c85abb2728bbf34e, type: 3}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: OrionSprite
       value: 
       objectReference: {fileID: 21300000, guid: a820c738f8003304d86a25e4cc6b568c, type: 3}
@@ -6555,6 +6575,10 @@ PrefabInstance:
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 200497533}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: materialSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: d02c3beda53591d438fd1617dce6d683, type: 3}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: servirBText
       value: 
@@ -6587,6 +6611,10 @@ PrefabInstance:
       propertyPath: option2Button
       value: 
       objectReference: {fileID: 200497527}
+    - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+      propertyPath: sospechosoSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ffe66afce45fa2428c4cf5e28637218, type: 3}
     - target: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
       propertyPath: DisappearSpeed
       value: 100

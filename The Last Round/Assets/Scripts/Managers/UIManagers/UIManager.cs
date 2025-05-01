@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Animator Animator;
 
     [SerializeField]
-    private AudioClip woodSfx, paperSfx;
+    private AudioClip woodSfx, paperSfx, ClienteSfx1,CLienteSFX2,ServirSFX,NoServirSFX,regresar,sospechosoSfx,materialSfx;
 
     #endregion
 
@@ -92,6 +92,7 @@ public class UIManager : MonoBehaviour
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
     private bool PickedBadChoice = false;
+    private bool skipSFX = true;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -107,6 +108,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        AudioManager.Instance.PlaySFX(ClienteSfx1);
         dineroTotal = GameManager.Instance.GetDineros();
         dineroTotalText.text = dineroTotal.ToString();
         //Debug.Log(dineroTotal);
@@ -120,7 +122,7 @@ public class UIManager : MonoBehaviour
         if (recompensa != null) recompensa.text = " ";
         if (nombreBebida != null) nombreBebida.text = " ";
         if (dialogueSkipButton != null) dialogueSkipButton.gameObject.SetActive(false);
-
+        
         invisible.r = 255;
         invisible.g = 255;
         invisible.b = 255;
@@ -179,6 +181,11 @@ public class UIManager : MonoBehaviour
 
         if (ClientDisappear)
         {
+            if (!PickedBadChoice)
+            {
+               
+                GameManager.Instance.increaseSospechosos(-1);
+            }
             ClientC.r = Mathf.Clamp(ClientC.r - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.g = Mathf.Clamp(ClientC.g - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.b = Mathf.Clamp(ClientC.b - Time.deltaTime * DisappearSpeed, 0, 255);
@@ -193,10 +200,7 @@ public class UIManager : MonoBehaviour
                 {
                     Destroy(Client.gameObject);
 
-                    if (!PickedBadChoice)
-                    {
-                        GameManager.Instance.increaseSospechosos(-1);
-                    }
+                   
                     GameManager.Instance.ChangeScene(NextScene);
                 }
             }
@@ -271,10 +275,13 @@ public class UIManager : MonoBehaviour
     //Al pulsar continuar, empieza a escribir la siguiente frase
     public void SkipButton()
     {
-        AudioManager.Instance.PlaySFX(paperSfx);
+        if(skipSFX)
+        { AudioManager.Instance.PlaySFX(paperSfx); }
         
+
         if (dialogue != null && (dialogue[DialogueLine].GoodText == dialogueBox.text || dialogue[DialogueLine].BadText == dialogueBox.text)) //Si el texto ha acabado queremos que pase al siguiente
         {
+            
             if (DialogueLine < dialogue.GetLength(0) - 1) //Si queda texto pasa al siguiente
             {
                 DialogueLine++;
@@ -282,6 +289,7 @@ public class UIManager : MonoBehaviour
             }
             else //Si no queda texto no escribe nada y empieza a desaparecer
             {
+                AudioManager.Instance.PlaySFX(CLienteSFX2);
                 CharacterPortrait.gameObject.SetActive(false);
                 dialogueSkipButton.gameObject.SetActive(false);
                 dialogueBox.text = " ";
@@ -293,6 +301,7 @@ public class UIManager : MonoBehaviour
         {
             SkipDialogue = true;
         }
+        skipSFX = true;
     }
 
     public void OptionL() //Cuando es pulsado el boton izquierdo
@@ -312,6 +321,7 @@ public class UIManager : MonoBehaviour
 
         else
         {
+            AudioManager.Instance.PlaySFX (sospechosoSfx);
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
             PickedBadChoice = true;
@@ -339,6 +349,7 @@ public class UIManager : MonoBehaviour
 
         else
         {
+            AudioManager.Instance.PlaySFX(sospechosoSfx);
             GameManager.Instance.increaseSospechosos(1);
             way = 1;
             PickedBadChoice = true;
@@ -503,7 +514,7 @@ public class UIManager : MonoBehaviour
 
     public void SumarMaterial(Button material)
     {
-        
+        AudioManager.Instance.PlaySFX(materialSfx);
         //Antes de hacer nada busco el botón y le pregunto si tiene mas de 1 de material para proceder con el resto
         if (material.GetComponentInChildren<TextMeshProUGUI>().text != "0")
         {
@@ -557,7 +568,9 @@ public class UIManager : MonoBehaviour
 
     public void RegresarMats()
     {
-        AudioManager.Instance.PlaySFX(paperSfx);
+        if(skipSFX)
+        { AudioManager.Instance.PlaySFX(regresar); }
+        
         //Hacen un recorrido por todos los botones que se están usando en la cesta (que tienen al menos un material)
         for (int i = 0; i < buttonUsing; i++)
         {
@@ -593,59 +606,63 @@ public class UIManager : MonoBehaviour
 
     public void Servir()
     {
-        AudioManager.Instance.PlaySFX(paperSfx);
-        if (matsReqEnCesta)//Si están los materiales requeridos en el pedido, quita la cantidad del pedido de la cesta
-        {
-            for (int i = 0; i < matsEnCesta.Length; i++)
+       skipSFX = false;
+            
+
+            if (matsReqEnCesta)//Si están los materiales requeridos en el pedido, quita la cantidad del pedido de la cesta
             {
-                if (matsEnCesta[i] > 0)
+                for (int i = 0; i < matsEnCesta.Length; i++)
                 {
-                    for (int j = 0; j < Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length; j++)
+                    if (matsEnCesta[i] > 0)
                     {
-                        if (matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].Material.GetComponent<SpriteRenderer>().sprite)
+                        for (int j = 0; j < Drink.GetComponent<CastDrink>().GetDrinkMaterials().Length; j++)
                         {
-                            matsEnCesta[i] -= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].Amount;
+                            if (matCestaImages[i].sprite == Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].Material.GetComponent<SpriteRenderer>().sprite)
+                            {
+                                matsEnCesta[i] -= Drink.GetComponent<CastDrink>().GetDrinkMaterials()[j].Amount;
+                            }
                         }
                     }
                 }
-            }
-            //Como ha hecho el encargo pedido, el dialogo ira por good
-            way = 0;
-            if (Client.gameObject.GetComponent<CastEnemy>() != null && 
-                Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
-            {
-                GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward() * 2);
+                    AudioManager.Instance.PlaySFX(ServirSFX);
+                    //Como ha hecho el encargo pedido, el dialogo ira por good
+                    way = 0;
+                if (Client.gameObject.GetComponent<CastEnemy>() != null &&
+                    Client.gameObject.GetComponent<CastEnemy>().GetEnemyType() == EnemyType.Alcalde)
+                {
+                    GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward() * 2);
+                }
+                else
+                {
+                    GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward());
+                }
+
             }
             else
             {
-                GameManager.Instance.increaseDinero(Drink.GetComponent<CastDrink>().GetDrinkReward());
-            }
-
-        }
-        else
-        {
+            AudioManager.Instance.PlaySFX(NoServirSFX);
             //Si no ha hecho el encargo pedido, no se quitan ningun material de la cesta y el dialogo ira por bad
             way = 1;
+            }
+            //Devuelve resto al inventario
+            RegresarMats();
+
+            //Desactiva los botones y limpia el encargo y recompensas y activa los del dialogo
+            DrinkImage.gameObject.SetActive(false);
+            ServirButton.gameObject.SetActive(false);
+            dialogueSkipButton.gameObject.SetActive(true);
+            recompensa.text = " ";
+            nombreBebida.text = " ";
+            material1.text = " ";
+            material1Image.color = invisible;
+            material2.text = " ";
+            material2Image.color = invisible;
+            material3.text = " ";
+            material3Image.color = invisible;
+            //Escribe siguiente dialogo
+            SkipButton();
         }
-        //Devuelve resto al inventario
-        RegresarMats();
-
-        //Desactiva los botones y limpia el encargo y recompensas y activa los del dialogo
-        DrinkImage.gameObject.SetActive(false);
-        ServirButton.gameObject.SetActive(false);
-        dialogueSkipButton.gameObject.SetActive(true);
-        recompensa.text = " ";
-        nombreBebida.text = " ";
-        material1.text = " ";
-        material1Image.color = invisible;
-        material2.text = " ";
-        material2Image.color = invisible;
-        material3.text = " ";
-        material3Image.color = invisible;
-        //Escribe siguiente dialogo
-        SkipButton();
-
-    }
+    
     public void GameOverUI()
     {
         //Activa la UI de GameOver si el jugador pierde

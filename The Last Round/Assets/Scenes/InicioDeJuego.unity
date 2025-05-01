@@ -199,6 +199,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
+      propertyPath: sospechosoSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b3438b7b07f53dc4ea166d87e288f5a9, type: 3}
+    - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Enemies.Array.size
       value: 5
       objectReference: {fileID: 0}
