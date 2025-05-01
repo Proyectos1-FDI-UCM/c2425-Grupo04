@@ -52,7 +52,7 @@ public class UIManager_Combate : MonoBehaviour
     private void Awake()
     {
         //Cuando inicia la escena de Combate comprueba si hay enemigos (puede que no)
-        GameManager.Instance.ComproveEnemies();
+        GameManager.Instance.CompruebaEnemies();
     }
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
@@ -149,6 +149,7 @@ public class UIManager_Combate : MonoBehaviour
         {
             timer.color = Color.red;
             fewTime = true;
+            AudioManager.Instance.ChangePitchMusic(1.1f);
         }
 
         if (fewTime)

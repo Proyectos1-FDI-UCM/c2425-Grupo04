@@ -411,9 +411,9 @@ public class GameManager : MonoBehaviour
         {
             GetUIC().ChangePopulation();
         }
-        ComproveEnemies();
+        CompruebaEnemies();
     }
-    public void ComproveEnemies()
+    public void CompruebaEnemies()
     {
         if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
         {
@@ -641,6 +641,8 @@ public class GameManager : MonoBehaviour
     /// que se cargará.</param>
     public void ChangeScene(int index)
     {
+        AudioManager.Instance.ChangePitchMusic(1);
+        AudioManager.Instance.ChangePitchSFX(1);
         int i = 0;
         bool enc = false;
 
