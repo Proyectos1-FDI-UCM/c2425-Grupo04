@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
         GameManager.Instance.GiveMusicManager(this);
         //musicSource.clip = GameMusic[0];
         //musicSource.Play();
-
+        
     }
 
     /// <summary>
@@ -157,6 +157,25 @@ public class AudioManager : MonoBehaviour
             SFXSource.clip = sfx;
             SFXSource.Play();
         }
+    }
+
+    /// <summary>
+    /// Cambia el tono (pitch) de la música, en un rango entre -3 y 3. Por defecto es 1.
+    /// </summary>
+    /// <param name="pitch"></param>
+    public void ChangePitchMusic(float pitch)
+    {
+        musicSource.pitch = pitch;
+
+    }
+
+    /// <summary>
+    /// Cambia el tono (pitch) de los efectos de sonido, en un rango entre -3 y 3. Por defecto es 1.
+    /// </summary>
+    /// <param name="pitch"></param>
+    public void ChangePitchSFX(float pitch)
+    {
+        SFXSource.pitch = pitch;
     }
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
