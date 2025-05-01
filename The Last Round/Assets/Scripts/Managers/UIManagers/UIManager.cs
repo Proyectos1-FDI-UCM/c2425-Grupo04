@@ -557,7 +557,7 @@ public class UIManager : MonoBehaviour
 
     public void RegresarMats()
     {
-        
+        AudioManager.Instance.PlaySFX(paperSfx);
         //Hacen un recorrido por todos los botones que se están usando en la cesta (que tienen al menos un material)
         for (int i = 0; i < buttonUsing; i++)
         {
@@ -593,7 +593,7 @@ public class UIManager : MonoBehaviour
 
     public void Servir()
     {
-        
+        AudioManager.Instance.PlaySFX(paperSfx);
         if (matsReqEnCesta)//Si están los materiales requeridos en el pedido, quita la cantidad del pedido de la cesta
         {
             for (int i = 0; i < matsEnCesta.Length; i++)

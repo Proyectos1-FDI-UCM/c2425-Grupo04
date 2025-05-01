@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   SFXSource: {fileID: 9057845100726768726}
   MusicTrack:
   - Escena: 0
-    SceneMusic: {fileID: 0}
+    SceneMusic: {fileID: 8300000, guid: e341413dfecbd4a45a2eafd39c4a0e6d, type: 3}
   - Escena: 1
     SceneMusic: {fileID: 8300000, guid: 50f20b63ccea84f4897223084d710374, type: 3}
   - Escena: 2

@@ -28693,6 +28693,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1939104429920462052, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2021752745603850625, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -28839,6 +28843,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4997276226104233995, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411321139428727569, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6547899888139649221, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
