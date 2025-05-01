@@ -20,7 +20,7 @@ public class RecursoSpawner : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
 
     [SerializeField]
-    private float detectdistancia = 1.2f, HoldingTime = 0;
+    private float HoldingTime = 0;
     [SerializeField]
     private float limitrecursos = 5;
     [SerializeField] GameObject Contadorrecurso;
@@ -28,11 +28,10 @@ public class RecursoSpawner : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    private float distanciaconjugador;
-    private GameObject player;
     private float timer = 0;
     private float recursosacado = 0;
     private SourceName source;
+    private bool touchingPlayer = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -58,14 +57,8 @@ public class RecursoSpawner : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (player == null) player = GameManager.Instance.GetPlayer();
-
-        distanciaconjugador = Vector2.Distance(transform.position, player.transform.position);
-
-
-
         //Comprobamos que el jugador se encuentra en la distancia de recolección
-        if (distanciaconjugador <= detectdistancia)
+        if (touchingPlayer)
         {
             //Contador del hold
             if (InputManager.Instance.InteractIsPressed())//Si mantiene se va restando el timer
@@ -125,7 +118,20 @@ public class RecursoSpawner : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
+        {
+            touchingPlayer = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
+        {
+            touchingPlayer = false;
+        }
+    }
     #endregion
 
     // class RecursoSpawner 

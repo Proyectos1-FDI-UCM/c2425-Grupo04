@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a996a680f5bcd4384a2395747bcba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectdistancia: 2
+  detectdistancia: 1
   HoldingTime: 2
   limitrecursos: 3
   Contadorrecurso: {fileID: 4596568104739796052, guid: 8b3888f02ca6f0042b848f24bd1a99ac, type: 3}
