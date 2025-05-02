@@ -413,7 +413,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -423,10 +423,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 9536776, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    m_PressedSprite: {fileID: -2044117731, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    m_SelectedSprite: {fileID: 9536776, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    m_DisabledSprite: {fileID: -1949581666, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -854,8 +854,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280300638
+  m_fontColor: {r: 0.36862746, g: 0.20392157, b: 0.1254902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -930,6 +930,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 995117409031869475, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 995117409031869475, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.20392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 995117409031869475, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 995117409031869475, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280300638
+      objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25
@@ -978,6 +994,18 @@ PrefabInstance:
       propertyPath: clients.Array.data[4]
       value: 
       objectReference: {fileID: 1562574269909345304, guid: 2c33710d6a4a0a74eb75f29025b51659, type: 3}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.14901961
+      objectReference: {fileID: 0}
     - target: {fileID: 2744029634729490299, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_Type
       value: 2
@@ -1007,6 +1035,10 @@ PrefabInstance:
       value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 3
       objectReference: {fileID: 0}
@@ -1022,6 +1054,18 @@ PrefabInstance:
       propertyPath: m_Colors.m_SelectedColor.r
       value: 0.69803923
       objectReference: {fileID: 0}
+    - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -2044117731, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 9536776, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 9536776, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
     - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1176,6 +1220,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6544702391443782154, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582781021737176439, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}

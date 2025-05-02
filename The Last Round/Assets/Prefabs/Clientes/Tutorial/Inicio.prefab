@@ -109,9 +109,9 @@ MonoBehaviour:
       BadText: "\xBFS\xED jefe?"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Estas apunto de partir hacia Fermentia. Te voy a recordar la misi\xF3n
+    - GoodText: "Estas a punto de partir hacia Fermentia. Te voy a recordar la misi\xF3n
         por \xFAltima vez."
-      BadText: "Estas apunto de partir hacia Fermentia. Te voy a recordar la misi\xF3n
+      BadText: "Estas a punto de partir hacia Fermentia. Te voy a recordar la misi\xF3n
         por \xFAltima vez."
       Estatus: 0
       Emisor: 1
