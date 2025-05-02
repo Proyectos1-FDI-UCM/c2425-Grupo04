@@ -2242,6 +2242,7 @@ MonoBehaviour:
   BaseMeleeDamage: 50
   BaseRangeDamage: 25
   upgradeSfx: {fileID: 8300000, guid: cd723f5d928046d46a8f5e0e16df0dd5, type: 3}
+  NoUpgradeSfx: {fileID: 8300000, guid: effb39e5567115c4c85abb2728bbf34e, type: 3}
 --- !u!4 &480938680
 Transform:
   m_ObjectHideFlags: 0

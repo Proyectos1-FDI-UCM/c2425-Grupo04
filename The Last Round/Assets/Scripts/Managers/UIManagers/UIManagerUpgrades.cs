@@ -48,7 +48,7 @@ public class UIManagerUpgrades : MonoBehaviour
                   BaseMeleeDamage = 0,
                   BaseRangeDamage = 0;
     [SerializeField]
-    private AudioClip upgradeSfx;
+    private AudioClip upgradeSfx, NoUpgradeSfx;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -153,6 +153,10 @@ public class UIManagerUpgrades : MonoBehaviour
             Debug.Log(element);
             ChangeDesc(descs[element], GameManager.Instance.GetUpgradeLevel(element), element); //Cambia su descripcion
         }
+        else
+        {
+            AudioManager.Instance.PlaySFX(NoUpgradeSfx);
+        }
     }
 
     public void UpgradeUnico(int element) //Solo para dash y arma a distancia
@@ -173,6 +177,10 @@ public class UIManagerUpgrades : MonoBehaviour
                 ChangeDesc(descs[0], GameManager.Instance.GetUpgradeLevel(0), 0);
                 coinImg[2].enabled = true;
             }
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(NoUpgradeSfx);
         }
     }
 
