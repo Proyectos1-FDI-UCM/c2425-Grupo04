@@ -59,14 +59,25 @@ public class MoveToPlayer : MonoBehaviour
         if (Player == null)
             Player = GameManager.Instance.GetPlayer();
     }
+    #endregion
 
-    private void FixedUpdate()
+    // ---- MÉTODOS PÚBLICOS ----
+    #region Métodos públicos
+    public void Move(GameObject enemy)
     {
-        if(animator != null && spriteRenderer != null)
+        EnemyPlayer = UpdateVector(enemy).normalized;
+
+        
+        ////Mueve al objeto
+        rb.velocity = EnemyPlayer * Speed;
+
+        //Animación de movimiento
+        if (animator != null && spriteRenderer != null)
         {
             animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
             animator.SetFloat("Vertical", rb.velocity.y);
             animator.SetFloat("Speed", rb.velocity.magnitude);
+
             if (Mathf.Abs(rb.velocity.y) < 0.2f)
             {
                 if (rb.velocity.x < 0)
@@ -82,17 +93,6 @@ public class MoveToPlayer : MonoBehaviour
                 //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
             }
         }
-    }
-    #endregion
-
-    // ---- MÉTODOS PÚBLICOS ----
-    #region Métodos públicos
-    public void Move(GameObject enemy)
-    {
-        EnemyPlayer = UpdateVector(enemy).normalized;
-
-        ////Mueve al objeto
-        rb.velocity = EnemyPlayer * Speed;
     }
 
     public Vector3 UpdateVector(GameObject enemy)
