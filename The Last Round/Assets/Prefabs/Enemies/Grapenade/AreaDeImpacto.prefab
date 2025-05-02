@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerTicTac: 3
+  explosionSFX: {fileID: 8300000, guid: 4f70c5c8b465c684e8fbdddeaae8cca9, type: 3}
 --- !u!114 &2458284249715589062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Basedamage: 20
   cooldown: 4
+  enemyAttack: {fileID: 8300000, guid: 56ee5d2477cf78b42a601b2232973e6b, type: 3}
 --- !u!58 &2174978058411586280
 CircleCollider2D:
   m_ObjectHideFlags: 0

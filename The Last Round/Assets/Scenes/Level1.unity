@@ -26807,6 +26807,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6412806953359700411, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+      propertyPath: recursoSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: d982489e59e6bd54089cb23f4f748613, type: 3}
     - target: {fileID: 7735115530083798163, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: cameraMain
       value: 

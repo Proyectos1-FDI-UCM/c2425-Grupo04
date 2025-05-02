@@ -19,7 +19,7 @@ public class Damage : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private int Basedamage;
     [SerializeField] private float cooldown;
-
+    [SerializeField] private AudioClip enemyAttack;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -88,6 +88,11 @@ public class Damage : MonoBehaviour
 
             health.GetDamage(Basedamage + mejoraDmg);
             timer = cooldown;
+
+            if (ImEnemy)
+            {
+                AudioManager.Instance.PlaySFX(enemyAttack);
+            }
         }
     }
 

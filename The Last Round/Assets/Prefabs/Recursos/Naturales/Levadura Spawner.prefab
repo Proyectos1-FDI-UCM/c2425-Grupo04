@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a996a680f5bcd4384a2395747bcba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectdistancia: 1.2
   HoldingTime: 2
   limitrecursos: 3
   Contadorrecurso: {fileID: 4596568104739796052, guid: 028993e77647b0347866f1dab2cecb17, type: 3}
+  recursoSFX: {fileID: 8300000, guid: d982489e59e6bd54089cb23f4f748613, type: 3}
 --- !u!114 &4210823676919848411
 MonoBehaviour:
   m_ObjectHideFlags: 0

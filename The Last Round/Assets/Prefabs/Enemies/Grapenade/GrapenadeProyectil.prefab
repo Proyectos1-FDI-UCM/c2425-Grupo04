@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 90
+  explosionSFX: {fileID: 8300000, guid: 4f70c5c8b465c684e8fbdddeaae8cca9, type: 3}
 --- !u!114 &-7518684922501916710
 MonoBehaviour:
   m_ObjectHideFlags: 0
