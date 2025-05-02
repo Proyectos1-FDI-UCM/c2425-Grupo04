@@ -24,6 +24,8 @@ public class RecursoSpawner : MonoBehaviour
     [SerializeField]
     private float limitrecursos = 5;
     [SerializeField] GameObject Contadorrecurso;
+    [SerializeField]
+    private AudioClip recursoSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -78,6 +80,7 @@ public class RecursoSpawner : MonoBehaviour
             {
                 timer = HoldingTime;
 
+                AudioManager.Instance.PlaySFX(recursoSFX);
                 GameManager.Instance.IncreaseResource(source, 1);
                 Instantiate(Contadorrecurso, gameObject.transform.position, Quaternion.identity);
                 recursosacado += 1;

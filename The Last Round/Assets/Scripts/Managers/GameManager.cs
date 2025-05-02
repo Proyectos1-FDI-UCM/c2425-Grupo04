@@ -649,7 +649,7 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(AlcantarillaSFX);
         }
-
+        
         int i = 0;
         bool enc = false;
 

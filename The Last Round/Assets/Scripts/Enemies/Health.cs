@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject ContadorDaño;
     [SerializeField, Tooltip("En Enemigo esta en hijo y jugador esta en canvas general")] 
     private Slider barraVida;
-    [SerializeField] AudioClip LowHealthSFX;
+    [SerializeField] AudioClip LowHealthSFX, enemyDeathSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -82,7 +82,7 @@ public class Health : MonoBehaviour
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
         barraVida.value = Life;
 
-        if(Life <= barraVida.maxValue/4)
+        if(!GetComponent<CastEnemy>() && Life <= barraVida.maxValue/4)
         {
             LowHealthEffect();
         }
@@ -119,6 +119,7 @@ public class Health : MonoBehaviour
         //Si es un enemigo se resta del contador de enemigos y se destruye
         if (GetComponent<CastEnemy>() != null)
         {
+            AudioManager.Instance.PlaySFX(enemyDeathSFX);
             GameManager.Instance.MataEnemigo(enemy);
             Destroy(gameObject);
         }

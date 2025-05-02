@@ -24,6 +24,8 @@ public class ManzarieteMovement : MonoBehaviour
                                    SprintSpeed, SprintTime,
                                    BreakSpeed, BreakTime,
                                    ObjectSizeX, ObjectSizeY;
+    [SerializeField]
+    private AudioClip dashManzariete;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -53,6 +55,8 @@ public class ManzarieteMovement : MonoBehaviour
 
     //Límites de movimiento
     private float minX, maxX, minY, maxY;
+
+    private bool playSfx = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -99,6 +103,7 @@ public class ManzarieteMovement : MonoBehaviour
         {
             IsCharging = true;
             Ctimer = ChargeTime;
+            playSfx = true;
         }
 
         //Si está cargando realiza el movimiento de carga
@@ -146,11 +151,15 @@ public class ManzarieteMovement : MonoBehaviour
     /// </summary>
     private void Sprint()
     {
+        if (playSfx)
+        {
+            AudioManager.Instance.PlaySFX(dashManzariete);
+            playSfx = false;
+        }
         if (Stimer > 0)
         {
             // -Sensación de rebote- durante movimiento
             //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
-
             Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
             posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
@@ -211,6 +220,7 @@ public class ManzarieteMovement : MonoBehaviour
             IsCharging = false;
             IsSprinting = true;
             Stimer = SprintTime;
+            playSfx = true;
         }
     }//Charge
     #endregion

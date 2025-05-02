@@ -19,6 +19,8 @@ public class Precursos : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private GameObject[] avisos;
+    [SerializeField]
+    private AudioClip recursoSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -74,7 +76,7 @@ public class Precursos : MonoBehaviour
             //Identifica el recurso y lo guarda en el inventario
             SourceName source = collision.gameObject.GetComponent<CastMaterial>().GetSourceName();
             GameManager.Instance.IncreaseResource(source, 1);
-
+            AudioManager.Instance.PlaySFX(recursoSFX);
             Destroy(collision.gameObject);
 
             //Se busca el aviso correspondiente con el recurso y se instancia

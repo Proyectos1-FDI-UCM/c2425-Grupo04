@@ -145,9 +145,9 @@ public class UIManagerUpgrades : MonoBehaviour
     
     public void UpgradeNormal(int element)
     {
+        AudioManager.Instance.PlaySFX(upgradeSfx);
         if (dineroTotal >= costeNormales)
         {
-            AudioManager.Instance.PlaySFX(upgradeSfx);
             GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
             GameManager.Instance.IncreaseUpgradeLevel(element); //Sube el nivel de la mejora
             Debug.Log(element);
@@ -161,9 +161,9 @@ public class UIManagerUpgrades : MonoBehaviour
 
     public void UpgradeUnico(int element) //Solo para dash y arma a distancia
     {
+        AudioManager.Instance.PlaySFX(upgradeSfx);
         if (dineroTotal >= costeUnicos)
         {
-            AudioManager.Instance.PlaySFX(upgradeSfx);
             GameManager.Instance.BoolUpgrade(element - 4); //Pone a true el bool la mejora, en gamemanager dash es 0 y arma a distancia es 1
             GameManager.Instance.DecreaseDinero(costeUnicos);
             buttons[element].interactable = false; //desactiva el boton y cambia su descripcion

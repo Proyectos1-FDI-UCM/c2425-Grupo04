@@ -537,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Basedamage: 10
   cooldown: 2
+  enemyAttack: {fileID: 8300000, guid: db8b5a9bfd433c94e9ef26371ec50140, type: 3}
 --- !u!114 &49618604380489305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +598,8 @@ MonoBehaviour:
   Life: 150
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
   barraVida: {fileID: 1730911634199282792}
+  LowHealthSFX: {fileID: 8300000, guid: bff56d54888ca9c45a206077c276e24e, type: 3}
+  enemyDeathSFX: {fileID: 8300000, guid: 28d06cdcc76fb6041ac3db641e0ef43d, type: 3}
 --- !u!61 &2940290787922086070
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class Autodestruccion : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [SerializeField]
     float TimerTicTac;
+    [SerializeField]
+    private AudioClip explosionSFX;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -50,7 +52,7 @@ public class Autodestruccion : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        AudioManager.Instance.PlaySFX(explosionSFX);
     }
 
     /// <summary>
