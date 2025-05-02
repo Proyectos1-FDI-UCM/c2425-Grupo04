@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     [Header("Clientes")]
     [SerializeField] private GameObject[] Clientes;
 
+    [Header("SFX Alcantarilla")]
+    [SerializeField] private AudioClip AlcantarillaSFX;
 
     #endregion
 
@@ -643,6 +645,11 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.ChangePitchMusic(1);
         AudioManager.Instance.ChangePitchSFX(1);
+        if((index == 2 && SceneManager.GetActiveScene().buildIndex != 1) || index == 7)
+        {
+            AudioManager.Instance.PlaySFX(AlcantarillaSFX);
+        }
+
         int i = 0;
         bool enc = false;
 

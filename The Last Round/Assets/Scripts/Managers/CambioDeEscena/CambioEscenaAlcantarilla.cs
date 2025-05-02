@@ -6,6 +6,8 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -23,6 +25,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField] private int Scene;
+    [SerializeField] AudioClip AlcantarillaSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -46,6 +49,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
             {
                 GetComponent<ResetGame>().ResetGM();
             }
+            AudioManager.Instance.PlaySFX(AlcantarillaSFX);
             GameManager.Instance.ChangeScene(Scene);
         }
     }

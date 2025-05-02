@@ -144,8 +144,8 @@ public class AudioManager : MonoBehaviour
         }
         if (enc)
         {
-            Debug.Log("Ha entrado");
-            Debug.Log(MusicTrack[i].SceneMusic.name);
+            //Debug.Log("Ha entrado");
+            //Debug.Log(MusicTrack[i].SceneMusic.name);
             musicSource.clip = MusicTrack[i].SceneMusic;
             musicSource.Play();
         }
@@ -154,8 +154,15 @@ public class AudioManager : MonoBehaviour
     {
         if (SFXSource != null)
         {
-            SFXSource.clip = sfx;
-            SFXSource.Play();
+            if (SFXSource.isPlaying)
+            {
+                SFXSource.PlayOneShot(sfx);
+            }
+            else
+            {
+                SFXSource.clip = sfx;
+                SFXSource.Play();
+            }
         }
     }
 
@@ -166,7 +173,6 @@ public class AudioManager : MonoBehaviour
     public void ChangePitchMusic(float pitch)
     {
         musicSource.pitch = pitch;
-
     }
 
     /// <summary>

@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject ContadorDaño;
     [SerializeField, Tooltip("En Enemigo esta en hijo y jugador esta en canvas general")] 
     private Slider barraVida;
+    [SerializeField] AudioClip LowHealthSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -30,6 +31,7 @@ public class Health : MonoBehaviour
     private TextMeshProUGUI text;
     private EnemyType enemy;
     private bool invunerabilidad = false;
+    private bool playSFX = true;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -37,7 +39,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-
+        playSFX = true;
        // Debug.Log(gameObject.name + " Enemigo tiene " + EnemigoLife);
 
         text = ContadorDaño.GetComponentInChildren<TextMeshProUGUI>();
@@ -57,6 +59,7 @@ public class Health : MonoBehaviour
         barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
         barraVida.value = Life;
     }
+
     
     #endregion
 
@@ -78,6 +81,12 @@ public class Health : MonoBehaviour
         text.text = damage.ToString();
         Instantiate(ContadorDaño, gameObject.transform.position, Quaternion.identity);
         barraVida.value = Life;
+
+        if(Life <= barraVida.maxValue/4)
+        {
+            LowHealthEffect();
+        }
+
         if (Life <= 0)
         {
             Kill(); //Si su vida es 0 o menor el objeto muere
@@ -117,6 +126,15 @@ public class Health : MonoBehaviour
         else
         {
             GameManager.Instance.GetUIC().GameOverUI();
+        }
+    }
+
+    private void LowHealthEffect()
+    {
+        if (playSFX)
+        {
+            AudioManager.Instance.PlaySFX(LowHealthSFX);
+            playSFX = false;
         }
     }
     #endregion

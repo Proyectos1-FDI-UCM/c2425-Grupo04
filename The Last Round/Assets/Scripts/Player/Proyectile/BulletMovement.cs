@@ -17,7 +17,8 @@ public class BulletMovement : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    public float speed = 2f;
+    [SerializeField] float speed = 2f;
+    [SerializeField] AudioClip DistanceHitSFX;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -74,7 +75,8 @@ public class BulletMovement : MonoBehaviour
         if (collision.gameObject.GetComponent<CastEnemy>() != null || (collision.gameObject.GetComponent<Rigidbody2D>() != null && collision.gameObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static))
         {
             Destroy(gameObject);
-        }  
+            AudioManager.Instance.PlaySFX(DistanceHitSFX);
+        }
     }
     private void OnBecameInvisible()
     {

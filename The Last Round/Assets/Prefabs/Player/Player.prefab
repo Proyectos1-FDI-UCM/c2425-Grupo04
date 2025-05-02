@@ -233,6 +233,10 @@ MonoBehaviour:
   cameraMain: {fileID: 0}
   bulletPrefab: {fileID: 3448498875934282452, guid: 27f9c9b886f2ce040a58601c7f48bcdb, type: 3}
   meleeObject: {fileID: 840336448526246015}
+  MeleeSFX: {fileID: 8300000, guid: 18c4fe24a1685b044a8849d0a0af010f, type: 3}
+  DistanceThrowSFX: {fileID: 8300000, guid: ea3c3db109d984b44925b59276bb49da, type: 3}
+  DistanceHitSFX: {fileID: 0}
+  WeaponSwitch: {fileID: 8300000, guid: 4d2550d25264b5f42b8f9860f412f1c4, type: 3}
 --- !u!1 &7749647460839375097
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +366,7 @@ MonoBehaviour:
   DashSpeed: 20
   DashDuration: 0.2
   DashCooldown: 1
+  DashSFX: {fileID: 8300000, guid: fc5c4fac9c26e6e4fb6976dcb74a3f1e, type: 3}
 --- !u!114 &804797766998022290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +514,7 @@ MonoBehaviour:
   Life: 200
   "ContadorDa\xF1o": {fileID: 7532583761371892575, guid: c99eb6bcd397c6c45a343254e201ac12, type: 3}
   barraVida: {fileID: 0}
+  LowHealthSFX: {fileID: 8300000, guid: bff56d54888ca9c45a206077c276e24e, type: 3}
 --- !u!95 &4852415632243994459
 Animator:
   serializedVersion: 5

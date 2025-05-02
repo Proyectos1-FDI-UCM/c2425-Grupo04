@@ -19,10 +19,12 @@ public class PlayerDash : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private float ObjectSizeX, ObjectSizeY;
     [Header("DASH")]
+
     [SerializeField]
     private float DashSpeed = 10f,
                   DashDuration = 0.2f,
                   DashCooldown = 1f;
+    [SerializeField] AudioClip DashSFX;
     
     #endregion
 
@@ -150,6 +152,7 @@ public class PlayerDash : MonoBehaviour
         cooldownTimer = DashCooldown;
         rb.velocity = new Vector3(LastDirection.x * DashSpeed, LastDirection.y * DashSpeed);
         animator.SetTrigger("Dashed");
+        AudioManager.Instance.PlaySFX(DashSFX);
     }
 
     private void EndDash()

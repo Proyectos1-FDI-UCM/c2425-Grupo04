@@ -20,7 +20,6 @@ public class MeleeAttack : MonoBehaviour
 
     [SerializeField]
     public float duration;
-
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----

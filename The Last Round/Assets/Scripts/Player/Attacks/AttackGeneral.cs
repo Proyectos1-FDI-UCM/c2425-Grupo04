@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 
+using System.Collections;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.InputSystem;
@@ -41,6 +42,10 @@ public class AttackGeneral : MonoBehaviour
 
     [SerializeField]
     private GameObject meleeObject;
+
+    [SerializeField] AudioClip MeleeSFX;
+    [SerializeField] AudioClip DistanceThrowSFX;
+    [SerializeField] AudioClip WeaponSwitch;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -52,6 +57,7 @@ public class AttackGeneral : MonoBehaviour
     private bool UsingJoystick = false;
     private Vector2 LastMousePosition;
     private float timerCanRotate = 0;
+    private float randomPitch;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -96,6 +102,7 @@ public class AttackGeneral : MonoBehaviour
         {
             if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
             else if (!weaponType) weaponType = true;
+            AudioManager.Instance.PlaySFX(WeaponSwitch);
         }
 
         if (GameManager.Instance.GetUIC() != null)
@@ -152,6 +159,11 @@ public class AttackGeneral : MonoBehaviour
     private void Shoot()
     {
         Instantiate(bulletPrefab, origin.transform.position, pivot.transform.rotation);
+        randomPitch = Random.Range(0.8f, 1.2f);
+        randomPitch = Mathf.Round(randomPitch * 100) / 100; //Para que tenga 2 decimales
+        AudioManager.Instance.ChangePitchSFX(randomPitch);
+        AudioManager.Instance.PlaySFX(DistanceThrowSFX);
+        StartCoroutine(RestorePitch(0.2f));
     }
 
     private void Melee()
@@ -159,6 +171,17 @@ public class AttackGeneral : MonoBehaviour
         timerCanRotate = meleeObject.GetComponent<MeleeAttack>().GetDuration();
         Debug.Log(timerCanRotate);
         meleeObject.GetComponent<MeleeAttack>().attack();
+        randomPitch = Random.Range(0.8f, 1.2f);
+        randomPitch = Mathf.Round(randomPitch * 100) / 100; //Para que tenga 2 decimales
+        AudioManager.Instance.ChangePitchSFX(randomPitch);
+        AudioManager.Instance.PlaySFX(MeleeSFX);
+        StartCoroutine(RestorePitch(0.2f));
+    }
+
+    private IEnumerator RestorePitch(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioManager.Instance.ChangePitchSFX(1);
     }
     #endregion   
 

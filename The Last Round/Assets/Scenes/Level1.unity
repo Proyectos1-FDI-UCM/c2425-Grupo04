@@ -25402,6 +25402,10 @@ PrefabInstance:
       propertyPath: promptUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4809966780050603299, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
+      propertyPath: AlcantarillaSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: a1560faa4c86f1648a6de46f5125e0d4, type: 3}
     - target: {fileID: 6566138211873817537, guid: 9a0caedd75e42b249a79f8be80b93b5b, type: 3}
       propertyPath: m_Size.x
       value: 1.25
