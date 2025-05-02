@@ -442,6 +442,7 @@ MonoBehaviour:
   Life: 150
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
   barraVida: {fileID: 4754418585902499961}
+  LowHealthSFX: {fileID: 0}
 --- !u!61 &8971501028595896084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -497,7 +498,7 @@ Animator:
   m_GameObject: {fileID: 7992104292323869361}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 148f0ce5d8e6c934981eecf8721808e1, type: 2}
+  m_Controller: {fileID: 9100000, guid: e1cd2057ff552d24398b67dbce9f06f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

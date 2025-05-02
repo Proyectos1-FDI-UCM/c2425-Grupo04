@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: -9182157900723723110}
   - component: {fileID: 8463700218095806002}
   - component: {fileID: 7949263453700417427}
+  - component: {fileID: 7486316118609774250}
   m_Layer: 10
   m_Name: Grapenade
   m_TagString: Untagged
@@ -561,6 +562,7 @@ MonoBehaviour:
   Life: 50
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
   barraVida: {fileID: 1641722565466750369}
+  LowHealthSFX: {fileID: 0}
 --- !u!61 &7949263453700417427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -606,6 +608,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.4}
   m_EdgeRadius: 0
+--- !u!95 &7486316118609774250
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156365099456941090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc0d080aefa0e104aa7c0800ace535bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8858556142042594780
 GameObject:
   m_ObjectHideFlags: 0

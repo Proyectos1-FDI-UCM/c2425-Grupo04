@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 1533601853116992235}
   - component: {fileID: 6263155476328059646}
   - component: {fileID: 7734903972893655741}
+  - component: {fileID: 6152854776966613035}
   m_Layer: 10
   m_Name: Manzariete
   m_TagString: Untagged
@@ -723,6 +724,7 @@ MonoBehaviour:
   Life: 100
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
   barraVida: {fileID: 2359654342799000585}
+  LowHealthSFX: {fileID: 0}
 --- !u!58 &7734903972893655741
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -758,3 +760,24 @@ CircleCollider2D:
   m_Offset: {x: 0.03, y: -0.45}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!95 &6152854776966613035
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992104292323869361}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db59f43384df07946916ea27fbebc750, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
