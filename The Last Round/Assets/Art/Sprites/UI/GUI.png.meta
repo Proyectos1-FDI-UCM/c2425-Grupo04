@@ -118,7 +118,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 6, z: 7, w: 7}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 6, z: 7, w: 7}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_0
+      name: PapelGUI_2
       rect:
         serializedVersion: 2
         x: 0
@@ -160,7 +160,7 @@ TextureImporter:
         width: 48
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 6, z: 7, w: 7}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_1
+      name: PapelGUI_3
       rect:
         serializedVersion: 2
         x: 48
@@ -181,7 +181,7 @@ TextureImporter:
         width: 46
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 6, y: 6, z: 6, w: 7}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_2
+      name: DialogoGUI
       rect:
         serializedVersion: 2
         x: 96
@@ -202,7 +202,7 @@ TextureImporter:
         width: 48
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 2}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_3
+      name: SliderContGUI
       rect:
         serializedVersion: 2
         x: 148
@@ -223,7 +223,7 @@ TextureImporter:
         width: 8
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_4
+      name: SliderBGGUI
       rect:
         serializedVersion: 2
         x: 160
@@ -244,7 +244,7 @@ TextureImporter:
         width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 6, z: 7, w: 6}
       outline: []
       physicsShape: []
@@ -257,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_5
+      name: FlAbajoGUI
       rect:
         serializedVersion: 2
         x: 192
@@ -265,7 +265,7 @@ TextureImporter:
         width: 16
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_6
+      name: FlDerechaGUI
       rect:
         serializedVersion: 2
         x: 208
@@ -286,7 +286,7 @@ TextureImporter:
         width: 16
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_7
+      name: TickGUI
       rect:
         serializedVersion: 2
         x: 224
@@ -307,7 +307,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_8
+      name: RetratoGUI
       rect:
         serializedVersion: 2
         x: 97
@@ -328,7 +328,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 6, y: 6, z: 6, w: 8}
       outline: []
       physicsShape: []
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_9
+      name: MaderaGUI_0
       rect:
         serializedVersion: 2
         x: 145
@@ -349,7 +349,7 @@ TextureImporter:
         width: 48
         height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 5, y: 7, z: 5, w: 3}
       outline: []
       physicsShape: []
@@ -362,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_10
+      name: MaderaGUI_1
       rect:
         serializedVersion: 2
         x: 193
@@ -370,7 +370,7 @@ TextureImporter:
         width: 48
         height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 5, y: 6, z: 5, w: 4}
       outline: []
       physicsShape: []
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_11
+      name: MaderaGUI_2
       rect:
         serializedVersion: 2
         x: 241
@@ -391,7 +391,7 @@ TextureImporter:
         width: 48
         height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
@@ -414,20 +414,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GUI_0: -2044117731
-      GUI_1: -1949581666
-      GUI_10: 168790172
-      GUI_11: -1242710028
-      GUI_2: -268782612
-      GUI_3: -793488843
-      GUI_4: -1355615800
-      GUI_5: -133873374
-      GUI_6: 373934788
-      GUI_7: -1745922316
-      GUI_8: -366475626
-      GUI_9: -804399548
+      DialogoGUI: -268782612
+      FlAbajoGUI: -133873374
+      FlDerechaGUI: 373934788
+      MaderaGUI_0: -804399548
+      MaderaGUI_1: 168790172
+      MaderaGUI_2: -1242710028
       PapelGUI_0: -292965101
       PapelGUI_1: 9536776
+      PapelGUI_2: -2044117731
+      PapelGUI_3: -1949581666
+      RetratoGUI: -366475626
+      SliderBGGUI: -1355615800
+      SliderContGUI: -793488843
+      TickGUI: -1745922316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
