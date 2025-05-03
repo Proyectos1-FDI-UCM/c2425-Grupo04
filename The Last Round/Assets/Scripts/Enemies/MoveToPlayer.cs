@@ -77,16 +77,15 @@ public class MoveToPlayer : MonoBehaviour
             animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
             animator.SetFloat("Vertical", rb.velocity.y);
             animator.SetFloat("Speed", rb.velocity.magnitude);
-
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerWalkSide") ||
-                animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerIdleSide"))
+            bool isMovingSideWays = Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y);
+            if (isMovingSideWays)
             {
-                if (rb.velocity.x < 0)
+                if (rb.velocity.x < -0.01f)
                 {
                     //Si se mueve a la izquierda, flip al Sprite Renderer
                     spriteRenderer.flipX = true;
                 }
-                else if (rb.velocity.x > 0)
+                else if (rb.velocity.x > 0.01f)
                 {
                     //Si se mueve a la derecha, no hay flip al Sprite Renderer
                     spriteRenderer.flipX = false;
