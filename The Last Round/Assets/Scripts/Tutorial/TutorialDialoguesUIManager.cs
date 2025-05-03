@@ -25,6 +25,9 @@ public class TutorialDialoguesUIManager : MonoBehaviour
     [SerializeField]
     private float TypeSpeed;
     [SerializeField]
+    private AudioClip TypingSFX;
+
+    [SerializeField]
     private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText;
     [SerializeField]
     private Image CharacterPortrait;
@@ -274,6 +277,7 @@ public class TutorialDialoguesUIManager : MonoBehaviour
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {
+            AudioManager.Instance.PlaySFX(TypingSFX);
             char ch = dialogueOnly[i];
             if (SkipDialogue)
             {
