@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private int SourceTypes;
+    [SerializeField] private int SourceTypes, HowEnemiesToFinalPhase;
     [SerializeField]
     private SceneIndex[] ScenesIndex;
 
@@ -438,6 +438,13 @@ public class GameManager : MonoBehaviour
     public int[] GetEnemyCounter()
     {
         return numEnemigos;
+    }
+
+    public bool IsFinalPhase()
+    {
+        int counter = numEnemigos[(int)EnemyType.Manzurria] + numEnemigos[(int)EnemyType.Uvoncio] + numEnemigos[(int)EnemyType.Manzariete] + numEnemigos[(int)EnemyType.Grapenade];
+
+        return counter <= HowEnemiesToFinalPhase;
     }
     // --- FIN CONTADOR DE ENEMIGOS ---
     #endregion
