@@ -1460,6 +1460,14 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[5].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c40626e6b2bb0f4981c76885b70cc5a, type: 3}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[6].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c40626e6b2bb0f4981c76885b70cc5a, type: 3}
     - target: {fileID: 8862978432594252673, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: m_Name
       value: AudioManager
