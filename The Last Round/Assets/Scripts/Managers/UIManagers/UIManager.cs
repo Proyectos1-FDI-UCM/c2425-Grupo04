@@ -30,6 +30,9 @@ public class UIManager : MonoBehaviour
     private float TypeSpeed;
 
     [SerializeField]
+    private AudioClip TypingSFX;
+
+    [SerializeField]
     private float DisappearSpeed;
 
     [SerializeField]
@@ -700,6 +703,7 @@ public class UIManager : MonoBehaviour
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
         {
+            AudioManager.Instance.PlaySFX(TypingSFX);
             char ch = dialogueOnly[i];
             if (SkipDialogue)
             {

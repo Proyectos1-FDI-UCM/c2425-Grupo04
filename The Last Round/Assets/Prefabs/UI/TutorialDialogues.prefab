@@ -420,6 +420,7 @@ MonoBehaviour:
   OrionSprite: {fileID: 21300000, guid: a820c738f8003304d86a25e4cc6b568c, type: 3}
   Box: {fileID: 5539714274401192393}
   TypeSpeed: 0.025
+  TypingSFX: {fileID: 8300000, guid: e4879eb6d38db0243a3d83dae06d8bd9, type: 3}
   dialogueBox: {fileID: 2664259244036496953}
   dialogueSkipBText: {fileID: 995117409031869475}
   option1BText: {fileID: 7023925226331319863}
