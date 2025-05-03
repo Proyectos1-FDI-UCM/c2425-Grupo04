@@ -203,7 +203,9 @@ public class UIManager : MonoBehaviour
                 {
                     Destroy(Client.gameObject);
 
-                   
+                    //Por si hay algo en la cesta se lo devuelve antes de irse de la escena
+                    RegresarMats();
+
                     GameManager.Instance.ChangeScene(NextScene);
                 }
             }
