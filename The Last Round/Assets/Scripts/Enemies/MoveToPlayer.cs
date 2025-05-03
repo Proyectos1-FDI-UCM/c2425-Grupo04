@@ -78,7 +78,8 @@ public class MoveToPlayer : MonoBehaviour
             animator.SetFloat("Vertical", rb.velocity.y);
             animator.SetFloat("Speed", rb.velocity.magnitude);
 
-            if (Mathf.Abs(rb.velocity.y) < 0.2f)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerWalkSide") ||
+                animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerIdleSide"))
             {
                 if (rb.velocity.x < 0)
                 {
