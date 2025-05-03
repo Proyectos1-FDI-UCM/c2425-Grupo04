@@ -473,7 +473,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -2471,7 +2471,7 @@ PrefabInstance:
     - target: {fileID: 3377718184546448996, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1634880995}
     - target: {fileID: 3377718184546448996, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionR
@@ -2527,7 +2527,7 @@ PrefabInstance:
     - target: {fileID: 3922128598625980950, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1634880995}
     - target: {fileID: 3922128598625980950, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionL
@@ -2695,7 +2695,7 @@ PrefabInstance:
     - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1634880995}
     - target: {fileID: 4490128444149707182, guid: 956d6aa6d1306fd4db331890403d0012, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3181,7 +3181,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -4173,7 +4173,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RegresarMats
         m_Mode: 1
@@ -4306,7 +4306,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -4790,7 +4790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -5015,7 +5015,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -6342,7 +6342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2
@@ -7511,6 +7511,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+--- !u!114 &1634880995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1507143319157818373, guid: 294b47f28b2aef645a0078daa9443e78, type: 3}
+  m_PrefabInstance: {fileID: 1634880994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8936d9446e0ccf7438ee5cc758a52d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1635051906
 GameObject:
   m_ObjectHideFlags: 0
@@ -8157,7 +8168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: Servir
         m_Mode: 1
@@ -8744,7 +8755,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1634880995}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SumarMaterial
         m_Mode: 2

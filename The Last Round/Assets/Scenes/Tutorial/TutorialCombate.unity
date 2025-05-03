@@ -20312,6 +20312,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_SelectedColor.r
       value: 0.69803923
       objectReference: {fileID: 0}
+    - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1281322488}
+    - target: {fileID: 4653001277217499121, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.084855
@@ -20528,6 +20536,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1281322488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+  m_PrefabInstance: {fileID: 1281322483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8b33a9dacbeb64fba0532eb87f298d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1285587439
