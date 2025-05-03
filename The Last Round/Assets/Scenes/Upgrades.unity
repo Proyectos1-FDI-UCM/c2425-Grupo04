@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2d10510bd06d3478c6ce4b3abdba81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: {fileID: 0}
+  Description: {fileID: 710420384}
 --- !u!114 &653882035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4912,7 +4912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2d10510bd06d3478c6ce4b3abdba81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: {fileID: 0}
+  Description: {fileID: 485803505}
 --- !u!114 &1580822148
 MonoBehaviour:
   m_ObjectHideFlags: 0
