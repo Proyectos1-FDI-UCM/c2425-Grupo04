@@ -1003,8 +1003,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280300638
-  m_fontColor: {r: 0.36862746, g: 0.20392157, b: 0.1254902, a: 1}
+    rgba: 4280494916
+  m_fontColor: {r: 0.26666668, g: 0.16862746, b: 0.13725491, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1833,14 +1833,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1993,8 +1993,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280300638
-  m_fontColor: {r: 0.36862746, g: 0.20392157, b: 0.1254902, a: 1}
+    rgba: 4280494916
+  m_fontColor: {r: 0.26666668, g: 0.16862746, b: 0.13725491, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2160,7 +2160,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
         m_Mode: 3
@@ -2676,7 +2676,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
         m_Mode: 3
@@ -3623,8 +3623,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280300638
-  m_fontColor: {r: 0.36862746, g: 0.20392157, b: 0.1254902, a: 1}
+    rgba: 4280494916
+  m_fontColor: {r: 0.26666668, g: 0.16862746, b: 0.13725491, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5080,8 +5080,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280300638
-  m_fontColor: {r: 0.36862746, g: 0.20392157, b: 0.1254902, a: 1}
+    rgba: 4280494916
+  m_fontColor: {r: 0.26700002, g: 0.16690171, b: 0.136437, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6111,7 +6111,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
         m_Mode: 3
@@ -6260,7 +6260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
         m_Mode: 3

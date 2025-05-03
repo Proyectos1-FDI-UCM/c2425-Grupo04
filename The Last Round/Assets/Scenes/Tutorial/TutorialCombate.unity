@@ -572,7 +572,7 @@ PrefabInstance:
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: DashCharge
       value: 
-      objectReference: {fileID: 1962490828}
+      objectReference: {fileID: 1872597384}
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: PlayerLife
       value: 
@@ -588,11 +588,11 @@ PrefabInstance:
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: DashFillBar
       value: 
-      objectReference: {fileID: 1872597384}
+      objectReference: {fileID: 1962490828}
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 608776202}
+      objectReference: {fileID: 668699860}
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: InteractMessage
       value: 
