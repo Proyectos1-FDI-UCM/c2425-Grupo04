@@ -41,6 +41,7 @@ public class SpawnersManager : MonoBehaviour
     private SpawnerBehaviour[] Spawners;
     private GameObject ChosenObject;
     private SpawnerBehaviour ChosenSpawner;
+    private int[] ContadorEnemigos;
 
     //Se usa de listado para que los randoms sepan que han pasado por todos los objetos
     private GameObject[] tmp;
@@ -83,7 +84,10 @@ public class SpawnersManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (timer <= 0)
+
+
+
+        if (timer <= 0 || GameManager.Instance.IsFinalPhase())
         {
             int EnemiesInScene = FindObjectsOfType<CastEnemy>().Length;
             int EnemyCount = 0;
@@ -93,7 +97,7 @@ public class SpawnersManager : MonoBehaviour
                 EnemyCount += GameManager.Instance.GetEnemyCounter()[i];
             }
 
-            if (EnemiesInScene < MaxEnemiesInScene)
+            if (EnemiesInScene < MaxEnemiesInScene || GameManager.Instance.IsFinalPhase())
             {
                 //Atributo encargado de llevar una lista sobre los objetos que el random ya ha elegido para que este no se repita
                 tmp = new GameObject[SpawnObjects.Length];

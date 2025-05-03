@@ -73,6 +73,11 @@ public class Timer : MonoBehaviour
             }
             GameManager.Instance.GiveTimerToUIC(TimerText(), time);
         }
+
+        if (GameManager.Instance.IsFinalPhase())
+        {
+            gameObject.SetActive(false);
+        }
     }
     #endregion
 

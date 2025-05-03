@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.GetComponent<CambioEscenaAlcantarilla>() != null)
+        if (collider.GetComponent<CambioEscenaAlcantarilla>() != null && !GameManager.Instance.IsFinalPhase())
         {
             GameManager.Instance.GetUIC().PressE();
         }
@@ -143,6 +143,10 @@ public class PlayerMovement : MonoBehaviour
             holdingTime = collision.GetComponent<RecursoSpawner>().GetHoldingTime();
 
             GameManager.Instance.GetUIC().HoldE(timer, holdingTime);
+        }
+        if (collision.GetComponent<CambioEscenaAlcantarilla>() != null && GameManager.Instance.IsFinalPhase())
+        {
+            GameManager.Instance.GetUIC().ClearMessage();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

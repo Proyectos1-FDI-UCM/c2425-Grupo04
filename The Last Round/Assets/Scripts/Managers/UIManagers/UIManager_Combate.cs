@@ -119,6 +119,11 @@ public class UIManager_Combate : MonoBehaviour
             //Debug.Log(DashFillBar.fillAmount + " POST");
             //DashFillBar.fillAmount -= (0.1f / DashCooldown) * Time.deltaTime;
         }
+
+        if (GameManager.Instance.IsFinalPhase() && timer != null && timer.gameObject.activeSelf)
+        {
+            timer.gameObject.SetActive(false);
+        }
     }
     #endregion
 
@@ -174,8 +179,20 @@ public class UIManager_Combate : MonoBehaviour
     public void ChangePopulation()
     {
         populationNum--;
+
         if (population != null)
-            population.text = $"Población: {populationNum}";
+        {
+            if (GameManager.Instance.IsFinalPhase())
+            {
+                population.color = Color.red;
+                population.text = $"¡Acaba con todos!";
+            }
+            else
+            {
+                population.text = $"Población: {populationNum}";
+            }
+        }
+
     }
 
     public void PressE()

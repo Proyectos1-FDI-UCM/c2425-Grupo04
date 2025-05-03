@@ -6,8 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -43,7 +41,7 @@ public class CambioEscenaAlcantarilla : MonoBehaviour
     #region Métodos de MonoBehaviour
     private void Update()
     {
-        if (InputManager.Instance.InteractWasPressedThisFrame() && Alcantarilla)
+        if (InputManager.Instance.InteractWasPressedThisFrame() && Alcantarilla && !GameManager.Instance.IsFinalPhase())
         {
             if (GetComponent<ResetGame>() != null)
             {
