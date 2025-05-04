@@ -100,9 +100,16 @@ public class AttackGeneral : MonoBehaviour
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame() &&
             !GameManager.Instance.IsPauseActive())
         {
-            if (weaponType || !GameManager.Instance.GetBoolUpgrade(0)) weaponType = false;
-            else if (!weaponType) weaponType = true;
-            AudioManager.Instance.PlaySFX(WeaponSwitch);
+            if (weaponType || !GameManager.Instance.GetBoolUpgrade(0))
+            {
+                weaponType = false;
+                AudioManager.Instance.PlaySFX(WeaponSwitch);
+            }
+            else if (!weaponType)
+            {
+                weaponType = true;
+                AudioManager.Instance.PlaySFX(WeaponSwitch);
+            }
         }
 
         if (GameManager.Instance.GetUIC() != null)
