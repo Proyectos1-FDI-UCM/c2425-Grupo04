@@ -23,11 +23,9 @@ public class FinalScene : MonoBehaviour
     [SerializeField] private float StartSceneDistance;
     [SerializeField] private float PlayerSpeed;
     [SerializeField] private GameObject CajaDeDialogos;
-    [SerializeField] private GameObject attack;
-    [SerializeField] private float FadeSpeed;
+    [SerializeField] private AudioClip attack;
     [SerializeField] private int CreditSceneIndex;
-    [SerializeField]
-    private Scenes MusicaEscenaFinal;
+    [SerializeField] private Scenes MusicaEscenaFinal;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -37,11 +35,10 @@ public class FinalScene : MonoBehaviour
     private Vector3 AlcaldePlayer, Destiny;
     private Vector2 Direction;
     private GameObject Player;
-    private bool DisablePlayer = false, StartDialogue = false, FinalAttack = false, Appear = false;
+    private bool DisablePlayer = false, StartDialogue = false, FinalAttack = false, StartFinalAttack = false;
     private Rigidbody2D rb;
     private Animator PlayerAnimator, AlcaldeAnimator;
     private SpriteRenderer spriteRenderer;
-    private UnityEngine.Color colorAlcalde;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,7 +60,7 @@ public class FinalScene : MonoBehaviour
 
         rb = Player.GetComponent<Rigidbody2D>();
 
-        Destiny = new Vector3(transform.position.x, transform.position.y - Player.transform.localScale.y/2 - transform.localScale.y, transform.position.z);
+        Destiny = new Vector3(transform.position.x, transform.position.y - Player.transform.localScale.y / 2 - transform.localScale.y, transform.position.z);
 
         PlayerAnimator = Player.GetComponent<Animator>();
         AlcaldeAnimator = GetComponent<Animator>();
@@ -72,14 +69,6 @@ public class FinalScene : MonoBehaviour
         spriteRenderer = Player.GetComponent<SpriteRenderer>();
 
         GameManager.Instance.GetUIC().DisableUI();
-
-        //Se oscurece el alcalde
-        colorAlcalde.a = 0;
-        colorAlcalde.g = 0;
-        colorAlcalde.b = 0;
-        colorAlcalde.r = 0;
-
-        GetComponent<SpriteRenderer>().color = colorAlcalde;
     }
 
     /// <summary>
@@ -90,33 +79,18 @@ public class FinalScene : MonoBehaviour
         //Guarda la distancia del alcalde al jugador
         AlcaldePlayer = Player.transform.position;
 
-        //Hace el fade-in en escena del alcalde
-        if (!Appear)
-        {
-            colorAlcalde.r = Mathf.Clamp(colorAlcalde.r + Time.deltaTime * FadeSpeed, 0, 255);
-            colorAlcalde.g = Mathf.Clamp(colorAlcalde.g + Time.deltaTime * FadeSpeed, 0, 255);
-            colorAlcalde.b = Mathf.Clamp(colorAlcalde.b + Time.deltaTime * FadeSpeed, 0, 255);
-            colorAlcalde.a = Mathf.Clamp(colorAlcalde.a + Time.deltaTime * FadeSpeed, 0, 255);
-            GetComponent<SpriteRenderer>().color = colorAlcalde / 255;
-        }
-
-        //Debug.Log(color.r);
-        if (GetComponent<SpriteRenderer>().color.r == 1)
-            Appear = true;
-
-
         //Cuando esté a la distancia determinada el jugador pierde el control del personaje
-        if (AlcaldePlayer.magnitude <= StartSceneDistance && !DisablePlayer && Appear)
+        if (AlcaldePlayer.magnitude <= StartSceneDistance && !DisablePlayer)
         {
             PlayerMovement movimiento = Player.GetComponent<PlayerMovement>();
             PlayerDash dash = Player.GetComponent<PlayerDash>();
             AttackGeneral ataque = Player.GetComponentInChildren<AttackGeneral>();
 
-            if(movimiento != null)
+            if (movimiento != null)
             {
                 movimiento.enabled = false;
             }
-            if(dash != null)
+            if (dash != null)
             {
                 dash.enabled = false;
             }
@@ -177,13 +151,27 @@ public class FinalScene : MonoBehaviour
         }
 
         //Escena del ataque
+        if (StartFinalAttack)
+        {
+            if (GameManager.Instance.GetUIC() != null)
+            {
+                GameManager.Instance.GetUIC().StartFade(false);
+                StartFinalAttack = false;
+                FinalAttack = true;
+            }
+        }
         if (FinalAttack)
         {
-            AlcaldeAnimator.SetBool("Die", true);
+            if (GameManager.Instance.GetUIC().IsFadingOut())
+            {
+                AlcaldeAnimator.SetBool("Die", true);
+                AudioManager.Instance.PlaySFX(attack);
+                FinalAttack = false;
+            }
         }
 
         //Si termina la animación de muerte cambia de escena
-        if (AlcaldeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Alcalde_diying") &&
+        if (AlcaldeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Alcalde_dying") &&
             AlcaldeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             GameManager.Instance.ChangeScene(CreditSceneIndex);
@@ -196,7 +184,7 @@ public class FinalScene : MonoBehaviour
 
     public void StartAttack()
     {
-        FinalAttack = true;
+        StartFinalAttack = true;
     }
     #endregion
 

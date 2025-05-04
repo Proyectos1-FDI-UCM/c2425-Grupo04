@@ -493,9 +493,10 @@ RectTransform:
   - {fileID: 780272768}
   - {fileID: 1677994071}
   - {fileID: 655207188}
+  - {fileID: 1164672964}
+  - {fileID: 654741374}
   - {fileID: 110903831}
   - {fileID: 142501304}
-  - {fileID: 1164672964}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1737,6 +1738,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb38dfe74b44669418e31305a4c1b375, type: 3}
+--- !u!1 &654741373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654741374}
+  - component: {fileID: 654741376}
+  - component: {fileID: 654741375}
+  m_Layer: 5
+  m_Name: FadeIn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &654741374
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654741373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 69859735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000030518, y: -0.00021362}
+  m_SizeDelta: {x: 800, y: 450.46}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &654741375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654741373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &654741376
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654741373}
+  m_CullTransparentMesh: 1
 --- !u!1 &655207187
 GameObject:
   m_ObjectHideFlags: 0
@@ -28122,9 +28198,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
+      propertyPath: Fade
+      value: 
+      objectReference: {fileID: 654741375}
+    - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: timer
       value: 
       objectReference: {fileID: 1454504165}
+    - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
+      propertyPath: FadeSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5247007568444199987, guid: 6c69fee77dee25a42ba2ad5a734c98df, type: 3}
       propertyPath: DashCharge
       value: 
@@ -28817,6 +28901,10 @@ PrefabInstance:
       value: Has sido derrotado. Los pueblerinos han acabado contigo.
       objectReference: {fileID: 0}
     - target: {fileID: 8443666661386308207, guid: f08d3972192a5854aaf323453309ff68, type: 3}
+      propertyPath: m_fontSize
+      value: 21.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443666661386308207, guid: f08d3972192a5854aaf323453309ff68, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
@@ -28973,6 +29061,10 @@ PrefabInstance:
     - target: {fileID: 446422826416568257, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 446422826416568257, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 745278271637628078, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
       propertyPath: m_AnchorMax.x

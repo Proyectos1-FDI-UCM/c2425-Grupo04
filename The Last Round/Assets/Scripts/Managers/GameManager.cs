@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
-    [SerializeField] private int CreditSceneIndex = 5;
 
     [Header("Límites")]
     [SerializeField] private float MapWidth;
@@ -441,6 +440,21 @@ public class GameManager : MonoBehaviour
 
         return counter <= HowEnemiesToFinalPhase;
     }
+
+    public void CompruebaEnemies()
+    {
+        //Cuando no queden mas enemigos
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
+        {
+            UIManagerCombate.StartFade(true);
+        }
+    }
+
+    public void SpawnAlcalde()
+    {
+        //Spawnea el alcalde
+        Instantiate(Alcalde, WhereSpawnAlcalde, Quaternion.identity);
+    }
     // --- FIN CONTADOR DE ENEMIGOS ---
     #endregion
 
@@ -492,15 +506,7 @@ public class GameManager : MonoBehaviour
         return Player;
     }
 
-    public void CompruebaEnemies()
-    {
-        //Cuando no queden mas enemigos
-        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
-        {
-            //Spawnea el alcalde
-            Instantiate(Alcalde, WhereSpawnAlcalde, Quaternion.identity);
-        }
-    }
+
     #endregion
 
     #region Gestión de menú de pausa

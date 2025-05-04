@@ -102,8 +102,7 @@ MonoBehaviour:
   StartSceneDistance: 3
   PlayerSpeed: 6
   CajaDeDialogos: {fileID: 7820625777284157131}
-  attack: {fileID: 0}
-  FadeSpeed: 100
+  attack: {fileID: 8300000, guid: 18c4fe24a1685b044a8849d0a0af010f, type: 3}
   CreditSceneIndex: 5
   MusicaEscenaFinal: 7
 --- !u!95 &3401731727319050658
@@ -150,6 +149,10 @@ PrefabInstance:
     - target: {fileID: 5051232639160114281, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539714274401192393, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5584432462882767514, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
