@@ -153,18 +153,18 @@ public class FinalScene : MonoBehaviour
                 Direction = (Destiny - Player.transform.position);
 
                 //Si está en su destino deja de recolocarse y se mueve un poco hacia arriba para asegurar que siempre termina mirando arriba
-                if (Direction.magnitude < 0.2f)
+                if (Direction.magnitude < 0.1f)
                 {
                     Direction = Vector2.up;
                     StartDialogue = true;
                 }
                 //Si ha llegado a su destino en el eje y, anula el movimiento en esa dirección
-                else if (Mathf.Abs(Direction.y) < 0.2f)
+                else if (Mathf.Abs(Direction.y) < 0.1f)
                 {
                     Direction = new Vector2(Direction.x, 0);
                 }
                 //Si ha llegado a su destino en el eje x, anula el movimiento en esa dirección
-                else if (Mathf.Abs(Direction.x) < 0.2f)
+                else if (Mathf.Abs(Direction.x) < 0.1f)
                 {
                     Direction = new Vector2(0, Direction.y);
                 }
@@ -214,12 +214,12 @@ public class FinalScene : MonoBehaviour
             PlayerAnimator.SetFloat("Vertical", rb.velocity.y);
             PlayerAnimator.SetFloat("Speed", rb.velocity.sqrMagnitude);
 
-            if (rb.velocity.x < 0.1f)
+            if (rb.velocity.x < 0)
             {
                 //Si se mueve a la izquierda, flip al Sprite Renderer
                 spriteRenderer.flipX = true;
             }
-            else if (rb.velocity.x > 0.1f)
+            else if (rb.velocity.x > 0)
             {
                 //Si se mueve a la derecha, no hay flip al Sprite Renderer
                 spriteRenderer.flipX = false;
