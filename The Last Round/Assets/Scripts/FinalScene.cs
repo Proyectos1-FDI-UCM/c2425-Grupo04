@@ -23,8 +23,10 @@ public class FinalScene : MonoBehaviour
 
     [SerializeField] private float StartSceneDistance;
     [SerializeField] private float PlayerSpeed;
+    [SerializeField]
+    private Scenes MusicaEscenaFinal;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -51,6 +53,8 @@ public class FinalScene : MonoBehaviour
     /// </summary>
     void Start()
     {
+        AudioManager.Instance.PlaySceneMusic(MusicaEscenaFinal);
+
         Player = GameManager.Instance.GetPlayer();
 
         rb = Player.GetComponent<Rigidbody2D>();
