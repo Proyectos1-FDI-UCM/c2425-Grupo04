@@ -152,7 +152,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySFX(AudioClip sfx)
     {
-        if (SFXSource != null)
+        if (SFXSource != null && sfx != null)
         {
             if (SFXSource.isPlaying)
             {

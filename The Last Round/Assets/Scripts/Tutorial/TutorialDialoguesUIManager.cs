@@ -26,7 +26,8 @@ public class TutorialDialoguesUIManager : MonoBehaviour
     private float TypeSpeed;
     [SerializeField]
     private AudioClip TypingSFX;
-
+    [SerializeField]
+    private FinalScene ScriptFinalScene;
     [SerializeField]
     private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText;
     [SerializeField]
@@ -145,6 +146,11 @@ public class TutorialDialoguesUIManager : MonoBehaviour
                 dialogueSkipButton.gameObject.SetActive(false);
                 dialogueBox.text = " ";
                 ClientDisappear = true;
+
+                if (ScriptFinalScene != null)
+                {
+                    ScriptFinalScene.StartAttack();
+                }
             }
 
         }

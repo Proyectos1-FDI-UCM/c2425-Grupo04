@@ -216,6 +216,18 @@ public class UIManager_Combate : MonoBehaviour
     {
         InteractMessage.text = "";
     }
+
+    /// <summary>
+    /// Usado para la escena final, el método deshabilita toda la interfaz innecesaria como habilidades, vida y contador
+    /// </summary>
+    public void DisableUI()
+    {
+        PlayerLife.gameObject.SetActive(false);
+        currentWeapon.transform.parent.gameObject.SetActive(false);
+        DashCharge.gameObject.SetActive(false);
+        DashFillBar.gameObject.SetActive(false);
+        population.gameObject.SetActive(false);
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

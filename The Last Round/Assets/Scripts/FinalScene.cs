@@ -5,11 +5,10 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.PlayerLoop;
-// Añadir aquí el resto de directivas using
 
+using UnityEngine;
+// Añadir aquí el resto de directivas using
+using System.Drawing;
 
 /// <summary>
 /// La clase FinalScene se encarga de manejar todo lo que sucede en la escena final del juego
@@ -23,6 +22,10 @@ public class FinalScene : MonoBehaviour
 
     [SerializeField] private float StartSceneDistance;
     [SerializeField] private float PlayerSpeed;
+    [SerializeField] private GameObject CajaDeDialogos;
+    [SerializeField] private GameObject attack;
+    [SerializeField] private float FadeSpeed;
+    [SerializeField] private int CreditSceneIndex;
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -32,10 +35,11 @@ public class FinalScene : MonoBehaviour
     private Vector3 AlcaldePlayer, Destiny;
     private Vector2 Direction;
     private GameObject Player;
-    private bool DisablePlayer = false, StartDialogue = false;
+    private bool DisablePlayer = false, StartDialogue = false, FinalAttack = false, Appear = false;
     private Rigidbody2D rb;
-    private Animator animator;
+    private Animator PlayerAnimator, AlcaldeAnimator;
     private SpriteRenderer spriteRenderer;
+    private UnityEngine.Color colorAlcalde;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -57,9 +61,21 @@ public class FinalScene : MonoBehaviour
 
         Destiny = new Vector3(transform.position.x, transform.position.y - Player.transform.localScale.y/2 - transform.localScale.y, transform.position.z);
 
-        animator = Player.GetComponent<Animator>();
+        PlayerAnimator = Player.GetComponent<Animator>();
+        AlcaldeAnimator = GetComponent<Animator>();
+        AlcaldeAnimator.SetBool("Die", false);
 
-        spriteRenderer = Player.GetComponent<SpriteRenderer>(); 
+        spriteRenderer = Player.GetComponent<SpriteRenderer>();
+
+        GameManager.Instance.GetUIC().DisableUI();
+
+        //Se oscurece el alcalde
+        colorAlcalde.a = 0;
+        colorAlcalde.g = 0;
+        colorAlcalde.b = 0;
+        colorAlcalde.r = 0;
+
+        GetComponent<SpriteRenderer>().color = colorAlcalde;
     }
 
     /// <summary>
@@ -70,8 +86,23 @@ public class FinalScene : MonoBehaviour
         //Guarda la distancia del alcalde al jugador
         AlcaldePlayer = Player.transform.position;
 
+        //Hace el fade-in en escena del alcalde
+        if (!Appear)
+        {
+            colorAlcalde.r = Mathf.Clamp(colorAlcalde.r + Time.deltaTime * FadeSpeed, 0, 255);
+            colorAlcalde.g = Mathf.Clamp(colorAlcalde.g + Time.deltaTime * FadeSpeed, 0, 255);
+            colorAlcalde.b = Mathf.Clamp(colorAlcalde.b + Time.deltaTime * FadeSpeed, 0, 255);
+            colorAlcalde.a = Mathf.Clamp(colorAlcalde.a + Time.deltaTime * FadeSpeed, 0, 255);
+            GetComponent<SpriteRenderer>().color = colorAlcalde / 255;
+        }
+
+        //Debug.Log(color.r);
+        if (GetComponent<SpriteRenderer>().color.r == 1)
+            Appear = true;
+
+
         //Cuando esté a la distancia determinada el jugador pierde el control del personaje
-        if (AlcaldePlayer.magnitude <= StartSceneDistance && !DisablePlayer)
+        if (AlcaldePlayer.magnitude <= StartSceneDistance && !DisablePlayer && Appear)
         {
             PlayerMovement movimiento = Player.GetComponent<PlayerMovement>();
             PlayerDash dash = Player.GetComponent<PlayerDash>();
@@ -100,7 +131,13 @@ public class FinalScene : MonoBehaviour
             //Para al jugador
             rb.velocity = Vector2.zero;
 
+            UpdateMovementAnim();
+
             //Spawnea conversación
+            if (!CajaDeDialogos.activeSelf)
+            {
+                CajaDeDialogos.SetActive(true);
+            }
         }
 
         //El personaje se recoloca debajo del alcalde
@@ -111,59 +148,52 @@ public class FinalScene : MonoBehaviour
             {
                 Direction = (Destiny - Player.transform.position);
 
-                if (Direction.magnitude < 0.1f)
+                //Si está en su destino deja de recolocarse y se mueve un poco hacia arriba para asegurar que siempre termina mirando arriba
+                if (Direction.magnitude < 0.2f)
                 {
-                    rb.velocity = new Vector2(0, 0.01f);
+                    Direction = Vector2.up;
                     StartDialogue = true;
                 }
-                else if (Mathf.Abs(Direction.y) < 0.1f)
+                //Si ha llegado a su destino en el eje y, anula el movimiento en esa dirección
+                else if (Mathf.Abs(Direction.y) < 0.2f)
                 {
                     Direction = new Vector2(Direction.x, 0);
-                    rb.velocity = Direction.normalized * PlayerSpeed;
                 }
-                else if (Mathf.Abs(Direction.x) < 0.1f)
+                //Si ha llegado a su destino en el eje x, anula el movimiento en esa dirección
+                else if (Mathf.Abs(Direction.x) < 0.2f)
                 {
                     Direction = new Vector2(0, Direction.y);
-                    rb.velocity = Direction.normalized * PlayerSpeed;
                 }
-                else
-                {
-                    rb.velocity = Direction.normalized * PlayerSpeed;
-                }  
+
+                rb.velocity = Direction.normalized * PlayerSpeed;
+
+                //Animación
+                UpdateMovementAnim();
             }
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (animator != null && DisablePlayer && spriteRenderer != null)
+        //Escena del ataque
+        if (FinalAttack)
         {
-            animator.SetFloat("Horizontal", Mathf.Abs(Direction.x));
-            animator.SetFloat("Vertical", Direction.y);
-            animator.SetFloat("Speed", Direction.sqrMagnitude);
-            if (Direction.x < 0)
-            {
-                //Si se mueve a la izquierda, flip al Sprite Renderer
-                spriteRenderer.flipX = true;
-            }
-            else if (Direction.x > 0)
-            {
-                //Si se mueve a la derecha, no hay flip al Sprite Renderer
-                spriteRenderer.flipX = false;
-            }
-            //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
+            AlcaldeAnimator.SetBool("Die", true);
+        }
+
+        //Si termina la animación de muerte cambia de escena
+        if (AlcaldeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Alcalde_diying") &&
+            AlcaldeAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            GameManager.Instance.ChangeScene(CreditSceneIndex);
         }
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
 
+    public void StartAttack()
+    {
+        FinalAttack = true;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -172,7 +202,27 @@ public class FinalScene : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+    private void UpdateMovementAnim()
+    {
+        if (PlayerAnimator != null && spriteRenderer != null && rb != null)
+        {
+            PlayerAnimator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
+            PlayerAnimator.SetFloat("Vertical", rb.velocity.y);
+            PlayerAnimator.SetFloat("Speed", rb.velocity.sqrMagnitude);
 
+            if (rb.velocity.x < 0.1f)
+            {
+                //Si se mueve a la izquierda, flip al Sprite Renderer
+                spriteRenderer.flipX = true;
+            }
+            else if (rb.velocity.x > 0.1f)
+            {
+                //Si se mueve a la derecha, no hay flip al Sprite Renderer
+                spriteRenderer.flipX = false;
+            }
+            //Hago dos ifs para que no haya un estado predeterminado y evitar problemas con el flip.
+        }
+    }
     #endregion
 
 } // class FinalScene 

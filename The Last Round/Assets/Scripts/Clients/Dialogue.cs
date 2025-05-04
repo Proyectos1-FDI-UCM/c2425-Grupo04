@@ -53,7 +53,7 @@ public class Dialogue : MonoBehaviour
         color.r = 0;
         color.g = 0;
         color.b = 0;
-        color.a = 255;
+        color.a = 0;
         spriteRenderer.color = color;
 
         //ELECCIÓN DE DIÁLOGO
@@ -167,6 +167,7 @@ public class Dialogue : MonoBehaviour
             color.r = Mathf.Clamp(color.r + Time.deltaTime * AppearSpeed, 0, 255);
             color.g = Mathf.Clamp(color.g + Time.deltaTime * AppearSpeed, 0, 255);
             color.b = Mathf.Clamp(color.b + Time.deltaTime * AppearSpeed, 0, 255);
+            color.a = Mathf.Clamp(color.a + Time.deltaTime * AppearSpeed, 0, 255);
             spriteRenderer.color = color / 255;
         }
         
