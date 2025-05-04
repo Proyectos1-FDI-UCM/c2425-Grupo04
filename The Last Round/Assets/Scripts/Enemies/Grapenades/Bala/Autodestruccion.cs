@@ -23,7 +23,9 @@ public class Autodestruccion : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField]
-    float TimerTicTac;
+    float TimerTicTac, HowLongHarmfull;
+    [SerializeField]
+    GameObject HarmfullArea;
     [SerializeField]
     private AudioClip explosionSFX;
     #endregion
@@ -61,6 +63,8 @@ public class Autodestruccion : MonoBehaviour
     void Update()
     {
         TimerTicTac -= Time.deltaTime;
+        HowLongHarmfull -= Time.deltaTime;
+        if (HowLongHarmfull <= 0) HarmfullArea.SetActive(false);
         if (TimerTicTac <= 0) Destroy(gameObject);
     }
     #endregion

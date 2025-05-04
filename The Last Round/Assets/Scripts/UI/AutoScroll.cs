@@ -52,35 +52,37 @@ public class AutoScroll : MonoBehaviour
     /// </summary>
     void Update()
     {
-        //Se recoge el botón seleccionado
-        GameObject selected = EventSystem.current.currentSelectedGameObject;
-
-        //Se comprueba que haya seleccionado y si lo hay si forma parte del contenido del scrollbar
-        if (selected != null /*&& selected.transform.IsChildOf(content.transform)*/)
+        if (InputManager.Instance.MovementVector != Vector2.zero)
         {
-            //Se recogen la posición del botón seleccionado y del viewport que maneja el contentido
-            Vector2 viewportLocalPosition = scrollRect.viewport.localPosition;
-            //El único elemento UI que no es hijo en el panel de el objeto perteneciente al panel es el toggle de invulnerabilidad
-            //Por tanto al toggle se le recoge la posición local y al resto la posición local del padre
-            Vector2 selectedPosition;
-            if (selected.GetComponent<Toggle>() != null)
-            {
-                selectedPosition = selected.GetComponent<RectTransform>().localPosition;
-            }
-            else
-            {
-                //Debug.Log(selected.transform.parent.GetComponentInParent<RectTransform>().gameObject.name);
-                selectedPosition = selected.transform.parent.GetComponentInParent<RectTransform>().localPosition;
-            }
-            //Debug.Log(viewportLocalPosition + "       " + selectedPosition);
+            //Se recoge el botón seleccionado
+            GameObject selected = EventSystem.current.currentSelectedGameObject;
 
-            //Se calcula la nueva posición del scrollview
-            float normalizedPosition = Mathf.Clamp01((-selectedPosition.y - (scrollRect.viewport.rect.height / 2)) / (content.rect.height - scrollRect.viewport.rect.height));
+            //Se comprueba que haya seleccionado y si lo hay si forma parte del contenido del scrollbar
+            if (selected != null /*&& selected.transform.IsChildOf(content.transform)*/)
+            {
+                //Se recogen la posición del botón seleccionado y del viewport que maneja el contentido
+                Vector2 viewportLocalPosition = scrollRect.viewport.localPosition;
+                //El único elemento UI que no es hijo en el panel de el objeto perteneciente al panel es el toggle de invulnerabilidad
+                //Por tanto al toggle se le recoge la posición local y al resto la posición local del padre
+                Vector2 selectedPosition;
+                if (selected.GetComponent<Toggle>() != null)
+                {
+                    selectedPosition = selected.GetComponent<RectTransform>().localPosition;
+                }
+                else
+                {
+                    //Debug.Log(selected.transform.parent.GetComponentInParent<RectTransform>().gameObject.name);
+                    selectedPosition = selected.transform.parent.GetComponentInParent<RectTransform>().localPosition;
+                }
+                //Debug.Log(viewportLocalPosition + "       " + selectedPosition);
 
-            //Se asigna al scrollrect del scrollview la nueva posición
-            scrollRect.verticalScrollbar.value = 1 - normalizedPosition;
+                //Se calcula la nueva posición del scrollview
+                float normalizedPosition = Mathf.Clamp01((-selectedPosition.y - (scrollRect.viewport.rect.height / 2)) / (content.rect.height - scrollRect.viewport.rect.height));
+
+                //Se asigna al scrollrect del scrollview la nueva posición
+                scrollRect.verticalScrollbar.value = 1 - normalizedPosition;
+            }
         }
-
     }
     #endregion
 
