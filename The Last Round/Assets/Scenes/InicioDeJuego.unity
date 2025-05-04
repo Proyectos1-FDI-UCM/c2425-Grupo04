@@ -176,8 +176,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Alcalde
-      value: 0
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 5993629492712374318, guid: bbf8b63f9546bbd4995cd4ea4fa1b668, type: 3}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: Dineros
       value: 0

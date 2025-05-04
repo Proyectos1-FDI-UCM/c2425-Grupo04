@@ -80,6 +80,15 @@ public class UIManager_Combate : MonoBehaviour
         {
             TimerMaxSize = timer.fontSize;
         }
+
+        if (GameManager.Instance.IsFinalPhase())
+        {
+            if (population != null)
+            {
+                population.color = Color.red;
+                population.text = $"¡Acaba con todos!";
+            }
+        }
     }
 
     private void Update()

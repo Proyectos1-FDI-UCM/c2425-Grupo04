@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private int SourceTypes, HowEnemiesToFinalPhase;
-    [SerializeField]
-    private SceneIndex[] ScenesIndex;
+    [SerializeField] private SceneIndex[] ScenesIndex;
+    [SerializeField] private GameObject Alcalde;
+    [SerializeField] private Vector3 WhereSpawnAlcalde;
 
     [Header("Número de enemigos")]
     [SerializeField] private NumEnemy[] Enemies;
@@ -415,13 +416,7 @@ public class GameManager : MonoBehaviour
         }
         CompruebaEnemies();
     }
-    public void CompruebaEnemies()
-    {
-        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
-        {
-            ChangeScene(CreditSceneIndex);
-        }
-    }
+
     public void ResetEnemyCounter()
     {
         //Rellena el array numEnemigos en el orden del enum EnemyType con el número de ese enemigo en partida
@@ -486,7 +481,7 @@ public class GameManager : MonoBehaviour
     // --- FIN GESTIÓN DIÁLOGOS
     #endregion
 
-    #region Recogida de player
+    #region Gestión de player
     public void GivePlayer(GameObject player)
     {
         Player = player;
@@ -495,6 +490,16 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return Player;
+    }
+
+    public void CompruebaEnemies()
+    {
+        //Cuando no queden mas enemigos
+        if (numEnemigos[0] + numEnemigos[1] + numEnemigos[2] + numEnemigos[3] <= 0)
+        {
+            //Spawnea el alcalde
+            Instantiate(Alcalde, WhereSpawnAlcalde, Quaternion.identity);
+        }
     }
     #endregion
 
@@ -675,6 +680,8 @@ public class GameManager : MonoBehaviour
         {
             _musicManager.PlaySceneMusic(ScenesIndex[i].scene);
         }
+
+
         // Antes y después de la carga fuerza la recolección de basura, por eficiencia,
         // dado que se espera que la carga tarde un tiempo, y dado que tenemos al
         // usuario esperando podemos aprovechar para hacer limpieza y ahorrarnos algún
