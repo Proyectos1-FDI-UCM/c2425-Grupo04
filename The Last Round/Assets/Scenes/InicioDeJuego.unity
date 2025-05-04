@@ -952,19 +952,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.375
+      value: 0.32999998
       objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.25
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.7
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
