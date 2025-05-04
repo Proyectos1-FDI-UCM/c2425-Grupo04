@@ -515,7 +515,7 @@ public class GameManager : MonoBehaviour
     }
     public bool IsPauseActive()
     {
-        return PauseMenu.activeSelf;
+        return PauseMenu.activeSelf || UIManagerCombate.IsGameOver();
     }
     #endregion
 

@@ -19,7 +19,8 @@ public enum Scenes
     Bartender,
     Mejora,
     Creditos,
-    GameOver
+    GameOver,
+    FinalScene
 }
 
 //Contiene un momento con música y la música

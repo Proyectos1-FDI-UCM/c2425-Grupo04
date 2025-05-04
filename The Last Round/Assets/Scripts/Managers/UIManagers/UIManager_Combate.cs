@@ -157,6 +157,11 @@ public class UIManager_Combate : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public bool IsGameOver()
+    {
+        return gameOverUI.activeSelf;
+    }
+
     public void Timer(string time, float timeNum)
     {
         if (timeNum <= SecondsToStartBeating)

@@ -318,4 +318,8 @@ MonoBehaviour:
   - Escena: 5
     SceneMusic: {fileID: 0}
   - Escena: 6
-    SceneMusic: {fileID: 0}
+    SceneMusic: {fileID: 8300000, guid: 5c40626e6b2bb0f4981c76885b70cc5a, type: 3}
+  - Escena: 6
+    SceneMusic: {fileID: 8300000, guid: 5c40626e6b2bb0f4981c76885b70cc5a, type: 3}
+  - Escena: 7
+    SceneMusic: {fileID: 8300000, guid: 8fbfcf2cfa4174341ba7cb08f13f7729, type: 3}

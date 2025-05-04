@@ -105,6 +105,7 @@ MonoBehaviour:
   attack: {fileID: 0}
   FadeSpeed: 100
   CreditSceneIndex: 5
+  MusicaEscenaFinal: 7
 --- !u!95 &3401731727319050658
 Animator:
   serializedVersion: 5
