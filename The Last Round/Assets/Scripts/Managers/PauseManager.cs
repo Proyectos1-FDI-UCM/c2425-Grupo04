@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -60,6 +61,7 @@ public class PauseManager : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
+    
     void Start()
     {
         GameManager.Instance.SetPauseMenu(PauseMenu);
