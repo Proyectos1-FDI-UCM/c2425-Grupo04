@@ -116,8 +116,8 @@ MonoBehaviour:
       BadText: Vale, voy a practicar.
       Estatus: 0
       Emisor: 0
-    - GoodText: "\xBFSi me preguntan qu\xE9 estaba haciendo a la noche?"
-      BadText: "\xBFSi me preguntan qu\xE9 estaba haciendo a la noche?"
+    - GoodText: "\xBFSi me preguntan qu\xE9 estaba haciendo anoche?"
+      BadText: "\xBFSi me preguntan qu\xE9 estaba haciendo anoche?"
       Estatus: 1
       Emisor: 0
     - GoodText: Dormir
@@ -171,8 +171,8 @@ MonoBehaviour:
         cesta antes de servir. Si no, no me pagar\xE1n."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Ahora voy a ver el almac\xE9n"
-      BadText: "Ahora voy a ver el almac\xE9n"
+    - GoodText: "Ahora voy a ver el almac\xE9n."
+      BadText: "Ahora voy a ver el almac\xE9n."
       Estatus: 0
       Emisor: 0
   BebidasPosibles:
