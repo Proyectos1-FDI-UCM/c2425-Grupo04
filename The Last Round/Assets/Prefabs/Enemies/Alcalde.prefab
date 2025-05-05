@@ -142,6 +142,18 @@ PrefabInstance:
       propertyPath: clients.Array.data[0]
       value: 
       objectReference: {fileID: 1562574269909345304, guid: 8af700cceb6e0b14881b16eca5050347, type: 3}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5051232639160114281, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_Name
       value: TutorialDialogues

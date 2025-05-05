@@ -139,12 +139,6 @@ MonoBehaviour:
         me descubran mientras mato a todos?"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Para eso est\xE1 el plan. Te recordar\xE9 lo que tienes que hacer
-        una vez llegues a Fermentia."
-      BadText: "Para eso est\xE1 el plan. Te recordar\xE9 lo que tienes que hacer
-        una vez llegues a Fermentia."
-      Estatus: 0
-      Emisor: 1
     - GoodText: "Primero ve all\xED, asi\xE9ntate en el local, descarga las mejoras
         en el almac\xE9n y practica un poco tus t\xE9cnicas de combate."
       BadText: "Primero ve all\xED, asi\xE9ntate en el local, descarga las mejoras
@@ -163,10 +157,10 @@ MonoBehaviour:
         frescos recogidos en las fronteras de Fermentia."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Por las noches, en cambio, ser\xE1 cuando ocurra la matanza. Aprov\xE9chala
-        para acabar con esas frutas de pacotilla."
-      BadText: "Por las noches, en cambio, ser\xE1 cuando ocurra la matanza. Aprov\xE9chala
-        para acabar con esas frutas de pacotilla."
+    - GoodText: "Por las noches, en cambio, tendr\xE1s que aprovechar para acabar
+        con esas frutas de pacotilla."
+      BadText: "Por las noches, en cambio, tendr\xE1s que aprovechar para acabar
+        con esas frutas de pacotilla."
       Estatus: 0
       Emisor: 1
     - GoodText: Pero no te pases, recuerda que tienes que estar en el local antes
@@ -175,34 +169,22 @@ MonoBehaviour:
         del amanecer para servir a tus clientes.
       Estatus: 0
       Emisor: 1
-    - GoodText: "Para los habitantes de Fermentia, tu local no es nada especial.
-        Les servir\xE1s bebidas con tu disfraz de fresa para evitar llamar la atenci\xF3n."
+    - GoodText: "Les servir\xE1s bebidas a los habitantes con tu disfraz de fresa
+        para evitar llamar la atenci\xF3n."
       BadText: "Para los habitantes de Fermentia, tu local no es nada especial. Les
         servir\xE1s bebidas con tu disfraz de fresa para evitar llamar la atenci\xF3n."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Y recuerda, no sois amigos pero tampoco puedes hacer que sospechen
-        de ti. Tr\xE1talos como compa\xF1eros durante tu trabajo en el bar."
-      BadText: "Y recuerda, no sois amigos pero tampoco puedes hacer que sospechen
-        de ti. Tr\xE1talos como compa\xF1eros durante tu trabajo en el bar."
+    - GoodText: "Si sospechan demasiado de ti, es posible que acaben contigo durante
+        el d\xEDa. Aseg\xFArate de que no pase eso."
+      BadText: "Si sospechan demasiado de ti, es posible que acaben contigo durante
+        el d\xEDa. Aseg\xFArate de que no pase eso."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Si sospechan demasiado de ti, es posible que te ataquen durante
-        el d\xEDa, cuando estar\xE1s vulnerable. Aseg\xFArate de que no pase eso."
-      BadText: "Si sospechan demasiado de ti, es posible que te ataquen durante el
-        d\xEDa, cuando estar\xE1s vulnerable. Aseg\xFArate de que no pase eso."
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "El trabajo durante el d\xEDa tambi\xE9n tiene recompensa. Ganar\xE1s
-        monedas que podr\xE1s utilizar para comprar las mejoras que te ha dado el
-        alcalde."
-      BadText: "El trabajo durante el d\xEDa tambi\xE9n tiene recompensa. Ganar\xE1s
-        monedas que podr\xE1s utilizar para comprar las mejoras que te ha dado el
-        alcalde."
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "Te ayudar\xE1n durante el combate. Dales buen uso."
-      BadText: "Te ayudar\xE1n durante el combate. Dales buen uso."
+    - GoodText: "Ganar\xE1s monedas que podr\xE1s utilizar para comprar las mejoras
+        de combate que te ha dado nuestro alcalde."
+      BadText: "Ganar\xE1s monedas que podr\xE1s utilizar para comprar las mejoras
+        de combate que te ha dado nuestro alcalde."
       Estatus: 0
       Emisor: 1
     - GoodText: "\xBFY no pod\xE9is d\xE1rmelas desde el principio? \xBFPara qu\xE9

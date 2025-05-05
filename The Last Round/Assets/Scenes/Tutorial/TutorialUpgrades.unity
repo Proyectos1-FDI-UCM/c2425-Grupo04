@@ -4357,6 +4357,18 @@ PrefabInstance:
       propertyPath: clients.Array.data[4]
       value: 
       objectReference: {fileID: 1562574269909345304, guid: c96e7621175d3dc42af6170207d55c38, type: 3}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2875833543771680345, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0

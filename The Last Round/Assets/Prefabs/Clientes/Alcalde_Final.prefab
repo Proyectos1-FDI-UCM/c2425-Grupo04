@@ -111,49 +111,51 @@ MonoBehaviour:
         que eras el culpable.
       Estatus: 0
       Emisor: 0
-    - GoodText: "Y a pesar de haberte asaltado esta noche entre todos los pueblerinos
-        que quedaban con vida como \xFAltimo aliento."
-      BadText: "Y a pesar de haberte asaltado esta noche entre todos los pueblerinos
-        que quedaban con vida como \xFAltimo aliento."
+    - GoodText: "Y a pesar de haberte asaltado esta noche todos los que qued\xE1bamos
+        con vida, no hemos podido acabar contigo..."
+      BadText: "Y a pesar de haberte asaltado esta noche todos los que qued\xE1bamos
+        con vida, no hemos podido acabar contigo..."
       Estatus: 0
       Emisor: 0
-    - GoodText: No hemos podido acabar contigo...
-      BadText: No hemos podido acabar contigo...
+    - GoodText: ...
+      BadText: ...
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFQu\xE9 sientes tras cometer este inmenso genocidio? \xBFAlgo
-        que decir?"
+        que decir? \xBFEst\xE1s orgulloso de lo que has hecho?"
       BadText: "\xBFQu\xE9 sientes tras cometer este inmenso genocidio? \xBFAlgo
-        que decir?"
+        que decir? \xBFEst\xE1s orgulloso de lo que has hecho?"
       Estatus: 0
       Emisor: 0
     - GoodText: ...
       BadText: ...
       Estatus: 0
       Emisor: 1
-    - GoodText: Muy bien, veo que no tienes nada que decir.
-      BadText: Muy bien, veo que no tienes nada que decir.
+    - GoodText: Veo que no tienes nada que decir...
+      BadText: Veo que no tienes nada que decir...
       Estatus: 0
       Emisor: 0
-    - GoodText: Pues esto ha sido todo, yo, el alcalde de este pueblo ya no es nada
-        sin sus pueblerinos.
-      BadText: Pues esto ha sido todo, yo, el alcalde de este pueblo ya no es nada
-        sin sus pueblerinos.
+    - GoodText: "Pues supongo que aqu\xED se acaba. Como alcalde no soy nada sin
+        mi pueblo."
+      BadText: "Pues supongo que aqu\xED se acaba. Como alcalde no soy nada sin mi
+        pueblo."
       Estatus: 0
       Emisor: 0
-    - GoodText: "Un capit\xE1n siempre se hunde con su barco..."
-      BadText: "Un capit\xE1n siempre se hunde con su barco..."
+    - GoodText: "Y un buen capit\xE1n siempre se hunde con su barco, as\xED que..."
+      BadText: "Y un buen capit\xE1n siempre se hunde con su barco, as\xED que..."
       Estatus: 0
       Emisor: 0
-    - GoodText: Acaba conmigo si es lo que quieres.
-      BadText: Acaba conmigo si es lo que quieres.
+    - GoodText: "Acaba conmigo si es lo que quieres. Ya no tengo ninguna forma de
+        defenderme. Aceptar\xE9 mi destino."
+      BadText: "Acaba conmigo si es lo que quieres. Ya no tengo ninguna forma de
+        defenderme. Aceptar\xE9 mi destino."
       Estatus: 1
       Emisor: 0
     - GoodText: Despedirse
       BadText: "Acabar con \xE9l"
       Estatus: 0
       Emisor: 1
-    - GoodText: "Adi\xF3s..."
+    - GoodText: "Adi\xF3s... Nos vemos en el infierno."
       BadText: ...
       Estatus: 0
       Emisor: 1
