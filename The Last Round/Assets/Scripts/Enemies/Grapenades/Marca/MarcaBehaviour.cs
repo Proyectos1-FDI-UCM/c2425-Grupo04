@@ -76,6 +76,7 @@ public class MarcaBehaviour : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         follow = false;
+        emisor.MarkingStop();
     }
     public void GrapenadeWasDestroy()
     {

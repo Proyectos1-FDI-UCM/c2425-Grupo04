@@ -91,6 +91,13 @@ public class PlaceMark : MonoBehaviour
         if (marcaInstanciada != null) marcaInstanciada.GetComponent<MarcaBehaviour>().GrapenadeWasDestroy();
     }
 
+    public void MarkingStop()
+    {
+        Debug.Log("Dispara");
+        GrapenadeMovement grapMov = GetComponent<GrapenadeMovement>();
+        grapMov.StopMarking();
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

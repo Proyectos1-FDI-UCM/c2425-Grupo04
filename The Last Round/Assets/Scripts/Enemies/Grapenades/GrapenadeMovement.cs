@@ -33,6 +33,8 @@ public class GrapenadeMovement : MonoBehaviour
     private Vector3 EnemyPlayer;
     private GameObject recurso;
     private float minX, maxX, minY, maxY;
+    private Animator grapenadeAnim;
+    private bool moveBool;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -48,6 +50,7 @@ public class GrapenadeMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
+        moveBool = true;
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
 
@@ -56,6 +59,8 @@ public class GrapenadeMovement : MonoBehaviour
 
         maxY = GameManager.Instance.GetMapHeight() / 2;
         minY = -maxY;
+
+        grapenadeAnim = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -67,32 +72,54 @@ public class GrapenadeMovement : MonoBehaviour
 
         if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
         {
+            //Recoge uva
+            //Debug.Log("Lanza");
             rb.velocity = Vector3.zero;
             if (!GetComponent<PlaceMark>().MarcaInstanciada())
+            {
+                Debug.Log("Lanza");
+                grapenadeAnim.SetBool("Marking", true);
                 GetComponent<PlaceMark>().MarcarJugador();
+            }
         }
-        else if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
+        else if(moveBool)
         {
-            Vector3 posMinX, posMinY, posMaxX, posMaxY;
+            if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
+            {
+                //Se aleja si esta cerca
+                Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
-            posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
-            posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
-            posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
-            posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
+                posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
+                posMaxX = rb.position + new Vector2(ObjectSizeX / 2, 0);
+                posMinY = rb.position - new Vector2(0, ObjectSizeY / 2);
+                posMaxY = rb.position + new Vector2(0, ObjectSizeY / 2);
 
-            if ((-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
-                (-EnemyPlayer.y > 0 && posMaxY.y >= maxY))
-                EnemyPlayer.y = 0;
+                if ((-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
+                    (-EnemyPlayer.y > 0 && posMaxY.y >= maxY))
+                    EnemyPlayer.y = 0;
 
-            if ((-EnemyPlayer.x < 0 && posMinX.x <= minX) ||
-                (-EnemyPlayer.x > 0 && posMaxX.x >= maxX))
-                EnemyPlayer.x = 0;
+                if ((-EnemyPlayer.x < 0 && posMinX.x <= minX) ||
+                    (-EnemyPlayer.x > 0 && posMaxX.x >= maxX))
+                    EnemyPlayer.x = 0;
 
-            rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
+                rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
+            }
+            else
+            {
+                //Mueve a jugador
+                //if (moveBool)
+                //{
+                moveToPlayer.Move(gameObject);
+                //}
+                //else
+                //{
+                //    rb.velocity = Vector3.zero;
+                //}
+            }
         }
         else
         {
-            moveToPlayer.Move(gameObject);
+            rb.velocity = Vector3.zero;
         }
     }
     #endregion
@@ -104,6 +131,15 @@ public class GrapenadeMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+    public void StopMarking()
+    {
+        grapenadeAnim.SetBool("Marking", false);
+    }
+
+    public void CanMove(string canMove)
+    {
+        moveBool = bool.Parse(canMove);
+    }
 
     #endregion
 
