@@ -93,7 +93,7 @@ public class PlaceMark : MonoBehaviour
 
     public void MarkingStop()
     {
-        Debug.Log("Dispara");
+        //activa la animacion de lanzar la bomba
         GrapenadeMovement grapMov = GetComponent<GrapenadeMovement>();
         grapMov.StopMarking();
     }

@@ -70,23 +70,23 @@ public class GrapenadeMovement : MonoBehaviour
     {
         EnemyPlayer = GameManager.Instance.GetPlayer().transform.position - transform.position;
 
+        //si el jugador esta en rango, pone marca, si no hay
         if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
         {
-            //Recoge uva
-            //Debug.Log("Lanza");
-            rb.velocity = Vector3.zero;
             if (!GetComponent<PlaceMark>().MarcaInstanciada())
             {
-                Debug.Log("Lanza");
+                //se para y inicia la animacion de coger la bomba
+                rb.velocity = Vector3.zero;
                 grapenadeAnim.SetBool("Marking", true);
                 GetComponent<PlaceMark>().MarcarJugador();
             }
         }
+        //si puede andar
         else if(moveBool)
         {
+            //se aleja del jugador si esta muy cerca
             if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
             {
-                //Se aleja si esta cerca
                 Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
                 posMinX = rb.position - new Vector2(ObjectSizeX / 2, 0);
@@ -104,19 +104,13 @@ public class GrapenadeMovement : MonoBehaviour
 
                 rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
             }
+            //le persigue si esta lejos
             else
             {
-                //Mueve a jugador
-                //if (moveBool)
-                //{
                 moveToPlayer.Move(gameObject);
-                //}
-                //else
-                //{
-                //    rb.velocity = Vector3.zero;
-                //}
             }
         }
+        //si no esta parado
         else
         {
             rb.velocity = Vector3.zero;
@@ -131,14 +125,18 @@ public class GrapenadeMovement : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+    
+    //activa la animacion de lanzar la bomba
     public void StopMarking()
     {
         grapenadeAnim.SetBool("Marking", false);
     }
-
+    //activa o desactiva el movimiento, se usa en Animation events en las animaciones coger y en lanzar la boma
     public void CanMove(string canMove)
     {
         moveBool = bool.Parse(canMove);
+        grapenadeAnim.SetBool("canMove", moveBool);
+        Debug.Log(moveBool);
     }
 
     #endregion
