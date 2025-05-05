@@ -6,9 +6,10 @@
 //---------------------------------------------------------
 
 
-using System.Collections;
+
 using UnityEngine;
 // Añadir aquí el resto de directivas using
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -142,8 +143,6 @@ public class AttackGeneral : MonoBehaviour
         {
             timerCanRotate -= Time.deltaTime;
         }
-
-
     }
     #endregion
 
