@@ -149,34 +149,16 @@ MonoBehaviour:
       BadText: Por cierto, las bebidas.
       Estatus: 0
       Emisor: 0
-    - GoodText: Si no recuerdo mal el jugo, la piel y las semillas se las debo de
-        arrebatar a esos malditos pueblerinos.
-      BadText: Si no recuerdo mal el jugo, la piel y las semillas se las debo de
-        arrebatar a esos malditos pueblerinos.
-      Estatus: 0
-      Emisor: 0
-    - GoodText: "En cuanto al hielo, seguro que podr\xE9 conseguirlo de alg\xFAn
-        bloque de hielo por la noche. En este lugar realmente bajan las temperaturas
-        al anochecer."
-      BadText: "En cuanto al hielo, seguro que podr\xE9 conseguirlo de alg\xFAn bloque
-        de hielo por la noche. En este lugar realmente bajan las temperaturas al
-        anochecer."
-      Estatus: 0
-      Emisor: 0
-    - GoodText: "Y la levadura... Este pueblo tiene una tierra muy f\xE9rtil a pesar
-        de estar en una zona tan des\xE9rtica, las plantas nos servir\xE1n para conseguir
-        la levadura."
-      BadText: "Y la levadura... Este pueblo tiene una tierra muy f\xE9rtil a pesar
-        de estar en una zona tan des\xE9rtica, las plantas nos servir\xE1n para conseguir
-        la levadura."
-      Estatus: 0
-      Emisor: 0
     - GoodText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales
         que he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
         (Para seleccionar material hacer clic sobre el icono del material)."
       BadText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales que
         he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
         (Para seleccionar material hacer clic sobre el icono del material)."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Si no tuviese materiales suficientes puedo probar a convertirlos.
+      BadText: Si no tuviese materiales suficientes puedo probar a convertirlos.
       Estatus: 0
       Emisor: 0
     - GoodText: Voy a hacer un (bebida).

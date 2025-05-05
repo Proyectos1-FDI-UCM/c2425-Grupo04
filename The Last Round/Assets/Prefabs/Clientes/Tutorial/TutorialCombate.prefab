@@ -111,8 +111,10 @@ MonoBehaviour:
       BadText: Lo primero es lo primero. Voy a estirar las piernas
       Estatus: 0
       Emisor: 0
-    - GoodText: Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
-      BadText: Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
+    - GoodText: "Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
+        Si juegas con mando muevet\xE9 con el joystick izquierdo."
+      BadText: "Para moverte pulsa las teclas [W][A][S][D], o en su lugar las flechitas.
+        Si juegas con mando muevet\xE9 con el joystick izquierdo."
       Estatus: 0
       Emisor: 1
     - GoodText: Ahora voy a calentar las patas, que estoy un poco oxidado de tanto
@@ -121,14 +123,16 @@ MonoBehaviour:
         tiempo sin pelear.
       Estatus: 0
       Emisor: 0
-    - GoodText: "Veamos. Voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
-      BadText: "Veamos, voy a probar a darle unos peque\xF1os golpes a este maniqu\xED."
+    - GoodText: "Veamos. Voy a probar a darle unos peque\xF1os golpes a ese maniqu\xED."
+      BadText: "Veamos, voy a probar a darle unos peque\xF1os golpes a ese maniqu\xED."
       Estatus: 0
       Emisor: 0
     - GoodText: "Para atacar, apunta con el rat\xF3n a tu objetivo y pulsa espacio
-        o en su lugar clic izquierdo."
+        o en su lugar clic izquierdo. Si estas jugando con mando apunta con joystick
+        derecho y dispara con palanca inferior derecha"
       BadText: "Para atacar, apunta con el rat\xF3n a tu objetivo y pulsa espacio
-        o en su lugar clic izquierdo."
+        o en su lugar clic izquierdo. Si estas jugando con mando apunta con joystick
+        derecho y dispara con palanca derecha"
       Estatus: 0
       Emisor: 1
     - GoodText: "Tengo espacio en los bolsillos. Quiz\xE1s puedo guardar mis armas
@@ -138,9 +142,9 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 0
     - GoodText: "Una vez tengas m\xE1s armas, podr\xE1s alternar entre ellas pulsando
-        la tecla [Q]."
+        la tecla [Q]. Con el mando pulsa la palanca superior izquierda."
       BadText: "Una vez tengas m\xE1s armas, podr\xE1s alternar entre ellas pulsando
-        la tecla [Q]."
+        la tecla [Q]. Con el mando pulsa la palanca superior izquierda."
       Estatus: 0
       Emisor: 1
     - GoodText: "Adem\xE1s, en el combate es muy importante ser \xE1gil. Ese papelito
@@ -150,7 +154,8 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 0
     - GoodText: "Cuando la mejora de dash est\xE9 activa, podr\xE1s realizar un dash
-        hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n."
+        hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n. En
+        el mando se realiza pulsando la palanca inferior izquierda."
       BadText: "Cuando la mejora de dash est\xE9 activa, podr\xE1s realizar un dash
         hacia donde te est\xE9s moviendo haciendo clic derecho con el rat\xF3n."
       Estatus: 0
@@ -163,8 +168,10 @@ MonoBehaviour:
         Podr\xEDa serme \xFAtil para el bar."
       Estatus: 0
       Emisor: 0
-    - GoodText: Para interactuar con los objetos interactuables usa la tecla [E].
-      BadText: Para interactuar con los objetos interactuables usa la tecla [E].
+    - GoodText: "Para interactuar con los objetos interactuables usa la tecla [E]
+        o en mando el bot\xF3n derecho."
+      BadText: "Para interactuar con los objetos interactuables usa la tecla [E]
+        o en mando el bot\xF3n derecho."
       Estatus: 0
       Emisor: 1
     - GoodText: "Para salir de aqu\xED solo tengo que buscar una alcantarilla, meterme
@@ -196,9 +203,9 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 1
     - GoodText: "Antes de que te vayas, puedes abrir el men\xFA pulsando la tecla
-        [Escape] o la tecla [Enter]."
+        [Escape] o en mando el +/-."
       BadText: "Antes de que te vayas, puedes abrir el men\xFA pulsando la tecla
-        [Escape] o la tecla [Enter]."
+        [Escape] o en mando el +/-."
       Estatus: 0
       Emisor: 1
   BebidasPosibles:
