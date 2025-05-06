@@ -34,7 +34,7 @@ public class GrapenadeMovement : MonoBehaviour
     private GameObject recurso;
     private float minX, maxX, minY, maxY;
     private Animator grapenadeAnim;
-    private bool moveBool;
+    private bool moveBool, canShoot;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -50,6 +50,7 @@ public class GrapenadeMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
+        canShoot = false;
         moveBool = true;
         rb = GetComponent<Rigidbody2D>();
         moveToPlayer = GetComponent<MoveToPlayer>();
@@ -69,23 +70,30 @@ public class GrapenadeMovement : MonoBehaviour
     private void FixedUpdate()
     {
         EnemyPlayer = GameManager.Instance.GetPlayer().transform.position - transform.position;
-
-        //si el jugador esta en rango, pone marca, si no hay
-        if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
+        Vector3 velocidad = rb.velocity;
+        if (velocidad == Vector3.zero)
         {
-            if (!GetComponent<PlaceMark>().MarcaInstanciada())
-            {
-                //se para y inicia la animacion de coger la bomba
-                rb.velocity = Vector3.zero;
-                grapenadeAnim.SetBool("Marking", true);
-                GetComponent<PlaceMark>().MarcarJugador();
-            }
+            grapenadeAnim.SetTrigger("mark2");
         }
         //si puede andar
-        else if(moveBool)
+        if(moveBool)
         {
+            //si el jugador esta en rango, pone marca, si no hay
+            if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 == range)
+            {
+                if (!GetComponent<PlaceMark>().MarcaInstanciada())
+                {
+                    canShoot = false;
+                    //Debug.Log("1");
+                    //se para y inicia la animacion de coger la bomba
+                    rb.velocity = Vector3.zero;
+                    grapenadeAnim.SetBool("Marking", true);
+                    Debug.Log(grapenadeAnim.GetBool("Marking"));
+                    GetComponent<PlaceMark>().MarcarJugador();
+                }
+            }
             //se aleja del jugador si esta muy cerca
-            if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
+            else if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 < range)
             {
                 Vector3 posMinX, posMinY, posMaxX, posMaxY;
 
@@ -130,13 +138,23 @@ public class GrapenadeMovement : MonoBehaviour
     public void StopMarking()
     {
         grapenadeAnim.SetBool("Marking", false);
+        
     }
     //activa o desactiva el movimiento, se usa en Animation events en las animaciones coger y en lanzar la boma
     public void CanMove(string canMove)
     {
         moveBool = bool.Parse(canMove);
         grapenadeAnim.SetBool("canMove", moveBool);
-        Debug.Log(moveBool);
+    }
+
+    public bool CheckShoot()
+    {
+        return canShoot;
+    }
+
+    public void Shooting()
+    {
+        canShoot = true;
     }
 
     #endregion

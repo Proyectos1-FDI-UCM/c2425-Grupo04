@@ -64,8 +64,16 @@ public class Shoot : MonoBehaviour
     {
         if (shooted && timer <= 0)
         {
-            InstantiateBullet();
-            shooted = false;
+            
+            if (GetComponent<MarcaBehaviour>().CanShootBullet())
+            {
+                InstantiateBullet();
+                shooted = false;
+            }
+            else
+            {
+                GetComponent<MarcaBehaviour>().UnfollowPlayer();
+            }
         }
         timer -= Time.deltaTime;
     }
@@ -82,6 +90,7 @@ public class Shoot : MonoBehaviour
     {
         shooted = true;
         timer = cooldown;
+        //Debug.Log("2");
     }
     #endregion
 
@@ -98,7 +107,7 @@ public class Shoot : MonoBehaviour
 
         if (rb != null)
         {
-            GetComponent<MarcaBehaviour>().UnfollowPlayer();
+            //GetComponent<MarcaBehaviour>().UnfollowPlayer();
             bullet = Instantiate(proyectil, new Vector3(rb.position.x, rb.position.y + 5.5f), Quaternion.identity);
             bullet.GetComponent<ProjectileMovement>().GiveMark(gameObject);
         }

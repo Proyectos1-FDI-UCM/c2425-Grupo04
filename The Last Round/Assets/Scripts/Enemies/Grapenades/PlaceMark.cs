@@ -73,7 +73,7 @@ public class PlaceMark : MonoBehaviour
         marcaInstanciadaBool = true;
 
         if (marcaInstanciada != null && marcaInstanciada.GetComponent<Shoot>() != null)
-            marcaInstanciada.GetComponent<Shoot>().Shooting();
+            marcaInstanciada.GetComponent<Shoot>().Shooting(); Debug.Log("2");// MarkingStop();
     }
 
     public void EliminarMarca()
@@ -96,6 +96,12 @@ public class PlaceMark : MonoBehaviour
         //activa la animacion de lanzar la bomba
         GrapenadeMovement grapMov = GetComponent<GrapenadeMovement>();
         grapMov.StopMarking();
+    }
+
+    public bool CanShoot()
+    {
+        GrapenadeMovement grapMov = GetComponent<GrapenadeMovement>();
+        return grapMov.CheckShoot();
     }
 
     #endregion

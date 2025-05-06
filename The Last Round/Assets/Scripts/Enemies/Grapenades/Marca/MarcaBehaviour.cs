@@ -94,6 +94,11 @@ public class MarcaBehaviour : MonoBehaviour
     {
         this.emisor = emisor;
     }
+
+    public bool CanShootBullet()
+    {
+        return emisor.CanShoot();
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
