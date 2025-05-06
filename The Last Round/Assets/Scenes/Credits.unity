@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -410}
+  m_AnchoredPosition: {x: 20, y: -2005.0002}
   m_SizeDelta: {x: 645, y: 760}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18420423
@@ -257,9 +257,64 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Juego hecho por:\nV\xEDctor Castro \xC1lvarez\nV\xEDctor Mart\xEDnez Moreno\n\xD3scar
-    Daniel Fern\xE1ndez Cabana\nAryan Guerrero Iruela\nIgnacio Plaza\nLetian Liye\n\n\n\nFelicidades,
-    mataste a todos los habitantes de Fermentia (menos al alcalde jeje)\n"
+  m_text: "Desarrolladores:\r\n\r\nV\xEDctor Castro \xC1lvarez\r\n\xD3scar Daniel
+    Fern\xE1ndez Cabana\r\nAryan Guerrero Iruela\r\nLetian Liye\r\nV\xEDctor Mart\xEDnez
+    Moreno\r\nIgnacio Plaza Larrieta\r\n\r\nM\xFAsica y Efectos de sonido:\r\n\r\nM\xFAsica
+    de Combate:\r\nNombre: Country Rock\r\nAutor: Lite Saturation\r\nFuente: FMA
+    (Free Music Archive)\r\nLicencia: CC BY-NC-ND\r\n\r\nEfecto de sonido de mejoras:\r\nNombre:
+    ui-interface-sound-14\r\nAutor: SoundReality\r\nFuente: pixabay (efectos de sonido)\r\nLicencia:
+    De uso gratuito bajo la Licencia de contenido de Pixabay \r\n\r\nM\xFAsica del
+    men\xFA:\r\nNombre: Tequilla Barbie\r\nAutor: Lobo Loco\r\nFuente: FMA (Free
+    Music Archive)\r\nLicencia:  CC BY-NC-ND 4.0 \r\n\r\nM\xFAsica para escena de
+    mejora:\r\nNombre: Trout & Tippet \r\nAutor: Javier Frisco \r\nFuente: FMA \r\nLicencia
+    : Attribution-NonCommercial-NoDerivatives (aka Music Sharing) 3.0 International
+    License. \r\n\r\nM\xFAsica para la escena de bartender:\r\nNombre: Top of the
+    Mountains\r\nAutor: Lobo Loco\r\nFuente: Free Music Archive (FMA)\r\nLicencia:
+    CC BY\r\n\r\nM\xFAsica para la intro:\r\nNombre: New Wonderful Places\r\nAutor:
+    Lobo Loco\r\nFuente: FMA (Free Music Archive)\r\nLicencia: CC BY-NC-ND\r\n\r\nEfecto
+    de sonido de papel:\r\nNombre: Book Foley Turn Pages 2\r\nAutor: floraphonic\r\nFuente:
+    pixabay\r\nLicencia: De uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de sonido de madera:\r\nNombre: Hitting Wood\r\nAutor: altfuture (Freesound)\r\nFuente:
+    pixabay\r\nLicencia: De uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    para anadir material:\r\nNombre: plastic item fell in a glass of water2\r\nAutor:
+    freesound_community\r\nFuente: pixabay \r\nLicencia: De uso gratuito bajo la
+    licencia de Pixabay\r\n\r\nEfecto para regresar material:\r\nNombre: glass cling
+    02\r\nAutor: freesound_community\r\nFuente: pixabay \r\nLicencia: De uso gratuito
+    bajo la licencia de Pixabay\r\n\r\nEfecto aumento de sospecha:\r\nNombre: Blip
+    Squeak\r\nAutor: GameAudio\r\nFuente: freesound.org\r\r\n\r\nEfecto de sonido
+    de recogida de recursos:\r\nNombre: Item Equip\r\nAutor: mrickey13 (Freesound)\r\nFuente:
+    pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de sonido de muerte de enemigos:\r\nNombre: Apple crunch\r\nAutor: pallen33 (Freesound)\r\nFuente:
+    pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de sonido de explosi\xF3n de Grapenade:\r\nNombre: Explosion\r\nAutor: SonixFXSounds\r\nFuente:
+    pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de sonido de ataque de Uvoncio:\r\nNombre: Punch! Kick! Hit! Attack! - 10 different
+    sound effects\r\nAutor: ShidenBeatsMusic\r\nFuente: pixabay\r\nLicencia: de uso
+    gratuito bajo la licencia de Pixabay\r\n\r\nEfecto de sonido de ataque de Manzurria:\r\nNombre:
+    Punch\r\nAutor: blwuens (Freesound)\r\nFuente: pixabay\r\nLicencia: de uso gratuito
+    bajo la licencia de Pixabay\r\n\r\nEfecto de sonido de dash de Manzariete:\r\nNombre:
+    quick doble swish SFX\r\nAutor: RibhavAgrawal\r\nFuente: pixabay\r\nLicencia:
+    de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto de ataque melee:\r\nNombre:
+    Knife slice\r\nAutor: freesound_community\r\nFuente: Pixabay\r\nLicencia: de
+    uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto de lanzamiento de ataque
+    a distancia:\r\nNombre: Swoosh Effect for Fight Scenes or Transitions\r\nAutor:
+    DheerajakaM4JOR\r\nFuente: Pixabay\r\nLicencia: de uso gratuito bajo la licencia
+    de Pixabay\r\n\r\nEfecto de golpe de ataque a distancia:\r\nNombre: Window Break
+    sfx\r\nAutor: kakaist\r\nFuente: Pixabay\r\nLicencia: de uso gratuito bajo la
+    licencia de Pixabay\r\n\r\nEfecto de dash:\r\nNombre: Movement\r\nAutor: freesound_community\r\nFuente:
+    Pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de cambio de arma:\r\nNombre: mag slide in\r\nAutor: freesound_community\r\nFuente:
+    Pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de alcantarilla:\r\nNombre: Metal Moving\r\nAutor: freesound_community\r\nFuente:
+    Pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de poca vida:\r\nNombre: Start sound beep\r\nAutor: freesound_community\r\nFuente:
+    Pixabay\r\nLicencia: de uso gratuito bajo la licencia de Pixabay\r\n\r\nM\xFAsica
+    cr\xE9ditos y derrota:\r\nNombre: Welcome to Your Westworld (ID 1334) -Remastered\r\nAutor:
+    Lobo Loco\r\nFuente: FMA (Free Music Archive)\r\nLicencia: CC BY-NC-SA 4.0\r\n\r\nM\xFAsica
+    escena final:\r\nNombre: The Moment the Stars Stopped Talking\r\nAutor: TheFealdoProject\r\nFuente:
+    Pixabay\r\nLicencia:  de uso gratuito bajo la licencia de Pixabay\r\n\r\nEfecto
+    de voz de personajes:\r\nNombre: La vocal\r\nAutor: Adri\xE1n Erustes\r\n\r\nArte:\r\nV\xEDctor
+    Castro \xC1lvarez"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
   m_sharedMaterial: {fileID: -2932597816192430570, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
@@ -286,8 +341,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -796,7 +851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.094788, y: -1085.3933}
+  m_AnchoredPosition: {x: 20.094788, y: -4238}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140424938
@@ -1159,7 +1214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.907953, y: -984.5403}
+  m_AnchoredPosition: {x: 26.907953, y: -4137.1475}
   m_SizeDelta: {x: 645, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973666771
