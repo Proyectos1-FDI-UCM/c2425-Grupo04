@@ -53,6 +53,9 @@ public class ManzarieteMovement : MonoBehaviour
     //Se ajusta el collider para saber si hay un objeto entre el jugador y el enemigo
     private Collider2D ObjectCollider;
 
+
+    private Animator ManzarieteAnimator;
+
     //Límites de movimiento
     private float minX, maxX, minY, maxY;
 
@@ -67,6 +70,7 @@ public class ManzarieteMovement : MonoBehaviour
         moveToplayer = GetComponent<MoveToPlayer>();
         MaxSpeed = SprintSpeed;
         ObjectCollider = GetComponent<Collider2D>();
+        ManzarieteAnimator = GetComponent<Animator>();
 
         maxX = GameManager.Instance.GetMapWidth() / 2;
         minX = -maxX;
@@ -104,16 +108,21 @@ public class ManzarieteMovement : MonoBehaviour
             IsCharging = true;
             Ctimer = ChargeTime;
             playSfx = true;
+
         }
 
         //Si está cargando realiza el movimiento de carga
         if (IsCharging)
         {
+            
             Charge();
+            
+
         }
         //En cambio si está sprintando realiza el movimiento de sprint
         else if (IsSprinting)
         {
+            
             Sprint();
         }
         //En caso contrario simplemente anda hacia el jugador
@@ -124,6 +133,9 @@ public class ManzarieteMovement : MonoBehaviour
 
         Ctimer -= Time.deltaTime;
         Stimer -= Time.deltaTime;
+
+        
+
     }
     #endregion
 
@@ -158,6 +170,8 @@ public class ManzarieteMovement : MonoBehaviour
         }
         if (Stimer > 0)
         {
+            
+
             // -Sensación de rebote- durante movimiento
             //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
             Vector3 posMinX, posMinY, posMaxX, posMaxY;
@@ -181,19 +195,24 @@ public class ManzarieteMovement : MonoBehaviour
             }
 
             //movimiento
+            ManzarieteAnimator.SetTrigger("Sprinting");
             rb.velocity = LastPlayerPosition * SprintSpeed;
+            
 
             //Frenado final
             if (Stimer <= BreakTime && SprintSpeed > MaxSpeed / BreakSpeed)
             {
                 SprintSpeed -= MaxSpeed / BreakSpeed;
+                
             }
         }
         else
         {
+            ManzarieteAnimator.SetTrigger("ToRest");
             rb.velocity = Vector3.zero;
             IsSprinting = false;
             SprintSpeed = MaxSpeed;
+            
         }
     }//Sprint
 
@@ -202,9 +221,12 @@ public class ManzarieteMovement : MonoBehaviour
     /// </summary>
     private void Charge()
     {
+
         //Vector (Jugador -> Enemigo) sin retoques de colision
         Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x - transform.position.x,
                                   GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
+
+        ManzarieteAnimator.SetTrigger("Charging");
 
         if (Ctimer <= 0)
         {
