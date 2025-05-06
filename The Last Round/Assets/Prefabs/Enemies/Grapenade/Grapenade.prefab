@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c42fb7d890e2147863a7e3b9e7e745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 1.5
   ObjectSizeX: 1
   ObjectSizeY: 1
 --- !u!114 &7059407794517612056
@@ -483,8 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fac269815c19c7458b7e66db3cf8baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  marchaAtrasSpeed: 1
+  range: 5
+  marchaAtrasSpeed: 5.5
   ObjectSizeX: 1
   ObjectSizeY: 1
 --- !u!114 &1439747126237554738
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 50
+  Life: 175
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
   barraVida: {fileID: 1641722565466750369}
   LowHealthSFX: {fileID: 0}

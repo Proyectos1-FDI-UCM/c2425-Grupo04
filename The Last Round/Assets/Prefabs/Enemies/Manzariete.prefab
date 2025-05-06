@@ -578,9 +578,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RangeAttack: 5
-  ChargeTime: 2
-  SprintSpeed: 5
-  SprintTime: 2
+  ChargeTime: 1
+  SprintSpeed: 20
+  SprintTime: 1
   BreakSpeed: 20
   BreakTime: 0.75
   ObjectSizeX: 1
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c42fb7d890e2147863a7e3b9e7e745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 1.5
   ObjectSizeX: 1
   ObjectSizeY: 1
 --- !u!50 &6434944096096345892
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4245acfc54f4e2f49a6ac88557d4cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
+  Life: 200
   "ContadorDa\xF1o": {fileID: 4596568104739796052, guid: ea51bf9da1315d047b8ce6c973fe80f9, type: 3}
   barraVida: {fileID: 2359654342799000585}
   LowHealthSFX: {fileID: 0}
