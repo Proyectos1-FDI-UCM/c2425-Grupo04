@@ -250,11 +250,16 @@ public class UIManager_Combate : MonoBehaviour
 
     public void PressE()
     {
-        InteractMessage.text = "PRESIONE [E]";
+        InteractMessage.text = "PRESIONE [E] /";
+
+        if (InteractMessageImage != null)
+        {
+            InteractMessageImage.gameObject.SetActive(true);
+        }
     }
     public void HoldE(float timer, float holdingTime)
     {
-        InteractMessage.text = $"MANTÉN [E] /";
+        InteractMessage.text = $"MANTÉN  [E]  /";
 
         if (InteractMessageImage != null)
         {
