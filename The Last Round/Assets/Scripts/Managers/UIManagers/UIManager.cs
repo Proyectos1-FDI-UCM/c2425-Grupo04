@@ -95,7 +95,7 @@ public class UIManager : MonoBehaviour
     private float[] recursos;
     private int[] matsEnCesta = new int[8];    //0.JugoManzana   1.JugoUva   2.PielManzana   3.PielUva   4.SemillaManzana   5.SemillaUva   6.Levadura   7.Hielo
     private bool PickedBadChoice = false;
-    private bool skipSFX = true;
+    private bool NoSkipSFX = true;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -204,6 +204,7 @@ public class UIManager : MonoBehaviour
                     Destroy(Client.gameObject);
 
                     //Por si hay algo en la cesta se lo devuelve antes de irse de la escena
+                    NoSkipSFX = false;
                     RegresarMats();
 
                     GameManager.Instance.ChangeScene(NextScene);
@@ -280,7 +281,7 @@ public class UIManager : MonoBehaviour
     //Al pulsar continuar, empieza a escribir la siguiente frase
     public void SkipButton()
     {
-        if(skipSFX)
+        if(NoSkipSFX)
         { AudioManager.Instance.PlaySFX(paperSfx); }
         
 
@@ -306,7 +307,7 @@ public class UIManager : MonoBehaviour
         {
             SkipDialogue = true;
         }
-        skipSFX = true;
+        NoSkipSFX = true;
     }
 
     public void OptionL() //Cuando es pulsado el boton izquierdo
@@ -573,7 +574,7 @@ public class UIManager : MonoBehaviour
 
     public void RegresarMats()
     {
-        if(skipSFX)
+        if(NoSkipSFX)
         { AudioManager.Instance.PlaySFX(regresar); }
         
         //Hacen un recorrido por todos los botones que se están usando en la cesta (que tienen al menos un material)
@@ -611,7 +612,7 @@ public class UIManager : MonoBehaviour
 
     public void Servir()
     {
-       skipSFX = false;
+       NoSkipSFX = false;
             
 
             if (matsReqEnCesta)//Si están los materiales requeridos en el pedido, quita la cantidad del pedido de la cesta
