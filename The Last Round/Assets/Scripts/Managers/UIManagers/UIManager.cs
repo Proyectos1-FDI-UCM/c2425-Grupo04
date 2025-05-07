@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+
 // Añadir aquí el resto de directivas using
 using TMPro;
 using System.Collections;
@@ -36,7 +37,7 @@ public class UIManager : MonoBehaviour
     private float DisappearSpeed;
 
     [SerializeField]
-    private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText,//DIALOGOS Y MONÓLOGOS
+    private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText, EmisorName,//DIALOGOS Y MONÓLOGOS
 
                     recompensa, material1, material2, material3, nombreBebida, servirBText;//BEBIDAS
     [SerializeField]
@@ -297,6 +298,7 @@ public class UIManager : MonoBehaviour
             {
                 AudioManager.Instance.PlaySFX(CLienteSFX2);
                 CharacterPortrait.gameObject.SetActive(false);
+                EmisorName.gameObject.SetActive(false);
                 dialogueSkipButton.gameObject.SetActive(false);
                 dialogueBox.text = " ";
                 ClientDisappear = true;
@@ -692,6 +694,7 @@ public class UIManager : MonoBehaviour
         //Elige el recorrido de la conversación a escribir
         string dialogueOnly = GoodBadDialogue();
         dialogueSkipButton.gameObject.SetActive(true); // Activa el botón de continuar/saltar
+
         //Cambia la imagen del emisor
         if (dialogue[DialogueLine].Emisor == Emisor.Jugador)
         {
@@ -702,6 +705,24 @@ public class UIManager : MonoBehaviour
             CharacterPortrait.sprite = Client.sprite;
         }
         else CharacterPortrait.sprite = null;
+
+        //Cambia el nombre del emisor
+        if (dialogue[DialogueLine].Emisor == Emisor.Jugador)
+        {
+            EmisorName.text = "Orión";
+        }
+        else if (dialogue[DialogueLine].Emisor == Emisor.Cliente)
+        {
+            if (Client.GetComponent<CastEnemy>() != null)
+            {
+                EmisorName.text = $"{Client.GetComponent<CastEnemy>().GetEnemyType()}";
+            }
+            else
+            {
+                EmisorName.text = "";
+            }
+        }
+        else EmisorName.text = "";
 
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)

@@ -105,50 +105,50 @@ MonoBehaviour:
         todo."
       BadText: "Vale, antes del primer d\xEDa de trabajo voy a hacer memoria de todo."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Los clientes se sentar\xE1n justo donde estoy yo, hablar\xE1n conmigo
         y tendr\xE9 que levantar la menor sospecha posible en ellos."
       BadText: "Los clientes se sentar\xE1n justo donde estoy yo, hablar\xE1n conmigo
         y tendr\xE9 que levantar la menor sospecha posible en ellos."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: Vale, voy a practicar.
       BadText: Vale, voy a practicar.
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "\xBFSi me preguntan qu\xE9 estaba haciendo anoche?"
       BadText: "\xBFSi me preguntan qu\xE9 estaba haciendo anoche?"
       Estatus: 1
-      Emisor: 0
+      Emisor: 1
     - GoodText: Dormir
       BadText: Nada que te incumba
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Esta puede ser una buena respuesta, al final por la noche es com\xFAn
         echarse en la cama."
       BadText: "Quiz\xE1s ponerme a la defensiva aumentar\xEDa su sospecha."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Bah, da igual, seguro que lo har\xE9 bien."
       BadText: "Bah, da igual, seguro que lo har\xE9 bien."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Tendr\xE9 que tener cuidado con resultar muy sospechoso o los pueblerinos
         podr\xE1n atraparme."
       BadText: "Tendr\xE9 que tener cuidado con resultar muy sospechoso o los pueblerinos
         podr\xE1n atraparme."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Aunque no tienen muchas luces, seguro que si no resulto nada sospechoso
         en todo el dia bajar\xE1n la guardia..."
       BadText: "Aunque no tienen muchas luces, seguro que si no resulto nada sospechoso
         en todo el dia bajar\xE1n la guardia..."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: Por cierto, las bebidas.
       BadText: Por cierto, las bebidas.
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "A la derecha de la cesta de preparaci\xF3n tengo los materiales
         que he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
         (Para seleccionar material hacer clic sobre el icono del material)."
@@ -156,25 +156,25 @@ MonoBehaviour:
         he recogido, estos son los que meter\xE9 en la cesta para hacer las bebidas.
         (Para seleccionar material hacer clic sobre el icono del material)."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: Si no tuviese materiales suficientes puedo probar a convertirlos.
       BadText: Si no tuviese materiales suficientes puedo probar a convertirlos.
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: Voy a hacer un (bebida).
       BadText: Voy a hacer un (bebida).
       Estatus: 2
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Perfecto, veo que recuerdo como hacer bebidas. Y por servirlas conseguir\xE9
         dinero. Me har\xE9 millonario con esto."
       BadText: "Para la pr\xF3xima vez meter\xE9 los ingredientes necesarios en la
         cesta antes de servir. Si no, no me pagar\xE1n."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
     - GoodText: "Ahora voy a ver el almac\xE9n."
       BadText: "Ahora voy a ver el almac\xE9n."
       Estatus: 0
-      Emisor: 0
+      Emisor: 1
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}

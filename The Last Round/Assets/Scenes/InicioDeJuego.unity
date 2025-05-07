@@ -1239,9 +1239,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: clientName
+      value: "Ori\xF3n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: OrionSprite
       value: 
       objectReference: {fileID: 21300000, guid: 4302e90a670895c4b83434951372a703, type: 3}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: jugadorName
+      value: Jefe
+      objectReference: {fileID: 0}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: ChangeSceneAtEnd
       value: 1

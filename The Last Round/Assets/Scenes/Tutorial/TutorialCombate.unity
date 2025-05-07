@@ -6219,9 +6219,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: e82251b5460733845a12ffddccf291c5, type: 3}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: clientName
+      value: "Ori\xF3n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: OrionSprite
       value: 
       objectReference: {fileID: 21300000, guid: 4ee06580e721e9443b89f5783d9b2fdf, type: 3}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: jugadorName
+      value: Voz
+      objectReference: {fileID: 0}
     - target: {fileID: 8238611036485828772, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

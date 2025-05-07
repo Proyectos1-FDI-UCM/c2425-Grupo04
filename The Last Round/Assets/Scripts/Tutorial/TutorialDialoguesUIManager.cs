@@ -23,13 +23,15 @@ public class TutorialDialoguesUIManager : MonoBehaviour
     [SerializeField] Sprite OrionSprite;
     [SerializeField] private Image Box;
     [SerializeField]
+    private string clientName, jugadorName;
+    [SerializeField]
     private float TypeSpeed;
     [SerializeField]
     private AudioClip TypingSFX;
     [SerializeField]
     private FinalScene ScriptFinalScene;
     [SerializeField]
-    private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText;
+    private TextMeshProUGUI dialogueBox, dialogueSkipBText, option1BText, option2BText, EmisorName;
     [SerializeField]
     private Image CharacterPortrait;
     [SerializeField]
@@ -144,6 +146,7 @@ public class TutorialDialoguesUIManager : MonoBehaviour
             {
                 CharacterPortrait.gameObject.SetActive(false);
                 dialogueSkipButton.gameObject.SetActive(false);
+                EmisorName.gameObject.SetActive(false);
                 dialogueBox.text = " ";
                 ClientDisappear = true;
 
@@ -279,6 +282,17 @@ public class TutorialDialoguesUIManager : MonoBehaviour
             CharacterPortrait.sprite = Client.sprite;
         }
         else CharacterPortrait.sprite = null;
+
+        //Cambiar el nombre del emisor
+        if (dialogue[DialogueLine].Emisor == Emisor.Jugador)
+        {
+            EmisorName.text = jugadorName;
+        }
+        else if (dialogue[DialogueLine].Emisor == Emisor.Cliente)
+        {
+            EmisorName.text = clientName;
+        }
+        else EmisorName.text = "";
 
         //Recorre el tamaño del texto que tiene que escribir y se va escribiendo char por char
         for (int i = 0; i < dialogueOnly.Length; i++)
