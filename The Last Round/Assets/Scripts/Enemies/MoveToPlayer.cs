@@ -6,7 +6,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using UnityEngine.EventSystems;
 // Añadir aquí el resto de directivas using
 
 

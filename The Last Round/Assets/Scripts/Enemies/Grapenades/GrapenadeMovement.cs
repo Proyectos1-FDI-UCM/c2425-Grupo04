@@ -111,6 +111,9 @@ public class GrapenadeMovement : MonoBehaviour
                     EnemyPlayer.x = 0;
 
                 rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
+
+                if (transform.position.y > range) transform.position = new Vector2(transform.position.x, range);
+                if (transform.position.x > range) transform.position = new Vector2(range, transform.position.y);
             }
             //le persigue si esta lejos
             else
