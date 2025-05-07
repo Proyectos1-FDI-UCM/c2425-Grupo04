@@ -667,6 +667,255 @@ MonoBehaviour:
       BadText: Hasta otra, vuelva pronto.
       Estatus: 0
       Emisor: 1
+  - Generic: 1
+    Lines:
+    - GoodText: "Saludos se\xF1or manzana \xBFQu\xE9 desea?"
+      BadText: "Saludos se\xF1or manzana \xBFQu\xE9 desea?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "La verdad es que esta es la primera vez que vengo aqu\xED, no tengo
+        ni idea de lo que haces en este local."
+      BadText: "La verdad es que esta es la primera vez que vengo aqu\xED, no tengo
+        ni idea de lo que haces en este local."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Pues mira tengo un surtido de bebidas de alta calidad a elecci\xF3n
+        de mis clientes se\xF1or manzana."
+      BadText: "Pues mira tengo un surtido de bebidas de alta calidad a elecci\xF3n
+        de mis clientes se\xF1or manzana."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No soy solo una simple manzana, \xBFAcaso no sabes qu\xE9 tipo de
+        manzana soy?"
+      BadText: "No soy solo una simple manzana, \xBFAcaso no sabes qu\xE9 tipo de
+        manzana soy?"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: Un Manzariete
+      BadText: Una Manzurria
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "\xA1Exacto! Porque mi piel es de color rojo y tiene una curiosa
+        forma que se asemeja a la del antifaz de un ninja."
+      BadText: "\xBFAcaso eres dalt\xF3nico? \xBFCrees que tengo pinta de ser de
+        color verde?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: En eso me he dado cuenta en la curiosa forma de antifaz de tu piel,
+        aparte del color rojo.
+      BadText: "Lo siento, no me hab\xEDa percatado bien de tu apariencia y he debido
+        confundirte con una Manzurria."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "No mucha gente aprecia nuestra apariencia, pero me alegro de que
+        tu fres\xF3n s\xED."
+      BadText: "Es muy extra\xF1o sabiendo que ambos somos del mismo color, espero
+        que tus bebidas no tengan hongos alucin\xF3genos."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Bueno, dejo de entretenerte y te dejo que pidas la bebida que quieras
+        de nuestra carta.
+      BadText: Bueno, dejo de entretenerte y te dejo que pidas la bebida que quieras
+        de nuestra carta.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Entendido, pues mira hoy me gustar\xEDa tomar un (bebida)."
+      BadText: "Entendido, pues mira hoy me gustar\xEDa tomar un (bebida)."
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "La verdad es que esta bebida sabe muy bien, jam\xE1s hab\xEDa probado
+        otra cosa as\xED."
+      BadText: "\xBFNo puedes servirme lo que yo te he pedido?, \xBFEntonces como
+        esperas que quiera interesarme por este bar?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "He ah\xED la gran apreciaci\xF3n de nuestros clientes por el local
+        y su gran hospitalidad."
+      BadText: Te juro que no suele haber esta serie de errores normalmente en el
+        local.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Eso no lo pongo en duda fres\xF3n."
+      BadText: "\xBFY solo ha podido pasarme esto a m\xED?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Con la expectativa que me he llevado, vere m\xE1s adelante si yo
+        vuelvo otra vez por  este local."
+      BadText: "Con la expectativa que me he llevado, vere m\xE1s adelante si yo
+        vuelvo otra vez por  este local."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Hazme caso te sentir\xE1 bien venir aqu\xED de vez en cuando, para
+        relajarte."
+      BadText: "Hazme caso te sentir\xE1 bien venir aqu\xED de vez en cuando, para
+        relajarte."
+      Estatus: 0
+      Emisor: 1
+  - Generic: 0
+    Lines:
+    - GoodText: Ufff menudo viaje he tenido, estoy completamente cansado.
+      BadText: Ufff menudo viaje he tenido, estoy completamente cansado.
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Se te nota en la cara sudorosa que llevas.
+      BadText: Se te nota en la cara sudorosa que llevas.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Hacer deporte no es malo, te hace que seas m\xE1s fuerte, mejora
+        tu autoestima y hace que vivas m\xE1s."
+      BadText: "Hacer deporte no es malo, te hace que seas m\xE1s fuerte, mejora
+        tu autoestima y hace que vivas m\xE1s."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Si eso lo s\xE9, pero \xBFQu\xE9 deporte se supone que estabas haciendo?"
+      BadText: "Si eso lo s\xE9, pero \xBFQu\xE9 deporte se supone que estabas haciendo?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Nada del otro mundo, he hecho senderismo en una zona cerca de Fermentia.
+        \xBFSabes cu\xE1l?"
+      BadText: "Nada del otro mundo, he hecho senderismo en una zona cerca de Fermentia.
+        \xBFSabes cu\xE1l?"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: "En las monta\xF1as"
+      BadText: En el desierto
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Pues s\xED, si hubiera decidido hacer senderismo por el desierto
+        me habr\xEDa muerto de deshidrataci\xF3n."
+      BadText: "\xBFDe verdad crees que habr\xEDa podido aguantar toda una ma\xF1ana
+        a pleno desierto, y haber hablado contigo despu\xE9s?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "En las monta\xF1as no hace tanto calor, por eso es mejor ir ah\xED
+        ya que es m\xE1s soportable para nosotros las frutas."
+      BadText: "No lo s\xE9 la verdad, he visto a gente hacer cosas la mar de extra\xF1as
+        por todos lados."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: Sin mencionar la enorme tranquilidad de estas mismas frente a la
+        ciudad.
+      BadText: "Pues no s\xE9 en qu\xE9 clase de cuento de hadas vives, pero eso
+        es literalmente una muerte asegurada."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Como estas cansado necesitas tomar algo para relajarte, \xBFDime
+        que es lo que deseas?"
+      BadText: "Como estas cansado necesitas tomar algo para relajarte, \xBFDime
+        que es lo que deseas?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: De tan hacer deporte, me han entrado gansa de un (bebida).
+      BadText: De tan hacer deporte, me han entrado gansa de un (bebida).
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "\xA1Genial!, ya me he olvido de lo cansado que estaba por hacer
+        tanto deporte en un solo d\xEDa."
+      BadText: "No s\xE9 c\xF3mo esperas que quiera descansar de una ma\xF1ana dura
+        si ni puedes servirme ni una misera bebida."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Eso est\xE1 bien, significa que ahora puede hacer m\xE1s si quieres."
+      BadText: "Debe de haber habido un problema con el reabastecimiento de los recursos
+        en el almac\xE9n, que deber\xEDan estar entregados desde ayer."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Nah creo que ya ha sido suficiente con lo que he hecho por la ma\xF1ana,
+        voy a relajarme por esta vez."
+      BadText: "Haber si es que el que tiene que hacer deporte m\xE1s a menudo eres
+        t\xFA."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Bueno, te tengo que dejar ahora, se est\xE1 haciendo muy tarde."
+      BadText: "Bueno, te tengo que dejar ahora, se est\xE1 haciendo muy tarde."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Hasta otra, tenga cuidado la pr\xF3xima vez que vaya a hacer deporte."
+      BadText: "Hasta otra, tenga cuidado la pr\xF3xima vez que vaya a hacer deporte."
+      Estatus: 0
+      Emisor: 1
+  - Generic: 0
+    Lines:
+    - GoodText: "Oye fres\xF3n, \xBFT\xFA has tocado alguna vez un instrumento t\xEDpico
+        de Fermentia?"
+      BadText: "Oye fres\xF3n, \xBFT\xFA has tocado alguna vez un instrumento t\xEDpico
+        de Fermentia?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "La verdad es que no, pero \xBFPor qu\xE9 me lo preguntas?"
+      BadText: "La verdad es que no, pero \xBFPor qu\xE9 me lo preguntas?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Me ha entrado el gusanillo de tocar alg\xFAn instrumento popular
+        frente a mis amigos, pero no se cual aprender a tocar."
+      BadText: "Me ha entrado el gusanillo de tocar alg\xFAn instrumento popular
+        frente a mis amigos, pero no se cual aprender a tocar."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Eso depende de ti, por ejemplo \xBFTe gusta la m\xFAsica m\xE1s
+        fren\xE9tica o tranquila?"
+      BadText: "Eso depende de ti, por ejemplo \xBFTe gusta la m\xFAsica m\xE1s fren\xE9tica
+        o tranquila?"
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Yo suelo ser una persona que no trata de no hacer demasiado escandalo
+        frente a la gente. Ya con eso aclarado \xBFQu\xE9 me recomiendas?"
+      BadText: "Yo suelo ser una persona que no trata de no hacer demasiado escandalo
+        frente a la gente. Ya con eso aclarado \xBFQu\xE9 me recomiendas?"
+      Estatus: 1
+      Emisor: 0
+    - GoodText: El piano
+      BadText: El banyo
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "La verdad es que creo esa ser\xEDa una muy buena elecci\xF3n, me
+        pega mucho el piano adem\xE1s que es uno de los instrumentos m\xE1s queridos
+        de Fermentia."
+      BadText: "\xBFEl banyo? Es muy ruidoso, y aunque sea t\xEDpico de por aqu\xED
+        creo que se me har\xEDa dif\xEDcil entender c\xF3mo se toca eso."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Pues ya lo tienes decidido, solo te hace falta practicar y ya lo
+        tendr\xE1s."
+      BadText: "Puede que si le des una oportunidad lo podr\xEDa intentar."
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "Bueno me apunto lo que me has dicho, pero ahora tengo ganas de beber
+        as\xED que ponme un (bebida)."
+      BadText: "Bueno me apunto lo que me has dicho, pero ahora tengo ganas de beber
+        as\xED que ponme un (bebida)."
+      Estatus: 2
+      Emisor: 0
+    - GoodText: "Con esto creo que me vendr\xE1 la inspiraci\xF3n del musico en un
+        instante."
+      BadText: "\xBFC\xF3mo quieres ayudarme si ni si quiera eres capaz de hacer
+        bien tu trabajo?"
+      Estatus: 0
+      Emisor: 0
+    - GoodText: Yo creo que no, pero tener ganas de aprender es importante.
+      BadText: A veces pasan estas cosas en la vida, pero hay que seguir luchando
+        para no perderlo todo.
+      Estatus: 0
+      Emisor: 1
+    - GoodText: "En eso no lo dudo, la pr\xE1ctica hace al maestro."
+      BadText: "Si te pones as\xED, al menos puedes servirle las bebidas a los dem\xE1s
+        para que no se sientan defraudados."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Bueno, creo que con todo lo que me has dicho voy a seguir pensando
+        que instrumento elegir seg\xFAn tus consejos. Otro d\xEDa te dir\xE9 cual
+        eleg\xED, hasta otra."
+      BadText: "Bueno, creo que con todo lo que me has dicho voy a seguir pensando
+        que instrumento elegir seg\xFAn tus consejos. Otro d\xEDa te dir\xE9 cual
+        eleg\xED, hasta otra."
+      Estatus: 0
+      Emisor: 0
+    - GoodText: "Si aprendes a tocar un instrumento me vendr\xEDa bien que fueses
+        por aqu\xED alguna vez a tocarnos algo a toda la gente del bar."
+      BadText: "Si aprendes a tocar un instrumento me vendr\xEDa bien que fueses
+        por aqu\xED alguna vez a tocarnos algo a toda la gente del bar."
+      Estatus: 0
+      Emisor: 1
   BebidasPosibles:
   - {fileID: 1466163709615206520, guid: 57c5d3de35fd53a4abe48af0f5e48340, type: 3}
   - {fileID: 5159710048372638519, guid: da9c7f11a489d0048b194ecf56c6ac4a, type: 3}
