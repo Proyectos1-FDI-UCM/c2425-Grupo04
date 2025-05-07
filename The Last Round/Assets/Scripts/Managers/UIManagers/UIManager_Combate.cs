@@ -9,7 +9,6 @@ using UnityEngine;
 // Añadir aquí el resto de directivas using
 using TMPro;
 using UnityEngine.UI;
-using System.Drawing;
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -23,7 +22,7 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private TextMeshProUGUI population;
     [SerializeField] private TextMeshProUGUI InteractMessage;
-    [SerializeField] private Image currentWeapon, DashCharge;
+    [SerializeField] private Image currentWeapon, DashCharge, InteractMessageImage;
     [SerializeField] private Sprite weaponDistanceImage;
     [SerializeField] private Sprite weaponMeleeImage;
     [SerializeField] private float TimerBeatIntensity;
@@ -31,6 +30,7 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private float SecondsToStartBeating = 30;
     [SerializeField] private Image Fade;
     [SerializeField] private float FadeSpeed;
+    [SerializeField] private Slider InteractMessageSlider;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -254,11 +254,30 @@ public class UIManager_Combate : MonoBehaviour
     }
     public void HoldE(float timer, float holdingTime)
     {
-        InteractMessage.text = $"MANTÉN [E]  {Mathf.Round((holdingTime - timer) * 100) / 100} / {holdingTime}";
+        InteractMessage.text = $"MANTÉN [E] /";
+
+        if (InteractMessageImage != null)
+        {
+            InteractMessageImage.gameObject.SetActive(true);
+        }
+        if (InteractMessageSlider != null)
+        {
+            InteractMessageSlider.gameObject.SetActive(true);
+            InteractMessageSlider.value = 1 - (timer / holdingTime);
+        }
     }
     public void ClearMessage()
     {
         InteractMessage.text = "";
+
+        if (InteractMessageImage != null)
+        {
+            InteractMessageImage.gameObject.SetActive(false);
+        }
+        if (InteractMessageSlider != null)
+        {
+            InteractMessageSlider.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>

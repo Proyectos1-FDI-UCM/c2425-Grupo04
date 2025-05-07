@@ -76,7 +76,12 @@ public class MarcaBehaviour : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         follow = false;
-        emisor.MarkingStop();
+
+        if (emisor != null)
+        {
+            emisor.MarkingStop();
+        }
+
     }
     public void GrapenadeWasDestroy()
     {
@@ -88,7 +93,10 @@ public class MarcaBehaviour : MonoBehaviour
     }
     public void MarcaEliminada()
     {
-        emisor.EliminarMarca();
+        if (emisor != null)
+        {
+            emisor.EliminarMarca();
+        }
     }
     public void SetEmisor(PlaceMark emisor)
     {
@@ -97,7 +105,14 @@ public class MarcaBehaviour : MonoBehaviour
 
     public bool CanShootBullet()
     {
-        return emisor.CanShoot();
+        if (emisor != null)
+        {
+            return emisor.CanShoot();
+        }
+        else
+        {
+            return false;
+        }
     }
     #endregion
 

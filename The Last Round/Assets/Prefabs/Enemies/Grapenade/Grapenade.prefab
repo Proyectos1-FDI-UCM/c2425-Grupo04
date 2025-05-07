@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
-  marchaAtrasSpeed: 5.5
+  marchaAtrasSpeed: 5
   ObjectSizeX: 1
   ObjectSizeY: 1
 --- !u!114 &1439747126237554738

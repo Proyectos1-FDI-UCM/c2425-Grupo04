@@ -59,8 +59,13 @@ public class RecursoSpawner : MonoBehaviour
     /// </summary>
     void Update()
     {
+        //Si está en pausa se resetea
+        if(GameManager.Instance.IsPauseActive())
+        {
+            timer = HoldingTime;
+        }
         //Comprobamos que el jugador se encuentra en la distancia de recolección
-        if (touchingPlayer)
+        else if (touchingPlayer)
         {
             //Contador del hold
             if (InputManager.Instance.InteractIsPressed())//Si mantiene se va restando el timer

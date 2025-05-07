@@ -84,12 +84,15 @@ public class GrapenadeMovement : MonoBehaviour
                 if (!GetComponent<PlaceMark>().MarcaInstanciada())
                 {
                     canShoot = false;
-                    //Debug.Log("1");
+
                     //se para y inicia la animacion de coger la bomba
                     rb.velocity = Vector3.zero;
                     grapenadeAnim.SetBool("Marking", true);
-                    Debug.Log(grapenadeAnim.GetBool("Marking"));
-                    GetComponent<PlaceMark>().MarcarJugador();
+                    //Debug.Log(grapenadeAnim.GetBool("Marking"));
+                    if (GetComponent<PlaceMark>() != null)
+                    {
+                        GetComponent<PlaceMark>().MarcarJugador();
+                    }
                 }
             }
             //se aleja del jugador si esta muy cerca
@@ -104,21 +107,22 @@ public class GrapenadeMovement : MonoBehaviour
 
                 if ((-EnemyPlayer.y < 0 && posMinY.y <= minY) ||
                     (-EnemyPlayer.y > 0 && posMaxY.y >= maxY))
-                    EnemyPlayer.y = 0;
+                      EnemyPlayer.y = 0;
 
                 if ((-EnemyPlayer.x < 0 && posMinX.x <= minX) ||
                     (-EnemyPlayer.x > 0 && posMaxX.x >= maxX))
-                    EnemyPlayer.x = 0;
+                      EnemyPlayer.x = 0;
 
-                rb.velocity = -EnemyPlayer.normalized * marchaAtrasSpeed;
-
-                if (transform.position.y > range) transform.position = new Vector2(transform.position.x, range);
-                if (transform.position.x > range) transform.position = new Vector2(range, transform.position.y);
+                rb.velocity = - EnemyPlayer.normalized * marchaAtrasSpeed;
             }
             //le persigue si esta lejos
-            else
+            else if (Mathf.Floor(EnemyPlayer.magnitude * 10) / 10 > range + 0.2f)
             {
                 moveToPlayer.Move(gameObject);
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
             }
         }
         //si no esta parado
@@ -143,7 +147,8 @@ public class GrapenadeMovement : MonoBehaviour
         grapenadeAnim.SetBool("Marking", false);
         
     }
-    //activa o desactiva el movimiento, se usa en Animation events en las animaciones coger y en lanzar la boma
+
+    //activa o desactiva el movimiento, se usa en Animation events en las animaciones coger y en lanzar la bomba
     public void CanMove(string canMove)
     {
         moveBool = bool.Parse(canMove);
