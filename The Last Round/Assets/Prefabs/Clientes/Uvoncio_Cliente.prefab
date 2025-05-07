@@ -313,20 +313,20 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: 'Un (bebida) por favor mi bartender.
+    - GoodText: 'Un (bebida) por favor, mi bartender.
 
 '
-      BadText: 'Un (bebida) por favor mi bartender.
+      BadText: 'Un (bebida) por favor, mi bartender.
 
 '
       Estatus: 2
       Emisor: 0
-    - GoodText: Muchas gracias mi bro.
+    - GoodText: Muchas gracias.
       BadText: 'Parece que tengo mala suerte. '
       Estatus: 0
       Emisor: 0
-    - GoodText: "Nada t\xEDo, siempre estoy preparado para servirte lo que quieras."
-      BadText: 'Perdoname , no me quedan materias.
+    - GoodText: Nada, siempre estoy preparado para servirte lo que quieras.
+      BadText: 'Perdoname, no me quedan materiales.
 
 '
       Estatus: 0
@@ -357,21 +357,17 @@ MonoBehaviour:
         veces siento que no conf\xEDan en nosotros.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: Es bueno tenerlos cerca
-      BadText: quieren sentirse superiores
+    - GoodText: Es bueno tenerlos cerca.
+      BadText: Quieren sentirse superiores.
       Estatus: 0
       Emisor: 1
-    - GoodText: 'Es bueno tenerlos cerca sabes, gracias a ellos, la seguridad del
-        pueblo ha sido prometida.
-
-'
-      BadText: 'Parece que se sienten superiores a vosotros eh..
-
-'
+    - GoodText: "Es bueno tenerlos cerca, \xBFsabes? Gracias a ellos, la seguridad
+        del pueblo ha aumentado considerablemente.\n"
+      BadText: "Parece que se sienten superiores a vosotros, \xBFeh?...\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: "S\xED\u2026 Supongo que es bueno tener alguien que proteja el pueblo.\r\n"
-      BadText: "\xBFSuperiores? Nunca lo hab\xEDa pensado\u2026\r\n"
+    - GoodText: "S\xED\u2026 Supongo que es bueno tener alguien que proteja el pueblo.\r"
+      BadText: "\xBFSuperiores? Nunca lo hab\xEDa pensado\u2026\r"
       Estatus: 0
       Emisor: 0
     - GoodText: Cada quien cumple su rol. Ustedes cultivan, ellos vigilan.
@@ -393,24 +389,24 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: 'Bartender, quiero una (bebida) , gracias.
+    - GoodText: 'Bartender, quiero una (bebida), gracias.
 
 '
-      BadText: 'Bartender, quiero una (bebida) , gracias.
+      BadText: 'Bartender, quiero una (bebida), gracias.
 
 '
       Estatus: 2
       Emisor: 0
     - GoodText: "\xA1Guay, gracias! "
-      BadText: "Que triste t\xEDo."
+      BadText: Que triste...
       Estatus: 0
       Emisor: 0
-    - GoodText: Te vas a gustar seguro.
+    - GoodText: Te va a gustar seguro.
       BadText: "Justo no me queda m\xE1s de este, perdona.\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
-      BadText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia"
+    - GoodText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia."
+      BadText: "Sabes\u2026 No recuerdo haberte visto antes en Fermentia."
       Estatus: 0
       Emisor: 0
     - GoodText: "Llegu\xE9 hace poco. Quer\xEDa empezar un negocio aqu\xED.\r\n"
@@ -433,8 +429,8 @@ MonoBehaviour:
         todos nos conocemos. "
       Estatus: 1
       Emisor: 0
-    - GoodText: Eso suena acogedor
-      BadText: "Eso suena xen\xF3fobo"
+    - GoodText: Eso suena acogedor.
+      BadText: "Eso suena xen\xF3fobo."
       Estatus: 0
       Emisor: 1
     - GoodText: "Eso suena muy acogedor, todos se conocen entre s\xED, como una familia. "
@@ -470,11 +466,11 @@ MonoBehaviour:
       BadText: "Buenas! \xBFQu\xE9 quieres beber?\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: si, necesito un (bebida).
-      BadText: si, necesito un (bebida).
+    - GoodText: "Si, necesito un (bebida). \xBFMe lo pones?"
+      BadText: "Si, necesito un (bebida). \xBFMe lo pones?"
       Estatus: 2
       Emisor: 0
-    - GoodText: Emm ,Su color es muy bonito.
+    - GoodText: Emm, su color es muy bonito.
       BadText: 'Bueno, tampoco me importa mucho.
 
 '
@@ -510,14 +506,14 @@ MonoBehaviour:
       BadText: "Tal vez\u2026 pero preferimos estar preparados."
       Estatus: 1
       Emisor: 0
-    - GoodText: Hay que estar alerta
-      BadText: ' son imaginaciones'
+    - GoodText: Hay que estar alerta.
+      BadText: "Ser\xE1n imaginaciones tuyas."
       Estatus: 0
       Emisor: 1
-    - GoodText: 'De acuerdo, hay que estar alerta ante cualquiera posibles peligros.
+    - GoodText: 'De acuerdo, hay que estar alerta ante cualquier posible peligro.
 
 '
-      BadText: "Quiz\xE1 estos eran solo unas imaginaciones , no tienes que estar
+      BadText: "Quiz\xE1 estos eran solo imaginaciones tuyas. No deber\xEDas estar
         tan sensible.\r\n"
       Estatus: 0
       Emisor: 1
@@ -527,11 +523,11 @@ MonoBehaviour:
       BadText: "Hmph\u2026 Suenas demasiado tranquilo.\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: Un pueblo precavido es un pueblo seguro
+    - GoodText: Un pueblo precavido es un pueblo seguro.
       BadText: Solo digo que a veces la gente imagina cosas.
       Estatus: 0
       Emisor: 1
-    - GoodText: Eso siempre decimos. No queremos sorpresas.
+    - GoodText: Eso decimos siempre. No queremos sorpresas.
       BadText: "\xBFT\xFA qu\xE9 sabes? \xBFNo ser\xE1 que\u2026 quieres que bajemos
         la guardia?\r\n"
       Estatus: 0
@@ -544,16 +540,16 @@ MonoBehaviour:
       BadText: " No s\xE9\u2026 No me gusta c\xF3mo hablas de esto."
       Estatus: 0
       Emisor: 0
-    - GoodText: Bueno, quieres algo para relajar un poco?
-      BadText: Bueno, quieres algo para relajar un poco?
+    - GoodText: Me voy. Un saludo.
+      BadText: Me voy. Un saludo.
       Estatus: 0
-      Emisor: 1
+      Emisor: 0
   - Generic: 0
     Lines:
     - GoodText: "Nuestro alcalde siempre dice que Fermentia es un lugar especial.
         Que nadie podr\xE1 con nosotros."
       BadText: "Nuestro alcalde siempre dice que Fermentia es un lugar especial.
-        Que nadie podr\xE1 con nosotros.\r\n"
+        Que nadie podr\xE1 con nosotros.\r"
       Estatus: 0
       Emisor: 0
     - GoodText: 'Suena confiado.
@@ -578,8 +574,8 @@ MonoBehaviour:
       BadText: " Por supuesto. Es un l\xEDder fuerte.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: "un l\xEDder firme es bueno"
-      BadText: Nadie es invencible
+    - GoodText: "Un l\xEDder firme es bueno."
+      BadText: Nadie es invencible.
       Estatus: 0
       Emisor: 1
     - GoodText: "un l\xEDder firme es bueno para el pueblo, sabe c\xF3mo hacer que
@@ -610,13 +606,13 @@ MonoBehaviour:
       BadText: " Hmph\u2026 No me gusta ese pensamiento. Bueno, quiero un (bebida).\r\n"
       Estatus: 2
       Emisor: 0
-    - GoodText: Que bien he elegido
-      BadText: "si no tienes pues nada t\xEDo.\r\n\r\n"
+    - GoodText: Que bien he elegido.
+      BadText: "Si no tienes pues nada t\xEDo. Me voy.\r"
       Estatus: 0
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
+    - GoodText: "Las Manzurrias dicen que han visto cosas extra\xF1as en los campos.\r\n"
       BadText: "Las Manzurria dicen que han visto cosas extra\xF1as en los campos.\r\n"
       Estatus: 0
       Emisor: 0
@@ -636,8 +632,8 @@ MonoBehaviour:
       BadText: "No lo s\xE9. Pero si es un intruso, lo atraparemos.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: "lo descubrir\xE1n"
-      BadText: "est\xE1n paranoicos."
+    - GoodText: Lo descubriremos seguro.
+      BadText: "Est\xE1is paranoicos."
       Estatus: 0
       Emisor: 1
     - GoodText: 'Confiamos que los guardias lo descubrieron.
@@ -669,19 +665,17 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 0
     - GoodText: "\xA1Un (bebida) por favor!\r\n"
-      BadText: 'Pues,  Un (bebida) por favor.
+      BadText: 'Pues, un (bebida) por favor.
 
 '
       Estatus: 2
       Emisor: 0
-    - GoodText: Gracias, bye.
+    - GoodText: "Gracias, adi\xF3s."
       BadText: "\xBFEntonces para qu\xE9 abres?\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: Bye!
-      BadText: 'Perdoname mucho ..
-
-'
+    - GoodText: "\xA1Adi\xF3s!"
+      BadText: "Perd\xF3name...\n"
       Estatus: 0
       Emisor: 1
   - Generic: 0
@@ -694,12 +688,12 @@ MonoBehaviour:
       BadText: "\xBFNo tienes nada o qu\xE9?\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: 'Nada mi amigo. '
-      BadText: "Disculpame se\xF1or.\r\n"
+    - GoodText: 'Nada, mi amigo. '
+      BadText: "Disc\xFAlpame se\xF1or.\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: "Emmm,Tu bar es diferente a los otros\u2026\r\n"
-      BadText: "Emmm,Tu bar es diferente a los otros\u2026\r\n"
+    - GoodText: "Emmm, tu bar es diferente a los otros\u2026\r\n"
+      BadText: "Emmm, tu bar es diferente a los otros\u2026\r\n"
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFPara bien o para mal?\r\n"
@@ -718,12 +712,12 @@ MonoBehaviour:
       BadText: "No s\xE9\u2026 Pero los dem\xE1s tambi\xE9n lo sienten."
       Estatus: 1
       Emisor: 0
-    - GoodText: "no est\xE1n acostumbrados"
-      BadText: temen lo que no entienden
+    - GoodText: "No est\xE1n acostumbrados."
+      BadText: Temen lo que no entienden.
       Estatus: 0
       Emisor: 1
-    - GoodText: "A lo mejor no est\xE1s acostumbrado a ver un bar nuevo .\r\n"
-      BadText: "\xBFTemes a lo que no entiendes?\r\n"
+    - GoodText: "A lo mejor no est\xE1s acostumbrado a ver un bar nuevo."
+      BadText: "\xBFTemes a lo que no entiendes?"
       Estatus: 0
       Emisor: 1
     - GoodText: 'Tal vez. No solemos ver bares nuevos.
@@ -746,12 +740,12 @@ MonoBehaviour:
       BadText: "\xA1Hola, dame un (bebida)!"
       Estatus: 2
       Emisor: 0
-    - GoodText: "Ufff, eso es lo que espero \xA1que sed!"
-      BadText: "No me digas eso \u2026"
+    - GoodText: "Ufff, eso es lo que espero. \xA1Qu\xE9 sed!"
+      BadText: "No me digas eso\u2026"
       Estatus: 0
       Emisor: 0
-    - GoodText: Me alegro de poder ayudarte
-      BadText: "Perdoname, los de hoy ya est\xE1n vendidos todos.\r\n"
+    - GoodText: Me alegro de poder ayudarte.
+      BadText: "Perd\xF3name, los de hoy ya est\xE1n vendidos todos.\r\n"
       Estatus: 0
       Emisor: 1
     - GoodText: "A veces sue\xF1o con Fermentia en llamas\u2026\r\n"
@@ -778,11 +772,11 @@ MonoBehaviour:
         miedo. Solo vac\xEDo.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: No significa nada
-      BadText: Te advierte de algo
+    - GoodText: No significa nada.
+      BadText: Te advierte de algo.
       Estatus: 0
       Emisor: 1
-    - GoodText: "No pienses tanto, eso no significa nada, est\xE1s muy cansado.\r\n"
+    - GoodText: "No pienses tanto, eso no significa nada. Est\xE1s muy cansado.\r\n"
       BadText: "Te est\xE1 advertido de algo, creo.\r\n"
       Estatus: 0
       Emisor: 1
@@ -814,7 +808,7 @@ MonoBehaviour:
       Estatus: 2
       Emisor: 0
     - GoodText: Gracias.
-      BadText: Un bar sin bebida, interesante jaja..
+      BadText: Un bar sin bebida, interesante jaja...
       Estatus: 0
       Emisor: 0
     - GoodText: Nada amigo.
@@ -822,9 +816,9 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 1
     - GoodText: "Este pueblo\u2026 Est\xE1 lleno de gente con historias. Algunas
-        terminan bien\u2026 otras "
+        terminan bien\u2026 otras no tanto..."
       BadText: "Este pueblo\u2026 Est\xE1 lleno de gente con historias. Algunas terminan
-        bien\u2026 otras "
+        bien\u2026 otras no tanto..."
       Estatus: 0
       Emisor: 0
     - GoodText: "As\xED es la vida. Nadie sabe cu\xE1ndo su historia llega a su \xFAltima
@@ -849,13 +843,13 @@ MonoBehaviour:
         ser\xE1 una historia con final feliz.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: Mejor tener cuidado
-      BadText: "Quiz\xE1 no es tan malo"
+    - GoodText: Mejor tener cuidado.
+      BadText: "Quiz\xE1 no es tan malo."
       Estatus: 0
       Emisor: 1
     - GoodText: "Mejor es tener cuidado. Antes de llegar el final, el camino est\xE1
         lleno de peligro.\r\n"
-      BadText: "Quiz\xE1 no es tan malo, no sabemos su real destino.\r\n"
+      BadText: "Quiz\xE1 no es tan malo, no sabemos su objetivo real."
       Estatus: 0
       Emisor: 1
     - GoodText: "Sabes c\xF3mo funciona este pueblo. Aqu\xED no hay segundas oportunidades.\r\n"
@@ -863,7 +857,7 @@ MonoBehaviour:
       Estatus: 0
       Emisor: 0
     - GoodText: La ley de Fermentia es simple. Protegen a los suyos.
-      BadText: "No es cuesti\xF3n de l\xE1stima\u2026 solo de entender su lado."
+      BadText: "No es cuesti\xF3n de l\xE1stima\u2026 s\xF3lo de entender su lado."
       Estatus: 0
       Emisor: 1
     - GoodText: "Exacto. Y quien desaf\xEDe esa ley\u2026 pagar\xE1 el precio.\r\n"
@@ -882,20 +876,20 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: "Buenos d\xEDas! Me gustar\xEDa tener un (bebida) mi bartender."
-      BadText: "Buenos d\xEDas! Me gustar\xEDa tener un (bebida) mi bartender."
+    - GoodText: "\xA1Buenos d\xEDas! Me gustar\xEDa tener un (bebida), mi bartender."
+      BadText: "\xA1Buenos d\xEDas! Me gustar\xEDa tener un (bebida), mi bartender."
       Estatus: 2
       Emisor: 0
     - GoodText: "Hoy si ten\xE9is esto \xBFeh?"
       BadText: No me lo esperaba.
       Estatus: 0
       Emisor: 0
-    - GoodText: Siempre cuando lo necesitas.
+    - GoodText: Siempre estoy disponible cuando lo necesitas.
       BadText: Lo lamento mucho.
       Estatus: 0
       Emisor: 1
-    - GoodText: "Sabes?La tierra nos da vida, pero tambi\xE9n nos consume.\r\n"
-      BadText: "Sabes?La tierra nos da vida, pero tambi\xE9n nos consume.\r\n"
+    - GoodText: "\xBFSabes? La tierra nos da vida, pero tambi\xE9n nos consume.\r\n"
+      BadText: "\xBFSabes? La tierra nos da vida, pero tambi\xE9n nos consume.\r\n"
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFA qu\xE9 te refieres?\r\n"
@@ -916,12 +910,12 @@ MonoBehaviour:
       BadText: "\xBFEso justifica lo que hacen aqu\xED?\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: "No lo justifica, pero no hay otra opci\xF3n. La tierra exige.\r\n"
-      BadText: "No lo justifica, pero no hay otra opci\xF3n. La tierra exige.\r\n"
+    - GoodText: "No lo justifica, pero no hay otra opci\xF3n. La tierra lo exige.\r\n"
+      BadText: "No lo justifica, pero no hay otra opci\xF3n. La tierra lo exige.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: "Eso no busca destrucci\xF3n"
-      BadText: Momento que se destruye
+    - GoodText: "Pero no busca destrucci\xF3n."
+      BadText: Hay que destruir.
       Estatus: 0
       Emisor: 1
     - GoodText: "La tierra no busca destrucci\xF3n.\r\n"
@@ -934,7 +928,7 @@ MonoBehaviour:
       BadText: "\xBFDe verdad crees que la destrucci\xF3n es la soluci\xF3n?\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: "Solo hay que saber c\xF3mo cuidarla."
+    - GoodText: "S\xF3lo hay que saber c\xF3mo cuidarla."
       BadText: A veces, destruir es el primer paso para el cambio.
       Estatus: 0
       Emisor: 1
@@ -958,11 +952,11 @@ MonoBehaviour:
       Estatus: 2
       Emisor: 0
     - GoodText: Gracias mi amigo.
-      BadText: "Eso es un desastre amigo m\xEDo. "
+      BadText: "Menudo desastre, amigo m\xEDo. "
       Estatus: 0
       Emisor: 0
-    - GoodText: "\xA1Mi placer !"
-      BadText: Perdoname..
+    - GoodText: "\xA1Siempre es un placer satisfacer a mis clientes!"
+      BadText: "Perd\xF3name.."
       Estatus: 0
       Emisor: 1
     - GoodText: 'Hay algo en la verdad que hace que muchos la eviten.
@@ -977,12 +971,10 @@ MonoBehaviour:
       BadText: "\xBFY por qu\xE9 crees que es?"
       Estatus: 0
       Emisor: 1
-    - GoodText: 'Porque una vez que sabes la verdad, ya no puedes ignorarla.
-
-'
-      BadText: 'Porque una vez que sabes la verdad, ya no puedes ignorarla.
-
-'
+    - GoodText: "Porque una vez que sabes la verdad, ya no puedes ignorarla. Como
+        dicen, la ignorancia es una bendici\xF3n."
+      BadText: "Porque una vez que sabes la verdad, ya no puedes ignorarla. Como
+        dicen, la ignorancia es una bendici\xF3n."
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFT\xFA conoces alguna verdad que nadie quiera escuchar?\r\n"
@@ -993,8 +985,8 @@ MonoBehaviour:
       BadText: "Hay secretos que no deber\xEDan ser descubiertos, bartender.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: La verdad siempre encuentra
-      BadText: 'Algunas cosas es mejor ocultarlas '
+    - GoodText: La verdad siempre se encuentra.
+      BadText: Algunas cosas es mejor ocultarlas.
       Estatus: 0
       Emisor: 1
     - GoodText: "\xBFSabes? La verdad siempre se encuentra al final."
@@ -1040,20 +1032,18 @@ MonoBehaviour:
       BadText: "Comet\xED un error."
       Estatus: 0
       Emisor: 1
-    - GoodText: 'Bartender,sabes la fuerza no siempre es lo que parece.
-
-'
-      BadText: Bartender,sabes la fuerza no siempre es lo que parece.
+    - GoodText: "Bartender, \xBFsabes? La fuerza no siempre es lo que parece.\n"
+      BadText: "Bartender, \xBFsabes? La fuerza no siempre es lo que parece."
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFA qu\xE9 te refieres?\r\n"
       BadText: "\xBFA qu\xE9 te refieres?\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: " Muchos creen que tener poder es suficiente, pero la fuerza real
+    - GoodText: "Muchos creen que tener poder es suficiente, pero la fuerza real
         est\xE1 en saber cu\xE1ndo usarla.\r\n"
-      BadText: " Muchos creen que tener poder es suficiente, pero la fuerza real
-        est\xE1 en saber cu\xE1ndo usarla.\r\n"
+      BadText: "Muchos creen que tener poder es suficiente, pero la fuerza real est\xE1
+        en saber cu\xE1ndo usarla.\r\n"
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFEntonces no crees que la violencia sea la respuesta?\r\n"
@@ -1066,11 +1056,11 @@ MonoBehaviour:
         opci\xF3n.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: autocontrol es la fuerza
-      BadText: violencia es una forma
+    - GoodText: El autocontrol es la fuerza.
+      BadText: "La violencia est\xE1 justificada."
       Estatus: 0
       Emisor: 1
-    - GoodText: "Para m\xED. El autocontrol es muy importante, es una fuerza muy
+    - GoodText: "Para m\xED, el autocontrol es muy importante. Es una fuerza muy
         enorme.\r\n"
       BadText: 'Creo que la violencia siempre soluciona cosas.
 
@@ -1105,17 +1095,19 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: "Buneos d\xEDas, un (bebida) ,gracias!"
-      BadText: "Buneos d\xEDas, un (bebida) ,gracias!"
+    - GoodText: "Buenos d\xEDas, un (bebida). \xA1Gracias!"
+      BadText: "Buenos d\xEDas, un (bebida). \xA1Gracias!"
       Estatus: 2
       Emisor: 0
-    - GoodText: La gente dice que eres el mejor bartender, hoy si veo.
-      BadText: 'La gente dice que eres lo mejor, yo no veo eso.
+    - GoodText: "La gente dice que eres el mejor bartender, y ya veo por qu\xE9 lo
+        dicen."
+      BadText: 'La gente dice que eres el mejor bartender, pero si no puedes ni servirme
+        no creo que sea verdad.
 
 '
       Estatus: 0
       Emisor: 0
-    - GoodText: "Intent\xF3 ser lo mejor para vosotros."
+    - GoodText: Intento ser lo mejor para vosotros.
       BadText: 'Hoy es un caso especial.
 
 '
@@ -1145,18 +1137,18 @@ MonoBehaviour:
       BadText: "S\xED, pero la vida sigue, y las decisiones no se pueden deshacer.\r\n"
       Estatus: 1
       Emisor: 0
-    - GoodText: importante es aprender error
-      BadText: "Algunas dejarlas atr\xE1s"
+    - GoodText: Hay que aprender de los errores.
+      BadText: "Algunas es mejor dejarlas atr\xE1s."
       Estatus: 0
       Emisor: 1
-    - GoodText: 'Lo importante es aprender del error ,y no cometerlo de nuevo.
+    - GoodText: 'Lo importante es aprender del error, y no cometerlo de nuevo.
 
 '
-      BadText: "\xBFO dejarlas algunas atr\xE1s?\r\n"
+      BadText: "O a lo mejor hay que dejar algunas atr\xE1s."
       Estatus: 0
       Emisor: 1
     - GoodText: "Es cierto. Lo que importa es lo que haces despu\xE9s de cometer
-        un error.\r\n"
+        un error."
       BadText: "No s\xE9 si estoy de acuerdo. \xBFC\xF3mo puedes avanzar si dejas
         todo atr\xE1s?\r\n"
       Estatus: 0
@@ -1185,45 +1177,36 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: 'Hola bartender, dame un (bebida) , gracias.
-
-'
-      BadText: 'Hola bartender, dame un (bebida) , gracias.
-
-'
+    - GoodText: Hola bartender, dame un (bebida), por favor.
+      BadText: Hola bartender, dame un (bebida), por favor.
       Estatus: 2
       Emisor: 0
     - GoodText: "\xA1Esto es como una obra de arte, gracias!"
       BadText: "Entiendo. Ojal\xE1 pueda conseguir uno la pr\xF3xima vez.\r\n"
       Estatus: 0
       Emisor: 0
-    - GoodText: Gracias por el cumplido
-      BadText: "Gracias por su comprensi\xF3n. Te dejar\xE9 una copia la pr\xF3xima
-        vez.\r\n\r\n"
+    - GoodText: Gracias por el cumplido.
+      BadText: "Gracias por su comprensi\xF3n. La siguiente invito."
       Estatus: 0
       Emisor: 1
-    - GoodText: " \xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
+    - GoodText: "\xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
         Siempre est\xE1n a la defensiva."
-      BadText: " \xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
+      BadText: "\xDAltimamente he o\xEDdo cosas sobre los Grapenades y Manzurrias.
         Siempre est\xE1n a la defensiva."
       Estatus: 0
       Emisor: 0
-    - GoodText: " \xBFY los Manzarietes?\r\n"
-      BadText: " \xBFY los Manzarietes?\r\n"
+    - GoodText: "\xBFY los Manzarietes?\r\n"
+      BadText: "\xBFY los Manzarietes?\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: ' "Esos... siempre en movimiento, nunca se quedan quietos. Me inquietan."
-
-'
-      BadText: ' "Esos... siempre en movimiento, nunca se quedan quietos. Me inquietan."
-
-'
+    - GoodText: "Esos... siempre est\xE1n en movimiento, nunca se quedan quietos.
+        Me inquietan."
+      BadText: "Esos... siempre est\xE1n en movimiento, nunca se quedan quietos.
+        Me inquietan."
       Estatus: 1
       Emisor: 0
-    - GoodText: 'todos tienen sus motivos
-
-'
-      BadText: todos parecen temerosos
+    - GoodText: Todos tienen sus motivos.
+      BadText: Parecen temerosos.
       Estatus: 0
       Emisor: 1
     - GoodText: 'Creo que todas las personas tienen sus motivos.
@@ -1246,10 +1229,10 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: ' Buenas , quiero una (bebida) gracias.
+    - GoodText: 'Buenas, quiero una (bebida) gracias.
 
 '
-      BadText: ' Buenas , quiero una (bebida) gracias.
+      BadText: 'Buenas, quiero una (bebida) gracias.
 
 '
       Estatus: 2
@@ -1270,20 +1253,20 @@ MonoBehaviour:
       BadText: "\xBFY eso te preocupa?\r\n"
       Estatus: 0
       Emisor: 1
-    - GoodText: "\"No necesariamente\u2026 pero en un pueblo peque\xF1o, los extra\xF1os
+    - GoodText: "No necesariamente\u2026 pero en un pueblo peque\xF1o, los extra\xF1os
         siempre llaman la atenci\xF3n."
-      BadText: "\"No necesariamente\u2026 pero en un pueblo peque\xF1o, los extra\xF1os
+      BadText: "No necesariamente\u2026 pero en un pueblo peque\xF1o, los extra\xF1os
         siempre llaman la atenci\xF3n."
       Estatus: 1
       Emisor: 0
-    - GoodText: Solo quiero integrarme
-      BadText: "si no soy de aqu\xED?"
+    - GoodText: "S\xF3lo quiero integrarme."
+      BadText: "\xBFY si es cierto?"
       Estatus: 0
       Emisor: 1
-    - GoodText: ' Solo quiero integrarme y ganarme la confianza de todos.
+    - GoodText: 'Solo quiero integrarme y ganarme la confianza de todos.
 
 '
-      BadText: " \xBF Y qu\xE9 pasa si no soy de aqu\xED? no es asunto tuyo.\r\n"
+      BadText: "\xBFY qu\xE9 pasa si no soy de aqu\xED? No es asunto tuyo.\r\n"
       Estatus: 0
       Emisor: 1
     - GoodText: Eso suena bien. A todos nos viene bien alguien que escuche y sirva
@@ -1301,28 +1284,28 @@ MonoBehaviour:
       Emisor: 0
   - Generic: 0
     Lines:
-    - GoodText: .............
-      BadText: .............
+    - GoodText: ....
+      BadText: ...
       Estatus: 0
       Emisor: 0
-    - GoodText: "Hola? Qu\xE9 quieres de beber?"
-      BadText: "Hola? Qu\xE9 quieres de beber?"
+    - GoodText: "\xBFHola? \xBFQu\xE9 quieres de beber?"
+      BadText: "\xBFHola? \xBFQu\xE9 quieres de beber?"
       Estatus: 0
       Emisor: 0
-    - GoodText: .............
-      BadText: .............
+    - GoodText: ...
+      BadText: ...
       Estatus: 0
       Emisor: 0
-    - GoodText: Si?
-      BadText: Si?
+    - GoodText: "\xBFSi?"
+      BadText: "\xBFSi?"
       Estatus: 0
       Emisor: 1
-    - GoodText: Salir de este pueblo...
-      BadText: Salir de este pueblo...
+    - GoodText: Quiero salir de este pueblo...
+      BadText: Quiero salir de este pueblo...
       Estatus: 0
       Emisor: 0
-    - GoodText: Que?
-      BadText: Que?
+    - GoodText: "\xBFQu\xE9?"
+      BadText: "\xBFQu\xE9?"
       Estatus: 0
       Emisor: 1
     - GoodText: "Mi amigo ha desaparecido y el pueblo se ha vuelto extra\xF1o desde
@@ -1331,12 +1314,12 @@ MonoBehaviour:
         que ustedes, los forasteros, llegaron..."
       Estatus: 1
       Emisor: 0
-    - GoodText: Lo lamento...
-      BadText: Sin decir nada
+    - GoodText: Dar condolencias.
+      BadText: No decir nada.
       Estatus: 0
       Emisor: 1
-    - GoodText: "Lamento mucho se\xF1or, seguro que nuestros guardias le descubrir\xE1.\r\n"
-      BadText: "\u2026.."
+    - GoodText: "Lo lamento mucho se\xF1or, seguro que nuestros guardias le descubrir\xE1n.\r\n"
+      BadText: "\u2026"
       Estatus: 0
       Emisor: 1
     - GoodText: "\xA1\xC9l es mi mejor amigo! \xA1\xBFPor qu\xE9?! "
@@ -1344,42 +1327,42 @@ MonoBehaviour:
         no me escucharon."
       Estatus: 0
       Emisor: 0
-    - GoodText: "no quer\xEDa que esto pasara, pero no todos los forasteros son malos."
+    - GoodText: "No quer\xEDa que esto pasara, pero no todos los forasteros son malos."
       BadText: "\xBFPor qu\xE9 dices eso? No todas las personas son malas."
       Estatus: 0
       Emisor: 1
-    - GoodText: ....
-      BadText: ....
+    - GoodText: ...
+      BadText: ...
       Estatus: 0
       Emisor: 0
     - GoodText: "\xBFQuieres algo de beber para olvidar tu tristeza?"
       BadText: "\xBFQuieres algo de beber para olvidar tu tristeza?"
       Estatus: 0
       Emisor: 1
-    - GoodText: Un (bebida), y perdoname...
-      BadText: Un (bebida)..
+    - GoodText: "Un (bebida), y perd\xF3name..."
+      BadText: Un (bebida)...
       Estatus: 2
       Emisor: 0
     - GoodText: "Gracias\u2026"
-      BadText: "Enganarme no es gracioso\u2026"
+      BadText: "Enga\xF1arme no es gracioso\u2026"
       Estatus: 0
       Emisor: 0
     - GoodText: 'Nada amigo. '
-      BadText: Justo no me queda este, perdon.
+      BadText: Justo no me queda este, perdona.
       Estatus: 0
       Emisor: 1
   - Generic: 0
     Lines:
-    - GoodText: Hey, un (bebida) porfa!
-      BadText: Hey, un (bebida) porfa!
+    - GoodText: "\xA1Hey! Un (bebida) porfa."
+      BadText: "\xA1Hey! Un (bebida) porfa."
       Estatus: 2
       Emisor: 0
     - GoodText: Gracias.
-      BadText: "No joda\u2026"
+      BadText: "No jodas\u2026"
       Estatus: 0
       Emisor: 0
     - GoodText: "\xA1De nada!"
-      BadText: Agotado hoy sry.
+      BadText: Hoy estoy agotado, lo siento.
       Estatus: 0
       Emisor: 1
     - GoodText: "Sabes, Ori\xF3n\u2026 tienes un aroma peculiar. No como el nuestro."
@@ -1396,8 +1379,8 @@ MonoBehaviour:
         m\xE1s fuerte. M\xE1s denso."
       Estatus: 1
       Emisor: 0
-    - GoodText: aroma de cansancio
-      BadText: mejor no olerlas demasiado
+    - GoodText: Es el aroma del cansancio.
+      BadText: Mejor no me huelas demasiado.
       Estatus: 0
       Emisor: 1
     - GoodText: "He o\xEDdo que los olores cuentan historias\u2026 Quiz\xE1s la tuya
@@ -1405,87 +1388,25 @@ MonoBehaviour:
       BadText: "Eso suena\u2026 sospechoso."
       Estatus: 0
       Emisor: 0
-    - GoodText: 'Es un aroma de un bartender cansado, sabes.
-
-'
-      BadText: "Sabes? No me gusta que la gente opine sobre mi aroma.. \r\n"
+    - GoodText: "Es un aroma de un bartender cansado, \xBFsabes?\n"
+      BadText: "\xBFSabes? No me gusta que la gente opine sobre mi aroma.. \r\n"
       Estatus: 0
       Emisor: 1
     - GoodText: Exacto. No hay prisa, lo importante es la confianza.
-      BadText: No me refiero eso
+      BadText: No me refiero eso.
       Estatus: 0
       Emisor: 1
     - GoodText: "S\xED\u2026 un buen aroma, como un buen vino, se descubre con el
         tiempo."
-      BadText: Y entonces?
+      BadText: "\xBFY entonces?"
       Estatus: 0
       Emisor: 0
     - GoodText: Y en un buen bar, todo se mezcla de la mejor manera.
-      BadText: Ah, simplemente no quiero que huelas mi sudor XD
+      BadText: Ah, simplemente no quiero que huelas mi sudor.
       Estatus: 0
       Emisor: 1
-    - GoodText: Salud por eso.
-      BadText: Ahh...interesante...
-      Estatus: 0
-      Emisor: 0
-  - Generic: 0
-    Lines:
-    - GoodText: Buenas, a ver si me puedes dar (bebida)?
-      BadText: Buenas, a ver si me puedes dar (bebida)?
-      Estatus: 2
-      Emisor: 0
-    - GoodText: Eso es, gracias.
-      BadText: "\xBFSiempre te falta materias?"
-      Estatus: 0
-      Emisor: 0
-    - GoodText: Nada.
-      BadText: "Depende del d\xEDa."
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "sabes, he notado algo curioso, bartender\u2026 te mueves de una
-        forma distinta a los dem\xE1s. "
-      BadText: "sabes, he notado algo curioso, bartender\u2026 te mueves de una forma
-        distinta a los dem\xE1s. "
-      Estatus: 0
-      Emisor: 0
-    - GoodText: " \xBFDistinta c\xF3mo?\r\n"
-      BadText: " \xBFDistinta c\xF3mo?\r\n"
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "No s\xE9\u2026 a veces es como si esquivaras cosas antes de que
-        pasen. Como si tus reflejos fueran\u2026 demasiado buenos."
-      BadText: "No s\xE9\u2026 a veces es como si esquivaras cosas antes de que pasen.
-        Como si tus reflejos fueran\u2026 demasiado buenos."
-      Estatus: 1
-      Emisor: 0
-    - GoodText: " bartender debe ser \xE1gil"
-      BadText: "veo m\xE1s de lo que deber\xEDa"
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "Bueno, un bartender debe ser \xE1gil antes cualesquiera cosas.\r\n"
-      BadText: "s que veo m\xE1s de lo que deber\xEDa.\r\n"
-      Estatus: 0
-      Emisor: 0
-    - GoodText: "S\xED\u2026 supongo que en un bar eso es \xFAtil. Evita accidentes."
-      BadText: "Eso suena inquietante\u2026 \xBFA qu\xE9 te refieres exactamente?"
-      Estatus: 0
-      Emisor: 0
-    - GoodText: "Exacto, no querr\xE1s que alguien derrame su bebida, \xBFverdad?"
-      BadText: Solo digo que veo cosas que otros no.
-      Estatus: 0
-      Emisor: 1
-    - GoodText: "Jaja, tienes raz\xF3n. Un buen bartender siempre est\xE1 un paso
-        adelante."
-      BadText: "Hmm\u2026 No me gustan los que ven demasiado. A veces es mejor no
-        saber ciertas cosas."
-      Estatus: 0
-      Emisor: 0
-    - GoodText: Ese es el secreto del buen servicio.
-      BadText: "Por qu\xE9?"
-      Estatus: 0
-      Emisor: 1
-    - GoodText: Salud por eso!
-      BadText: "Ya ver\xE1s..."
+    - GoodText: Un brindis por eso.
+      BadText: Ahh... interesante...
       Estatus: 0
       Emisor: 0
   BebidasPosibles:
