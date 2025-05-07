@@ -20,7 +20,8 @@ public class ManzarieteMovement : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     //Rango de sprint, tiempo de carga del sprint, velocidad del sprint, tiempo que se hace el sprint
     //, velocidad de frenado y tiempo de frenado
-    [SerializeField] private float RangeAttack, ChargeTime,
+    [SerializeField]
+    private float RangeAttack, ChargeTime,
                                    SprintSpeed, SprintTime,
                                    BreakSpeed, BreakTime,
                                    ObjectSizeX, ObjectSizeY;
@@ -42,6 +43,7 @@ public class ManzarieteMovement : MonoBehaviour
     //Booleanos de estado y condiciones de sprint (estar en rango y no haber una pared de por medio)
     private bool IsCharging = false,
                  IsSprinting = false,
+                 IsGettingUp = false,
                  InRange = false,
                  IsThereWall = false;
 
@@ -53,7 +55,7 @@ public class ManzarieteMovement : MonoBehaviour
     //Se ajusta el collider para saber si hay un objeto entre el jugador y el enemigo
     private Collider2D ObjectCollider;
 
-
+    //Animator en cargado de gestionar las animaciones
     private Animator ManzarieteAnimator;
 
     //Límites de movimiento
@@ -108,21 +110,17 @@ public class ManzarieteMovement : MonoBehaviour
             IsCharging = true;
             Ctimer = ChargeTime;
             playSfx = true;
-
         }
-
         //Si está cargando realiza el movimiento de carga
         if (IsCharging)
         {
-            
+
             Charge();
-            
 
         }
         //En cambio si está sprintando realiza el movimiento de sprint
         else if (IsSprinting)
         {
-            
             Sprint();
         }
         //En caso contrario simplemente anda hacia el jugador
@@ -134,8 +132,13 @@ public class ManzarieteMovement : MonoBehaviour
         Ctimer -= Time.deltaTime;
         Stimer -= Time.deltaTime;
 
-        
-
+        //Animaciones
+        //Las animaciones se gestionan en fixedupdate para mantener los parámetros actualizados
+        ManzarieteAnimator.SetBool("Charging", IsCharging);
+        ManzarieteAnimator.SetBool("Sprinting", IsSprinting);
+        ManzarieteAnimator.SetBool("GetUp", IsGettingUp);
+        ManzarieteAnimator.SetFloat("HorizontalAttack", LastPlayerPosition.x);
+        ManzarieteAnimator.SetFloat("VerticalAttack", LastPlayerPosition.y);
     }
     #endregion
 
@@ -170,7 +173,7 @@ public class ManzarieteMovement : MonoBehaviour
         }
         if (Stimer > 0)
         {
-            
+
 
             // -Sensación de rebote- durante movimiento
             //Si colisiona en las zonas derecha o izquierda solo invierte solo el eje x
@@ -195,24 +198,21 @@ public class ManzarieteMovement : MonoBehaviour
             }
 
             //movimiento
-            ManzarieteAnimator.SetTrigger("Sprinting");
             rb.velocity = LastPlayerPosition * SprintSpeed;
-            
+
 
             //Frenado final
             if (Stimer <= BreakTime && SprintSpeed > MaxSpeed / BreakSpeed)
             {
+                IsGettingUp = true;
                 SprintSpeed -= MaxSpeed / BreakSpeed;
-                
             }
         }
         else
         {
-            ManzarieteAnimator.SetTrigger("ToRest");
             rb.velocity = Vector3.zero;
-            IsSprinting = false;
+            IsSprinting = IsGettingUp = false;
             SprintSpeed = MaxSpeed;
-            
         }
     }//Sprint
 
@@ -223,29 +223,18 @@ public class ManzarieteMovement : MonoBehaviour
     {
 
         //Vector (Jugador -> Enemigo) sin retoques de colision
-        Vector2 tmp1 = new Vector3(GameManager.Instance.GetPlayer().transform.position.x - transform.position.x,
-                                  GameManager.Instance.GetPlayer().transform.position.y - transform.position.y);
+        LastPlayerPosition = (new Vector3(GameManager.Instance.GetPlayer().transform.position.x - transform.position.x,
+                                  GameManager.Instance.GetPlayer().transform.position.y - transform.position.y)).normalized;
 
-        ManzarieteAnimator.SetTrigger("Charging");
 
         if (Ctimer <= 0)
         {
-            if (tmp1.x != 0 && tmp1.y != 0 && tmp1.x * tmp1.x +
-                                                            tmp1.y * tmp1.y != 0)
-                LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x +
-                                          tmp1.y * tmp1.y);
-
-            else if (tmp1.x != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.x * tmp1.x);
-
-            else if (tmp1.y != 0) LastPlayerPosition = tmp1 / Mathf.Sqrt(tmp1.y * tmp1.y);
-
             IsCharging = false;
             IsSprinting = true;
             Stimer = SprintTime;
             playSfx = true;
         }
     }//Charge
-    #endregion
 
     /// <summary>
     /// Encargado de detectar colisiones con otros objetos
@@ -261,11 +250,11 @@ public class ManzarieteMovement : MonoBehaviour
         {
             Vector2 tmp = collision.contacts[0].normal;
 
-            if (tmp.y > 0.5f && LastPlayerPosition.y < 0|| tmp.y < -0.5 && LastPlayerPosition.y > 0)
+            if (tmp.y > 0.5f && LastPlayerPosition.y < 0 || tmp.y < -0.5 && LastPlayerPosition.y > 0)
             {
                 LastPlayerPosition.y *= -1;
             }
-            
+
             if (tmp.x > 0.5f && LastPlayerPosition.x < 0 || tmp.x < -0.5 && LastPlayerPosition.x > 0)
             {
                 LastPlayerPosition.x *= -1;
@@ -273,5 +262,8 @@ public class ManzarieteMovement : MonoBehaviour
 
         }
     }
+    #endregion
+
+
 } // class ManzarieteMovement 
 // namespace
