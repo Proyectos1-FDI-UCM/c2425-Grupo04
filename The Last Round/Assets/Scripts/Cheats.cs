@@ -181,6 +181,8 @@ public class Cheats : MonoBehaviour
         //enem a la vez v
         //numero de enemigos en combate que puede ver a la vez
         MaxEnemies(Mathf.RoundToInt(MaxEnemiesAtOnce));
+
+        GameManager.Instance.SetCheats(true);
     }
 
     public void OpenCloseMenu(GameObject MenuToClose)
