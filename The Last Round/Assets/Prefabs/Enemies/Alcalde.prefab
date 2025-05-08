@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2742752213233834823, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5051232639160114281, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_Name
       value: TutorialDialogues
@@ -186,14 +190,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6895007799693205385, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20.905
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895007799693205385, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 6.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895007799693205385, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895007799693205385, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.718
+      objectReference: {fileID: 0}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: paperSFX
       value: 
       objectReference: {fileID: 8300000, guid: e82251b5460733845a12ffddccf291c5, type: 3}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: clientName
+      value: Alcalde
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: OrionSprite
       value: 
       objectReference: {fileID: 21300000, guid: 294713551557d6944bc2f22834d7e896, type: 3}
+    - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: jugadorName
+      value: "Ori\xF3n"
+      objectReference: {fileID: 0}
     - target: {fileID: 7273376917578094063, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: ChangeSceneAtEnd
       value: 0
