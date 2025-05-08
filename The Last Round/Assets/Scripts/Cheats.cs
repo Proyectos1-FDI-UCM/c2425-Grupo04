@@ -19,19 +19,53 @@ public class Cheats : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // públicos y de inspector se nombren en formato PascalCase
-    // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
     [SerializeField] private GameObject cheatMenu;
-    [SerializeField] private Toggle invunerabilidad;
+    [SerializeField] private UnityEngine.UI.Toggle invunerabilidad;
     [SerializeField]
     Slider numManzurrias, numUvoncios, numManzarietes, numGrapenades,
                             habMinManzariete, habMinGrapenade, tiempo, recursosIniciales,
                             dineroInicial, enemigosVez;
     [SerializeField]
     private AudioClip woodSfx;
+
+    [SerializeField]
+    [Header("Invulneraviblidad")]
+    private bool invulneravilidad;
+
+    [SerializeField]
+    [Header("Cantidad de enemigos")]
+    [Range(0, 100)]
+    private int Manzurrias,
+                Uvoncios,
+                Manzarietes,
+                Grapenades;
+
+    [SerializeField]
+    [Header("Habitantes para empezar a aparecer")]
+    [Range(2, 401)]
+    private int ManzarietesHab,
+                GrapenadesHab;
+
+    [SerializeField]
+    [Header("Segundos hasta el amanecer")]
+    [Range(1, 121)]
+    private float segundos;
+
+    [SerializeField]
+    [Header("Recursos iniciales")]
+    [Range(0, 99)]
+    private int recursos;
+
+    [SerializeField]
+    [Header("Dinero inicial")]
+    [Range(0, 999)]
+    private int dinero;
+
+    [SerializeField]
+    [Header("Enemigos en combate a la vez")]
+    [Range(1, 30)]
+    private int MaxEnemiesAtOnce;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -59,8 +93,10 @@ public class Cheats : MonoBehaviour
     /// </summary>
     void Start()
     {
-        cheatMenu.SetActive(false);
-
+        if (cheatMenu != null)
+        {
+            cheatMenu.SetActive(false);
+        }
     }
     #endregion
 
@@ -79,43 +115,78 @@ public class Cheats : MonoBehaviour
 
             //Invunerabilidad v
             //Si esta activa no baja de vida
-            GameManager.Instance.SetInvunerabilidad(invunerabilidad.isOn);
+            Invulnerabilidad(invunerabilidad.isOn);
 
             //numEnemigo v
             //Manejan los enemigos con los que empieza la partida
-            GameManager.Instance.SetNumEnemies(EnemyType.Manzurria, Mathf.RoundToInt(numManzurrias.value));
-            GameManager.Instance.SetNumEnemies(EnemyType.Manzariete, Mathf.RoundToInt(numManzarietes.value));
-            GameManager.Instance.SetNumEnemies(EnemyType.Grapenade, Mathf.RoundToInt(numGrapenades.value));
-            GameManager.Instance.SetNumEnemies(EnemyType.Uvoncio, Mathf.RoundToInt(numUvoncios.value));
+            NumEnemy(EnemyType.Manzurria, Mathf.RoundToInt(numManzurrias.value));
+            NumEnemy(EnemyType.Manzariete, Mathf.RoundToInt(numManzarietes.value));
+            NumEnemy(EnemyType.Grapenade, Mathf.RoundToInt(numGrapenades.value));
+            NumEnemy(EnemyType.Uvoncio, Mathf.RoundToInt(numUvoncios.value));
 
             //numHab para Grap y Manzariete v
             //Controlan el numero necesario de habitantes para que spawneen
-            GameManager.Instance.SetMinHabManzariete(Mathf.RoundToInt(habMinManzariete.value));
-            GameManager.Instance.SetMinHabGrapenade(Mathf.RoundToInt(habMinGrapenade.value));
+            MinNumManzariete(Mathf.RoundToInt(habMinManzariete.value));
+            MinNumGrapenade(Mathf.RoundToInt(habMinGrapenade.value));
 
             //Tiempo v
             //Tiempo inicial de temporizador
-            GameManager.Instance.SetTimerStart(tiempo.value);
+            Temporizador(tiempo.value);
 
             //recursos iniciales
             //recursos con los que se empieza
-            GameManager.Instance.SetResources(recursosIniciales.value);
+            SourcesNum(recursosIniciales.value);
 
             //Dinero inicial v
             //Direno con que empieza
-            GameManager.Instance.increaseDinero(Mathf.RoundToInt(dineroInicial.value));
+            NumDinero(Mathf.RoundToInt(dineroInicial.value));
 
             //enem a la vez v
             //numero de enemigos en combate que puede ver a la vez
-            GameManager.Instance.SetMaxEnemsScene(Mathf.RoundToInt(enemigosVez.value));
+            MaxEnemies(Mathf.RoundToInt(enemigosVez.value));
         }
         GameManager.Instance.SetCheats(applyCheats);
+    }
+
+    public void AplicarEscenasEspeciales()
+    {
+        //Invunerabilidad v
+        //Si esta activa no baja de vida
+        Invulnerabilidad(invulneravilidad);
+
+        //numEnemigo v
+        //Manejan los enemigos con los que empieza la partida
+        NumEnemy(EnemyType.Manzurria, Mathf.RoundToInt(Manzurrias));
+        NumEnemy(EnemyType.Manzariete, Mathf.RoundToInt(Manzarietes));
+        NumEnemy(EnemyType.Grapenade, Mathf.RoundToInt(Grapenades));
+        NumEnemy(EnemyType.Uvoncio, Mathf.RoundToInt(Uvoncios));
+
+        //numHab para Grap y Manzariete v
+        //Controlan el numero necesario de habitantes para que spawneen
+        MinNumManzariete(Mathf.RoundToInt(ManzarietesHab));
+        MinNumGrapenade(Mathf.RoundToInt(GrapenadesHab));
+
+        //Tiempo v
+        //Tiempo inicial de temporizador
+        Temporizador(segundos);
+
+        //recursos iniciales
+        //recursos con los que se empieza
+        SourcesNum(recursos);
+
+        //Dinero inicial v
+        //Direno con que empieza
+        NumDinero(Mathf.RoundToInt(dinero));
+
+        //enem a la vez v
+        //numero de enemigos en combate que puede ver a la vez
+        MaxEnemies(Mathf.RoundToInt(MaxEnemiesAtOnce));
     }
 
     public void OpenCloseMenu(GameObject MenuToClose)
     {
         AudioManager.Instance.PlaySFX(woodSfx);
-        
+
         if (!MenuToClose.activeSelf)
         {
             MenuToClose.SetActive(true);
@@ -135,10 +206,51 @@ public class Cheats : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
+
+    private void ApplyCheats()
+    {
+        GameManager.Instance.SetCheats(true);
+    }
+
+    private void Invulnerabilidad(bool On)
+    {
+        GameManager.Instance.SetInvunerabilidad(On);
+    }
+
+    private void NumEnemy(EnemyType enemy, int num)
+    {
+        GameManager.Instance.SetNumEnemies(enemy, Mathf.RoundToInt(num));
+    }
+
+    private void MinNumManzariete(int num)
+    {
+        GameManager.Instance.SetMinHabManzariete(num);
+    }
+
+    private void MinNumGrapenade(int num)
+    {
+        GameManager.Instance.SetMinHabGrapenade(num);
+    }
+
+    private void Temporizador(float time)
+    {
+        GameManager.Instance.SetTimerStart(time);
+    }
+
+    private void SourcesNum(float num)
+    {
+        GameManager.Instance.SetResources(num);
+    }
+
+    private void NumDinero(int num)
+    {
+        GameManager.Instance.increaseDinero(num);
+    }
+
+    private void MaxEnemies(int num)
+    {
+        GameManager.Instance.SetMaxEnemsScene(num);
+    }
 
     #endregion
 
