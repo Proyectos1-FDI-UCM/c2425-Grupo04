@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3510809210356649475}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.18861675, y: 0.15307045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,9 +81,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.3, y: 0.5}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!114 &2549979797539175946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerTicTac: 0.85
-  HowLongHarmfull: 0.01
+  HowLongHarmfull: 0.25
   HarmfullArea: {fileID: 3510809210356649475}
   explosionSFX: {fileID: 8300000, guid: 4f70c5c8b465c684e8fbdddeaae8cca9, type: 3}
