@@ -5,11 +5,11 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
-using System.Xml.Linq;
+
+using JetBrains.Annotations;
 using UnityEngine;
-//using UnityEngine.UIElements;
-using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -66,6 +66,10 @@ public class Cheats : MonoBehaviour
     [Header("Enemigos en combate a la vez")]
     [Range(1, 30)]
     private int MaxEnemiesAtOnce;
+
+    [SerializeField]
+    [Header("Porcentajes de mejoras")]
+    private float Health, MeleeDamage, RangeDamage;
 
     #endregion
 
@@ -186,13 +190,21 @@ public class Cheats : MonoBehaviour
         GameManager.Instance.SetCheats(true);
     }
 
-    public void AplicaMejorasEmboscada()
+    public void AplicaMejorasEmboscada(int MejorasLevel)
     {
         GameManager.Instance.BoolUpgrade(0);
         GameManager.Instance.BoolUpgrade(1);
-        GameManager.Instance.SetUpgradeLevel(0, 3);
-        GameManager.Instance.SetUpgradeLevel(1, 3);
-        GameManager.Instance.SetUpgradeLevel(2, 3);
+
+        GameManager.Instance.SetHealthPercent(Health/100);
+        GameManager.Instance.SetMeleeDamagePercent(MeleeDamage/100);
+        GameManager.Instance.SetRangeDamagePercent(RangeDamage/100);
+
+        for (int i = 0; i < MejorasLevel; i++)
+        {
+            GameManager.Instance.IncreaseUpgradeLevel(0);
+            GameManager.Instance.IncreaseUpgradeLevel(1);
+            GameManager.Instance.IncreaseUpgradeLevel(2);
+        }
     }
 
     public void OpenCloseMenu(GameObject MenuToClose)
@@ -218,11 +230,6 @@ public class Cheats : MonoBehaviour
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-
-    private void ApplyCheats()
-    {
-        GameManager.Instance.SetCheats(true);
-    }
 
     private void Invulnerabilidad(bool On)
     {

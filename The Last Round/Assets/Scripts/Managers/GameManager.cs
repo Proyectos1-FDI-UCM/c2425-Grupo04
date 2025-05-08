@@ -380,11 +380,6 @@ public class GameManager : MonoBehaviour
         upgradeLevel[element]++;
     }
 
-    public void SetUpgradeLevel(int element, int level) //Pone en un número específico la mejora
-    {
-        upgradeLevel[element] = level;
-    }
-
     public void BoolUpgrade(int element) //Adquiere esa mejora
     {
         upgradeBool[element] = true;
