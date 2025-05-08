@@ -127,7 +127,7 @@ public class FinalScene : MonoBehaviour
                 Direction = (Destiny - Player.transform.position);
 
                 //Si está en su destino deja de recolocarse y se mueve un poco hacia arriba para asegurar que siempre termina mirando arriba
-                if (Direction.magnitude < 0.1f)
+                if (Direction.magnitude < 0.5f)
                 {
                     Direction = Vector2.up;
                     StartDialogue = true;
