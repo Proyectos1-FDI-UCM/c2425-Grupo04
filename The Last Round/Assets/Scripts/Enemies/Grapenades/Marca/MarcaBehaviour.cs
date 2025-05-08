@@ -44,14 +44,6 @@ public class MarcaBehaviour : MonoBehaviour
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
 
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
-    {
-
-    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -97,6 +89,11 @@ public class MarcaBehaviour : MonoBehaviour
         {
             emisor.EliminarMarca();
         }
+        else
+        {
+            //Si no existe una marca sin emisor no tiene dueño y por tanto queremos que se destruya
+            Destroy(gameObject);
+        }
     }
     public void SetEmisor(PlaceMark emisor)
     {
@@ -111,6 +108,8 @@ public class MarcaBehaviour : MonoBehaviour
         }
         else
         {
+            //Si no existe una marca sin emisor no tiene dueño y por tanto queremos que se destruya
+            Destroy(gameObject);
             return false;
         }
     }

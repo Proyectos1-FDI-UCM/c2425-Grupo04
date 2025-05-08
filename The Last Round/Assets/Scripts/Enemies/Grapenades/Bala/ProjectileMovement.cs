@@ -72,6 +72,11 @@ public class ProjectileMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else
+        {
+            //Si existiese una bala sin punto donde aterrizar se debe destruir
+            Destroy(gameObject);
+        }
     }
     #endregion
 

@@ -32,6 +32,7 @@ public class Health : MonoBehaviour
     private EnemyType enemy;
     private bool invunerabilidad = false;
     private bool playSFX = true;
+    private bool FinalHeal = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -60,7 +61,15 @@ public class Health : MonoBehaviour
         barraVida.value = Life;
     }
 
-    
+    private void Update()
+    {
+        if (GetComponent<PlayerMovement>() != null && !FinalHeal && GameManager.Instance.IsFinalPhase())
+        {
+            Heal();
+            FinalHeal = true;
+        }
+    }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -141,5 +150,13 @@ public class Health : MonoBehaviour
     }
     #endregion
 
+    private void Heal()
+    {
+        if (barraVida != null)
+        {
+            Life = barraVida.maxValue;
+            barraVida.value = Life;
+        }
+    }
 } // class EnemyLife 
 // namespace
