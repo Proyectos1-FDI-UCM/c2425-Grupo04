@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System.Xml.Linq;
 using UnityEngine;
 //using UnityEngine.UIElements;
 using UnityEngine.UI;
@@ -183,6 +184,15 @@ public class Cheats : MonoBehaviour
         MaxEnemies(Mathf.RoundToInt(MaxEnemiesAtOnce));
 
         GameManager.Instance.SetCheats(true);
+    }
+
+    public void AplicaMejorasEmboscada()
+    {
+        GameManager.Instance.BoolUpgrade(0);
+        GameManager.Instance.BoolUpgrade(1);
+        GameManager.Instance.SetUpgradeLevel(0, 3);
+        GameManager.Instance.SetUpgradeLevel(1, 3);
+        GameManager.Instance.SetUpgradeLevel(2, 3);
     }
 
     public void OpenCloseMenu(GameObject MenuToClose)

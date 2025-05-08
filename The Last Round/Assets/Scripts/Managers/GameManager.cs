@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
     [Header("SFX Alcantarilla")]
     [SerializeField] private AudioClip AlcantarillaSFX;
 
+    [Header("Dinero")]
+    [SerializeField] private float dinero = 0;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -84,15 +87,13 @@ public class GameManager : MonoBehaviour
 
     private int NivelSospechosos = 0;
 
-    public float Dineros = 0;
-
     //Array que gestiona que diálogos se han dicho y cuales no de un cliente (imprescintible para script clients)
     private bool[,] DialoguesSaid;
 
     private float musicVolume = 100f, sfxVolume = 100f;
 
     //Variables necesarias para gestionar mejoras
-    private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida, 3 es descuento
+    private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida
     private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
     private float HealthUpgradePercent = 0,
                   MeleeDamageUpgradePercent = 0,
@@ -262,23 +263,23 @@ public class GameManager : MonoBehaviour
     // --- GESTIÓN ECONÓMICA ---
     public void increaseDinero(int reward)
     {
-        Dineros += reward;
+        dinero += reward;
     }
 
     public void DecreaseDinero(int cost) //Resta una cantidad al dinero total
     {
-        if (cost > Dineros) Dineros = 0;
-        else Dineros -= cost;
+        if (cost > dinero) dinero = 0;
+        else dinero -= cost;
     }
 
     public float GetDineros()
     {
-        return Dineros;
+        return dinero;
     }
 
     public void ResetMoney()
     {
-        Dineros = 0;
+        dinero = 0;
     }
 
 
@@ -377,6 +378,11 @@ public class GameManager : MonoBehaviour
     public void IncreaseUpgradeLevel(int element) //Sube de nivel a la mejora
     {
         upgradeLevel[element]++;
+    }
+
+    public void SetUpgradeLevel(int element, int level) //Pone en un número específico la mejora
+    {
+        upgradeLevel[element] = level;
     }
 
     public void BoolUpgrade(int element) //Adquiere esa mejora
