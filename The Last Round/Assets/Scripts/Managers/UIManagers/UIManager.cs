@@ -185,11 +185,6 @@ public class UIManager : MonoBehaviour
 
         if (ClientDisappear)
         {
-            if (!PickedBadChoice)
-            {
-               
-                GameManager.Instance.increaseSospechosos(-1);
-            }
             ClientC.r = Mathf.Clamp(ClientC.r - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.g = Mathf.Clamp(ClientC.g - Time.deltaTime * DisappearSpeed, 0, 255);
             ClientC.b = Mathf.Clamp(ClientC.b - Time.deltaTime * DisappearSpeed, 0, 255);
@@ -202,6 +197,11 @@ public class UIManager : MonoBehaviour
                 //Debug.Log($"R: {Client.color.r}     G:{Client.color.g}     B:{Client.color.b}");
                 if (Client.color.r == 0 && Client.color.g == 0 && Client.color.b == 0 && Client.color.a == 0)
                 {
+                    if (!PickedBadChoice)
+                    {
+                        GameManager.Instance.increaseSospechosos(-1);
+                    }
+
                     Destroy(Client.gameObject);
 
                     //Por si hay algo en la cesta se lo devuelve antes de irse de la escena
