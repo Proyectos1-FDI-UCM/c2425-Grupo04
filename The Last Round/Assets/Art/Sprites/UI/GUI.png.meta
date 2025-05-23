@@ -113,8 +113,8 @@ TextureImporter:
       name: PapelGUI_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 33
+        x: 1
+        y: 34
         width: 48
         height: 32
       alignment: 0
@@ -134,13 +134,13 @@ TextureImporter:
       name: PapelGUI_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 51
         y: 33
-        width: 48
-        height: 32
+        width: 50
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 6, z: 7, w: 7}
+      border: {x: 8, y: 8, z: 8, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -156,12 +156,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 48
-        height: 32
+        y: 0
+        width: 50
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 6, z: 7, w: 7}
+      border: {x: 8, y: 6, z: 8, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -176,7 +176,7 @@ TextureImporter:
       name: PapelGUI_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 52
         y: 1
         width: 46
         height: 32
@@ -197,7 +197,7 @@ TextureImporter:
       name: DialogoGUI
       rect:
         serializedVersion: 2
-        x: 96
+        x: 101
         y: 5
         width: 48
         height: 8
@@ -218,7 +218,7 @@ TextureImporter:
       name: SliderContGUI
       rect:
         serializedVersion: 2
-        x: 148
+        x: 153
         y: 0
         width: 8
         height: 18
@@ -239,7 +239,7 @@ TextureImporter:
       name: SliderBGGUI
       rect:
         serializedVersion: 2
-        x: 160
+        x: 165
         y: 1
         width: 32
         height: 16
@@ -260,7 +260,7 @@ TextureImporter:
       name: FlAbajoGUI
       rect:
         serializedVersion: 2
-        x: 192
+        x: 197
         y: 3
         width: 16
         height: 11
@@ -281,7 +281,7 @@ TextureImporter:
       name: FlDerechaGUI
       rect:
         serializedVersion: 2
-        x: 208
+        x: 213
         y: 2
         width: 16
         height: 14
@@ -302,7 +302,7 @@ TextureImporter:
       name: TickGUI
       rect:
         serializedVersion: 2
-        x: 224
+        x: 229
         y: 1
         width: 16
         height: 16
@@ -323,7 +323,7 @@ TextureImporter:
       name: RetratoGUI
       rect:
         serializedVersion: 2
-        x: 97
+        x: 102
         y: 17
         width: 48
         height: 48
@@ -344,7 +344,7 @@ TextureImporter:
       name: MaderaGUI_0
       rect:
         serializedVersion: 2
-        x: 145
+        x: 150
         y: 18
         width: 48
         height: 47
@@ -365,13 +365,13 @@ TextureImporter:
       name: MaderaGUI_1
       rect:
         serializedVersion: 2
-        x: 193
-        y: 18
-        width: 48
-        height: 47
+        x: 198
+        y: 17
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 6, z: 5, w: 4}
+      border: {x: 5, y: 7, z: 7, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -386,13 +386,13 @@ TextureImporter:
       name: MaderaGUI_2
       rect:
         serializedVersion: 2
-        x: 241
-        y: 18
-        width: 48
-        height: 47
+        x: 248
+        y: 17
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
+      border: {x: 5, y: 6, z: 7, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
