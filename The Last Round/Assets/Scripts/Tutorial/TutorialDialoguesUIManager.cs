@@ -312,7 +312,14 @@ public class TutorialDialoguesUIManager : MonoBehaviour
             {
                 DetectarEstatus();
             }
-            yield return new WaitForSeconds(TypeSpeed);
+            if (ch != '.' && ch != ',' && ch != '?' && ch != '!' && ch != '…')
+            {
+                yield return new WaitForSeconds(TypeSpeed);
+            }
+            else
+            {
+                yield return new WaitForSeconds(8 * TypeSpeed);
+            }
         }
     }
 
