@@ -91,6 +91,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UseHealing"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e78a464-72c9-4e7c-9c06-e7018b6255c7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -344,6 +353,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""157b993c-00f6-409c-86ef-4d7c24435d4a"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UseHealing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -938,6 +958,7 @@ namespace UnityEngine.InputSystem
             m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
             m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
+            m_Player_UseHealing = m_Player.FindAction("UseHealing", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1018,6 +1039,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_ChangeWeapon;
         private readonly InputAction m_Player_Pause;
         private readonly InputAction m_Player_Aim;
+        private readonly InputAction m_Player_UseHealing;
         public struct PlayerActions
         {
             private @InputActionSettings m_Wrapper;
@@ -1029,6 +1051,7 @@ namespace UnityEngine.InputSystem
             public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
             public InputAction @Aim => m_Wrapper.m_Player_Aim;
+            public InputAction @UseHealing => m_Wrapper.m_Player_UseHealing;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1059,6 +1082,9 @@ namespace UnityEngine.InputSystem
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @UseHealing.started += instance.OnUseHealing;
+                @UseHealing.performed += instance.OnUseHealing;
+                @UseHealing.canceled += instance.OnUseHealing;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1084,6 +1110,9 @@ namespace UnityEngine.InputSystem
                 @Aim.started -= instance.OnAim;
                 @Aim.performed -= instance.OnAim;
                 @Aim.canceled -= instance.OnAim;
+                @UseHealing.started -= instance.OnUseHealing;
+                @UseHealing.performed -= instance.OnUseHealing;
+                @UseHealing.canceled -= instance.OnUseHealing;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -1273,6 +1302,7 @@ namespace UnityEngine.InputSystem
             void OnChangeWeapon(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnAim(InputAction.CallbackContext context);
+            void OnUseHealing(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

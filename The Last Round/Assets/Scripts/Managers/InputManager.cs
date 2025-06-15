@@ -70,6 +70,7 @@ public class InputManager : MonoBehaviour
     private InputAction _dash;
     private InputAction _changeWeapon;
     private InputAction _pause;
+    private InputAction _useHealing;
 
     #endregion
 
@@ -220,6 +221,10 @@ public class InputManager : MonoBehaviour
     {
         return _pause.WasPressedThisFrame();
     }
+    public bool UseHealingWasPressedThisFrame()
+    {
+        return _useHealing.WasPressedThisFrame();
+    }
 
     // ---- MÉTODOS PRIVADOS ----
 
@@ -252,6 +257,7 @@ public class InputManager : MonoBehaviour
         _dash = _theController.Player.Dash;
         _changeWeapon = _theController.Player.ChangeWeapon;
         _pause = _theController.Player.Pause;
+        _useHealing = _theController.Player.UseHealing;
     }
 
     /// <summary>

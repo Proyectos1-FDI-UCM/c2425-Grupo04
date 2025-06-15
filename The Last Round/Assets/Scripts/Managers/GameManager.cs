@@ -99,6 +99,10 @@ public class GameManager : MonoBehaviour
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
 
+    //Número de bebidas curativas
+    private int numHealing = 3;
+
+
     private bool Cheats = false;
     private bool invunerabilidad = false;
     private int habManzariete, habGrapenade, maxEnemiesInScene;
@@ -336,6 +340,7 @@ public class GameManager : MonoBehaviour
     // --- FIN LÍMITES MAPA ---
     #endregion
 
+
     #region Sistema de mejoras
     // --- SISTEMA DE MEJORAS ---
 
@@ -506,7 +511,18 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
-
+    
+    public int HealingManagement
+    {
+        get
+        {
+            return numHealing;
+        }
+        set
+        {
+            numHealing = value;
+        }
+    }
 
     #endregion
 

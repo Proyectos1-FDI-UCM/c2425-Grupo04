@@ -68,6 +68,8 @@ public class Health : MonoBehaviour
             Heal();
             FinalHeal = true;
         }
+
+        if (InputManager.Instance.UseHealingWasPressedThisFrame() && GameManager.Instance.HealingManagement > 0) UsedHealing();
     }
 
     #endregion
@@ -157,6 +159,17 @@ public class Health : MonoBehaviour
             Life = barraVida.maxValue;
             barraVida.value = Life;
         }
+
+        
+    }
+
+    private void UsedHealing()
+    {
+        float healingAmount = barraVida.maxValue * 0.3f;
+
+        if (Life + healingAmount > barraVida.maxValue) Life = barraVida.maxValue;
+        else Life += healingAmount;
+        barraVida.value = Life;
     }
 } // class EnemyLife 
 // namespace
