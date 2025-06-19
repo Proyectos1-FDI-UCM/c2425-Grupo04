@@ -49,6 +49,9 @@ public class UIManagerUpgrades : MonoBehaviour
                   BaseRangeDamage = 0;
     [SerializeField]
     private AudioClip upgradeSfx, NoUpgradeSfx;
+
+    [SerializeField]
+    private Button makeDrinkButton;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -60,6 +63,7 @@ public class UIManagerUpgrades : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private float dineroTotal;
+    private float[] recuros;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -78,6 +82,10 @@ public class UIManagerUpgrades : MonoBehaviour
         GameManager.Instance.GiveUIU(this);
 
         //GameManager.Instance.increaseDinero(100); //Solo para testear
+
+        // Tomamos los recuros del Gamemanager para la fabricación de bebidas
+
+        recuros = GameManager.Instance.GetRecursos();
 
         //Pone el precio
         costBox[1].text = "x" + costeNormales;
@@ -182,6 +190,30 @@ public class UIManagerUpgrades : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(NoUpgradeSfx);
         }
+    }
+
+    public void CraftHealingDrink()
+    {
+        bool notEnoughtMaterials = false;
+        int i = 0;
+
+        while (!notEnoughtMaterials && i < recuros.Length)
+        {
+            if (recuros[i] - 3 < 0) notEnoughtMaterials = true;
+            i++;
+        }
+
+        if (!notEnoughtMaterials)
+        {
+            for (int j = 0; j < recuros.Length; j++)
+            {
+                recuros[j] -= 3; //SUSTITUIR VARIABLES CON PRECIO
+            }
+
+            GameManager.Instance.HealDrinksNum++;
+            Debug.Log(GameManager.Instance.HealDrinksNum);
+        }
+        else Debug.Log("No suficientes materiales");
     }
 
 

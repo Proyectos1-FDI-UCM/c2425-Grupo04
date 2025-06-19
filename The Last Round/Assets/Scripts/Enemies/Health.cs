@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
             FinalHeal = true;
         }
 
-        if (InputManager.Instance.UseHealingWasPressedThisFrame() && GameManager.Instance.HealingManagement > 0) UsedHealing();
+        if (InputManager.Instance.UseHealingWasPressedThisFrame() && GameManager.Instance.HealDrinksNum > 0) UsedHealing();
     }
 
     #endregion
@@ -165,11 +165,15 @@ public class Health : MonoBehaviour
 
     private void UsedHealing()
     {
-        float healingAmount = barraVida.maxValue * 0.3f;
-
-        if (Life + healingAmount > barraVida.maxValue) Life = barraVida.maxValue;
-        else Life += healingAmount;
-        barraVida.value = Life;
+        if (gameObject.name == "Player")
+        {
+            float healingAmount = barraVida.maxValue * 0.3f;
+            Debug.Log("a");
+            if (Life + healingAmount > barraVida.maxValue) Life = barraVida.maxValue;
+            else Life += healingAmount;
+            barraVida.value = Life;
+            Debug.Log(GameManager.Instance.HealDrinksNum);
+        }
     }
 } // class EnemyLife 
 // namespace

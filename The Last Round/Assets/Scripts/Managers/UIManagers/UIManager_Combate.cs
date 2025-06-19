@@ -31,6 +31,7 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private Image Fade;
     [SerializeField] private float FadeSpeed;
     [SerializeField] private Slider InteractMessageSlider;
+    [SerializeField] private TextMeshProUGUI healingNumText;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -45,6 +46,7 @@ public class UIManager_Combate : MonoBehaviour
     private PlayerDash Playerdash;
     private UnityEngine.Color FadeColor;
     private bool Alcalde = false;
+    private int healingNum;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -172,6 +174,10 @@ public class UIManager_Combate : MonoBehaviour
                 Fade.gameObject.SetActive(false);
             }
         }
+
+
+        healingNum = GameManager.Instance.HealDrinksNum;
+        healingNumText.text = ($"Curaciones: x{healingNum}");
     }
     #endregion
 

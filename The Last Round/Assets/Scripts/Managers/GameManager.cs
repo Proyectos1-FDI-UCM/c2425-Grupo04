@@ -512,7 +512,7 @@ public class GameManager : MonoBehaviour
         return Player;
     }
     
-    public int HealingManagement
+    public int HealDrinksNum
     {
         get
         {
