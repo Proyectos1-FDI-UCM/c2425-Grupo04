@@ -25,6 +25,7 @@ public class UIManager_Combate : MonoBehaviour
     [SerializeField] private Image currentWeapon, DashCharge, InteractMessageImage;
     [SerializeField] private Sprite weaponDistanceImage;
     [SerializeField] private Sprite weaponMeleeImage;
+    [SerializeField] private Sprite weaponAreaImage;
     [SerializeField] private float TimerBeatIntensity;
     [SerializeField] private Image DashFillBar;
     [SerializeField] private float SecondsToStartBeating = 30;
@@ -223,15 +224,19 @@ public class UIManager_Combate : MonoBehaviour
         timer.text = time;
     }
 
-    public void SwitchWeaponDisplay(bool weaponPlayer)
+    public void SwitchWeaponDisplay(int  weaponPlayer)
     {
-        if (weaponPlayer)
+        if (weaponPlayer == 0)
+        {
+            currentWeapon.sprite = weaponMeleeImage;
+        }
+        else if (weaponPlayer == 1)
         {
             currentWeapon.sprite = weaponDistanceImage;
         }
-        else
+        else if (weaponPlayer == 2)
         {
-            currentWeapon.sprite = weaponMeleeImage;
+            currentWeapon.sprite = weaponAreaImage;
         }
     }
 

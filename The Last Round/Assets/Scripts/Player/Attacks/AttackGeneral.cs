@@ -43,6 +43,8 @@ public class AttackGeneral : MonoBehaviour
 
     [SerializeField]
     private GameObject meleeObject;
+    [SerializeField]
+    private GameObject areaobject;
 
     [SerializeField] AudioClip MeleeSFX;
     [SerializeField] AudioClip DistanceThrowSFX;
@@ -51,10 +53,18 @@ public class AttackGeneral : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
+
+    private enum weaponTypes {melee , proyectile , area}
+    private struct Weapon
+    {
+        weaponTypes weapon;
+        bool isUnlocked;
+    }
+
     private Vector3 mousePos;
     private Vector2 originRotation;
     private float timer = 0;
-    private bool weaponType; //TEMPORAL TRUE = DISPARO      FALSE = MELEE
+    private int weaponTypeUpdated = 0;
     private bool UsingJoystick = false;
     private Vector2 LastMousePosition;
     private float timerCanRotate = 0;
@@ -66,6 +76,8 @@ public class AttackGeneral : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
+    /// 
+
     void Update()
     {
         //customCursor.position = new Vector2 (Mouse.current.position.x.value /mouseReduction , Mouse.current.position.y.value/mouseReduction);
@@ -101,21 +113,31 @@ public class AttackGeneral : MonoBehaviour
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame() &&
             !GameManager.Instance.IsPauseActive())
         {
-            if (weaponType)
+            //if (weaponType)
+            //{
+            //    weaponType = false;
+            //    AudioManager.Instance.PlaySFX(WeaponSwitch);
+            //}
+            //else if (!weaponType && GameManager.Instance.GetBoolUpgrade(0))
+            //{
+            //    weaponType = true;
+            //    AudioManager.Instance.PlaySFX(WeaponSwitch);
+            //}
+
+
+            if (weaponTypeUpdated == 0)
             {
-                weaponType = false;
-                AudioManager.Instance.PlaySFX(WeaponSwitch);
+                if (GameManager.Instance.GetBoolUpgrade(0)) weaponTypeUpdated = 1;
+                else weaponTypeUpdated = 2;
             }
-            else if (!weaponType && GameManager.Instance.GetBoolUpgrade(0))
-            {
-                weaponType = true;
-                AudioManager.Instance.PlaySFX(WeaponSwitch);
-            }
+            else if (weaponTypeUpdated == 1) weaponTypeUpdated = 2;
+            else if (weaponTypeUpdated == 2) weaponTypeUpdated = 0;
+            
         }
 
         if (GameManager.Instance.GetUIC() != null)
         {
-            GameManager.Instance.GetUIC().SwitchWeaponDisplay(weaponType);
+            GameManager.Instance.GetUIC().SwitchWeaponDisplay(weaponTypeUpdated);
         }
 
         bool CanFire = InputManager.Instance.FireWasPressedThisFrame() &&
@@ -129,9 +151,10 @@ public class AttackGeneral : MonoBehaviour
 
         if (CanFire)
         {
-            if (weaponType) Shoot();
-            else Melee();
-            timer = AttackCooldown;
+
+            if (weaponTypeUpdated == 0) Melee();
+            else if (weaponTypeUpdated == 1) Shoot();
+            else if (weaponTypeUpdated == 2) Area();
         }
 
         if (!GameManager.Instance.IsPauseActive())
@@ -182,6 +205,12 @@ public class AttackGeneral : MonoBehaviour
         AudioManager.Instance.ChangePitchSFX(randomPitch);
         AudioManager.Instance.PlaySFX(MeleeSFX);
         StartCoroutine(RestorePitch(0.2f));
+    }
+
+    private void Area()
+    {
+
+        areaobject.GetComponent<AreaAttack>().Attack();
     }
 
     private IEnumerator RestorePitch(float delay)

@@ -102,7 +102,9 @@ public class Health : MonoBehaviour
         {
             Kill(); //Si su vida es 0 o menor el objeto muere
         }
+
     }
+
 
     #endregion
 

@@ -140,6 +140,13 @@ public class MoveToPlayer : MonoBehaviour
 
         return EnemyPlayer;
     }
+
+
+
+    public void Knockback()
+    {
+
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

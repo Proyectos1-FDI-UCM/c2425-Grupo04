@@ -67,6 +67,8 @@ public class Damage : MonoBehaviour
     {
         bool IsEnemy = collision.GetComponent<CastEnemy>() != null;
         bool ImEnemy = GetComponent<CastEnemy>() != null;
+
+
         Health health = collision.GetComponent<Health>();
         //Hago daño si colisiono contra algo que tiene vida
         //Si soy un enemigo y colisiono contra algo que no es un enemigo
@@ -84,6 +86,10 @@ public class Damage : MonoBehaviour
             else if (GetComponent<BulletMovement>() != null) //si es la bala
             {
                 mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0));
+            }
+            else if (GetComponent<AreaAttack>() != null)
+            {
+                collision.GetComponent<MoveToPlayer>();
             }
 
             health.GetDamage(Basedamage + mejoraDmg);

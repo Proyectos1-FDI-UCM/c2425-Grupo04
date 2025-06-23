@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Basedamage: 50
   cooldown: 0.5
+  enemyAttack: {fileID: 0}
 --- !u!95 &6056954324425246774
 Animator:
   serializedVersion: 5
@@ -212,6 +213,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4588179508698769184}
+  - {fileID: 6129218352147179620}
   m_Father: {fileID: 3365146930368950393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7735115530083798163
@@ -233,10 +235,170 @@ MonoBehaviour:
   cameraMain: {fileID: 0}
   bulletPrefab: {fileID: 3448498875934282452, guid: 27f9c9b886f2ce040a58601c7f48bcdb, type: 3}
   meleeObject: {fileID: 840336448526246015}
+  areaobject: {fileID: 7356236445562805028}
   MeleeSFX: {fileID: 8300000, guid: 18c4fe24a1685b044a8849d0a0af010f, type: 3}
   DistanceThrowSFX: {fileID: 8300000, guid: ea3c3db109d984b44925b59276bb49da, type: 3}
-  DistanceHitSFX: {fileID: 0}
   WeaponSwitch: {fileID: 8300000, guid: 4d2550d25264b5f42b8f9860f412f1c4, type: 3}
+--- !u!1 &7356236445562805028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6129218352147179620}
+  - component: {fileID: 6103036944313977641}
+  - component: {fileID: 2714156212680696560}
+  - component: {fileID: 1449880966303119276}
+  - component: {fileID: 3545031051796242554}
+  m_Layer: 11
+  m_Name: AtaqueBarrido
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6129218352147179620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356236445562805028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 459278631553554902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6103036944313977641
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356236445562805028}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &2714156212680696560
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356236445562805028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.2070184}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.09, y: 1.8140368}
+  m_EdgeRadius: 0
+--- !u!114 &1449880966303119276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356236445562805028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Basedamage: 30
+  cooldown: 1
+  enemyAttack: {fileID: 0}
+--- !u!114 &3545031051796242554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356236445562805028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8b24efa726a7b408da51b561a9b5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
 --- !u!1 &7749647460839375097
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +511,7 @@ MonoBehaviour:
   - {fileID: 4596568104739796052, guid: 55220aaa41cb1ed41bdeb1dbb9af5eed, type: 3}
   - {fileID: 4596568104739796052, guid: 9f48ee6ef71ef7440ab3e992db734abf, type: 3}
   - {fileID: 4596568104739796052, guid: 211b54bca0ef2c2488e11ab9add9a3fd, type: 3}
+  recursoSFX: {fileID: 0}
 --- !u!114 &2884948545175631526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +678,7 @@ MonoBehaviour:
   "ContadorDa\xF1o": {fileID: 7532583761371892575, guid: c99eb6bcd397c6c45a343254e201ac12, type: 3}
   barraVida: {fileID: 0}
   LowHealthSFX: {fileID: 8300000, guid: bff56d54888ca9c45a206077c276e24e, type: 3}
+  enemyDeathSFX: {fileID: 0}
 --- !u!95 &4852415632243994459
 Animator:
   serializedVersion: 5
