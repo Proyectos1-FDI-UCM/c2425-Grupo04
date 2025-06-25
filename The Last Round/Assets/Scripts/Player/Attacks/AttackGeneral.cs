@@ -23,7 +23,7 @@ public class AttackGeneral : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     [SerializeField]
-    private float AttackCooldown;
+    private float attackCooldown;
 
     [SerializeField]
     private Button detector;
@@ -113,17 +113,6 @@ public class AttackGeneral : MonoBehaviour
         if (InputManager.Instance.ChangeWeaponWasPressedThisFrame() &&
             !GameManager.Instance.IsPauseActive())
         {
-            //if (weaponType)
-            //{
-            //    weaponType = false;
-            //    AudioManager.Instance.PlaySFX(WeaponSwitch);
-            //}
-            //else if (!weaponType && GameManager.Instance.GetBoolUpgrade(0))
-            //{
-            //    weaponType = true;
-            //    AudioManager.Instance.PlaySFX(WeaponSwitch);
-            //}
-
 
             if (weaponTypeUpdated == 0)
             {
@@ -134,6 +123,10 @@ public class AttackGeneral : MonoBehaviour
             else if (weaponTypeUpdated == 2) weaponTypeUpdated = 0;
             
         }
+
+        if (weaponTypeUpdated == 0) attackCooldown = meleeObject.GetComponent<MeleeAttack>().GetDuration();
+        if (weaponTypeUpdated == 1) attackCooldown = 0.4f;
+        if (weaponTypeUpdated == 2) attackCooldown = areaobject.GetComponent<AreaAttack>().GetDuration();
 
         if (GameManager.Instance.GetUIC() != null)
         {
@@ -152,9 +145,17 @@ public class AttackGeneral : MonoBehaviour
         if (CanFire)
         {
 
-            if (weaponTypeUpdated == 0) Melee();
+            if (weaponTypeUpdated == 0)
+            {
+                Melee();
+            }
             else if (weaponTypeUpdated == 1) Shoot();
-            else if (weaponTypeUpdated == 2) Area();
+            else if (weaponTypeUpdated == 2)
+            {
+                Area();
+            }
+
+            timer = attackCooldown;
         }
 
         if (!GameManager.Instance.IsPauseActive())
@@ -197,6 +198,7 @@ public class AttackGeneral : MonoBehaviour
 
     private void Melee()
     {
+
         timerCanRotate = meleeObject.GetComponent<MeleeAttack>().GetDuration();
         Debug.Log(timerCanRotate);
         meleeObject.GetComponent<MeleeAttack>().attack();
@@ -209,7 +211,6 @@ public class AttackGeneral : MonoBehaviour
 
     private void Area()
     {
-
         areaobject.GetComponent<AreaAttack>().Attack();
     }
 

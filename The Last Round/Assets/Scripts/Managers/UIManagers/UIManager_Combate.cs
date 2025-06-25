@@ -50,6 +50,7 @@ public class UIManager_Combate : MonoBehaviour
     private int healingNum;
     #endregion
 
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 

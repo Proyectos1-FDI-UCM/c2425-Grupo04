@@ -141,11 +141,12 @@ public class MoveToPlayer : MonoBehaviour
         return EnemyPlayer;
     }
 
-
+    //Se aplicara una fuerza a la direccion opuesta a la que se esta dirigiendo el jugador
+    //Por ende, sera 
 
     public void Knockback()
     {
-
+        rb.AddForce(-(EnemyPlayer) , ForceMode2D.Impulse);
     }
     #endregion
 

@@ -228,7 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b0c58a803b07e4687c22e72b61aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackCooldown: 0.5
   detector: {fileID: 0}
   pivot: {fileID: 459278631553554902}
   origin: {fileID: 4588179508698769184}
@@ -369,7 +368,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.09, y: 1.8140368}
+  m_Size: {x: 2.63, y: 1.8140368}
   m_EdgeRadius: 0
 --- !u!114 &1449880966303119276
 MonoBehaviour:
@@ -384,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Basedamage: 30
-  cooldown: 1
+  cooldown: 0
   enemyAttack: {fileID: 0}
 --- !u!114 &3545031051796242554
 MonoBehaviour:
@@ -398,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8b24efa726a7b408da51b561a9b5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 1
 --- !u!1 &7749647460839375097
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,8 @@ public class AreaAttack : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-
+    [SerializeField]
+    private float duration;
 
     #endregion
 
@@ -63,7 +64,22 @@ public class AreaAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (attack && timer < 0)
+        {
+            GetComponent<Collider2D>().enabled = true;
+            timer = duration;
 
+            if (timer <= 0)
+            {
+                attack = false;
+            }
+        }
+
+        else
+        {
+            GetComponent<Collider2D>().enabled = false;
+        }
+        timer -= Time.deltaTime;
     }
     #endregion
 
@@ -78,11 +94,11 @@ public class AreaAttack : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("Attacking");
+        attack = true;
     }
-    public float GiveDuration()
+    public float GetDuration()
     { 
-        return 1; 
+        return duration; 
     }
     #endregion
     

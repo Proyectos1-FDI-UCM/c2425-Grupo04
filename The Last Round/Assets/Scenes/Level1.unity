@@ -8159,6 +8159,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 205607718669516877, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+      propertyPath: duration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2304853324603788476, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: barraVida
       value: 
@@ -8203,6 +8207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3545031051796242554, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412806953359700411, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: recursoSFX
       value: 
@@ -8214,6 +8222,10 @@ PrefabInstance:
     - target: {fileID: 7735115530083798163, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: customCursor
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735115530083798163, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
+      propertyPath: attackCooldown
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7749647460839375097, guid: 9001d89799845ce469fa7542c8d2b2fa, type: 3}
       propertyPath: m_Name
