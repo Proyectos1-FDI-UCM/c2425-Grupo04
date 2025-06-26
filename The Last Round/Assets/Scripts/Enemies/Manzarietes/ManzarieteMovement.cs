@@ -259,7 +259,6 @@ public class ManzarieteMovement : MonoBehaviour
             {
                 LastPlayerPosition.x *= -1;
             }
-
         }
     }
     #endregion

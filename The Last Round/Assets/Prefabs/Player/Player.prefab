@@ -401,7 +401,7 @@ MonoBehaviour:
   duration: 1
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 8192
 --- !u!1 &7749647460839375097
 GameObject:
   m_ObjectHideFlags: 0

@@ -146,7 +146,7 @@ public class MoveToPlayer : MonoBehaviour
 
     public void Knockback()
     {
-        rb.AddForce(-(EnemyPlayer) , ForceMode2D.Impulse);
+        Debug.Log("Empujado");
     }
     #endregion
 

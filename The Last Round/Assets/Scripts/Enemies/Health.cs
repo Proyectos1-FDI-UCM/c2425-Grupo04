@@ -167,14 +167,16 @@ public class Health : MonoBehaviour
 
     private void UsedHealing()
     {
-        if (gameObject.name == "Player")
+        if (gameObject.GetComponent<PlayerMovement>() != null)
         {
             float healingAmount = barraVida.maxValue * 0.3f;
-            Debug.Log("a");
+            
             if (Life + healingAmount > barraVida.maxValue) Life = barraVida.maxValue;
             else Life += healingAmount;
             barraVida.value = Life;
-            Debug.Log(GameManager.Instance.HealDrinksNum);
+
+            GameManager.Instance.HealDrinksNum--;
+
         }
     }
 } // class EnemyLife 

@@ -108,20 +108,15 @@ public class Damage : MonoBehaviour
 
                 for (int i = 0; i < enemiesHit.Length; i++)
                 {
-                    if (enemiesHit[i] != null && enemiesHit[i].GetComponent<CastEnemy>() != null)
+
+                    enemiesHit[i].GetComponentInParent<Health>().GetDamage(Basedamage);
+                    
+                    if ((enemiesHit[i].GetComponentInParent<ManzarieteMovement>() != null && !enemiesHit[i].GetComponentInParent<ManzarieteMovement>().Sprinting()) //Si es un manzariete y no esta sprintando
+                        || enemiesHit[i].GetComponentInParent<ManzarieteMovement>() == null) // o si no eres un manzariete
                     {
-                        int j = 0;
-                        bool sameEnemyCollision = false;
-                        while (j < i && !sameEnemyCollision)
-                        {
-                            if (enemiesHit[j].name ==  enemiesHit[i].name) sameEnemyCollision = true;
-                            j++;
-                        }
-                        if (!sameEnemyCollision)
-                        {
-                            enemiesHit[i].GetComponent<Health>().GetDamage(Basedamage);
-                        }
+                        enemiesHit[i].GetComponentInParent<MoveToPlayer>().Knockback();
                     }
+
                 }
 
                 timer = cooldown;
