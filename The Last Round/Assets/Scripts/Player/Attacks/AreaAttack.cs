@@ -25,7 +25,8 @@ public class AreaAttack : MonoBehaviour
 
     [SerializeField]
     private float duration;
-
+    [SerializeField]
+    private LayerMask enemyLayer;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -40,6 +41,7 @@ public class AreaAttack : MonoBehaviour
     private float timer = 0;
     private bool attack = false;
 
+    private BoxCollider2D areaCollider;
 
     #endregion
     
@@ -56,7 +58,8 @@ public class AreaAttack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        gameObject.GetComponent<Collider2D>().enabled = false;
+        areaCollider = GetComponent<BoxCollider2D>();
+        areaCollider.enabled = false;
     }
 
     /// <summary>
@@ -64,14 +67,15 @@ public class AreaAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (attack && timer < 0)
+        
+        if (attack || timer > 0)
         {
             GetComponent<Collider2D>().enabled = true;
-            timer = duration;
+            attack = false;
 
             if (timer <= 0)
             {
-                attack = false;
+                timer = duration;
             }
         }
 
@@ -100,6 +104,12 @@ public class AreaAttack : MonoBehaviour
     { 
         return duration; 
     }
+    public Collider2D[] enemiesInRange()
+    {
+        
+        return Physics2D.OverlapBoxAll(transform.position, areaCollider.size, 0, enemyLayer.value , -1  , +1);
+    }
+
     #endregion
     
     // ---- MÉTODOS PRIVADOS ----

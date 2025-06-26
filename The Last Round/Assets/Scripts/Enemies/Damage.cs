@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using System;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -78,26 +79,52 @@ public class Damage : MonoBehaviour
         if (health != null && timer <= 0 &&
             ((!ImEnemy && IsEnemy) || (ImEnemy && !IsEnemy)))
         {
-            float mejoraDmg = 0;
-            if (GetComponent<MeleeAttack>() != null) //si es el cuerpo a cuerpo
+
+            if (GetComponent<AreaAttack>() == null)
             {
-                mejoraDmg = (int)(GameManager.Instance.GetMeleeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(1)); //mejora un 10% el daño por cada nivel de mejora
-            }
-            else if (GetComponent<BulletMovement>() != null) //si es la bala
-            {
-                mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0));
+                float mejoraDmg = 0;
+                if (GetComponent<MeleeAttack>() != null) //si es el cuerpo a cuerpo
+                {
+                    mejoraDmg = (int)(GameManager.Instance.GetMeleeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(1)); //mejora un 10% el daño por cada nivel de mejora
+
+                }
+                else if (GetComponent<BulletMovement>() != null) //si es la bala
+                {
+                    mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0));
+                }
+
+                health.GetDamage(Basedamage + mejoraDmg);
+                timer = cooldown;
+
+                if (ImEnemy)
+                {
+                    AudioManager.Instance.PlaySFX(enemyAttack);
+                }
             }
             else if (GetComponent<AreaAttack>() != null)
             {
-                collision.GetComponent<MoveToPlayer>();
-            }
+                Collider2D[] enemiesHit = GetComponent<AreaAttack>().enemiesInRange();
+                Debug.Log(enemiesHit.Length);
 
-            health.GetDamage(Basedamage + mejoraDmg);
-            timer = cooldown;
+                for (int i = 0; i < enemiesHit.Length; i++)
+                {
+                    if (enemiesHit[i] != null && enemiesHit[i].GetComponent<CastEnemy>() != null)
+                    {
+                        int j = 0;
+                        bool sameEnemyCollision = false;
+                        while (j < i && !sameEnemyCollision)
+                        {
+                            if (enemiesHit[j].name ==  enemiesHit[i].name) sameEnemyCollision = true;
+                            j++;
+                        }
+                        if (!sameEnemyCollision)
+                        {
+                            enemiesHit[i].GetComponent<Health>().GetDamage(Basedamage);
+                        }
+                    }
+                }
 
-            if (ImEnemy)
-            {
-                AudioManager.Instance.PlaySFX(enemyAttack);
+                timer = cooldown;
             }
         }
     }

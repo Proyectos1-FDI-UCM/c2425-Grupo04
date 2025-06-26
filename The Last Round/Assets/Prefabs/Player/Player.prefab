@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b0c58a803b07e4687c22e72b61aedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 0
   detector: {fileID: 0}
   pivot: {fileID: 459278631553554902}
   origin: {fileID: 4588179508698769184}
@@ -267,7 +268,7 @@ Transform:
   m_GameObject: {fileID: 7356236445562805028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -354,10 +355,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.2070184}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Basedamage: 30
-  cooldown: 0
+  cooldown: 1
   enemyAttack: {fileID: 0}
 --- !u!114 &3545031051796242554
 MonoBehaviour:
@@ -398,6 +399,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &7749647460839375097
 GameObject:
   m_ObjectHideFlags: 0
