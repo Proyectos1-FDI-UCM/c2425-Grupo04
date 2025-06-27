@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
         else
         {
             invunerabilidad = GameManager.Instance.GetInvunerabilidad();
-            Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
+            //Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
 
         barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida

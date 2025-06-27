@@ -195,7 +195,7 @@ public class Cheats : MonoBehaviour
         GameManager.Instance.BoolUpgrade(0);
         GameManager.Instance.BoolUpgrade(1);
 
-        GameManager.Instance.SetHealthPercent(Health/100);
+        //GameManager.Instance.SetHealthPercent(Health/100);
         GameManager.Instance.SetMeleeDamagePercent(MeleeDamage/100);
         GameManager.Instance.SetRangeDamagePercent(RangeDamage/100);
 

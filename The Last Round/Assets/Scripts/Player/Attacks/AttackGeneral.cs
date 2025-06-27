@@ -117,9 +117,13 @@ public class AttackGeneral : MonoBehaviour
             if (weaponTypeUpdated == 0)
             {
                 if (GameManager.Instance.GetBoolUpgrade(0)) weaponTypeUpdated = 1;
-                else weaponTypeUpdated = 2;
+                else if (GameManager.Instance.GetBoolUpgrade(2)) weaponTypeUpdated = 2;
             }
-            else if (weaponTypeUpdated == 1) weaponTypeUpdated = 2;
+            else if (weaponTypeUpdated == 1)
+            {
+                if (GameManager.Instance.GetBoolUpgrade(2)) weaponTypeUpdated = 2;
+                else weaponTypeUpdated = 0;
+            }
             else if (weaponTypeUpdated == 2) weaponTypeUpdated = 0;
             
         }

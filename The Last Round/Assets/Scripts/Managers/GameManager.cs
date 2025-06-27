@@ -94,8 +94,8 @@ public class GameManager : MonoBehaviour
 
     //Variables necesarias para gestionar mejoras
     private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida
-    private bool[] upgradeBool = new bool[2]; //0 es arma a distancia, 1 es dash
-    private float HealthUpgradePercent = 0,
+    private bool[] upgradeBool = new bool[3]; //0 es arma a distancia, 1 es dash, 2 es arma de barrido
+    private float 
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
 
@@ -345,10 +345,10 @@ public class GameManager : MonoBehaviour
     // --- SISTEMA DE MEJORAS ---
 
     //Getters y Setters de porcentajes de mejora
-    public void SetHealthPercent(float percent)
-    {
-        HealthUpgradePercent = percent;
-    }
+    //public void SetHealthPercent(float percent)
+    //{
+    //    HealthUpgradePercent = percent;
+    //}
     public void SetMeleeDamagePercent(float percent)
     {
         MeleeDamageUpgradePercent = percent;
@@ -357,10 +357,10 @@ public class GameManager : MonoBehaviour
     {
         RangeDamageUpgradePercent = percent;
     }
-    public float GetHealthPercent()
-    {
-        return HealthUpgradePercent;
-    }
+    //public float GetHealthPercent()
+    //{
+    //    return HealthUpgradePercent;
+    //}
     public float GetMeleeDamagePercent()
     {
         return MeleeDamageUpgradePercent;

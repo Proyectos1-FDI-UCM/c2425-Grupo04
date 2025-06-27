@@ -841,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -37.31396, y: 0}
+  m_AnchoredPosition: {x: -18.2, y: 0}
   m_SizeDelta: {x: -46.4648, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143302405
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vida
+  m_text: Arma de barrido
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
   m_sharedMaterial: {fileID: -2932597816192430570, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 28.7906, w: 0}
+  m_margin: {x: 0, y: 0, z: 13.639021, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1483,35 +1483,36 @@ MonoBehaviour:
   buttons:
   - {fileID: 119062675}
   - {fileID: 1580822148}
-  - {fileID: 653882037}
   - {fileID: 0}
   - {fileID: 1511286269}
   - {fileID: 1817724374}
+  - {fileID: 653882037}
   descs:
   - {fileID: 1295610454}
   - {fileID: 1497019590}
-  - {fileID: 41500563}
   - {fileID: 987790670}
   - {fileID: 1479246948}
   - {fileID: 1420205879}
+  - {fileID: 41500563}
   costBox:
   - {fileID: 1102797648}
   - {fileID: 1740557145}
-  - {fileID: 684388053}
   - {fileID: 987790670}
   - {fileID: 998219522}
   - {fileID: 1803408860}
+  - {fileID: 684388053}
   descripciones:
   - "Aumenta el da\xF1o un 30%"
   - "Aumenta el da\xF1o un 30%"
   - Aumenta la vida un 30%
   - Disminuye la cantidad requerida de materiales
-  costeUnicos: 10
+  costeUnicos: 6
   costeNormales: 3
   coinImg:
   - {fileID: 616486683}
   - {fileID: 240208000}
   - {fileID: 1004683340}
+  - {fileID: 655440261}
   dineroTotalText: {fileID: 863265708}
   HealthUpgradePercent: 30
   MeleeDamageUpgradePercent: 30
@@ -1831,7 +1832,7 @@ GameObject:
   - component: {fileID: 605948372}
   - component: {fileID: 605948371}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MakeDrinks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,7 +2116,7 @@ GameObject:
   - component: {fileID: 653882037}
   - component: {fileID: 653882034}
   m_Layer: 5
-  m_Name: Vida
+  m_Name: Arma de barrido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2240,12 +2241,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 496633239}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
-        m_MethodName: UpgradeNormal
+        m_MethodName: UpgradeUnico
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2397,8 +2398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.8, y: -7.2161336}
-  m_SizeDelta: {x: 69.2079, y: 42.0265}
+  m_AnchoredPosition: {x: 42.5804, y: -7.2161336}
+  m_SizeDelta: {x: 186.7616, y: 42.0265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &684388052
 CanvasRenderer:
@@ -4967,7 +4968,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5785,7 +5786,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

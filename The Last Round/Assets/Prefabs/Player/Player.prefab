@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba843f9ec1e7ff41b286162198919d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Basedamage: 30
+  Basedamage: 25
   cooldown: 1
   enemyAttack: {fileID: 0}
 --- !u!114 &3545031051796242554
