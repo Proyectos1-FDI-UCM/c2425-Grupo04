@@ -24,11 +24,12 @@ public class ChangeScene : MonoBehaviour
     /// Índice de la escena (en el build settings)
     /// que se cargará. 
     /// </summary>
+
     [SerializeField]
-    private int nextScene;
+    private int[] nextScenes;
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -37,6 +38,7 @@ public class ChangeScene : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
 
     #endregion
     
@@ -56,8 +58,15 @@ public class ChangeScene : MonoBehaviour
     /// </summary>
     public void ChangeToNextScene()
     {
-        GameManager.Instance.ChangeScene(nextScene);
-        
+        if (nextScenes.Length == 1)
+        {
+            GameManager.Instance.ChangeScene(nextScenes[0]);
+        }
+        else
+        {
+            int i = Random.Range(0, nextScenes.Length);
+            GameManager.Instance.ChangeScene(nextScenes[i]);
+        }
     }
 
     #endregion
