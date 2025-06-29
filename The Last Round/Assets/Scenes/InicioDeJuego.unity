@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925631106774318371, guid: 7c3ccf50908234e1f9b635b00f95edce, type: 3}
       propertyPath: ScenesIndex.Array.data[9].scene
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1469,6 +1469,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[9].Escena
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: MusicTrack.Array.data[5].SceneMusic
       value: 
       objectReference: {fileID: 8300000, guid: 5c40626e6b2bb0f4981c76885b70cc5a, type: 3}
@@ -1476,6 +1484,10 @@ PrefabInstance:
       propertyPath: MusicTrack.Array.data[6].SceneMusic
       value: 
       objectReference: {fileID: 8300000, guid: 5c40626e6b2bb0f4981c76885b70cc5a, type: 3}
+    - target: {fileID: 5484397995066186354, guid: 18872f31034734542b31e0a720260211, type: 3}
+      propertyPath: MusicTrack.Array.data[9].SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: cb2117d0a86949f4aa6d77674fb7c0f6, type: 3}
     - target: {fileID: 8862978432594252673, guid: 18872f31034734542b31e0a720260211, type: 3}
       propertyPath: m_Name
       value: AudioManager

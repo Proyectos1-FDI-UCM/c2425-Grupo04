@@ -53,6 +53,15 @@ public class UIManagerUpgrades : MonoBehaviour
 
     [SerializeField]
     private Button makeDrinkButton;
+
+    [SerializeField]
+    private TextMeshProUGUI drinkText;
+
+    [SerializeField]
+    private TextMeshProUGUI drinksAmount;
+
+    [SerializeField]
+    private int costeCuración;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -153,6 +162,28 @@ public class UIManagerUpgrades : MonoBehaviour
             descs[5].text = "Desbloquea el arma de barrido";
             coinImg[3].enabled = true;
         }
+        int i  = 0;
+        bool notEnoughtMaterials = false;
+        while (notEnoughtMaterials && i < recuros.Length)
+        {
+            if (recuros[i] < costeCuración)
+            {
+                notEnoughtMaterials = true;
+            }
+            i++;
+        }
+
+        if (notEnoughtMaterials)
+        {
+            makeDrinkButton.enabled = false;
+            drinkText.text = "Insuficientes materiales";
+        }
+        else
+        {
+            makeDrinkButton.enabled = true;
+            drinkText.text = "Hacer bebida";
+        }
+        drinksAmount.text = $"Necesarios x3 de cada material\nTienes: x{GameManager.Instance.HealDrinksNum}";
 
     }
 
@@ -217,7 +248,7 @@ public class UIManagerUpgrades : MonoBehaviour
 
         while (!notEnoughtMaterials && i < recuros.Length)
         {
-            if (recuros[i] - 3 < 0) notEnoughtMaterials = true;
+            if (recuros[i] - costeCuración < 0) notEnoughtMaterials = true;
             i++;
         }
 
@@ -225,13 +256,19 @@ public class UIManagerUpgrades : MonoBehaviour
         {
             for (int j = 0; j < recuros.Length; j++)
             {
-                recuros[j] -= 3; //SUSTITUIR VARIABLES CON PRECIO
+                recuros[j] -= costeCuración; //SUSTITUIR VARIABLES CON PRECIO
             }
 
             GameManager.Instance.HealDrinksNum++;
             Debug.Log(GameManager.Instance.HealDrinksNum);
         }
-        else Debug.Log("No suficientes materiales");
+        else
+        {
+            makeDrinkButton.enabled = false;
+            drinkText.text = "Insuficientes materiales";
+        }
+
+        drinksAmount.text = $"Necesarios x3 de cada material\nTienes: x{GameManager.Instance.HealDrinksNum}";
     }
 
 
