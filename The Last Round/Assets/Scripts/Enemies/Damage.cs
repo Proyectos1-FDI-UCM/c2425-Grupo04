@@ -85,12 +85,12 @@ public class Damage : MonoBehaviour
                 float mejoraDmg = 0;
                 if (GetComponent<MeleeAttack>() != null) //si es el cuerpo a cuerpo
                 {
-                    mejoraDmg = (int)(GameManager.Instance.GetMeleeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(1)); //mejora un 10% el daño por cada nivel de mejora
+                    mejoraDmg = (int)(GameManager.Instance.GetMeleeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Daño_a_melee)); //mejora un 10% el daño por cada nivel de mejora
 
                 }
                 else if (GetComponent<BulletMovement>() != null) //si es la bala
                 {
-                    mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel(0));
+                    mejoraDmg = (int)(GameManager.Instance.GetRangeDamagePercent() * Basedamage * GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Daño_a_distancia));
                 }
 
                 health.GetDamage(Basedamage + mejoraDmg);

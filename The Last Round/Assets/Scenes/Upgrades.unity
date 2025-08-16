@@ -537,6 +537,8 @@ GameObject:
   - component: {fileID: 119062676}
   - component: {fileID: 119062675}
   - component: {fileID: 119062674}
+  - component: {fileID: 119062679}
+  - component: {fileID: 119062678}
   m_Layer: 5
   m_Name: "Da\xF1o Distancia"
   m_TagString: Untagged
@@ -626,10 +628,10 @@ MonoBehaviour:
       - m_Target: {fileID: 496633239}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 119062678}
+          m_ObjectArgumentAssemblyTypeName: CastIntUpgrade, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -673,6 +675,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119062672}
   m_CullTransparentMesh: 1
+--- !u!114 &119062678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119062672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40150e343c92484b8ce444520041d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 1
+    price: 3
+    description: "Aumenta el da\xF1o realizado con la botella"
+    descriptionText: {fileID: 1295610454}
+    name: {fileID: 785462546}
+    priceText: {fileID: 1102797648}
+    CoinImage: {fileID: 1004683340}
+--- !u!114 &119062679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119062672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 1
 --- !u!1 &138444276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,39 +1515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f20904a8d623245a7ddb3289488229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 119062675}
-  - {fileID: 1580822148}
-  - {fileID: 0}
-  - {fileID: 1511286269}
-  - {fileID: 1817724374}
-  - {fileID: 653882037}
-  descs:
-  - {fileID: 1295610454}
-  - {fileID: 1497019590}
-  - {fileID: 987790670}
-  - {fileID: 1479246948}
-  - {fileID: 1420205879}
-  - {fileID: 41500563}
-  costBox:
-  - {fileID: 1102797648}
-  - {fileID: 1740557145}
-  - {fileID: 987790670}
-  - {fileID: 998219522}
-  - {fileID: 1803408860}
-  - {fileID: 684388053}
-  descripciones:
-  - "Aumenta el da\xF1o un 30%"
-  - "Aumenta el da\xF1o un 30%"
-  - Aumenta la vida un 30%
-  - Disminuye la cantidad requerida de materiales
-  costeUnicos: 6
-  costeNormales: 3
-  coinImg:
-  - {fileID: 616486683}
-  - {fileID: 240208000}
-  - {fileID: 1004683340}
-  - {fileID: 655440261}
   dineroTotalText: {fileID: 863265708}
   HealthUpgradePercent: 30
   MeleeDamageUpgradePercent: 30
@@ -1927,7 +1929,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!222 &605948373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2133,6 +2135,8 @@ GameObject:
   - component: {fileID: 653882035}
   - component: {fileID: 653882037}
   - component: {fileID: 653882034}
+  - component: {fileID: 653882039}
+  - component: {fileID: 653882038}
   m_Layer: 5
   m_Name: Arma de barrido
   m_TagString: Untagged
@@ -2260,15 +2264,48 @@ MonoBehaviour:
       - m_Target: {fileID: 496633239}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 653882038}
+          m_ObjectArgumentAssemblyTypeName: CastBoolUpgrade, Assembly-CSharp
           m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &653882038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653882032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367df580cc3d454c95c03d71880b512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 1
+    price: 10
+    description: "L\xE1tigo con el que podr\xE1s barrer varios objetivos a la vez"
+    descriptionText: {fileID: 41500563}
+    name: {fileID: 143302405}
+    priceText: {fileID: 684388053}
+    CoinImage: {fileID: 655440261}
+--- !u!114 &653882039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653882032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 0
 --- !u!1 &654230727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,7 +2696,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!222 &768017404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4761,7 +4798,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5103,6 +5140,8 @@ GameObject:
   - component: {fileID: 1511286270}
   - component: {fileID: 1511286269}
   - component: {fileID: 1511286268}
+  - component: {fileID: 1511286273}
+  - component: {fileID: 1511286272}
   m_Layer: 5
   m_Name: Arma a distancia
   m_TagString: Untagged
@@ -5192,10 +5231,10 @@ MonoBehaviour:
       - m_Target: {fileID: 496633239}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1511286272}
+          m_ObjectArgumentAssemblyTypeName: CastBoolUpgrade, Assembly-CSharp
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5239,6 +5278,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511286266}
   m_CullTransparentMesh: 1
+--- !u!114 &1511286272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511286266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367df580cc3d454c95c03d71880b512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 0
+    price: 8
+    description: Permite lanzar botellas
+    descriptionText: {fileID: 1479246948}
+    name: {fileID: 138444278}
+    priceText: {fileID: 998219522}
+    CoinImage: {fileID: 616486683}
+--- !u!114 &1511286273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511286266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 0
 --- !u!1 &1580822145
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,6 +5324,8 @@ GameObject:
   - component: {fileID: 1580822149}
   - component: {fileID: 1580822148}
   - component: {fileID: 1580822147}
+  - component: {fileID: 1580822152}
+  - component: {fileID: 1580822151}
   m_Layer: 5
   m_Name: "Da\xF1o melee"
   m_TagString: Untagged
@@ -5341,10 +5415,10 @@ MonoBehaviour:
       - m_Target: {fileID: 496633239}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1580822151}
+          m_ObjectArgumentAssemblyTypeName: CastIntUpgrade, Assembly-CSharp
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5388,6 +5462,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580822145}
   m_CullTransparentMesh: 1
+--- !u!114 &1580822151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580822145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40150e343c92484b8ce444520041d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 2
+    price: 3
+    description: "Aumenta el da\xF1o realizado con el cuchillo"
+    descriptionText: {fileID: 1497019590}
+    name: {fileID: 113484063}
+    priceText: {fileID: 1740557145}
+    CoinImage: {fileID: 621782443}
+--- !u!114 &1580822152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580822145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 1
 --- !u!224 &1600382846 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2021752745603850625, guid: 8cbb51144cb6a864f96d569db09d567b, type: 3}
@@ -5921,6 +6028,8 @@ GameObject:
   - component: {fileID: 1817724375}
   - component: {fileID: 1817724374}
   - component: {fileID: 1817724373}
+  - component: {fileID: 1817724378}
+  - component: {fileID: 1817724377}
   m_Layer: 5
   m_Name: Dash
   m_TagString: Untagged
@@ -6010,10 +6119,10 @@ MonoBehaviour:
       - m_Target: {fileID: 496633239}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1817724377}
+          m_ObjectArgumentAssemblyTypeName: CastBoolUpgrade, Assembly-CSharp
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6057,6 +6166,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817724371}
   m_CullTransparentMesh: 1
+--- !u!114 &1817724377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817724371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367df580cc3d454c95c03d71880b512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 2
+    price: 6
+    description: "Realiza un impulso hacia donde mira Ori\xF3n"
+    descriptionText: {fileID: 1420205879}
+    name: {fileID: 1758388750}
+    priceText: {fileID: 1803408860}
+    CoinImage: {fileID: 240208000}
+--- !u!114 &1817724378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817724371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 0
 --- !u!1 &1817888067
 GameObject:
   m_ObjectHideFlags: 0

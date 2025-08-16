@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5a85c98d0ce445f9637c4fed9696c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 7
+  nextScenes: 07000000
 --- !u!114 &110544963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,38 +1431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f20904a8d623245a7ddb3289488229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 1983829336}
-  - {fileID: 759558687}
-  - {fileID: 555893468}
-  - {fileID: 0}
-  - {fileID: 2090784561}
-  - {fileID: 670556471}
-  descs:
-  - {fileID: 1241737388}
-  - {fileID: 57643610}
-  - {fileID: 311516602}
-  - {fileID: 683410890}
-  - {fileID: 769306659}
-  - {fileID: 1549839372}
-  costBox:
-  - {fileID: 1747471245}
-  - {fileID: 1716534818}
-  - {fileID: 942889872}
-  - {fileID: 683410890}
-  - {fileID: 522930518}
-  - {fileID: 938977803}
-  descripciones:
-  - "Aumenta el da\xF1o un 30%"
-  - "Aumenta el da\xF1o un 30%"
-  - Aumenta la vida un 30%
-  - Disminuye la cantidad requerida de materiales
-  costeUnicos: 0
-  costeNormales: 0
-  coinImg:
-  - {fileID: 130934490}
-  - {fileID: 929252815}
-  - {fileID: 1795129820}
   dineroTotalText: {fileID: 458883064}
   HealthUpgradePercent: 30
   MeleeDamageUpgradePercent: 30
@@ -1472,6 +1440,10 @@ MonoBehaviour:
   BaseRangeDamage: 25
   upgradeSfx: {fileID: 8300000, guid: cd723f5d928046d46a8f5e0e16df0dd5, type: 3}
   NoUpgradeSfx: {fileID: 8300000, guid: effb39e5567115c4c85abb2728bbf34e, type: 3}
+  makeDrinkButton: {fileID: 610631131}
+  drinkText: {fileID: 598616100}
+  drinksAmount: {fileID: 1330574295}
+  "costeCuraci\xF3n": 0
 --- !u!4 &480938680
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,6 +1719,8 @@ GameObject:
   - component: {fileID: 555893469}
   - component: {fileID: 555893468}
   - component: {fileID: 555893467}
+  - component: {fileID: 555893472}
+  - component: {fileID: 555893471}
   m_Layer: 5
   m_Name: Vida
   m_TagString: Untagged
@@ -1836,10 +1810,10 @@ MonoBehaviour:
       - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 555893471}
+          m_ObjectArgumentAssemblyTypeName: CastIntUpgrade, Assembly-CSharp
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1882,6 +1856,173 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555893465}
+  m_CullTransparentMesh: 1
+--- !u!114 &555893471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555893465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40150e343c92484b8ce444520041d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 0
+    price: 0
+    description: "Aumenta la vida total de Ori\xF3n"
+    descriptionText: {fileID: 311516602}
+    name: {fileID: 1368611071}
+    priceText: {fileID: 942889872}
+    CoinImage: {fileID: 722168137}
+--- !u!114 &555893472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555893465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 1
+--- !u!1 &598616098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 598616099}
+  - component: {fileID: 598616101}
+  - component: {fileID: 598616100}
+  m_Layer: 5
+  m_Name: Texto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &598616099
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598616098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 610631129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &598616100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598616098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Make healing drink
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
+  m_sharedMaterial: {fileID: -2932597816192430570, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 17.98
+  m_fontSizeBase: 17.98
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 2048
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &598616101
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598616098}
   m_CullTransparentMesh: 1
 --- !u!1 &610489147
 GameObject:
@@ -1927,6 +2068,154 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &610631128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610631129}
+  - component: {fileID: 610631133}
+  - component: {fileID: 610631132}
+  - component: {fileID: 610631131}
+  - component: {fileID: 610631130}
+  m_Layer: 5
+  m_Name: MakeDrinks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &610631129
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610631128}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 598616099}
+  - {fileID: 1784905779}
+  m_Father: {fileID: 1808957968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 267.18997, y: 140.60002}
+  m_SizeDelta: {x: 195.3266, y: 78.5648}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &610631130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610631128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2d10510bd06d3478c6ce4b3abdba81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: {fileID: 1784905778}
+--- !u!114 &610631131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610631128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 9536776, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    m_PressedSprite: {fileID: -2044117731, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    m_SelectedSprite: {fileID: 9536776, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+    m_DisabledSprite: {fileID: -1949581666, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 610631132}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 480938679}
+        m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
+        m_MethodName: CraftHealingDrink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &610631132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610631128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -292965101, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 2
+--- !u!222 &610631133
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610631128}
+  m_CullTransparentMesh: 1
 --- !u!1 &662601251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,6 +2363,8 @@ GameObject:
   - component: {fileID: 670556472}
   - component: {fileID: 670556471}
   - component: {fileID: 670556470}
+  - component: {fileID: 670556475}
+  - component: {fileID: 670556474}
   m_Layer: 5
   m_Name: Dash
   m_TagString: Untagged
@@ -2163,10 +2454,10 @@ MonoBehaviour:
       - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 670556474}
+          m_ObjectArgumentAssemblyTypeName: CastBoolUpgrade, Assembly-CSharp
           m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2210,6 +2501,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670556468}
   m_CullTransparentMesh: 1
+--- !u!114 &670556474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670556468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367df580cc3d454c95c03d71880b512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 2
+    price: 0
+    description: "Realiza un impulso hacia donde mira Ori\xF3n"
+    descriptionText: {fileID: 1549839372}
+    name: {fileID: 177705096}
+    priceText: {fileID: 938977803}
+    CoinImage: {fileID: 929252815}
+--- !u!114 &670556475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670556468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 0
 --- !u!1 &683410888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,6 +2914,8 @@ GameObject:
   - component: {fileID: 759558688}
   - component: {fileID: 759558687}
   - component: {fileID: 759558686}
+  - component: {fileID: 759558691}
+  - component: {fileID: 759558690}
   m_Layer: 5
   m_Name: "Da\xF1o melee"
   m_TagString: Untagged
@@ -2679,10 +3005,10 @@ MonoBehaviour:
       - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 759558690}
+          m_ObjectArgumentAssemblyTypeName: CastIntUpgrade, Assembly-CSharp
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2726,6 +3052,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759558684}
   m_CullTransparentMesh: 1
+--- !u!114 &759558690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759558684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40150e343c92484b8ce444520041d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 2
+    price: 0
+    description: "Aumenta el da\xF1o realizado con el cuchillo"
+    descriptionText: {fileID: 57643610}
+    name: {fileID: 1143810436}
+    priceText: {fileID: 1716534818}
+    CoinImage: {fileID: 1440193227}
+--- !u!114 &759558691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759558684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 1
 --- !u!1 &769306657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4056,6 +4415,140 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1330574293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1330574294}
+  - component: {fileID: 1330574296}
+  - component: {fileID: 1330574295}
+  m_Layer: 5
+  m_Name: Cantidad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1330574294
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330574293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1784905779}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000016689, y: 7.1029}
+  m_SizeDelta: {x: 200, y: 67.4059}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1330574295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330574293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
+  m_sharedMaterial: {fileID: -2932597816192430570, guid: 96cc16d57f4ea3e46832e36bc04341cf, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 16.03
+  m_fontSizeBase: 16.03
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1330574296
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330574293}
+  m_CullTransparentMesh: 1
 --- !u!1 &1368611069
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,6 +4770,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 995117409031869475, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 995117409031869475, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1480210658849348148, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.22
@@ -4325,6 +4826,22 @@ PrefabInstance:
       propertyPath: clients.Array.data[4]
       value: 
       objectReference: {fileID: 1562574269909345304, guid: c96e7621175d3dc42af6170207d55c38, type: 3}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_margin.w
+      value: -63.281235
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_margin.x
+      value: 116.0738
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_margin.y
+      value: 11.711243
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_margin.z
+      value: 249.54735
+      objectReference: {fileID: 0}
     - target: {fileID: 2664259244036496953, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_fontColor.b
       value: 0
@@ -4382,6 +4899,14 @@ PrefabInstance:
       value: SkipButton
       objectReference: {fileID: 0}
     - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 125.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
       objectReference: {fileID: 0}
@@ -4395,11 +4920,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 156.68
+      value: 29.6
       objectReference: {fileID: 0}
     - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 139.3
+      value: 90.2
       objectReference: {fileID: 0}
     - target: {fileID: 4974198011846198643, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -4522,8 +5047,40 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6544702391443782154, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 43.9068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544702391443782154, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 13.222
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544702391443782154, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 17.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544702391443782154, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544702391443782154, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582781021737176439, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 104.0024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582781021737176439, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 72.1651
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582781021737176439, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 42.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582781021737176439, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 36.5
       objectReference: {fileID: 0}
     - target: {fileID: 6582781021737176439, guid: 33a9997d9aa284248a99ac5340d4f0ad, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -5517,6 +6074,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747471243}
   m_CullTransparentMesh: 1
+--- !u!1 &1784905778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784905779}
+  - component: {fileID: 1784905781}
+  - component: {fileID: 1784905780}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1784905779
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784905778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1330574294}
+  m_Father: {fileID: 610631129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -87.040665}
+  m_SizeDelta: {x: 0, y: 16.9513}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1784905780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784905778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -804399548, guid: 9f349c5f3c249e04f925b127f57741e6, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 2
+--- !u!222 &1784905781
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784905778}
+  m_CullTransparentMesh: 1
 --- !u!1 &1795129818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5628,6 +6261,7 @@ RectTransform:
   - {fileID: 960122881}
   - {fileID: 1187687461}
   - {fileID: 703800186}
+  - {fileID: 610631129}
   - {fileID: 683410889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6013,6 +6647,8 @@ GameObject:
   - component: {fileID: 1983829337}
   - component: {fileID: 1983829336}
   - component: {fileID: 1983829335}
+  - component: {fileID: 1983829340}
+  - component: {fileID: 1983829339}
   m_Layer: 5
   m_Name: "Da\xF1o Distancia"
   m_TagString: Untagged
@@ -6102,10 +6738,10 @@ MonoBehaviour:
       - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeNormal
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1983829339}
+          m_ObjectArgumentAssemblyTypeName: CastIntUpgrade, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6149,6 +6785,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983829333}
   m_CullTransparentMesh: 1
+--- !u!114 &1983829339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983829333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40150e343c92484b8ce444520041d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 1
+    price: 0
+    description: "Aumenta el da\xF1o realizado con la botella"
+    descriptionText: {fileID: 1241737388}
+    name: {fileID: 1616476631}
+    priceText: {fileID: 1747471245}
+    CoinImage: {fileID: 1795129820}
+--- !u!114 &1983829340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983829333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 1
 --- !u!1 &2090784558
 GameObject:
   m_ObjectHideFlags: 0
@@ -6162,6 +6831,8 @@ GameObject:
   - component: {fileID: 2090784562}
   - component: {fileID: 2090784561}
   - component: {fileID: 2090784560}
+  - component: {fileID: 2090784565}
+  - component: {fileID: 2090784564}
   m_Layer: 5
   m_Name: Arma a distancia
   m_TagString: Untagged
@@ -6251,10 +6922,10 @@ MonoBehaviour:
       - m_Target: {fileID: 480938679}
         m_TargetAssemblyTypeName: UIManagerUpgrades, Assembly-CSharp
         m_MethodName: UpgradeUnico
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2090784564}
+          m_ObjectArgumentAssemblyTypeName: CastBoolUpgrade, Assembly-CSharp
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6298,6 +6969,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090784558}
   m_CullTransparentMesh: 1
+--- !u!114 &2090784564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090784558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367df580cc3d454c95c03d71880b512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade:
+    type: 0
+    price: 0
+    description: Permite lanzar botellas
+    descriptionText: {fileID: 769306659}
+    name: {fileID: 344791107}
+    priceText: {fileID: 522930518}
+    CoinImage: {fileID: 130934490}
+--- !u!114 &2090784565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090784558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1082c5e1ef633f4eba2a39583682e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

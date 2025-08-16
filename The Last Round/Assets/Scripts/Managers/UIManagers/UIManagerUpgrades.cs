@@ -10,6 +10,7 @@ using UnityEngine;
 //using UnityEngine.UIElements;
 using UnityEngine.UI;
 using TMPro;
+using System.Xml.Linq;
 
 public class UIManagerUpgrades : MonoBehaviour
 {
@@ -21,24 +22,6 @@ public class UIManagerUpgrades : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField]
-    private Button[] buttons = new Button[6];
-    [SerializeField]
-    private TextMeshProUGUI[] descs = new TextMeshProUGUI[6];
-    [SerializeField]
-    private TextMeshProUGUI[] costBox = new TextMeshProUGUI[6];
-    [SerializeField]
-    private string[] descripciones = new string[4]; //sin distanceWpn ni dash
-    //0 es distanceDmgCostBox
-    //1 es meleeCostBox
-    //2 es healthCostBox
-    //3 es descuentos
-    //4 es distanceWpn
-    //5 es dash
-    [SerializeField]
-    private int costeUnicos, costeNormales; //Coste unicos son los que solo se pueden comprar una vez, coste normales son los que se compran mas de una vez
-    [SerializeField]
-    private Image[] coinImg = new Image[3]; //0 es arma distancia, 1 es dash, 2 es daño distancia
     [SerializeField]
     private TextMeshProUGUI dineroTotalText;
     [SerializeField]
@@ -72,18 +55,17 @@ public class UIManagerUpgrades : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private float dineroTotal;
-    private float[] recuros;
-    private enum desbloqueables {}
+    private float[] recursos;
+    private CastUpgrade[] upgrades;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -92,81 +74,84 @@ public class UIManagerUpgrades : MonoBehaviour
     {
         GameManager.Instance.GiveUIU(this);
 
-        //GameManager.Instance.increaseDinero(100); //Solo para testear
-
-        // Tomamos los recuros del Gamemanager para la fabricación de bebidas curativas
-
-        recuros = GameManager.Instance.GetRecursos();
-
-        //Pone el precio
-        costBox[1].text = "x" + costeNormales;
-        costBox[2].text = "x" + costeNormales;
-        costBox[3].text = "x" + costeNormales;
+        dineroTotalText.text = GameManager.Instance.GetDineros().ToString();
 
         //Darle al GameManager los porcentajes de mejora
-        //GameManager.Instance.SetHealthPercent(HealthUpgradePercent / 100);
         GameManager.Instance.SetMeleeDamagePercent(MeleeDamageUpgradePercent / 100);
         GameManager.Instance.SetRangeDamagePercent(RangeDamageUpgradePercent / 100);
+        GameManager.Instance.SetHealthPercent(HealthUpgradePercent / 100);
 
-        //Cambia la descripcion de las mejoras normales (Vida y Melee y Sale)
-        ChangeDesc(descs[1], GameManager.Instance.GetUpgradeLevel(1), 1);
-        ChangeDesc(descs[2], GameManager.Instance.GetUpgradeLevel(2), 2);
-        ChangeDesc(descs[3], GameManager.Instance.GetUpgradeLevel(3), 3);
+        //Buscamos las mejoras disponibles
+        upgrades = FindObjectsOfType<CastUpgrade>();
 
-        if (GameManager.Instance.GetBoolUpgrade(0))//Si el Arma a Distancia esta adquirida
+        // Tomamos los recuros del Gamemanager para la fabricación de bebidas curativas
+        recursos = GameManager.Instance.GetRecursos();
+
+
+        //Pone el precio
+        //Pone el nombre
+
+        for (int j = 0; j < upgrades.Length; j++)
         {
-            ChangeDesc(descs[0], GameManager.Instance.GetUpgradeLevel(0), 0); //Cambia la descripcion de la mejora de Daño a distancia
-            buttons[3].interactable = false; //Desactiva el boton de la mejora de Arma a distancia
-            costBox[3].text = "Ya adquirida"; //Cambia el texto del coste y la descripcion del arma a distancia
-            descs[3].text = "Ya adquirida";
-            coinImg[0].enabled = false;
-            coinImg[2].enabled = true;
-        }
-        else
-        {
-            buttons[0].interactable = false; //Desactiva el boton de mejora de Daño a distancia
-            descs[0].text = "Se necesita el Arma a distancia para desbloquear"; //Cambia el texto del coste y la descripcion del Daño a distancia
-            costBox[0].text = "Bloqueada";
-            //Cambia el texto del coste y la descripcion del arma a distancia
-            costBox[4].text = "x" + costeUnicos;
-            descs[4].text = "Desbloquea poder usar el Arma a distancia";
-            coinImg[0].enabled = true;
-            coinImg[2].enabled = false;
+            if (upgrades[j].GetUpgradeType() == UpgradeType.Bool)
+            {
+                CastBoolUpgrade boolUpgrade = upgrades[j].gameObject.GetComponent<CastBoolUpgrade>();
+
+                if (boolUpgrade != null)
+                {
+                    boolUpgrade.GetUpgradePriceText().text = $"x{boolUpgrade.GetUpgradePrice()}";
+                    boolUpgrade.GetUpgradeText().text = boolUpgrade.GetUpgradeType().ToString().Replace('_', ' ');
+
+
+
+                    boolUpgrade.gameObject.GetComponent<Button>().interactable = !GameManager.Instance.GetBoolUpgrade((int)boolUpgrade.GetUpgradeType());
+                    boolUpgrade.GetUpgradeCoinImage().gameObject.SetActive(!GameManager.Instance.GetBoolUpgrade((int)boolUpgrade.GetUpgradeType()));
+
+                    if (GameManager.Instance.GetBoolUpgrade((int)boolUpgrade.GetUpgradeType()))
+                    {
+                        boolUpgrade.GetUpgradeDescriptionText().text = "Ya adquirida";
+                        boolUpgrade.GetUpgradePriceText().text = "";
+                    }
+                    else
+                    {
+                        boolUpgrade.GetUpgradeDescriptionText().text = $"Desbloquea poder usar el {boolUpgrade.GetUpgradeText().text}";
+                    }
+
+                }
+            }
+            else
+            {
+                CastIntUpgrade intUpgrade = upgrades[j].gameObject.GetComponent<CastIntUpgrade>();
+
+                if (intUpgrade != null)
+                {
+                    intUpgrade.GetUpgradePriceText().text = $"x{intUpgrade.GetUpgradePrice()}";
+                    intUpgrade.GetUpgradeText().text = intUpgrade.GetUpgradeType().ToString().Replace('_', ' ');
+                    ChangeDesc(intUpgrade,
+                               GameManager.Instance.GetUpgradeLevel((int)intUpgrade.GetUpgradeType()),
+                               (int)intUpgrade.GetUpgradeType());
+
+                    if (intUpgrade.GetUpgradeType() == IntUpgradeType.Daño_a_distancia)
+                    {
+                        intUpgrade.gameObject.GetComponent<Button>().interactable = GameManager.Instance.GetBoolUpgrade((int)BoolUpgradeType.Ataque_a_distancia);
+                        intUpgrade.GetUpgradeCoinImage().gameObject.SetActive(GameManager.Instance.GetBoolUpgrade((int)BoolUpgradeType.Ataque_a_distancia));
+
+                        if (!GameManager.Instance.GetBoolUpgrade((int)BoolUpgradeType.Ataque_a_distancia))
+                        {
+                            intUpgrade.GetUpgradeDescriptionText().text = "Se necesita el arma a distancia para desbloquear";
+                            intUpgrade.GetUpgradeText().text = "Bloqueada";
+                            intUpgrade.GetUpgradePriceText().text = "";
+                        }
+                    }
+                }
+            }
         }
 
-        if (GameManager.Instance.GetBoolUpgrade(1)) //si el dash esta adquirida
-        {
-            buttons[4].interactable = false; //Desactiva el boton de mejora y cambia sus descripciones
-            costBox[4].text = "Ya adquirida";
-            descs[4].text = "Ya adquirida";
-            coinImg[1].enabled = false;
-        }
-        else //cambia sus descripciones a su valor
-        {
-            costBox[4].text = "x" + costeUnicos;
-            descs[4].text = "Desbloquea la habilidad Dash";
-            coinImg[1].enabled = true;
-        }
-
-        if (GameManager.Instance.GetBoolUpgrade(2))
-        {
-            buttons[5].interactable = false;
-            costBox[5].text = "Ya adquirida";
-            descs[5].text = "Ya adquirida";
-            coinImg[3].enabled = false;
-        }
-
-        else
-        {
-            costBox[5].text = "x" + costeUnicos;
-            descs[5].text = "Desbloquea el arma de barrido";
-            coinImg[3].enabled = true;
-        }
-        int i  = 0;
+        int i = 0;
         bool notEnoughtMaterials = false;
-        while (notEnoughtMaterials && i < recuros.Length)
+        while (notEnoughtMaterials && i < recursos.Length)
         {
-            if (recuros[i] < costeCuración)
+            if (recursos[i] < costeCuración)
             {
                 notEnoughtMaterials = true;
             }
@@ -183,32 +168,24 @@ public class UIManagerUpgrades : MonoBehaviour
             makeDrinkButton.enabled = true;
             drinkText.text = "Hacer bebida";
         }
-        drinksAmount.text = $"Necesarios x3 de cada material\nTienes: x{GameManager.Instance.HealDrinksNum}";
+        drinksAmount.text = $"Necesarios x3 de cada material\nTienes: x{GameManager.Instance.GetHealDrinksNum()}";
 
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        dineroTotal = GameManager.Instance.GetDineros();
-        dineroTotalText.text = dineroTotal.ToString();
     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    
-    public void UpgradeNormal(int element)
+
+    public void UpgradeNormal(CastIntUpgrade upgrade)
     {
-        if (dineroTotal >= costeNormales)
+        if (GameManager.Instance.GetDineros() >= upgrade.GetUpgradePrice())
         {
             AudioManager.Instance.PlaySFX(upgradeSfx);
-            GameManager.Instance.DecreaseDinero(costeNormales); //Quita el coste del dinero total
-            GameManager.Instance.IncreaseUpgradeLevel(element); //Sube el nivel de la mejora
-            Debug.Log(element);
-            ChangeDesc(descs[element], GameManager.Instance.GetUpgradeLevel(element), element); //Cambia su descripcion
+            GameManager.Instance.DecreaseDinero(upgrade.GetUpgradePrice()); //Quita el coste del dinero total
+            dineroTotalText.text = GameManager.Instance.GetDineros().ToString();
+            GameManager.Instance.IncreaseUpgradeLevel((int)upgrade.GetUpgradeType()); //Sube el nivel de la mejora
+            ChangeDesc(upgrade, GameManager.Instance.GetUpgradeLevel((int)upgrade.GetUpgradeType()), (int)upgrade.GetUpgradeType()); //Cambia su descripcion
+            
         }
         else
         {
@@ -216,23 +193,43 @@ public class UIManagerUpgrades : MonoBehaviour
         }
     }
 
-    public void UpgradeUnico(int element) //Solo para dash y arma a distancia
+    public void UpgradeUnico(CastBoolUpgrade upgrade) //Solo para dash y arma a distancia
     {
-        if (dineroTotal >= costeUnicos)
+
+        if (GameManager.Instance.GetDineros() >= upgrade.GetUpgradePrice())
         {
             AudioManager.Instance.PlaySFX(upgradeSfx);
-            GameManager.Instance.BoolUpgrade(element - 3); //Pone a true el bool la mejora, en gamemanager dash es 0 y arma a distancia es 1
-            GameManager.Instance.DecreaseDinero(costeUnicos);
-            buttons[element].interactable = false; //desactiva el boton y cambia su descripcion
-            costBox[element].text = "Ya adquirida";
-            descs[element].text = "Ya adquirida";
-            coinImg[element - 3].enabled = false;
-            if (element == 3) //si es el arma a distancia
+            GameManager.Instance.BoolUpgrade((int)upgrade.GetUpgradeType());
+            GameManager.Instance.DecreaseDinero(upgrade.GetUpgradePrice());
+            dineroTotalText.text = GameManager.Instance.GetDineros().ToString();
+
+            upgrade.gameObject.GetComponent<Button>().interactable = false; //desactiva el boton y cambia su descripcion
+
+            upgrade.GetUpgradeDescriptionText().text = "Ya adquirida";
+            upgrade.GetUpgradePriceText().text = "";
+            upgrade.GetUpgradeCoinImage().gameObject.SetActive(false);
+
+            if (upgrade.GetUpgradeType() == BoolUpgradeType.Ataque_a_distancia) //si es el arma a distancia
             {
-                buttons[0].interactable = true; //activa el boton de mejora de daño a distancia y cambia su descripcion y texto de coste
-                costBox[0].text = "x" + costeNormales;
-                ChangeDesc(descs[0], GameManager.Instance.GetUpgradeLevel(0), 0);
-                coinImg[2].enabled = true;
+                //Encontrar mejora
+                CastIntUpgrade[] Intupgrades = FindObjectsOfType<CastIntUpgrade>();
+                int j = 0;
+                bool enc = false;
+
+                while (j < upgrades.Length && !enc)
+                {
+                    if (Intupgrades[j].GetUpgradeType() == IntUpgradeType.Daño_a_distancia) enc = true;
+                    else j++;
+                }
+
+                if (enc)
+                {
+                    Intupgrades[j].gameObject.GetComponent<Button>().interactable = true;
+                    Intupgrades[j].GetUpgradePriceText().text = $"x{Intupgrades[j].GetUpgradePrice()}";
+                    ChangeDesc(Intupgrades[j], GameManager.Instance.GetUpgradeLevel((int)Intupgrades[j].GetUpgradeType()), (int)Intupgrades[j].GetUpgradeType());
+                    Intupgrades[j].GetUpgradeText().text = Intupgrades[j].GetUpgradeType().ToString().Replace('_', ' ');
+                    Intupgrades[j].GetUpgradeCoinImage().gameObject.SetActive(true);
+                }
             }
         }
         else
@@ -246,21 +243,21 @@ public class UIManagerUpgrades : MonoBehaviour
         bool notEnoughtMaterials = false;
         int i = 0;
 
-        while (!notEnoughtMaterials && i < recuros.Length)
+        while (!notEnoughtMaterials && i < recursos.Length)
         {
-            if (recuros[i] - costeCuración < 0) notEnoughtMaterials = true;
+            if (recursos[i] - costeCuración < 0) notEnoughtMaterials = true;
             i++;
         }
 
         if (!notEnoughtMaterials)
         {
-            for (int j = 0; j < recuros.Length; j++)
+            for (int j = 0; j < recursos.Length; j++)
             {
-                recuros[j] -= costeCuración; //SUSTITUIR VARIABLES CON PRECIO
+                recursos[j] -= costeCuración; //SUSTITUIR VARIABLES CON PRECIO
             }
 
-            GameManager.Instance.HealDrinksNum++;
-            Debug.Log(GameManager.Instance.HealDrinksNum);
+            GameManager.Instance.IncreaseHealDrinksNum(1);
+           // Debug.Log(GameManager.Instance.GetHealDrinksNum());
         }
         else
         {
@@ -268,7 +265,7 @@ public class UIManagerUpgrades : MonoBehaviour
             drinkText.text = "Insuficientes materiales";
         }
 
-        drinksAmount.text = $"Necesarios x3 de cada material\nTienes: x{GameManager.Instance.HealDrinksNum}";
+        drinksAmount.text = $"Necesarios x{costeCuración} de cada material\nTienes: x{GameManager.Instance.GetHealDrinksNum()}";
     }
 
 
@@ -289,45 +286,45 @@ public class UIManagerUpgrades : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private void ChangeDesc(TextMeshProUGUI textBox, int level, int element)
+    private void ChangeDesc(CastIntUpgrade textBox, int level, int element)
     {
         string upgrade = "";
         float amount = 0;
         float NextAmount = 0;
 
-        if (element == 0 || element == 1)
+        if (element == (int)IntUpgradeType.Daño_a_melee || element == (int)IntUpgradeType.Daño_a_distancia)
         {
             upgrade = "Daño";
 
-            if (element == 0)
+            if (element == (int)IntUpgradeType.Daño_a_distancia)
             {
-                amount = BaseRangeDamage + (int)((RangeDamageUpgradePercent / 100) * BaseRangeDamage * GameManager.Instance.GetUpgradeLevel(0));
+                amount = BaseRangeDamage + (int)((RangeDamageUpgradePercent / 100) * BaseRangeDamage * GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Daño_a_distancia));
 
-                NextAmount = BaseRangeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseRangeDamage * (GameManager.Instance.GetUpgradeLevel(0) + 1));
+                NextAmount = BaseRangeDamage + (int)((RangeDamageUpgradePercent / 100) * BaseRangeDamage * (GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Daño_a_distancia) + 1));
             }
             else
             {
-                amount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * GameManager.Instance.GetUpgradeLevel(1));
+                amount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Daño_a_melee));
 
-                NextAmount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * (GameManager.Instance.GetUpgradeLevel(1)+1));
+                NextAmount = BaseMeleeDamage + (int)((MeleeDamageUpgradePercent / 100) * BaseMeleeDamage * (GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Daño_a_melee) + 1));
             }
         }
-        else if (element == 2)
+        else if (element == (int)IntUpgradeType.Vida)
         {
             upgrade = "Vida";
 
-            amount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * GameManager.Instance.GetUpgradeLevel(2));
+            amount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Vida));
 
-            NextAmount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * (GameManager.Instance.GetUpgradeLevel(2) + 1));
+            NextAmount = BaseHealth + (int)((HealthUpgradePercent / 100) * BaseHealth * (GameManager.Instance.GetUpgradeLevel((int)IntUpgradeType.Vida) + 1));
         }
 
 
-        textBox.text = $"{descripciones[element]}\n" +
-                       $"ACTUAL:\n" +
-                       $"   {upgrade}: {amount} puntos\n" +
-                       $"SIGUIENTE:\n" +
-                       $"   Nivel: {level + 1}\n" +
-                       $"   {upgrade}: {NextAmount} puntos\n";
+        textBox.GetUpgradeDescriptionText().text = $"{textBox.GetUpgradeDescription()}\n" +
+                                                   $"ACTUAL:\n" +
+                                                   $"   {upgrade}: {amount} puntos\n" +
+                                                   $"SIGUIENTE:\n" +
+                                                   $"   Nivel: {level + 1}\n" +
+                                                   $"   {upgrade}: {NextAmount} puntos\n";
     }
     #endregion
 

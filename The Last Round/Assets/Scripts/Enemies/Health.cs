@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
         else
         {
             invunerabilidad = GameManager.Instance.GetInvunerabilidad();
-            //Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
+            Life += (int)(GameManager.Instance.GetHealthPercent() * Life * GameManager.Instance.GetUpgradeLevel(2)); //Sube la vida un 10% por cada nivel de la mejora
         }
 
         barraVida.maxValue = Life; //Se pone el valor maximo de la barra el valor de la vida
@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
             FinalHeal = true;
         }
 
-        if (InputManager.Instance.UseHealingWasPressedThisFrame() && GameManager.Instance.HealDrinksNum > 0) UsedHealing();
+        if (InputManager.Instance.UseHealingWasPressedThisFrame() && GameManager.Instance.GetHealDrinksNum() > 0) UsedHealing();
     }
 
     #endregion
@@ -175,7 +175,7 @@ public class Health : MonoBehaviour
             else Life += healingAmount;
             barraVida.value = Life;
 
-            GameManager.Instance.HealDrinksNum--;
+            GameManager.Instance.IncreaseHealDrinksNum(-1);
 
         }
     }

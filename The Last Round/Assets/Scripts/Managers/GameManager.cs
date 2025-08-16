@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player, PauseMenu;
     private AudioManager _musicManager;
-
+    private float HealthUpgradePercent;
     //Array de inventario
     private float[] recursos;
 
@@ -93,9 +94,9 @@ public class GameManager : MonoBehaviour
     private float musicVolume = 100f, sfxVolume = 100f;
 
     //Variables necesarias para gestionar mejoras
-    private int[] upgradeLevel = new int[4]; //0 es daño a distancia, 1 es melee, 2 es vida
-    private bool[] upgradeBool = new bool[3]; //0 es arma a distancia, 1 es dash, 2 es arma de barrido
-    private float 
+    private int[] upgradeLevel = new int[Enum.GetNames(typeof(IntUpgradeType)).Length]; //0 es daño a distancia, 1 es melee, 2 es vida
+    private bool[] upgradeBool = new bool[Enum.GetNames(typeof(BoolUpgradeType)).Length]; //0 es arma a distancia, 1 es dash, 2 es arma de barrido
+    private float
                   MeleeDamageUpgradePercent = 0,
                   RangeDamageUpgradePercent = 0;
 
@@ -340,15 +341,14 @@ public class GameManager : MonoBehaviour
     // --- FIN LÍMITES MAPA ---
     #endregion
 
-
     #region Sistema de mejoras
     // --- SISTEMA DE MEJORAS ---
 
     //Getters y Setters de porcentajes de mejora
-    //public void SetHealthPercent(float percent)
-    //{
-    //    HealthUpgradePercent = percent;
-    //}
+    public void SetHealthPercent(float percent)
+    {
+        HealthUpgradePercent = percent;
+    }
     public void SetMeleeDamagePercent(float percent)
     {
         MeleeDamageUpgradePercent = percent;
@@ -357,10 +357,10 @@ public class GameManager : MonoBehaviour
     {
         RangeDamageUpgradePercent = percent;
     }
-    //public float GetHealthPercent()
-    //{
-    //    return HealthUpgradePercent;
-    //}
+    public float GetHealthPercent()
+    {
+        return HealthUpgradePercent;
+    }
     public float GetMeleeDamagePercent()
     {
         return MeleeDamageUpgradePercent;
@@ -511,17 +511,23 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
-    
-    public int HealDrinksNum
+
+    #endregion
+
+    #region HealDrinks
+
+
+    public void SetHealDrinksNum(int num)
     {
-        get
-        {
-            return numHealing;
-        }
-        set
-        {
-            numHealing = value;
-        }
+        numHealing = num;
+    }
+    public int GetHealDrinksNum()
+    {
+        return numHealing;
+    }
+    public void IncreaseHealDrinksNum(int num)
+    {
+        numHealing += num;
     }
 
     #endregion
@@ -680,11 +686,11 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.ChangePitchMusic(1);
         AudioManager.Instance.ChangePitchSFX(1);
-        if((index == 2 && SceneManager.GetActiveScene().buildIndex != 1) || index == 7)
+        if ((index == 2 && SceneManager.GetActiveScene().buildIndex != 1) || index == 7)
         {
             AudioManager.Instance.PlaySFX(AlcantarillaSFX);
         }
-        
+
         int i = 0;
         bool enc = false;
 
@@ -734,14 +740,7 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         // De momento no hay nada que inicializar
-
-        //Inicializacion de las mejoras
-        upgradeBool[0] = false;
-        upgradeBool[1] = false;
-        upgradeLevel[0] = 0;
-        upgradeLevel[1] = 0;
-        upgradeLevel[2] = 0;
-        upgradeLevel[3] = 0;
+        ResetUpgrades();
     }
 
     private void TransferSceneState()

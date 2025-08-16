@@ -178,8 +178,13 @@ public class UIManager_Combate : MonoBehaviour
         }
 
 
-        healingNum = GameManager.Instance.HealDrinksNum;
-        healingNumText.text = ($"Curaciones: x{healingNum}");
+        healingNum = GameManager.Instance.GetHealDrinksNum();
+
+        if (healingNumText != null)
+        {
+            healingNumText.text = ($"Curaciones: x{healingNum}");
+        }
+        
     }
     #endregion
 

@@ -7,6 +7,7 @@
 
 
 using JetBrains.Annotations;
+using System;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 using UnityEngine.UI;
@@ -192,8 +193,10 @@ public class Cheats : MonoBehaviour
 
     public void AplicaMejorasEmboscada(int MejorasLevel)
     {
-        GameManager.Instance.BoolUpgrade(0);
-        GameManager.Instance.BoolUpgrade(1);
+        for(int i = 0; i < Enum.GetNames(typeof(BoolUpgradeType)).Length; i++)
+        {
+            GameManager.Instance.BoolUpgrade(i);
+        }
 
         //GameManager.Instance.SetHealthPercent(Health/100);
         GameManager.Instance.SetMeleeDamagePercent(MeleeDamage/100);
@@ -201,9 +204,10 @@ public class Cheats : MonoBehaviour
 
         for (int i = 0; i < MejorasLevel; i++)
         {
-            GameManager.Instance.IncreaseUpgradeLevel(0);
-            GameManager.Instance.IncreaseUpgradeLevel(1);
-            GameManager.Instance.IncreaseUpgradeLevel(2);
+            for (int j = 0; j < Enum.GetNames(typeof(IntUpgradeType)).Length; j++)
+            {
+                GameManager.Instance.IncreaseUpgradeLevel(j);
+            }
         }
     }
 

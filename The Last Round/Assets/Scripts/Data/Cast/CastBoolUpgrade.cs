@@ -1,11 +1,13 @@
 //---------------------------------------------------------
-// Maneja los metodos que requieren los botones del menu principal
-// Aryan Guerrero Iruela
+// Breve descripción del contenido del archivo
+// Responsable de la creación de este archivo
 // The Last Round
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -13,7 +15,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class MenuManager : MonoBehaviour
+public class CastBoolUpgrade : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,10 +25,10 @@ public class MenuManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] AudioClip woodSFX;
-    [SerializeField] private int[] scenes;
-    #endregion
+    [SerializeField] private BoolUpgrade upgrade;
 
+    #endregion
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -35,23 +37,23 @@ public class MenuManager : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    static private System.Random rnd = new System.Random();
-    #endregion
 
+    #endregion
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-
+        
     }
 
     /// <summary>
@@ -59,7 +61,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-
+        
     }
     #endregion
 
@@ -71,25 +73,35 @@ public class MenuManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void StartGame()
+    public BoolUpgradeType GetUpgradeType()
     {
-        AudioManager.Instance.PlaySFX(woodSFX);
-
-        int n = rnd.Next(0, scenes.Length);
-
-        GameManager.Instance.ChangeScene(scenes[n]);
+        return upgrade.type;
+    }
+    public int GetUpgradePrice()
+    {
+        return upgrade.price;
+    }
+    public TextMeshProUGUI GetUpgradeText()
+    {
+        return upgrade.name;
+    }
+    public TextMeshProUGUI GetUpgradePriceText()
+    {
+        return upgrade.priceText;
+    }
+    public Image GetUpgradeCoinImage()
+    {
+        return upgrade.CoinImage;
     }
 
-    public void Exit()
+    public TextMeshProUGUI GetUpgradeDescriptionText()
     {
-        AudioManager.Instance.PlaySFX(woodSFX);
+        return upgrade.descriptionText;
+    }
 
-#if UNITY_STANDALONE
-        Application.Quit();
-#endif
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+    public string GetUpgradeDescription()
+    {
+        return upgrade.description;
     }
 
     #endregion
@@ -103,5 +115,5 @@ public class MenuManager : MonoBehaviour
 
     #endregion
 
-} // class MenuManager 
+} // class CastBoolUpgrade 
 // namespace
